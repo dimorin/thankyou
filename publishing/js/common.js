@@ -232,8 +232,10 @@ $('.btn_open_one').on('click',function(){
 }); */
 
 /* 회사 자동완성 */
-$.fn.autoComplete_company = function () {
+$.fn.autoComplete_company = function (multi) {
+    var multi = multi || undefined;
     var target_element = this;
+    var target_parent = this.parent();
     var target_id = target_element.prop('id');
     var autoList_wrap = $(`.autoList_wrap[data-autolist="${target_id}"]`);
     target_element.on('keyup click', function (e) {
@@ -273,7 +275,27 @@ $.fn.autoComplete_company = function () {
         });
         autoList_wrap.find('.autoList').html(listTemplate);
         autoList_wrap.find('.autoList button').on('click', function (e) {
-            target_element.val($(e.currentTarget).data('company'));
+            var value = $(e.currentTarget).data('company');
+            target_element.val(value);
+
+            if (target_parent.find('.btn_input_reset')) {
+                target_parent.find('.btn_input_reset').show();
+            }
+
+            if (multi) {
+                var chip_html = `
+                        <li>
+                            <div class="option_chip">
+                                <span class="txt">${value}</span>
+                                <button class="btn btn_chip ml-5">
+                                    <span class="material-symbols-outlined">close_small</span>
+                                </button>
+                            </div>
+                        </li>
+                `;
+                $(`.select_add_list[data-result=${target_id}]`).append(chip_html);
+            }
+
             autoList_wrap.hide();
             $(document).off('click', hideifother);
         });
@@ -282,7 +304,7 @@ $.fn.autoComplete_company = function () {
         $(document).on('click', hideifother);
     }
     function hideifother(e) {
-        if ($(e.target).prop('name') !== target_id) {
+        if (!target_parent.find($(e.target)).length) {//.input_box_search 내에 있는 요소를 클릭하면 닫히지 않게 하기 위함        
             autoList_wrap.hide();
             $(document).off('click', hideifother);
         }
@@ -304,8 +326,10 @@ $.fn.autoComplete_company = function () {
 //$('#find_partner_company').autoComplete_company();
 
 /* 브랜드 자동완성 */
-$.fn.autoComplete_brand = function () {
+$.fn.autoComplete_brand = function (multi) {
+    var multi = multi || undefined;
     var target_element = this;
+    var target_parent = this.parent();
     var target_id = target_element.prop('id');
     var autoList_wrap = $(`.autoList_wrap[data-autolist="${target_id}"]`);
     target_element.on('keyup click', function (e) {
@@ -345,7 +369,27 @@ $.fn.autoComplete_brand = function () {
         });
         autoList_wrap.find('.autoList').html(listTemplate);
         autoList_wrap.find('.autoList button').on('click', function (e) {
-            target_element.val($(e.currentTarget).data('brand'));
+            var value = $(e.currentTarget).data('brand');
+            target_element.val(value);
+
+            if (target_parent.find('.btn_input_reset')) {
+                target_parent.find('.btn_input_reset').show();
+            }
+
+            if (multi) {
+                var chip_html = `
+                        <li>
+                            <div class="option_chip">
+                                <span class="txt">${value}</span>
+                                <button class="btn btn_chip ml-5">
+                                    <span class="material-symbols-outlined">close_small</span>
+                                </button>
+                            </div>
+                        </li>
+                `;
+                $(`.select_add_list[data-result=${target_id}]`).append(chip_html);
+            }
+
             autoList_wrap.hide();
             $(document).off('click', hideifother);
         });
@@ -354,7 +398,7 @@ $.fn.autoComplete_brand = function () {
         $(document).on('click', hideifother);
     }
     function hideifother(e) {
-        if ($(e.target).prop('name') !== target_id) {
+        if (!target_parent.find($(e.target)).length) {//.input_box_search 내에 있는 요소를 클릭하면 닫히지 않게 하기 위함        
             autoList_wrap.hide();
             $(document).off('click', hideifother);
         }
@@ -371,8 +415,10 @@ $.fn.autoComplete_brand = function () {
 //$('#find_partner_brand').autoComplete_brand();
 
 /* 매장 자동완성 */
-$.fn.autoComplete_store = function () {
+$.fn.autoComplete_store = function (multi) {
+    var multi = multi || undefined;
     var target_element = this;
+    var target_parent = this.parent();
     var target_id = target_element.prop('id');
     var autoList_wrap = $(`.autoList_wrap[data-autolist="${target_id}"]`);
     target_element.on('keyup click', function (e) {
@@ -413,7 +459,27 @@ $.fn.autoComplete_store = function () {
         });
         autoList_wrap.find('.autoList').html(listTemplate);
         autoList_wrap.find('.autoList button').on('click', function (e) {
-            target_element.val($(e.currentTarget).data('store'));
+            var value = $(e.currentTarget).data('store');
+            target_element.val(value);
+
+            if (target_parent.find('.btn_input_reset')) {
+                target_parent.find('.btn_input_reset').show();
+            }
+
+            if (multi) {
+                var chip_html = `
+                        <li>
+                            <div class="option_chip">
+                                <span class="txt">${value}</span>
+                                <button class="btn btn_chip ml-5">
+                                    <span class="material-symbols-outlined">close_small</span>
+                                </button>
+                            </div>
+                        </li>
+                `;
+                $(`.select_add_list[data-result=${target_id}]`).append(chip_html);
+            }
+
             autoList_wrap.hide();
             $(document).off('click', hideifother);
         });
@@ -422,7 +488,7 @@ $.fn.autoComplete_store = function () {
         $(document).on('click', hideifother);
     }
     function hideifother(e) {
-        if ($(e.target).prop('name') !== target_id) {
+        if (!target_parent.find($(e.target)).length) {//.input_box_search 내에 있는 요소를 클릭하면 닫히지 않게 하기 위함        
             autoList_wrap.hide();
             $(document).off('click', hideifother);
         }
@@ -444,8 +510,10 @@ $.fn.autoComplete_store = function () {
 //$('#equipment_store').autoComplete_store();
 
 /* 계정 자동완성 */
-$.fn.autoComplete_account = function () {
+$.fn.autoComplete_account = function (multi) {
+    var multi = multi || undefined;
     var target_element = this;
+    var target_parent = this.parent();
     var target_id = target_element.prop('id');
     var autoList_wrap = $(`.autoList_wrap[data-autolist="${target_id}"]`);
     target_element.on('keyup click', function (e) {
@@ -486,7 +554,27 @@ $.fn.autoComplete_account = function () {
         });
         autoList_wrap.find('.autoList').html(listTemplate);
         autoList_wrap.find('.autoList button').on('click', function (e) {
-            target_element.val($(e.currentTarget).data('account'));
+            var value = $(e.currentTarget).data('account');
+            target_element.val(value);
+
+            if (target_parent.find('.btn_input_reset')) {
+                target_parent.find('.btn_input_reset').show();
+            }
+
+            if (multi) {
+                var chip_html = `
+                        <li>
+                            <div class="option_chip">
+                                <span class="txt">${value}</span>
+                                <button class="btn btn_chip ml-5">
+                                    <span class="material-symbols-outlined">close_small</span>
+                                </button>
+                            </div>
+                        </li>
+                `;
+                $(`.select_add_list[data-result=${target_id}]`).append(chip_html);
+            }
+
             autoList_wrap.hide();
             $(document).off('click', hideifother);
         });
@@ -495,7 +583,7 @@ $.fn.autoComplete_account = function () {
         $(document).on('click', hideifother);
     }
     function hideifother(e) {
-        if ($(e.target).prop('name') !== target_id) {
+        if (!target_parent.find($(e.target)).length) {//.input_box_search 내에 있는 요소를 클릭하면 닫히지 않게 하기 위함        
             autoList_wrap.hide();
             $(document).off('click', hideifother);
         }

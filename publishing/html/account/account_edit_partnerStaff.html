@@ -224,7 +224,7 @@
                     <div class="guide">거래할 회사 이름을 입력하세요</div>
                 </div>
                 <div class="autoList_result">
-                    <ul class="select_add_list">
+                    <ul class="select_add_list" data-result="find_partner_company">
                         <li>
                             <div class="option_chip">
                                 <span class="txt">더본코리아</span>
@@ -282,7 +282,7 @@
                     <div class="guide">거래할 브랜드 이름을 입력하세요</div>
                 </div>
                 <div class="autoList_result">
-                    <ul class="select_add_list">
+                    <ul class="select_add_list" data-result="find_partner_brand">
                         <li>
                             <div class="option_chip">
                                 <span class="txt">새마을식당</span>
@@ -353,9 +353,9 @@
         /* 소속 회사 자동완성 */
         $('#account_company').autoComplete_company();
         /* 거래 회사 자동완성 */
-        $('#find_partner_company').autoComplete_company();
+        $('#find_partner_company').autoComplete_company('multi');
         /* 거래 브랜드 자동완성 */
-        $('#find_partner_brand').autoComplete_brand();
+        $('#find_partner_brand').autoComplete_brand('multi');
 
         /* 아이디 입력 초기화 */
         var inputWithReset_account_id = new InputWithReset('#account_id');
@@ -365,6 +365,10 @@
         var inputWithReset_account_name = new InputWithReset('#account_name');
         /* 소속 회사 입력 초기화 */
         var inputWithReset_account_company = new InputWithReset('#account_company');
+        /* 거래할 회사 이름 입력 초기화 */
+        var inputWithReset_find_partner_company = new InputWithReset('#find_partner_company');
+        /* 거래할 회사 이름 입력 초기화 */
+        var inputWithReset_find_partner_brand = new InputWithReset('#find_partner_brand');
     </script>
 </body>
 
