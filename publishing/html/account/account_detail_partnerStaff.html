@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>계정 상세</h1>
+            </div>
+            <div class="header_area">
+                <button type="button" class="btn btn_txt">편집</button>
+            </div>
+        </header>
+        <div class="body detail pl-16 pr-16">
+            <div class="detail_item">
+                <label class="title">계정 상태</label>
+                <div class="value">
+                    <div class="thx_value_readonly">정상</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">계정 종류</label>
+                <div class="value">
+                    <div class="thx_value_readonly">업체직원</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">계정 생성일</label>
+                <div class="value">
+                    <div class="thx_value_readonly">2024-06-09</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">아이디</label>
+                <div class="value">
+                    <div class="thx_value_readonly">01088887777</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">비밀번호</label>
+                <div class="value">
+                    <div class="input_wrap w-100">
+                        <div class="p-relative">
+                            <input type="password" class="thx_txt righticon" id="login_pw" name="" value="12345678!"
+                                readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">이름</label>
+                <div class="value">
+                    <div class="thx_value_readonly">홍길동</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">소속회사</label>
+                <div class="value">
+                    <div class="thx_value_readonly">우주산업</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">업체 종류</label>
+                <div class="value">
+                    <div class="thx_value_readonly">오디오</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">거래 회사</label>
+                <div class="value">
+                    <div class="thx_value_readonly">더본코리아, 이랜드, 삼성, 엘지, SK, 포스코, 현대</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">거래 브랜드</label>
+                <div class="value">
+                    <div class="thx_value_readonly">빽다방, 빽보이, 새마을식당, 홍콩반점, 컴포즈</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 비밀번호 보기 안보기 */
+        var inputWithToggle_login_pw = new InputWithToggle('#login_pw');
+    </script>
+</body>
+
+</html>

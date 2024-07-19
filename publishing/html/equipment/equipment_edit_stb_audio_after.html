@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>장비 편집</h1>
+            </div>
+            <div class="header_area">
+                <button type="button" class="btn btn_fill btn_save">저장</button>
+            </div>
+        </header>
+        <div class="body edit">
+            <div class="card">
+                <button class="btn card_header" onclick="equipment_detail_toggle(this);">
+                    <div class="title">기본</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item">
+                        <label class="title">장비 종류</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">STB-Agent</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label class="title">설치 매장</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">[빽다방] 빽다방 빵연구소 김해 삼계 한라 비발디점</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label for="nickname" class="title required">장비 닉네임</label>
+                        <div class="value">
+                            <div class="input_wrap">
+                                <div class="p-relative">
+                                    <input type="text" class="thx_txt righticon" id="nickname" name="" placeholder=""
+                                        autocomplete="off" required value="주방 맨 오른쪽 모니터">
+                                    <div class="input_icon_wrap"></div>
+                                </div>
+                                <div class="guide">장비 닉네임은 필수 입력 항목입니다.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <button class="btn card_header" onclick="equipment_detail_toggle(this);">
+                    <div class="title">플레이리스트</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item baseline">
+                        <label class="title required">플레이 여부</label>
+                        <div class="value">
+                            <div class="input_wrap">
+                                <div class="d-inline-center spec">
+                                    <input type="checkbox" id="isplay" class="thx_checkbox" checked /><label
+                                        for="isplay" class="ml-5">플레이하기</label>
+                                </div>
+                                <div class="guide"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <ul class="playlist">
+                        <li class="d-left-center">
+                            <button class="btn btn_delete_playlist" onclick="delete_playlist_item(this)">
+                                <span class="material-symbols-outlined icon">remove</span>
+                            </button>
+                            <div class="item drag d-flex-grow-1 ml-10">
+                                <div class="thumbnail">
+                                    <img src="https://images.unsplash.com/photo-1696935302123-372d54ab941e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                        alt="">
+                                </div>
+                                <div class="thx_value_readonly time  ml-10">300</div>
+                                <span class="d-inline-block ml-10">초</span>
+                            </div>
+                        </li>
+                        <li class="d-left-center">
+                            <button class="btn btn_delete_playlist" onclick="delete_playlist_item(this)">
+                                <span class="material-symbols-outlined icon">remove</span>
+                            </button>
+                            <div class="item drag d-flex-grow-1 ml-10">
+                                <div class="thumbnail"></div>
+                                <div class="thx_value_readonly time  ml-10">300</div>
+                                <span class="d-inline-block ml-10">초</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="pt-10"></div>
+                    <button class="btn btn_open_add_playlist btn_add_playlist">
+                        <div class="d-center">
+                            <span class="icon mr-10">
+                                <span class="material-symbols-outlined">add</span>
+                            </span>
+                            <span>이미지·동영상 추가</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="card">
+                <button class="btn card_header" onclick="equipment_detail_toggle(this);">
+                    <div class="title">대기번호 표시 위치</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item baseline">
+                        <label class="title required">표시 여부</label>
+                        <div class="value">
+                            <div class="input_wrap">
+                                <div class="d-inline-center spec">
+                                    <input type="checkbox" id="isdisplay" class="thx_checkbox" checked /><label
+                                        for="isdisplay" class="ml-5">대기번호 표시</label>
+                                </div>
+                                <div class="guide"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label for="mainnumbertime" class="title required">메인번호 표시시간</label>
+                        <div class="value">
+                            <div class="input_wrap">
+                                <div class="p-relative d-inline-block mainnumbertime">
+                                    <input type="number" pattern="\\d*" min="0" max="86400" class="thx_txt righticon"
+                                        id="mainnumbertime" name="" placeholder="" autocomplete="off" required
+                                        value="30">
+                                    <div class="input_icon_wrap"></div>
+                                </div>
+                                <span class="d-inline-block ml-10">초</span>
+                                <div class="guide">입력해주세요</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label class="title">레이아웃</label>
+                        <div class="value">
+                            <button class="btn btn_fill">대기번호 레이아웃</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <button class="btn card_header" onclick="equipment_detail_toggle(this);">
+                    <div class="title">소리</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item baseline">
+                        <label class="title required">소리출력 여부</label>
+                        <div class="value">
+                            <div class="input_wrap">
+                                <div class="d-inline-center spec">
+                                    <input type="checkbox" id="issound" class="thx_checkbox" checked /><label
+                                        for="issound" class="ml-5">소리출력</label>
+                                </div>
+                                <div class="guide"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="common_sound_title">같은 매장 장비에 공통 적용되는 항목</div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label class="title required">목소리 종류</label>
+                        <div class="value">
+                            <div class="input_wrap w-100">
+                                <div class="thx_select_box">
+                                    <select name="" id="" class="thx_select">
+                                        <option value="">다인</option>
+                                        <option value="">상냥</option>
+                                        <option value="">아라1</option>
+                                        <option value="">아라2</option>
+                                    </select>
+                                </div>
+                                <div class="guide"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label class="title required">벨소리 종류</label>
+                        <div class="value">
+                            <div class="input_wrap w-100">
+                                <div class="thx_select_box">
+                                    <select name="" id="" class="thx_select">
+                                        <option value="">없음</option>
+                                        <option value="">띠딩</option>
+                                        <option value="">띵동1</option>
+                                        <option value="">띵동2</option>
+                                        <option value="">맑은벨1</option>
+                                        <option value="">매직효과음</option>
+                                        <option value="">아기헬로</option>
+                                        <option value="">큰 띵동</option>
+                                    </select>
+                                </div>
+                                <div class="guide"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item start">
+                        <label class="title required">호칭 멘트</label>
+                        <div class="value">
+                            <div class="input_wrap">
+                                <div class="d-inline-center">
+                                    <input type="radio" id="client1" class="thx_radio" name="client" checked=""><label
+                                        class="ml-5" for="client1">손님</label>
+                                </div>
+                                <div class="d-inline-center ml-16">
+                                    <input type="radio" id="client2" class="thx_radio" name="client"><label class="ml-5"
+                                        for="client2">고객님</label>
+                                </div>
+                                <div class="guide"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item vertical">
+                        <label class="title required">마무리 멘트</label>
+                        <div class="pt-10"></div>
+                        <div class="value">
+                            <div class="input_wrap w-100">
+                                <div class="d-left-center w-100">
+                                    <input type="radio" id="comment1" class="thx_radio" name="comment" value="food"
+                                        checked=""><label class="ml-5" for="comment1">주문하신 음식 나왔습니다.</label>
+                                </div>
+                                <div class="pt-10"></div>
+                                <div class="d-left-center w-100">
+                                    <input type="radio" id="comment2" class="thx_radio" name="comment"
+                                        value="beverage"><label class="ml-5" for="comment2">주문하신 음료 나왔습니다.</label>
+                                </div>
+                                <div class="pt-10"></div>
+                                <div class="d-left-center w-100">
+                                    <input type="radio" id="comment3" class="thx_radio" name="comment" value="direct">
+                                    <label class="ml-5 w-100" for="comment3">
+                                        <div class="direct">직접 입력해주세요.</div>
+                                    </label>
+                                </div>
+                                <div class="guide"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottomSheetContainer" id="view_audio_make" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#view_audio_make').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">멘트 오디오 생성</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="detail_item vertical">
+                    <label class="title required" for="last_comment">멘트 내용</label>
+                    <div class="pt-10"></div>
+                    <div class="value">
+                        <!-- <div class="input_wrap w-100">
+                            <div class="p-relative">
+                                <input type="text" class="thx_txt righticon" id="last_comment" name="" placeholder="마무리 멘트 내용을 입력해주세요."
+                                    autocomplete="off" required value="">
+                                <div class="input_icon_wrap"></div>
+                            </div>
+                            <div class="guide">마무리 멘트 내용을 입력해주세요.</div>
+                        </div> -->
+                        <div class="thx_value_readonly">감사합니다. 셀프바로 오세요</div>
+                    </div>
+                </div>
+                <div class="pt-10"></div>
+                <div class="detail_item vertical">
+                    <div class="speed_header">
+                        <label class="title required">멘트 속도</label>
+                        <span class="speed_value">x1</span>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="value">
+                        <div class="input_wrap w-100">
+                            <div class="pt-10"></div>
+                            <div class="d-left-center w-100">
+                                <input type="range" class="thx_range" id="speed" name="speed" min="-5" max="5" step="1"
+                                    value="0" disabled />
+                            </div>
+                            <div class="guide"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-10 mt-10"></div>
+                <div class="audio_btn_wrap">
+                    <div class="audio_file_name">20240930051236.mp3</div>
+                    <button class="btn btn_audio_preview">
+                        <div class="d-inline-center">
+                            <span class="material-symbols-outlined">play_arrow</span>
+                            <span>미리듣기</span>
+                        </div>
+                    </button>
+                </div>
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_txt">초기화</button>
+                    <button class="btn btn_fill">사용하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery-ui.js"></script>
+    <script src="../../js/jquery.ui.touch-punch.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 장비 닉네임 입력 초기화 */
+        var inputWithReset_nickname = new InputWithReset('#nickname');
+
+        /* 메인번호 표시시간 입력 초기화 */
+        var inputWithReset_mainnumbertime = new InputWithReset('#mainnumbertime');
+
+        /* 멘트 내용 입력 초기화 */
+        //var inputWithReset_last_comment = new InputWithReset('#last_comment');
+
+        /* 플레이리스트 순서변경 */
+        $(".playlist").sortable();
+
+        /* playlist 추가 */
+        var playlist_item = `
+                <li class="d-left-center">
+                            <button class="btn btn_delete_playlist" onclick="delete_playlist_item(this)">
+                                <span class="material-symbols-outlined icon">remove</span>
+                            </button>
+                            <div class="item drag d-flex-grow-1 ml-10">
+                                <div class="thumbnail"></div>
+                                <div class="thx_value_readonly time  ml-10">300</div>
+                                <span class="d-inline-block ml-10">초</span>
+                            </div>
+                        </li>
+            `;
+        $('.btn_add_playlist').on('click', function () {
+            $('.playlist').append(playlist_item);
+        });
+
+        /* playlist 삭제 */
+        function delete_playlist_item(element) {
+            $(element).parent()[0].remove();
+        }
+
+        /* 멘트 오디오 생성 팝업 띄우기 */
+        $('input[name=comment]').on('click', function (event) {
+            if (event.target.value === 'direct') {
+                $('#view_audio_make').sheet('show');
+            }
+        });
+
+        /* 멘트 속도 */
+        $('.thx_range').on('input', function () {
+            var val = (parseInt($(this).val()) + 5) / 10 * 100;
+            $(this).css('background', 'linear-gradient(to right, #4F378B 0%, #4F378B ' + val + '%, #D9E1F2 ' + val + '%, #D9E1F2 100%)');
+            if (val > 50) {
+                val = 'x' + (val * 2) / 100;
+            } else if (val < 50) {
+                val = 'x' + ((val + 50) / 100);
+            } else if (val === 50) {
+                val = 'x1';
+            }
+            $('.speed_value').text(val);
+        });
+
+        /* 미리듣기 */
+        var audio = new Audio('https://www.w3schools.com/html/horse.mp3');
+        $('.btn_audio_preview').on('click', function () {
+            audio.play();
+        });
+
+        /* 접었다 펼쳤다 */
+        function equipment_detail_toggle(element) {
+            var card_header = $(element);
+            var card_body = $($(element).siblings()[0]);
+            card_header.toggleClass('hide');
+            card_body.toggleClass('hide');
+        }
+
+        /* bottomsheet 멘트 오디오 생성 */
+        $('#view_audio_make').sheet('show');
+    </script>
+</body>
+
+</html>

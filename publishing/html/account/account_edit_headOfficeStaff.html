@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>계정 편집</h1>
+            </div>
+            <div class="header_area">
+                <button class="btn btn_fill">저장</button>
+            </div>
+        </header>
+        <div class="body pl-16 pr-16 pb-16">
+            <label for="account_kind" class="required">계정 종류</label>
+            <div class="input_wrap">
+                <div class="thx_select_box">
+                    <select name="" id="account_kind" class="thx_select" disabled>
+                        <option value="all">전체</option>
+                        <option value="">점주</option>
+                        <option value="">본사관리자</option>
+                        <option value="" selected>본사직원</option>
+                        <option value="">업체관리자</option>
+                    </select>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label class="title required" for="account_id">아이디</label>
+            <div class="input_wrap">
+                <div class="inputWithBtn">
+                    <div class="p-relative d-flex-grow-1">
+                        <!-- 중복체크 시작 -->
+                        <!-- <input type="text" class="thx_txt righticon unvalid" id="account_id" name=""
+                                                                    placeholder="연락처를 입력하세요." autocomplete="off" required value="">
+                                                                <div class="input_icon_wrap">
+                                                                    <span class="material-symbols-outlined icon_unvalid">pending</span>
+                                                                </div> -->
+                        <!-- 중복체크 성공 -->
+                        <input type="text" class="thx_txt righticon valid" id="account_id" name=""
+                            placeholder="연락처를 입력하세요." autocomplete="off" required value="01025258888">
+                        <div class="input_icon_wrap">
+                            <span class="material-symbols-outlined icon_valid">check</span>
+                        </div>
+                    </div>
+                    <button class="btn btn_fill">중복확인</button>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="account_pw" class="required">비밀번호</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <input type="password" class="thx_txt righticon" id="account_pw" name="" placeholder="비밀번호를 입력하세요"
+                        autocomplete="off" required value="abcd1234!">
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label class="">계정 상태</label>
+            <div class="input_wrap mt-5">
+                <div class="d-inline-center">
+                    <input type="radio" name="account_state" id="account_state_normal"
+                        class="thx_radio vertical-align-middle" checked />
+                    <label for="account_state_normal" class="ml-5 vertical-align-middle">정상</label>
+                </div>
+                <div class="d-inline-center ml-16">
+                    <input type="radio" name="account_state" id="account_state_withdrawal"
+                        class="thx_radio vertical-align-middle" />
+                    <label for="account_state_withdrawal" class="ml-5 vertical-align-middle">탈퇴</label>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <label for="account_name" class="required">이름</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <input type="text" class="thx_txt righticon" id="account_name" name="" placeholder="이름을 입력하세요."
+                        autocomplete="off" required value="이성계">
+                    <div class="input_icon_wrap"></div>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="account_company" class="required">소속 회사</label>
+            <div class="input_wrap">
+                <div class="p-relative input_box search">
+                    <input type="text" class="thx_txt bothicon" id="account_company" name="account_company"
+                        placeholder="회사 이름을 입력하세요" autocomplete="off" required value="더본코리아">
+                    <div class="input_icon_wrap"></div>
+                    <div class="autoList_wrap account_company thx_scrollbar">
+                        <ul class="autoList">
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="guide"></div>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        };
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 아이디 입력 초기화 */
+        var inputWithReset_account_id = new InputWithReset('#account_id');
+        /* 비밀번호 보기 안보기 */
+        var inputWithToggle_account_pw = new InputWithToggle('#account_pw');
+        /* 이름 입력 초기화 */
+        var inputWithReset_account_name = new InputWithReset('#account_name');
+        /* 소속 회사 입력 초기화 */
+        var inputWithReset_account_company = new InputWithReset('#account_company');
+    </script>
+    <script>
+        /* 자동완성 */
+        $(document).on('click', function (e) {
+            if (!$(e.target).is('[name=account_company]')) {
+                $('.autoList_wrap').hide();
+            }
+        });
+
+        $('[name=account_company]').on('keyup click', function (e) {
+            //console.dir(e.type);
+            var userName = $(e.currentTarget).val();
+
+            /* var url = "/fms/board/getUserAutoComplete";
+            var param = {};
+            param.userName = userName;
+            $.ajax({
+                url: url,
+                type: 'POST',
+                dataType: 'json',
+                data: JSON.stringify(param),
+                contentType: 'application/json',
+                success: function (data) {
+                    //console.log(JSON.stringify(data));
+                    equipment_add.autoCompleteStore(data);
+                },
+                error: function (data) {
+                    alert("Fail!!!!");
+                }
+            }); */
+            var data = dummy;
+            autoCompleteStore(data);
+        });
+
+        function autoCompleteStore(data) {
+            var list = data.storeList;
+            var listTemplate = "";
+            list.forEach(function (item) {
+                var company = item.company || '';
+                var template = `
+                    <li>
+                        <button type="button" class="btn" data-company="${item.company}">
+                            <span class="d-inline-block ">${company}</span>
+                        </button>
+                    </li>`;
+                listTemplate += template;
+            });
+            $('.autoList_wrap.account_company .autoList').html(listTemplate);
+
+            $('.autoList_wrap.account_company .autoList button').on('click', function (e) {
+                $('[name=account_company]').val($(e.currentTarget).data('company'));
+                $('.autoList_wrap.account_company').hide();
+            });
+
+            $('.autoList_wrap.account_company').show();
+        }
+        var dummy = {
+            storeList: [
+                { company: '더본코리아' },
+                { company: '삼성' },
+                { company: '엘지' },
+                { company: '현대' },
+                { company: 'SK' },
+                { company: '카카오' },
+                { company: '네이버' },
+                { company: '셀트리온' }
+            ]
+        }
+    </script>
+</body>
+
+</html>

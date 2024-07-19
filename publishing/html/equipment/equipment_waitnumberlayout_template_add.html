@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>대기번호 레이아웃 설정</h1>
+            </div>
+            <div class="header_area">
+                <button type="button" class="btn btn_fill btn_save">저장</button>
+            </div>
+        </header>
+        <div class="body edit">
+            <div class="d-left-center pl-16 pr-16">
+                <button class="btn btn_blue_fill_small btn_open_list_template"
+                    onclick="$('#view_template_list').sheet('show');">템플릿
+                    목록</button>
+                <button class="btn btn_blue_fill_small ml-10 btn_open_add_template"
+                    onclick="$('#view_template_add').sheet('show');">템플릿 등록</button>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="waitnumberlayout_setting_area pl-16 pr-16">
+                <div class="waitnumberlayout_setting_wrap p-relative pt-16">
+                    <div class="" style="height:4rem;"></div>
+                    <div class="pt-10 mt-10"></div>
+                    <div class="detail_item pl-16">
+                        <label class="title">대기번호 총 갯수</label>
+                        <div class="value pr-16 gap-10">
+                            <div class="d-flex-grow-1 d-center">
+                                <button class="btn btn_waitnumber_count minus">
+                                    <span class="material-symbols-outlined">remove</span>
+                                </button>
+                                <input type="text" id="" class="thx_txt text-align-center input_waitnumber_count"
+                                    name="" value="7" readonly />
+                                <button class="btn btn_waitnumber_count plus">
+                                    <span class="material-symbols-outlined">add</span>
+                                </button>
+                            </div>
+                            <button class="btn btn_fill_auto btn_add_waitnumberlayout">생성</button>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline  pl-16">
+                        <label class="title required">대기번호</label>
+                        <div class="value pr-16">
+                            <div class="input_wrap w-100">
+                                <div class="thx_select_box">
+                                    <select name="" id="" class="thx_select select_waitnumberlayout_list">
+                                        <!-- <option value="main" selected>메인번호</option>
+                                        <option value="sub1">서브번호1</option>
+                                        <option value="sub2">서브번호2</option> -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="waitnumberlayout_hr mt-10 mb-10"></div>
+                    <div class="d-center gap-20">
+                        <div class="d-flex d-flex-direction-column gap-10">
+                            <button class="btn btn_waitnumberlayout_position unit_10" data-unit="10">10</button>
+                            <button class="btn btn_waitnumberlayout_position unit_50" data-unit="50">50</button>
+                            <button class="btn btn_waitnumberlayout_position unit_100" data-unit="100">100</button>
+                        </div>
+                        <div class="d-flex d-flex-direction-column gap-10">
+                            <div class="d-center">
+                                <button class="btn btn_waitnumberlayout_direct unit_100" data-unit="" data-value="1"
+                                    data-direction="y">
+                                    <span class="material-symbols-outlined">keyboard_arrow_up</span>
+                                </button>
+                            </div>
+                            <div class="d-flex gap-10">
+                                <button class="btn btn_waitnumberlayout_direct unit_100" data-unit="" data-value="-1"
+                                    data-direction="x">
+                                    <span class="material-symbols-outlined">keyboard_arrow_left</span>
+                                </button>
+                                <div class="thx_value_readonly waitnumberlayout_direct_value">-100</div>
+                                <button class="btn btn_waitnumberlayout_direct unit_100" data-unit="" data-value="1"
+                                    data-direction="x">
+                                    <span class="material-symbols-outlined">keyboard_arrow_right</span>
+                                </button>
+                            </div>
+                            <div class="d-center">
+                                <button class="btn btn_waitnumberlayout_direct unit_100" data-unit="" data-value="-1"
+                                    data-direction="y">
+                                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10 mt-10"></div>
+                    <div class="d-flex gap-16 pl-16 pr-16">
+                        <div class="detail_item d-flex-grow-1">
+                            <label class="title pr-10 d-flex-shrink-1 w-auto">가로 위치</label>
+                            <div class="value">
+                                <div class="thx_value_readonly text-align-center position_x">2999</div>
+                            </div>
+                        </div>
+                        <div class="detail_item d-flex-grow-1">
+                            <label class="title pr-10 d-flex-shrink-1 w-auto">세로 위치</label>
+                            <div class="value">
+                                <div class="thx_value_readonly text-align-center position_y">1599</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline pl-16">
+                        <label class="title required">글자 크기</label>
+                        <div class="value pr-16">
+                            <div class="input_wrap w-100">
+                                <div class="thx_select_box">
+                                    <select name="" id="" class="thx_select text_size">
+                                        <option value="smallest">매우 작게</option>
+                                        <option value="small">작게</option>
+                                        <option value="normal" selected>보통</option>
+                                        <option value="big">크게</option>
+                                        <option value="biggest">매우 크게</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item pl-16">
+                        <label class="title">글자 색상</label>
+                        <div class="value pr-16">
+                            <input type="color" id="" class="thx_color text_color" name="" value="#FF6347" />
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item pl-16">
+                        <label class="title">글자 바탕 색상</label>
+                        <div class="value pr-16">
+                            <input type="color" id="" class="thx_color bg_color" name="" value="#000000" />
+                        </div>
+                    </div>
+                    <div class="d-center pt-16">
+                        <button class="btn btn_txt btn_init_waitnumberlayout_setting">초기화</button>
+                    </div>
+                    <div class="waitnumberlayout_setting_cover"></div>
+                    <div class="waitnumberlayout_setting_header pl-16 pr-16 pt-16">
+                        <div class="waitnumberlayout_setting_title d-center">
+                            <span class="material-symbols-outlined icon">settings</span>
+                            <div class="title pl-10">대기번호 설정</div>
+                        </div>
+                        <button class="btn btn_fill btn_start_control">화면 제어 시작</button>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <ul class="btn_waitnumberlayout_wrap pl-16 pr-16">
+                <!-- <li>
+                    <button class="btn_waitnumberlayout card">
+                        <div class="card_header">
+                            <div class="title">메인번호</div>
+                            <span class="material-symbols-outlined icon">settings</span>
+                        </div>
+                        <div class="card_body">
+                            <div class="detail_item">
+                                <label class="title">가로 위치 / 세로 위치</label>
+                                <div class="value">
+                                    <div class="thx_value_readonly">2999 / 1599</div>
+                                </div>
+                            </div>
+                            <div class="pt-10"></div>
+                            <div class="detail_item">
+                                <label class="title">글자 크기</label>
+                                <div class="value">
+                                    <div class="thx_value_readonly">20</div>
+                                </div>
+                            </div>
+                            <div class="pt-10"></div>
+                            <div class="detail_item">
+                                <label class="title">글자 색상</label>
+                                <div class="value">
+                                    <input type="color" id="" class="thx_color" name="" value="#FF6347" disabled />
+                                </div>
+                            </div>
+                            <div class="pt-10"></div>
+                            <div class="detail_item">
+                                <label class="title">글자 바탕 색상</label>
+                                <div class="value">
+                                    <input type="color" id="" class="thx_color" name="" value="#000000" disabled />
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- 템플릿 목록 -->
+    <div class="fullSheetContainer" id="view_template_list" data-type="full">
+        <div class="fullSheet">
+            <div class="fullSheet_header">
+                <button class="btn btn_close_fullSheet" onclick="$('#view_template_list').sheet('hide');">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </button>
+                <span class="title">템플릿 목록</span>
+            </div>
+
+            <div class="fullSheet_body ">
+                <div class="input_wrap">
+                    <div class="p-relative input_box search">
+                        <input type="text" class="thx_txt bothicon" id="templatelistname" name="templatelistname"
+                            placeholder="템플릿명을 입력하세요" autocomplete="off">
+                        <div class="input_icon_wrap"></div>
+                    </div>
+                </div>
+                <div class="pt-16"></div>
+                <ul class="template_list">
+                    <li class="item">
+                        <div class="template_list_item">
+                            <div class="item_body">
+                                <div class="template_name">1빽다방용 서브번호 10개 타입</div>
+                                <button class="btn btn_fill_small">가져오기</button>
+                            </div>
+                            <div class="item_footer">
+                                <button class="btn btn_txt" onclick="$('#forward_account').sheet('show');">전달</button>
+                                <button class="btn btn_txt">삭제</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="template_list_item">
+                            <div class="item_body">
+                                <div class="template_name">2컴포즈용 서브번호 20개 4열 5행 타입</div>
+                                <button class="btn btn_fill_small">가져오기</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="template_list_item">
+                            <div class="item_body">
+                                <div class="template_name">3빽다방용 서브번호 10개 타입</div>
+                                <button class="btn btn_fill_small">가져오기</button>
+                            </div>
+                            <div class="item_footer">
+                                <button class="btn btn_txt" onclick="$('#forward_account').sheet('show');">전달</button>
+                                <button class="btn btn_txt">삭제</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="template_list_item">
+                            <div class="item_body">
+                                <div class="template_name">4컴포즈용 서브번호 20개 4열 5행 타입</div>
+                                <button class="btn btn_fill_small">가져오기</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="template_list_item">
+                            <div class="item_body">
+                                <div class="template_name">5빽다방용 서브번호 10개 타입</div>
+                                <button class="btn btn_fill_small">가져오기</button>
+                            </div>
+                            <div class="item_footer">
+                                <button class="btn btn_txt" onclick="$('#forward_account').sheet('show');">전달</button>
+                                <button class="btn btn_txt">삭제</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="template_list_item">
+                            <div class="item_body">
+                                <div class="template_name">6컴포즈용 서브번호 20개 4열 5행 타입</div>
+                                <button class="btn btn_fill_small">가져오기</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 전달할 계정 -->
+    <div class="bottomSheetContainer" id="forward_account" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#forward_account').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">전달할 계정</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="input_wrap">
+                    <div class="p-relative input_box search">
+                        <input type="text" class="thx_txt bothicon" id="account_name" name="account_name"
+                            placeholder="이름을 입력하세요" autocomplete="off" required>
+                        <div class="input_icon_wrap"></div>
+                        <div class="autoList_wrap account_name thx_scrollbar">
+                            <ul class="autoList">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="guide">전달할 계정 이름을 입력하세요</div>
+                </div>
+                <div class="autoList_result">
+                </div>
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_fill btn_forward">전달</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 템플릿 등록 -->
+    <div class="bottomSheetContainer" id="view_template_add" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#view_template_add').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">템플릿 등록</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="detail_item vertical">
+                    <label class="title required" for="templatename">템플릿 이름</label>
+                    <div class="value">
+                        <div class="input_wrap w-100">
+                            <div class="inputWithBtn">
+                                <div class="p-relative d-flex-grow-1">
+                                    <!-- 중복체크 시작 -->
+                                    <!-- <input type="text" class="thx_txt righticon unvalid" id="templatename" name=""
+                                            placeholder="템플릿 이름을 입력해주세요." autocomplete="off" required value="">
+                                        <div class="input_icon_wrap">
+                                            <span class="material-symbols-outlined icon_unvalid">pending</span>
+                                        </div> -->
+                                    <!-- 중복체크 성공 -->
+                                    <input type="text" class="thx_txt righticon valid" id="templatename" name=""
+                                        placeholder="템플릿 이름을 입력해주세요." autocomplete="off" required value="">
+                                    <div class="input_icon_wrap">
+                                        <span class="material-symbols-outlined icon_valid">check</span>
+                                    </div>
+
+                                </div>
+                                <button class="btn btn_fill">중복확인</button>
+                            </div>
+                            <div class="guide">중복 확인해 주세요.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_fill">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery-ui.js"></script>
+    <script src="../../js/jquery.ui.touch-punch.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* bottomsheet 템플릿 등록 */
+        $('#view_template_add').sheet('show');
+
+        /* 템플릿 목록의 템플릿 이름 입력 초기화 */
+        var inputWithReset_templatelistname = new InputWithReset('#templatelistname');
+
+        /* 템플릿 등록의 템플릿 이름 입력 초기화 */
+        var inputWithReset_templatename = new InputWithReset('#templatename');
+
+        /* 전달할 계정 이름 입력 초기화 */
+        var inputWithReset_account_name = new InputWithReset('#account_name');
+
+        $('.btn_forward').on('click', function () {
+            $.modal('show', {
+                message: `선택한 계정으로 템플릿을 전달했습니다.`,
+                onebutton: `<button class="btn btn_fill" onclick="$.modal('hide')">확인</button>`,
+            });
+        });        
+    </script>
+    <script>
+        /* 자동완성 */
+        $(document).on('click', function (e) {
+            if (!$(e.target).is('[name=account_name]')) {
+                $('.autoList_wrap').hide();
+            }
+        });
+
+        $('[name=account_name]').on('keyup click', function (e) {
+            //console.dir(e.type);
+            var userName = $(e.currentTarget).val();
+
+            /* var url = "/fms/board/getUserAutoComplete";
+            var param = {};
+            param.userName = userName;
+            $.ajax({
+                url: url,
+                type: 'POST',
+                dataType: 'json',
+                data: JSON.stringify(param),
+                contentType: 'application/json',
+                success: function (data) {
+                    //console.log(JSON.stringify(data));
+                    equipment_add.autoCompleteStore(data);
+                },
+                error: function (data) {
+                    alert("Fail!!!!");
+                }
+            }); */
+            var data = dummy;
+            autoCompleteStore(data);
+        });
+
+        function autoCompleteStore(data) {
+            var list = data.storeList;
+            var listTemplate = "";
+            list.forEach(function (item) {
+                var brand = item.brand || '';
+                var store = item.store || '';
+                var template = `
+            <li>
+                <button type="button" class="btn" data-store="${item.store}">
+                    <span class="d-inline-block ">[${brand}]</span>
+                    <span class="d-inline-block">${store}</span>
+                </button>
+            </li>`;
+                listTemplate += template;
+            });
+            $('.autoList_wrap.account_name .autoList').html(listTemplate);
+
+            $('.autoList_wrap.account_name .autoList button').on('click', function (e) {
+                $('[name=account_name]').val($(e.currentTarget).data('store'));
+                $('.autoList_wrap.account_name').hide();
+            });
+
+            $('.autoList_wrap.account_name').show();
+        }
+        var dummy = {
+            storeList: [
+                { brand: '빽다방', store: '안산점' },
+                { brand: '빽다방', store: '본오점' },
+                { brand: '빽다방', store: '동대문역사점' },
+                { brand: '빽보이', store: '신도림점' },
+                { brand: '빽보이', store: '서울대입구점' },
+                { brand: '빽보이', store: '한양대입구점' },
+                { brand: '컴포즈', store: '광화문점' },
+                { brand: '컴포즈', store: '뱅뱅사거리점' },
+            ]
+        }
+    </script>
+    <script>
+        /* 템플릿 목록에서 끝에 있는 아이템이 화면안에 들어오면 서버로부터 데이터를 불러옴 */
+        $(function () {
+            // 현재 페이지 번호 및 페이지당 아이템 수 설정
+            let page = 1;
+            const itemsPerPage = 10;
+
+            // 아이템을 표시할 컨테이너와 아이템 클래스 설정
+            const itemContainer = 'template_list';
+            const itemClass = 'item';
+
+            // 마지막으로 로드된 아이템과 관찰된 아이템을 추적하기 위한 변수 초기화
+            let lastItem; // 마지막으로 로드된 아이템
+            let lastObservedItem; // 마지막 아이템이면서 화면에 들어온 것으로 관찰된 아이템
+
+            // 아이템을 로드하고 화면에 추가하는 함수
+            function loadItems() {
+                $.ajax({
+                    url: `https://raw.githubusercontent.com/ctrlcccv/ctrlcccv-demo/main/2023-11-01-ajax-Infinite/test.json`,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        // 현재 페이지에 해당하는 아이템만 선택 0~9, 10~19, 20~29 ,...
+                        const newData = data.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+                        newData.forEach(newItem => {
+                            // 아이템을 컨테이너에 추가                            
+                            $(`.${itemContainer}`).append(
+                                `<li class="${itemClass}">
+                                    <div class="template_list_item">
+                                        <div class="item_body">
+                                            <div class="template_name">${newItem.item}-컴포즈용 서브번호 20개 4열 5행 타입</div>
+                                            <button class="btn btn_fill_small">가져오기</button>
+                                        </div>
+                                    </div>
+                                </li>
+                            `
+                            );
+                        });
+                        page++; // 다음 페이지로 이동
+
+                        // 마지막으로 추가된 아이템 설정 및 Intersection Observer에 관찰
+                        lastItem = $(`.${itemContainer} .${itemClass}:last`)[0];
+
+                        if (lastItem !== lastObservedItem) { // 마지막으로 추가된 아이템이 컨테이너 안에 있을 때는 관찰할 필요 없음
+                            observer.observe(lastItem); // 관찰자 바꾸기                            
+                        }
+                    },
+                    error: function (error) {
+                        console.error('데이터를 가져오는 동안 오류가 발생했습니다:', error);
+                    }
+                });
+            }
+
+            // 초기 페이지 로드 시 아이템 로드 함수 호출
+            loadItems();
+
+            // Intersection Observer 설정
+            const observerOptions = {
+                root: null, // 관찰자의 루트 요소 설정 (null은 브라우저의 뷰포트)
+                threshold: 0.5 // 아이템이 50% 이상 화면에 나타날 때 콜백 함수 실행
+            };
+
+            // Intersection Observer 생성
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // 관찰하고 있던 아이템이 화면에 나타나면 아이템을 로드하고 관찰 해제                        
+                        //lastObservedItem = $(`.${itemContainer} .${itemClass}:last`)[0];
+                        //console.log(entry.target === lastObservedItem);
+                        lastObservedItem = entry.target;
+                        loadItems();
+                        observer.unobserve(entry.target); // 기존 관찰대상은 관찰 해제
+                    }
+                });
+            }, observerOptions);
+        });
+    </script>
+    <script>
+        //처음엔 저장 버튼 비활성화, 대기번호설정 blur 처리 되어 있다가, 화면제어시작 버튼 클릭시 저장버튼 활성 대기번호설정 blur 사라진다.
+        var is_start_control = false;
+        $('.btn_save').prop('disabled', true);
+        $('.waitnumberlayout_setting_cover').removeClass('hide');
+
+        $('.btn_start_control').on('click', function () {
+            is_start_control = true;
+            $('.btn_save').prop('disabled', false);
+            $('.waitnumberlayout_setting_cover').addClass('hide');
+            $('.btn_waitnumberlayout').prop('disabled', false);
+        });
+
+        var text_size_label = { smallest: '매우 작게', small: '작게', normal: '보통', big: '크게', biggest: '매우 크게' };
+        var default_waitnumber_count = 7;
+        var default_layout_setting = {
+            x: 0,
+            y: 0,
+            text_size: 'normal',
+            text_color: '#ffffff',
+            bg_color: '#000000'
+        };
+        var default_waitnumberlayout_list_infos = [
+            { value: 'main', label: '메인번호', layout: default_layout_setting }
+        ];
+        for (var count = 1; count < default_waitnumber_count; count++) {
+            default_waitnumberlayout_list_infos.push({
+                value: 'sub' + count,
+                label: '서브번호' + count,
+                layout: default_layout_setting
+            });
+        }
+        var waitnumberlayout_list_infos = [];
+        var init_waitnumberlayout_list_infos = [];
+
+        function get_waitnumberlayout() {
+            /* ajax로 대기번호레이아웃 정보 가져와 get_data에 넣기 */
+            var get_data = undefined;
+            waitnumberlayout_list_infos = get_data || default_waitnumberlayout_list_infos;
+            init_waitnumberlayout_list_infos = [...waitnumberlayout_list_infos];    //초기화용
+        }
+        get_waitnumberlayout();
+
+        $('.select_waitnumberlayout_list').on('change', function (event) {
+            //console.dir(waitnumberlayout_list_infos);
+            /* 개별 번호의 레이아웃 세팅 */
+            var this_value = $(this).val();
+            var find_waitnumberlayout_list_infos = waitnumberlayout_list_infos.find(function (item) {
+                return (this_value === item.value);
+            });
+            set_each_waitnumberlayout(find_waitnumberlayout_list_infos);
+        });
+        function set_waitnumberlayout() {
+            /* 대기번호 총 갯수 셋팅, 대기번호 select option 세팅 */
+            $('.input_waitnumber_count').val(waitnumberlayout_list_infos.length);
+
+            var option_html = '';
+            $('.select_waitnumberlayout_list').empty();
+            waitnumberlayout_list_infos.forEach(function (item) {
+                option_html = `<option value="${item.value}">${item.label}</option>`;
+                $('.select_waitnumberlayout_list').append(option_html);
+            });
+            $('.select_waitnumberlayout_list').val("main").change();
+
+            /* 대기번호 레이아웃 상세 박스 세팅 */
+            make_view_waitnumberlayout();
+        }
+        set_waitnumberlayout();
+
+        function make_view_waitnumberlayout() {
+            var li_html = '';
+            $('.btn_waitnumberlayout_wrap').empty();
+            var disabled = (is_start_control) ? null : "disabled";
+            waitnumberlayout_list_infos.forEach(function (item) {
+                li_html = `
+                        <li>
+                            <button class="btn_waitnumberlayout card ${item.value}" data-value="${item.value}" ${disabled} onclick="control_waitnumberlayout(this);">
+                                <div class="card_header">
+                                    <div class="title">${item.label}</div>
+                                    <span class="material-symbols-outlined icon">settings</span>
+                                </div>
+                                <div class="card_body">
+                                    <div class="detail_item">
+                                        <label class="title">가로 위치 / 세로 위치</label>
+                                        <div class="value">
+                                            <div class="thx_value_readonly"><span class="position_x">${item.layout.x}</span> / <span class="position_y">${item.layout.y}<span></div>
+                                        </div>
+                                    </div>
+                                    <div class="pt-10"></div>
+                                    <div class="detail_item">
+                                        <label class="title">글자 크기</label>
+                                        <div class="value">
+                                            <div class="thx_value_readonly text_size">${text_size_label[item.layout.text_size]}</div>
+                                        </div>
+                                    </div>
+                                    <div class="pt-10"></div>
+                                    <div class="detail_item">
+                                        <label class="title">글자 색상</label>
+                                        <div class="value">
+                                            <input type="color" id="" class="thx_color text_color" name="" value="${item.layout.text_color}" disabled />
+                                        </div>
+                                    </div>
+                                    <div class="pt-10"></div>
+                                    <div class="detail_item">
+                                        <label class="title">글자 바탕 색상</label>
+                                        <div class="value">
+                                            <input type="color" id="" class="thx_color bg_color" name="" value="${item.layout.bg_color}" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                        </li>
+                    `;
+                $('.btn_waitnumberlayout_wrap').append(li_html);
+            });
+        }
+
+        function control_waitnumberlayout(element) {
+            /* 각 상세 대기번호를 클릭시 해당 대기번호레이아웃설정화면이 위로 덮이면서 등장하고 해당 번호가 세팅된다. */
+            var this_value = $(element).data('value');
+            $('.select_waitnumberlayout_list').val(this_value).change();
+            $('.waitnumberlayout_setting_area').addClass('sticky');
+        }
+
+        function set_each_waitnumberlayout(info) {
+            /* 개별 번호의 레이아웃 세팅 */
+            $('.waitnumberlayout_setting_wrap .waitnumberlayout_direct_value').text('');
+            $('.waitnumberlayout_setting_wrap .text_size').val(info.layout.text_size);
+            $('.waitnumberlayout_setting_wrap .position_x').text(info.layout.x);
+            $('.waitnumberlayout_setting_wrap .position_y').text(info.layout.y);
+            $('.waitnumberlayout_setting_wrap .text_color').val(info.layout.text_color);
+            $('.waitnumberlayout_setting_wrap .bg_color').val(info.layout.bg_color);
+
+            $('.btn_waitnumberlayout_direct').removeClass(['unit_10', 'unit_50', 'unit_100']);
+            $('.btn_waitnumberlayout_direct').addClass('unit_100');
+            $('.btn_waitnumberlayout_direct').data('unit', '100');
+        }
+
+        $('.btn_waitnumber_count').on('click', function (event) {
+            /* 대기번호 총 갯수 플러스 마이너스 버튼 */
+            var _this = $(event.currentTarget);
+            var input_waitnumber_count = $('.input_waitnumber_count');
+            if (_this.hasClass('minus')) {
+                if (input_waitnumber_count.val() > 1) {
+                    input_waitnumber_count.val(parseInt(input_waitnumber_count.val(), 10) - 1);
+                }
+            } else if (_this.hasClass('plus')) {
+                if (input_waitnumber_count.val() < 21) {
+                    input_waitnumber_count.val(parseInt(input_waitnumber_count.val(), 10) + 1);
+                }
+            }
+        });
+
+        $('.btn_add_waitnumberlayout').on('click', function () {
+            /* 대기번호 총 갯수 생성 */
+            var new_count = parseInt($('.input_waitnumber_count').val(), 10);
+            var old_count = waitnumberlayout_list_infos.length;
+            if (old_count > new_count) {
+                var new_waitnumberlayout_list_infos = waitnumberlayout_list_infos.slice(0, new_count);
+                waitnumberlayout_list_infos = [...new_waitnumberlayout_list_infos];
+                set_waitnumberlayout();
+            } else if (old_count < new_count) {
+                for (var count = old_count; count < new_count; count++) {
+                    waitnumberlayout_list_infos.push(
+                        {
+                            value: 'sub' + count,
+                            label: '서브번호' + count,
+                            layout: default_layout_setting
+                        }
+                    );
+                }
+                set_waitnumberlayout();
+            } else {
+                // 아무 것도 하지 않는다.
+            }
+        });
+
+        $('.btn_waitnumberlayout_position').on('click', function (event) {
+            /* 위치 단위 10, 50, 100 버튼 */
+            var unit = $(event.currentTarget).data('unit');
+            $('.btn_waitnumberlayout_direct').removeClass(['unit_10', 'unit_50', 'unit_100']);
+            $('.btn_waitnumberlayout_direct').addClass(`unit_${unit}`);
+            $('.btn_waitnumberlayout_direct').data('unit', `${unit}`);
+            $('.waitnumberlayout_direct_value').text(0);
+        });
+
+        $('.btn_waitnumberlayout_direct').on('click', function (event) {
+            /* 방향 위 아래 오른쪽 왼쪽 버튼 */
+            var selected_number = $('.select_waitnumberlayout_list').val();
+            var unit = parseInt($(event.currentTarget).data('unit'), 10);
+            var value = parseInt($(event.currentTarget).data('value'), 10);
+            var direction = $(event.currentTarget).data('direction');
+            $('.waitnumberlayout_direct_value').text(unit * value);
+            var value_x = parseInt($('.waitnumberlayout_setting_wrap .position_x').text(), 10);
+            var value_y = parseInt($('.waitnumberlayout_setting_wrap .position_y').text(), 10);
+            if (direction === 'x') {
+                value_x += unit * value;
+                $('.waitnumberlayout_setting_wrap .position_x').text(value_x);
+                $(`.btn_waitnumberlayout.${selected_number} .position_x`).text(value_x);
+            } else if (direction === 'y') {
+                value_y += unit * value;
+                $('.waitnumberlayout_setting_wrap .position_y').text(value_y);
+                $(`.btn_waitnumberlayout.${selected_number} .position_y`).text(value_y);
+            }
+
+            //waitnumberlayout_list_infos에 데이터 업데이트
+            var selected_number = $('.select_waitnumberlayout_list').val();
+            var copy = JSON.parse(JSON.stringify(waitnumberlayout_list_infos));
+            copy.map(function (item) {
+                if (selected_number === item.value) {
+                    item.layout.x = value_x;
+                    item.layout.y = value_y;
+                }
+            });
+            waitnumberlayout_list_infos = copy;
+        });
+
+        $('.waitnumberlayout_setting_wrap .text_size').on('change', function (event) {
+            /* 글자 크기 */
+            var value = $(event.currentTarget).val();
+            var selected_number = $('.select_waitnumberlayout_list').val();
+            $(`.btn_waitnumberlayout.${selected_number} .text_size`).text(text_size_label[value]);
+
+            //waitnumberlayout_list_infos에 데이터 업데이트
+            var selected_number = $('.select_waitnumberlayout_list').val();
+            var copy = JSON.parse(JSON.stringify(waitnumberlayout_list_infos));
+            copy.map(function (item) {
+                if (selected_number === item.value) {
+                    item.layout.text_size = value;
+                }
+            });
+            waitnumberlayout_list_infos = copy;
+        });
+
+        $('.waitnumberlayout_setting_wrap .text_color').on('change', function (event) {
+            /* 글자 색상 */
+            var value = $(event.currentTarget).val();
+            var selected_number = $('.select_waitnumberlayout_list').val();
+            $(`.btn_waitnumberlayout.${selected_number} .text_color`).val(value);
+
+            //waitnumberlayout_list_infos에 데이터 업데이트
+            var selected_number = $('.select_waitnumberlayout_list').val();
+            var copy = JSON.parse(JSON.stringify(waitnumberlayout_list_infos));
+            copy.map(function (item) {
+                if (selected_number === item.value) {
+                    item.layout.text_color = value;
+                }
+            });
+            waitnumberlayout_list_infos = copy;
+        });
+
+        $('.waitnumberlayout_setting_wrap .bg_color').on('change', function (event) {
+            /* 글자 바탕 색상 */
+            var value = $(event.currentTarget).val();
+            var selected_number = $('.select_waitnumberlayout_list').val();
+            $(`.btn_waitnumberlayout.${selected_number} .bg_color`).val(value);
+
+            //waitnumberlayout_list_infos에 데이터 업데이트
+            var selected_number = $('.select_waitnumberlayout_list').val();
+            var copy = JSON.parse(JSON.stringify(waitnumberlayout_list_infos));
+            copy.map(function (item) {
+                if (selected_number === item.value) {
+                    item.layout.bg_color = value;
+                }
+            });
+            waitnumberlayout_list_infos = copy;
+        });
+
+        $('.btn_init_waitnumberlayout_setting').on('click', function () {
+            // 초기화 버튼을 클릭하시면, 세팅한 데이터들이 초기화 됩니다. 계속 진행하시겠습니까?  
+            $.modal('show', {
+                message: `초기화 버튼을 클릭하시면,<br>세팅한 데이터들이 초기화 됩니다.<br>계속 진행하시겠습니까?`,
+                onebutton: `<button class="btn btn_txt" onclick="$.modal('hide');">취소</button>`,
+                twobutton: `<button class="btn btn_fill" onclick="init_waitnumberlayout_setting();">초기화</button>`
+            });
+
+        });
+        function init_waitnumberlayout_setting() {
+            var copy = JSON.parse(JSON.stringify(init_waitnumberlayout_list_infos));
+            waitnumberlayout_list_infos = copy;
+            set_waitnumberlayout();
+
+            $.modal('hide');
+        }
+
+        var observerOptions = {
+            root: null, // 관찰자의 루트 요소 설정 (null은 브라우저의 뷰포트)
+            threshold: 0.5 // 아이템이 50% 이상 화면에 나타날 때 콜백 함수 실행
+        };
+        var observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // 관찰하고 있던 아이템이 화면에 나타나면                    
+                    //console.log(entry.target);
+                    $('.waitnumberlayout_setting_area').removeClass('sticky');
+
+                }
+            });
+        }, observerOptions);
+        observer.observe(document.querySelector('.container header')); // 관찰자
+    </script>
+</body>
+
+</html>

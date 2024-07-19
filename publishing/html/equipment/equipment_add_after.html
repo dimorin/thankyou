@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>장비 등록</h1>
+            </div>
+            <div class="header_area">
+                <button class="btn btn_fill">저장</button>
+            </div>
+        </header>
+        <div class="body equipment_add">
+            <div class="qr after_add">
+                <div class="qr_txt">QR 스캔</div>
+                <div class="qr_id">ID 20240930080213</div>
+                <input type="file" class="thx_file" name="" id="" disabled>
+            </div>
+            <div class="pt-10"></div>
+            <label for="equipment_kind" class="required">장비 종류</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <input type="text" class="thx_txt" id="equipment_kind" name="" placeholder="" autocomplete="off"
+                        readonly required value="STB-Agent">
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="equipment_nickname" class="required">장비 닉네임</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <input type="text" class="thx_txt righticon" id="equipment_nickname" name=""
+                        placeholder="해당 장비에 닉네임을 달아주세요" autocomplete="off" required>
+                    <div class="input_icon_wrap"></div>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="equipment_store" class="required">설치할 매장</label>
+            <div class="input_wrap">
+                <div class="p-relative input_box search">
+                    <input type="text" class="thx_txt bothicon" id="equipment_store" name="equipment_store"
+                        placeholder="매장명을 입력하세요" autocomplete="off" required>
+                    <div class="input_icon_wrap"></div>
+                    <div class="autoList_wrap equipment_store thx_scrollbar">
+                        <ul class="autoList">
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="guide"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        };
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 장비 닉네임 입력 초기화 */
+        var inputWithReset_equipment_nickname = new InputWithReset('#equipment_nickname');
+        /* 설치할 매장 입력 초기화 */
+        var inputWithReset_equipment_store = new InputWithReset('#equipment_store');
+
+        /* 자동완성 */
+        $(document).on('click', function (e) {
+            if (!$(e.target).is('[name=equipment_store]')) {
+                $('.autoList_wrap').hide();
+            }
+        });
+
+        $('[name=equipment_store]').on('keyup click', function (e) {
+            //console.dir(e.type);
+            var userName = $(e.currentTarget).val();
+
+            /* var url = "/fms/board/getUserAutoComplete";
+            var param = {};
+            param.userName = userName;
+            $.ajax({
+                url: url,
+                type: 'POST',
+                dataType: 'json',
+                data: JSON.stringify(param),
+                contentType: 'application/json',
+                success: function (data) {
+                    //console.log(JSON.stringify(data));
+                    equipment_add.autoCompleteStore(data);
+                },
+                error: function (data) {
+                    alert("Fail!!!!");
+                }
+            }); */
+            var data = dummy;
+            autoCompleteStore(data);
+        });
+
+        function autoCompleteStore(data) {
+            var list = data.storeList;
+            var listTemplate = "";
+            list.forEach(function (item) {
+                var brand = item.brand || '';
+                var store = item.store || '';
+                var template = `
+                        <li>
+                            <button type="button" class="btn" data-store="${item.store}">
+                                <span class="d-inline-block ">[${brand}]</span>
+                                <span class="d-inline-block">${store}</span>
+                            </button>
+                        </li>`;
+                listTemplate += template;
+            });
+            $('.autoList_wrap.equipment_store .autoList').html(listTemplate);
+
+            $('.autoList_wrap.equipment_store .autoList button').on('click', function (e) {
+                $('[name=equipment_store]').val($(e.currentTarget).data('store'));
+                $('.autoList_wrap.equipment_store').hide();
+            });
+
+            $('.autoList_wrap.equipment_store').show();
+        }
+        var dummy = {
+            storeList: [
+                { brand: '빽다방', store: '안산점' },
+                { brand: '빽다방', store: '본오점' },
+                { brand: '빽다방', store: '동대문역사점' },
+                { brand: '빽보이', store: '신도림점' },
+                { brand: '빽보이', store: '서울대입구점' },
+                { brand: '빽보이', store: '한양대입구점' },
+                { brand: '컴포즈', store: '광화문점' },
+                { brand: '컴포즈', store: '뱅뱅사거리점' },
+            ]
+        }
+    </script>
+</body>
+
+</html>

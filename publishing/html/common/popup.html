@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>각종 팝업</h1>
+            </div>
+        </header>
+        <div class="body">
+            <div class="p-16">
+                <button class="btn btn_fill btn_open_two">확인팝업(two button) 열기</button>
+                <div class="mt-10"></div>
+                <button class="btn btn_fill btn_open_one">확인팝업(one button) 열기</button>
+                <div class="mt-10"></div>
+                <button class="btn btn_fill" onclick="$('#find_equipment').sheet('show');">topsheet 열기</button>
+                <div class="mt-10"></div>
+                <button class="btn btn_fill" onclick="$('#add_media').sheet('show');">bottomsheet 열기</button>
+                <div class="mt-10"></div>
+                <button class="btn btn_fill" onclick="$('#view_waitnumberlayout').sheet('show');">fullsheet 열기</button>
+                <div class="mt-10"></div>
+                <div style="height:1000px;">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, accusantium? Nemo debitis maiores beatae nam earum necessitatibus vitae mollitia? Itaque quas delectus molestias harum ullam consequuntur corporis culpa qui tempora.
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium nulla fuga quam iusto perspiciatis, in temporibus reprehenderit quidem numquam. Perferendis ipsa eum vero cupiditate sequi temporibus commodi accusantium reiciendis qui!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus natus voluptas eveniet fugiat delectus neque perspiciatis aut praesentium, voluptate sapiente fugit culpa inventore laboriosam error aliquid cum beatae doloribus nisi.
+                </div>
+            </div>            
+        </div>
+    </div>
+
+    <div class="topSheetContainer" id="find_equipment" data-type="top">
+        <div class="topSheet">
+            <div class="topSheet_header">
+                <span class="title">검색&필터</span>
+            </div>
+            <div class="pt-10"></div>
+            <div class="topSheet_body">
+                <div class="input_wrap">
+                    <div class="p-relative input_box search">
+                        <input type="text" class="thx_txt bothicon" id="equipment_store" name="equipment_store"
+                            placeholder="매장명을 입력하세요" autocomplete="off">
+                        <div class="input_icon_wrap"></div>
+                    </div>
+                </div>
+                <div class="pt-10"></div>
+                <div class="filter_item start">
+                    <label class="title">장비 종류</label>
+                    <div class="value">
+                        <div class="input_wrap w-100">
+                            <div class="thx_select_box">
+                                <select name="" id="" class="thx_select">
+                                    <option value="전체">전체</option>
+                                    <option value="pcagent">PC-Agent</option>
+                                    <option value="stbagent">STB-Agent</option>
+                                </select>
+                            </div>
+                            <div class="guide"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-center pt-16 pb-16">
+                    <button class="btn btn_txt">초기화</button>
+                    <button class="btn btn_fill">적용</button>
+                </div>
+            </div>
+            <button class="btn handle" onclick="$('#find_equipment').sheet('hide');">
+                <span></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="bottomSheetContainer" id="add_media" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#add_media').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">이미지·동영상 추가</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="d-center">
+                    <div class="thumbnail_add_playlist">
+                        <input type="file" class="thx_file" id="playlist_file" required>
+                        <!--image will be inserted here-->
+                    </div>
+                </div>
+                <div class="pt-10"></div>
+                <div class="detail_item start d-flex-justify-content-center">
+                    <label class="title w-auto d-flex-shrink-1 pr-10 required" for="playing_time">플레이
+                        지속시간</label>
+                    <div class="value d-flex-grow-0 ml-10">
+                        <div class="input_wrap">
+                            <div class="p-relative d-inline-block" style="width:10rem;">
+                                <input type="number" pattern="\\d*" class="thx_txt righticon" id="playing_time" name=""
+                                    placeholder="" autocomplete="off" required value="">
+                                <div class="input_icon_wrap"></div>
+                            </div>
+                            <span class="d-inline-block ml-10">초</span>
+                            <div class="guide">플레이 지속시간을 입력해주세요.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_fill btn_add_playlist">추가</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fullSheetContainer" id="view_waitnumberlayout" data-type="full">
+        <div class="fullSheet">
+            <div class="fullSheet_header">
+                <button class="btn btn_close_fullSheet" onclick="$('#view_waitnumberlayout').sheet('hide');">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </button>
+                <span class="title">대기번호 레이아웃</span>
+            </div>
+
+            <div class="fullSheet_body waitnumberlayout_detail">
+                <div class="detail_item">
+                    <label class="title">대기번호 총 갯수</label>
+                    <div class="value">
+                        <div class="thx_value_readonly">3</div>
+                    </div>
+                </div>
+                <div class="pt-10"></div>
+                <div class="card">
+                    <button class="btn card_header">
+                        <div class="title">메인번호</div>
+                    </button>
+                    <div class="card_body">
+                        <div class="detail_item">
+                            <label class="title">가로 위치 / 세로 위치</label>
+                            <div class="value">
+                                <div class="thx_value_readonly">2999 / 1599</div>
+                            </div>
+                        </div>
+                        <div class="pt-10"></div>
+                        <div class="detail_item">
+                            <label class="title">글자 크기</label>
+                            <div class="value">
+                                <div class="thx_value_readonly">20</div>
+                            </div>
+                        </div>
+                        <div class="pt-10"></div>
+                        <div class="detail_item">
+                            <label class="title">글자 색상</label>
+                            <div class="value">
+                                <input type="color" id="" class="thx_color" name="" value="#FF6347" disabled />
+                            </div>
+                        </div>
+                        <div class="pt-10"></div>
+                        <div class="detail_item">
+                            <label class="title">글자 바탕 색상</label>
+                            <div class="value">
+                                <input type="color" id="" class="thx_color" name="" value="#000000" disabled />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <button class="btn card_header">
+                        <div class="title">서브번호1</div>
+                    </button>
+                    <div class="card_body">
+                        <div class="detail_item">
+                            <label class="title">가로 위치 / 세로 위치</label>
+                            <div class="value">
+                                <div class="thx_value_readonly">2999 / 1599</div>
+                            </div>
+                        </div>
+                        <div class="pt-10"></div>
+                        <div class="detail_item">
+                            <label class="title">글자 크기</label>
+                            <div class="value">
+                                <div class="thx_value_readonly">20</div>
+                            </div>
+                        </div>
+                        <div class="pt-10"></div>
+                        <div class="detail_item">
+                            <label class="title">글자 색상</label>
+                            <div class="value">
+                                <input type="color" id="" class="thx_color" name="" value="#FF6347" disabled />
+                            </div>
+                        </div>
+                        <div class="pt-10"></div>
+                        <div class="detail_item">
+                            <label class="title">글자 바탕 색상</label>
+                            <div class="value">
+                                <input type="color" id="" class="thx_color" name="" value="#000000" disabled />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <button class="btn card_header">
+                        <div class="title">서브번호2</div>
+                    </button>
+                    <div class="card_body">
+                        <div class="detail_item">
+                            <label class="title">가로 위치 / 세로 위치</label>
+                            <div class="value">
+                                <div class="thx_value_readonly">2999 / 1599</div>
+                            </div>
+                        </div>
+                        <div class="pt-10"></div>
+                        <div class="detail_item">
+                            <label class="title">글자 크기</label>
+                            <div class="value">
+                                <div class="thx_value_readonly">20</div>
+                            </div>
+                        </div>
+                        <div class="pt-10"></div>
+                        <div class="detail_item">
+                            <label class="title">글자 색상</label>
+                            <div class="value">
+                                <input type="color" id="" class="thx_color" name="" value="#FF6347" disabled />
+                            </div>
+                        </div>
+                        <div class="pt-10"></div>
+                        <div class="detail_item">
+                            <label class="title">글자 바탕 색상</label>
+                            <div class="value">
+                                <input type="color" id="" class="thx_color" name="" value="#000000" disabled />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        $('.btn_open_two').on('click',function(){
+            $.modal('show', {
+                message:`해당 템플릿을 삭제하시겠습니까?`,
+                onebutton:`<button class="btn btn_txt" onclick="$.modal('hide');">취소</button>`,
+                twobutton:`<button class="btn btn_fill" onclick="twobutton_callback();">삭제</button>`,
+                
+            });
+        });
+        function twobutton_callback(){
+            alert("삭제 기능 수행~");
+            $.modal('hide');
+        }
+        
+        $('.btn_open_one').on('click',function(){
+            $.modal('show', {
+                message:`템플릿 삭제에 실패했습니다.<br>다시 시도해보시고 관리자에게 문의하세요.`,
+                onebutton:`<button class="btn btn_fill" onclick="$.modal('hide')">확인</button>`,
+            });
+        });
+    </script>    
+</body>
+
+</html>
+<!-- 팝업의 기능
+
+확인팝업과 sheet팝업의 공통점
+show할 때 body에 backdrop을 만들고, backdrop에 target을지정하고, body의 overflow:hidden으로 설정한다.
+backdrop을 클릭하면 target이 닫힌후 자신도 닫힌다.
+backdrop 이라고 하지 말고 backdrop이라고만 해서,
+backdrop을 닫을때 overflow hidden줄때 backdrop이 여러개면 overflow hidden을 주지 말기
+
+
+확인팝업은
+페이지에 하나만 존재하여 재활동 해야 함.
+들어갈 내용과 확인 버튼 시 취해야 할행동을 넘겨 주어야 한다. - $(선택자).modal('show',{content:html, callback:function});
+two button인지 one button인지 구별해주기(이 작업은 맨마지막에 하기)
+$(선택자).modal('show',{content:html, callback:function});
+$(선택자).modal('hide');
+
+topsheet, bottomsheet, fullsheet는
+페이지에 여러개 존재해도 됨.
+등장과 퇴장 모션은 class에 sheet type을 통해 구분한다.
+
+topsheet 와 bottomsheet는 위아래 스와이프 동작으로 닫힌다.
+-------------------------------
+자동으로 zindex값생성하기
+ -->
