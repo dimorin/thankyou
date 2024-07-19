@@ -369,3 +369,149 @@ $.fn.autoComplete_brand = function () {
 };
 /* 사용 예 */
 //$('#find_partner_brand').autoComplete_brand();
+
+/* 매장 자동완성 */
+$.fn.autoComplete_store = function () {
+    var target_element = this;
+    var target_id = target_element.prop('id');
+    var autoList_wrap = $(`.autoList_wrap[data-autolist="${target_id}"]`);
+    target_element.on('keyup click', function (e) {
+        var target_find = target_element.val();
+        /* var url = "/fms/board/getUserAutoComplete";
+        var param = {};
+        param.target_find = target_find;
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            data: JSON.stringify(param),
+            contentType: 'application/json',
+            success: function (data) {
+                //console.log(JSON.stringify(data));
+                makeAutoList(data);
+            },
+            error: function (data) {
+                alert("Fail!!!!");
+            }
+        }); */
+        var data = dummy;
+        makeAutoList(data);
+    });
+    function makeAutoList(data) {
+        var list = data.storeList;
+        var listTemplate = "";
+        list.forEach(function (item) {
+            var store = item.store || '';
+            var brand = item.brand || '';
+            var template = `
+                                <li>
+                                    <button type="button" class="btn" data-store="${item.store}">
+                                        <span class="d-inline-block ">[${brand}] ${store}</span>
+                                    </button>
+                                </li>`;
+            listTemplate += template;
+        });
+        autoList_wrap.find('.autoList').html(listTemplate);
+        autoList_wrap.find('.autoList button').on('click', function (e) {
+            target_element.val($(e.currentTarget).data('store'));
+            autoList_wrap.hide();
+            $(document).off('click', hideifother);
+        });
+
+        autoList_wrap.show();
+        $(document).on('click', hideifother);
+    }
+    function hideifother(e) {
+        if ($(e.target).prop('name') !== target_id) {
+            autoList_wrap.hide();
+            $(document).off('click', hideifother);
+        }
+    }
+    var dummy = {
+        storeList: [
+            { brand: '빽다방', store: '안산점' },
+            { brand: '빽다방', store: '본오점' },
+            { brand: '빽다방', store: '동대문역사점' },
+            { brand: '빽보이', store: '신도림점' },
+            { brand: '빽보이', store: '서울대입구점' },
+            { brand: '빽보이', store: '한양대입구점' },
+            { brand: '컴포즈', store: '광화문점' },
+            { brand: '컴포즈', store: '뱅뱅사거리점' }
+        ]
+    }
+};
+/* 사용 예 */
+//$('#equipment_store').autoComplete_store();
+
+/* 계정 자동완성 */
+$.fn.autoComplete_account = function () {
+    var target_element = this;
+    var target_id = target_element.prop('id');
+    var autoList_wrap = $(`.autoList_wrap[data-autolist="${target_id}"]`);
+    target_element.on('keyup click', function (e) {
+        var target_find = target_element.val();
+        /* var url = "/fms/board/getUserAutoComplete";
+        var param = {};
+        param.target_find = target_find;
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            data: JSON.stringify(param),
+            contentType: 'application/json',
+            success: function (data) {
+                //console.log(JSON.stringify(data));
+                makeAutoList(data);
+            },
+            error: function (data) {
+                alert("Fail!!!!");
+            }
+        }); */
+        var data = dummy;
+        makeAutoList(data);
+    });
+    function makeAutoList(data) {
+        var list = data.accountList;
+        var listTemplate = "";
+        list.forEach(function (item) {
+            var account = item.account || '';
+            var id = item.id || '';
+            var template = `
+                                <li>
+                                    <button type="button" class="btn" data-account="${item.account}">
+                                        <span class="d-inline-block ">${account} (${id})</span>
+                                    </button>
+                                </li>`;
+            listTemplate += template;
+        });
+        autoList_wrap.find('.autoList').html(listTemplate);
+        autoList_wrap.find('.autoList button').on('click', function (e) {
+            target_element.val($(e.currentTarget).data('account'));
+            autoList_wrap.hide();
+            $(document).off('click', hideifother);
+        });
+
+        autoList_wrap.show();
+        $(document).on('click', hideifother);
+    }
+    function hideifother(e) {
+        if ($(e.target).prop('name') !== target_id) {
+            autoList_wrap.hide();
+            $(document).off('click', hideifother);
+        }
+    }
+    var dummy = {
+        accountList: [
+            { id: '01024245566', account: '김유신' },
+            { id: '01024245566', account: '강감찬' },
+            { id: '01024245566', account: '이순신' },
+            { id: '01033339999', account: '최재필' },
+            { id: '01033339999', account: '이성계' },
+            { id: '01033339999', account: '정도전' },
+            { id: '01077778888', account: '이방원' },
+            { id: '01077778888', account: '김구' }
+        ]
+    }
+};
+/* 사용 예 */
+//$('#account_name').autoComplete_account();  

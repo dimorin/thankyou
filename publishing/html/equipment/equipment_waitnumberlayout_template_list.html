@@ -303,7 +303,7 @@
                         <input type="text" class="thx_txt bothicon" id="account_name" name="account_name"
                             placeholder="이름을 입력하세요" autocomplete="off" required>
                         <div class="input_icon_wrap"></div>
-                        <div class="autoList_wrap account_name thx_scrollbar">
+                        <div class="autoList_wrap thx_scrollbar" data-autolist="account_name">
                             <ul class="autoList">
                             </ul>
                         </div>
@@ -402,82 +402,15 @@
         /* 전달할 계정 이름 입력 초기화 */
         var inputWithReset_account_name = new InputWithReset('#account_name');
 
+        /* 전달할 계정 자동완성 */
+        $('#account_name').autoComplete_account();
+
         $('.btn_forward').on('click', function () {
             $.modal('show', {
                 message: `선택한 계정으로 템플릿을 전달했습니다.`,
                 onebutton: `<button class="btn btn_fill" onclick="$.modal('hide')">확인</button>`,
             });
         });        
-    </script>
-    <script>
-        /* 자동완성 */
-        $(document).on('click', function (e) {
-            if (!$(e.target).is('[name=account_name]')) {
-                $('.autoList_wrap').hide();
-            }
-        });
-
-        $('[name=account_name]').on('keyup click', function (e) {
-            //console.dir(e.type);
-            var userName = $(e.currentTarget).val();
-
-            /* var url = "/fms/board/getUserAutoComplete";
-            var param = {};
-            param.userName = userName;
-            $.ajax({
-                url: url,
-                type: 'POST',
-                dataType: 'json',
-                data: JSON.stringify(param),
-                contentType: 'application/json',
-                success: function (data) {
-                    //console.log(JSON.stringify(data));
-                    equipment_add.autoCompleteStore(data);
-                },
-                error: function (data) {
-                    alert("Fail!!!!");
-                }
-            }); */
-            var data = dummy;
-            autoCompleteStore(data);
-        });
-
-        function autoCompleteStore(data) {
-            var list = data.storeList;
-            var listTemplate = "";
-            list.forEach(function (item) {
-                var brand = item.brand || '';
-                var store = item.store || '';
-                var template = `
-            <li>
-                <button type="button" class="btn" data-store="${item.store}">
-                    <span class="d-inline-block ">[${brand}]</span>
-                    <span class="d-inline-block">${store}</span>
-                </button>
-            </li>`;
-                listTemplate += template;
-            });
-            $('.autoList_wrap.account_name .autoList').html(listTemplate);
-
-            $('.autoList_wrap.account_name .autoList button').on('click', function (e) {
-                $('[name=account_name]').val($(e.currentTarget).data('store'));
-                $('.autoList_wrap.account_name').hide();
-            });
-
-            $('.autoList_wrap.account_name').show();
-        }
-        var dummy = {
-            storeList: [
-                { brand: '빽다방', store: '안산점' },
-                { brand: '빽다방', store: '본오점' },
-                { brand: '빽다방', store: '동대문역사점' },
-                { brand: '빽보이', store: '신도림점' },
-                { brand: '빽보이', store: '서울대입구점' },
-                { brand: '빽보이', store: '한양대입구점' },
-                { brand: '컴포즈', store: '광화문점' },
-                { brand: '컴포즈', store: '뱅뱅사거리점' },
-            ]
-        }
     </script>
     <script>
         /* 템플릿 목록에서 끝에 있는 아이템이 화면안에 들어오면 서버로부터 데이터를 불러옴 */
