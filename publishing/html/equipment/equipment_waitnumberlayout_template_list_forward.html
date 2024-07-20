@@ -333,22 +333,13 @@
                     <div class="value">
                         <div class="input_wrap w-100">
                             <div class="inputWithBtn">
-                                <div class="p-relative d-flex-grow-1">
-                                    <!-- 중복체크 시작 -->
-                                    <!-- <input type="text" class="thx_txt righticon unvalid" id="templatename" name=""
-                                            placeholder="템플릿 이름을 입력해주세요." autocomplete="off" required value="">
-                                        <div class="input_icon_wrap">
-                                            <span class="material-symbols-outlined icon_unvalid">pending</span>
-                                        </div> -->
-                                    <!-- 중복체크 성공 -->
-                                    <input type="text" class="thx_txt righticon valid" id="templatename" name=""
-                                        placeholder="템플릿 이름을 입력해주세요." autocomplete="off" required value="">
-                                    <div class="input_icon_wrap">
-                                        <span class="material-symbols-outlined icon_valid">check</span>
-                                    </div>
-
+                                <div class="p-relative d-flex-grow-1 validCheck">
+                                    <input type="text" class="thx_txt rightdoubleicon valid" id="templatename"
+                                        name="templatename" placeholder="템플릿 이름을 입력해주세요." autocomplete="off" required
+                                        value="">
+                                    <div class="input_icon_wrap"></div>
                                 </div>
-                                <button class="btn btn_fill">중복확인</button>
+                                <button class="btn btn_fill btn_check_duplicate" disabled>중복확인</button>
                             </div>
                             <div class="guide">중복 확인해 주세요.</div>
                         </div>
@@ -398,7 +389,16 @@
 
         /* 템플릿 등록의 템플릿 이름 입력 초기화 */
         var inputWithReset_templatename = new InputWithReset('#templatename');
-
+        /* 템플릿 등록의 템플릿 이름 중복확인 */
+        var doubleCheck_templatename = new DoubleCheck({
+            target_name: '템플릿 이름',
+            target: 'input[name=templatename]',
+            btn_check: '.btn_check_duplicate',
+            init_value: '',
+            check_url: '',
+            param_arr: [],
+        });
+        doubleCheck_templatename.init();
         /* 전달할 계정 이름 입력 초기화 */
         var inputWithReset_account_name = new InputWithReset('#account_name');
 

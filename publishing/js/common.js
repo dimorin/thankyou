@@ -1,3 +1,128 @@
+/* 날짜 포맷 */
+Date.prototype.format = function (f) {
+    if (!this.valueOf()) return " ";
+    var weekKorName = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+    var weekKorShortName = ["일", "월", "화", "수", "목", "금", "토"];
+    var weekEngName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var weekEngShortName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    var d = this;
+
+    return f.replace(/(yyyy|yy|MM|dd|KS|KL|ES|EL|HH|hh|mm|ss|a\/p)/gi, function ($1) {
+        switch ($1) {
+            case "yyyy": return d.getFullYear(); 						// 년 (4자리)
+            case "yy": return (d.getFullYear() % 1000).zf(2); 			// 년 (2자리)
+            case "MM": return (d.getMonth() + 1).zf(2); 				// 월 (2자리)
+            case "dd": return d.getDate().zf(2); 						// 일 (2자리)
+            case "KS": return weekKorShortName[d.getDay()]; 			// 요일 (짧은 한글)
+            case "KL": return weekKorName[d.getDay()]; 					// 요일 (긴 한글)
+            case "ES": return weekEngShortName[d.getDay()]; 			// 요일 (짧은 영어)
+            case "EL": return weekEngName[d.getDay()]; 					// 요일 (긴 영어)
+            case "HH": return d.getHours().zf(2); 						// 시간 (24시간 기준, 2자리)
+            case "hh": return ((h = d.getHours() % 12) ? h : 12).zf(2); // 시간 (12시간 기준, 2자리)
+            case "mm": return d.getMinutes().zf(2); 					// 분 (2자리)
+            case "ss": return d.getSeconds().zf(2); 					// 초 (2자리)
+            case "a/p": return d.getHours() < 12 ? "오전" : "오후"; 		// 오전/오후 구분
+            default: return $1;
+        }
+    });
+};
+String.prototype.string = function (len) { var s = '', i = 0; while (i++ < len) { s += this; } return s; };
+String.prototype.zf = function (len) { return "0".string(len - this.length) + this; };
+Number.prototype.zf = function (len) { return this.toString().zf(len); };
+/* 사용예
+var today = new Date();
+console.log(today.format('yyyy-MM-dd HH:mm:ss')); */
+
+
+function DoubleCheck(option) {	// 중복체크 검사
+    this.valid = true;
+    this.option = option;
+    this.target_name = option.target_name;
+    this.target = $(option.target);
+    this.btn_check = $(option.btn_check);
+    this.init_value = option.init_value;
+    this.check_url = option.check_url;
+    this.param_arr = option.param_arr;
+    this.parentOfTarget = this.target.parent();
+    this.paramKey = this.target.attr('name');
+    _this_doubleCheck = this;
+
+    this.init = function () { // 처음일 때 입력창 아이콘, 버튼 상태, 입력창 값 세팅
+        $(_this_doubleCheck.parentOfTarget).removeClass('valid');
+        $(_this_doubleCheck.parentOfTarget).removeClass('unvalid');
+        $(_this_doubleCheck.btn_check).attr('disabled', true);
+        $(_this_doubleCheck.target).val(_this_doubleCheck.init_value);
+        _this_doubleCheck.valid = true;
+    };
+
+    // 이벤트 바인딩
+    this.target.on('keyup', function (event) { // 입력창 값이 바뀔 때 입력창과 버튼 상태 세팅
+        var target_value = $(event.currentTarget).val();
+        if (target_value == _this_doubleCheck.init_value) { // 내용이 변경되어 처음과 같으면
+            $(_this_doubleCheck.parentOfTarget).removeClass('valid');
+            $(_this_doubleCheck.parentOfTarget).removeClass('unvalid');
+            $(_this_doubleCheck.btn_check).attr('disabled', true);
+            _this_doubleCheck.valid = true;
+        } else { // 내용이 변경되면
+            $(_this_doubleCheck.parentOfTarget).removeClass('valid');
+            $(_this_doubleCheck.parentOfTarget).addClass('unvalid');
+            $(_this_doubleCheck.btn_check).attr('disabled', false);
+            _this_doubleCheck.valid = false;
+        };
+    });
+    this.btn_check.on('click', function (event) { // 버튼 클릭시 결과에 따라 입력창 아이콘, 버튼 상태 세팅
+        if ($(_this_doubleCheck.target).val() == '') {
+            alert(`중복체크할 ${_this_doubleCheck.target_name}을(를) 입력하세요.`);
+            return;
+        }
+        var url = _this_doubleCheck.check_url;
+        var param = {};
+        /* $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            data: JSON.stringify(param),
+            contentType: 'application/json',
+            success: function (data) {
+                if (data.result == false && data.msg == 'ALREADY EXISTS') { // 중복된게 있다면	   					
+                    alert(`이미 사용중인 ${_this_doubleCheck.target_name}입니다.<br>다른 ${_this_doubleCheck.target_name}을(를) 입력하세요.`);
+                 
+                    $(_this_doubleCheck.parentOfTarget).removeClass('valid');
+                    $(_this_doubleCheck.parentOfTarget).addClass('unvalid');
+                    $(_this_doubleCheck.btn_check).attr('disabled', false);
+                    _this_doubleCheck.valid = false;
+                } else if (data.result) {
+                    alert(`사용할 수 있는 ${_this_doubleCheck.target_name}입니다.`);
+                  
+                    $(_this_doubleCheck.parentOfTarget).removeClass('unvalid');
+                    $(_this_doubleCheck.parentOfTarget).addClass('valid');
+                    $(_this_doubleCheck.btn_check).attr('disabled', true);
+                    _this_doubleCheck.valid = true;
+                }
+            },
+            error: function (data) {
+                //alert("중복체크실패");
+                alert('중복체크에 실패했습니다.<br>다시 시도해보시고 관리자에게 문의하세요.');
+                
+                $(_this_doubleCheck.parentOfTarget).removeClass('valid');
+                $(_this_doubleCheck.parentOfTarget).addClass('unvalid');
+                $(_this_doubleCheck.btn_check).attr('disabled', false);
+                _this_doubleCheck.valid = false;
+            }
+        }); */
+        alert(`사용할 수 있는 ${_this_doubleCheck.target_name}입니다.`);
+
+        $(_this_doubleCheck.parentOfTarget).removeClass('unvalid');
+        $(_this_doubleCheck.parentOfTarget).addClass('valid');
+        $(_this_doubleCheck.btn_check).attr('disabled', true);
+        _this_doubleCheck.valid = true;
+    });
+
+    return this;
+}
+
+
+
 // 입력창에 텍스트가 들어가면 초기화 버튼이 생기고, 초기화 버튼을 누르면 초기화 되는 기능
 function InputWithReset(inputId) {
     this.inputElement = document.querySelector(inputId);

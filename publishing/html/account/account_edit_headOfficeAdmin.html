@@ -41,23 +41,14 @@
             <label class="title required" for="account_id">아이디</label>
             <div class="input_wrap">
                 <div class="inputWithBtn">
-                    <div class="p-relative d-flex-grow-1">
-                        <!-- 중복체크 시작 -->
-                        <!-- <input type="text" class="thx_txt righticon unvalid" id="account_id" name=""
-                                                                    placeholder="연락처를 입력하세요." autocomplete="off" required value="">
-                                                                <div class="input_icon_wrap">
-                                                                    <span class="material-symbols-outlined icon_unvalid">pending</span>
-                                                                </div> -->
-                        <!-- 중복체크 성공 -->
-                        <input type="text" class="thx_txt righticon valid" id="account_id" name=""
-                            placeholder="연락처를 입력하세요." autocomplete="off" required value="01024253333">
-                        <div class="input_icon_wrap">
-                            <span class="material-symbols-outlined icon_valid">check</span>
-                        </div>
+                    <div class="p-relative d-flex-grow-1 validCheck">
+                        <input type="text" class="thx_txt rightdoubleicon valid" id="account_id" name="account_id"
+                            placeholder="연락처를 입력하세요." autocomplete="off" required value="">
+                        <div class="input_icon_wrap"></div>
                     </div>
-                    <button class="btn btn_fill">중복확인</button>
+                    <button class="btn btn_fill btn_check_duplicate" disabled>중복확인</button>
                 </div>
-                <div class="guide"></div>
+                <div class="guide">숫자만 입력하세요.</div>
             </div>
             <div class="pt-10"></div>
             <label for="account_pw" class="required">비밀번호</label>
@@ -102,12 +93,11 @@
                     <input type="text" class="thx_txt bothicon" id="account_company" name="account_company"
                         placeholder="회사 이름을 입력하세요" autocomplete="off" required value="더본코리아">
                     <div class="input_icon_wrap"></div>
-                    <div class="autoList_wrap account_company thx_scrollbar">
+                    <div class="autoList_wrap thx_scrollbar" data-autolist="account_company">
                         <ul class="autoList">
                         </ul>
                     </div>
                 </div>
-
                 <div class="guide"></div>
             </div>
 
@@ -146,6 +136,8 @@
         });
     </script>
     <script>
+        /* 소속 회사 자동완성 */
+        $('#account_company').autoComplete_company();
         /* 아이디 입력 초기화 */
         var inputWithReset_account_id = new InputWithReset('#account_id');
         /* 비밀번호 보기 안보기 */
@@ -154,74 +146,16 @@
         var inputWithReset_account_name = new InputWithReset('#account_name');
         /* 소속 회사 입력 초기화 */
         var inputWithReset_account_company = new InputWithReset('#account_company');
-    </script>
-    <script>
-        /* 자동완성 */
-        $(document).on('click', function (e) {
-            if (!$(e.target).is('[name=account_company]')) {
-                $('.autoList_wrap').hide();
-            }
+        /* 아이디 중복확인 */
+        var doubleCheck_id = new DoubleCheck({
+            target_name: '아이디',
+            target: 'input[name=account_id]',
+            btn_check: '.btn_check_duplicate',
+            init_value: '01022223333',
+            check_url: '',
+            param_arr: [],
         });
-
-        $('[name=account_company]').on('keyup click', function (e) {
-            //console.dir(e.type);
-            var userName = $(e.currentTarget).val();
-
-            /* var url = "/fms/board/getUserAutoComplete";
-            var param = {};
-            param.userName = userName;
-            $.ajax({
-                url: url,
-                type: 'POST',
-                dataType: 'json',
-                data: JSON.stringify(param),
-                contentType: 'application/json',
-                success: function (data) {
-                    //console.log(JSON.stringify(data));
-                    equipment_add.autoCompleteStore(data);
-                },
-                error: function (data) {
-                    alert("Fail!!!!");
-                }
-            }); */
-            var data = dummy;
-            autoCompleteStore(data);
-        });
-
-        function autoCompleteStore(data) {
-            var list = data.storeList;
-            var listTemplate = "";
-            list.forEach(function (item) {
-                var company = item.company || '';
-                var template = `
-                        <li>
-                            <button type="button" class="btn" data-company="${item.company}">
-                                <span class="d-inline-block ">${company}</span>
-                            </button>
-                        </li>`;
-                listTemplate += template;
-            });
-            $('.autoList_wrap.account_company .autoList').html(listTemplate);
-
-            $('.autoList_wrap.account_company .autoList button').on('click', function (e) {
-                $('[name=account_company]').val($(e.currentTarget).data('company'));
-                $('.autoList_wrap.account_company').hide();
-            });
-
-            $('.autoList_wrap.account_company').show();
-        }
-        var dummy = {
-            storeList: [
-                { company: '더본코리아' },
-                { company: '삼성' },
-                { company: '엘지' },
-                { company: '현대' },
-                { company: 'SK' },
-                { company: '카카오' },
-                { company: '네이버' },
-                { company: '셀트리온' }
-            ]
-        }
+        doubleCheck_id.init();
     </script>
 </body>
 

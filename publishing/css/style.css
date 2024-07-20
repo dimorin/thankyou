@@ -88,6 +88,16 @@ input.thx_txt::placeholder{color:var(--blur_color);}
 input.thx_txt[readonly]{background-color:var(--read_color);border-color:var(--read_color);}
 input.thx_txt[readonly]:focus{border-color:var(--read_color);}
 input.thx_txt.righticon{padding-right:3.4rem;}/* 우측에 초기화 아이콘 있는 입력창 */
+input.thx_txt.rightdoubleicon{padding-right:5.4rem;}
+.input_icon_wrap{position: absolute;top: 50%;right: 0;transform: translate(0, -50%);display:flex;align-items:center;}
+input.thx_txt.rightdoubleicon + .input_icon_wrap{right:2rem;}
+/*valid*/
+.validCheck input {padding-right: 2rem;}
+.validCheck::after {font-family: 'Material Symbols Outlined';position: absolute;font-size: 20px;right: 5px;top: 50%;transform: translate(0, -50%);}
+.validCheck.unvalid::after {content: "\ef64";color: tomato;}
+.validCheck.valid::after {content: "\e86c";color: #27A17A;}
+/* .icon_valid{font-size:2.4rem;color:var(--progress_color);}
+.icon_unvalid{font-size:2.4rem;color:tomato;} */
 input.thx_txt.bothicon{padding:0 3.4rem;}/* 양 옆에 아이콘 있는 입력창 */
 input.thx_txt.error{border-color:tomato;}
 .input_box.search::after{content: '\e8b6';position:absolute;left:0.5rem;top:50%;transform:translate(0, -50%);font-family:'Material Symbols Outlined';font-size:2.4rem;color:var(--blur_color);}
@@ -160,9 +170,11 @@ select.custom_select option{color:var(--txt_color);}
 .list_no{display:flex;justify-content:center;align-items:center;min-height:50vh;}
 .list_no .empty_wrap{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;font-size:1.4rem;color:var(--txt_color);gap:0.5rem;}
 
-.input_icon_wrap{position: absolute;top: 50%;right: 0;transform: translate(0, -50%);display:flex;align-items:center;}
-.icon_valid{font-size:2.4rem;color:var(--progress_color);}
-.icon_unvalid{font-size:2.4rem;color:tomato;}
+
+
+
+
+
 
 /* layout */
 .container{width:100%;min-height:100vh;margin:0 auto;background-color:var(--bg_color);}
