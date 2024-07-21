@@ -138,7 +138,7 @@
                         <div class="value">
                             <div class="input_wrap">
                                 <div class="p-relative d-inline-block mainnumbertime">
-                                    <input type="number" pattern="\\d*" min="0" max="86400" class="thx_txt righticon"
+                                    <input type="number" pattern="[0-9]*" min="0" max="86400" class="thx_txt righticon"
                                         id="mainnumbertime" name="" placeholder="" autocomplete="off" required
                                         value="30">
                                     <div class="input_icon_wrap"></div>
@@ -263,7 +263,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="bottomSheetContainer" id="add_media" data-type="bottom">
         <div class="bottomSheet">
             <button class="btn handle" onclick="$('#add_media').sheet('hide');"><span></span></button>
@@ -285,8 +285,8 @@
                     <div class="value d-flex-grow-0 ml-10">
                         <div class="input_wrap">
                             <div class="p-relative d-inline-block" style="width:10rem;">
-                                <input type="number" pattern="\\d*" class="thx_txt righticon" id="playing_time" name=""
-                                    placeholder="" autocomplete="off" required value="">
+                                <input type="number" pattern="[0-9]*" class="thx_txt righticon" id="playing_time"
+                                    name="" placeholder="" autocomplete="off" required value="">
                                 <div class="input_icon_wrap"></div>
                             </div>
                             <span class="d-inline-block ml-10">초</span>
@@ -330,7 +330,7 @@
         });
     </script>
     <script>
-        /* bottomsheet */        
+        /* bottomsheet */
         $('#add_media').sheet('show');        
     </script>
     <script>
@@ -432,7 +432,7 @@
             card_body.toggleClass('hide');
         }
 
-        
+
     </script>
 </body>
 

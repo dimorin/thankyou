@@ -33,11 +33,17 @@
                 <button class="btn btn_fill" onclick="$('#view_waitnumberlayout').sheet('show');">fullsheet 열기</button>
                 <div class="mt-10"></div>
                 <div style="height:1000px;">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, accusantium? Nemo debitis maiores beatae nam earum necessitatibus vitae mollitia? Itaque quas delectus molestias harum ullam consequuntur corporis culpa qui tempora.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium nulla fuga quam iusto perspiciatis, in temporibus reprehenderit quidem numquam. Perferendis ipsa eum vero cupiditate sequi temporibus commodi accusantium reiciendis qui!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus natus voluptas eveniet fugiat delectus neque perspiciatis aut praesentium, voluptate sapiente fugit culpa inventore laboriosam error aliquid cum beatae doloribus nisi.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, accusantium? Nemo debitis maiores
+                    beatae nam earum necessitatibus vitae mollitia? Itaque quas delectus molestias harum ullam
+                    consequuntur corporis culpa qui tempora.
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium nulla fuga quam iusto
+                    perspiciatis, in temporibus reprehenderit quidem numquam. Perferendis ipsa eum vero cupiditate sequi
+                    temporibus commodi accusantium reiciendis qui!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus natus voluptas eveniet fugiat
+                    delectus neque perspiciatis aut praesentium, voluptate sapiente fugit culpa inventore laboriosam
+                    error aliquid cum beatae doloribus nisi.
                 </div>
-            </div>            
+            </div>
         </div>
     </div>
 
@@ -103,8 +109,8 @@
                     <div class="value d-flex-grow-0 ml-10">
                         <div class="input_wrap">
                             <div class="p-relative d-inline-block" style="width:10rem;">
-                                <input type="number" pattern="\\d*" class="thx_txt righticon" id="playing_time" name=""
-                                    placeholder="" autocomplete="off" required value="">
+                                <input type="number" pattern="[0-9]*" class="thx_txt righticon" id="playing_time"
+                                    name="" placeholder="" autocomplete="off" required value="">
                                 <div class="input_icon_wrap"></div>
                             </div>
                             <span class="d-inline-block ml-10">초</span>
@@ -271,26 +277,26 @@
         });
     </script>
     <script>
-        $('.btn_open_two').on('click',function(){
+        $('.btn_open_two').on('click', function () {
             $.modal('show', {
-                message:`해당 템플릿을 삭제하시겠습니까?`,
-                onebutton:`<button class="btn btn_txt" onclick="$.modal('hide');">취소</button>`,
-                twobutton:`<button class="btn btn_fill" onclick="twobutton_callback();">삭제</button>`,
-                
+                message: `해당 템플릿을 삭제하시겠습니까?`,
+                onebutton: `<button class="btn btn_txt" onclick="$.modal('hide');">취소</button>`,
+                twobutton: `<button class="btn btn_fill" onclick="twobutton_callback();">삭제</button>`,
+
             });
         });
-        function twobutton_callback(){
+        function twobutton_callback() {
             alert("삭제 기능 수행~");
             $.modal('hide');
         }
-        
-        $('.btn_open_one').on('click',function(){
+
+        $('.btn_open_one').on('click', function () {
             $.modal('show', {
-                message:`템플릿 삭제에 실패했습니다.<br>다시 시도해보시고 관리자에게 문의하세요.`,
-                onebutton:`<button class="btn btn_fill" onclick="$.modal('hide')">확인</button>`,
+                message: `템플릿 삭제에 실패했습니다.<br>다시 시도해보시고 관리자에게 문의하세요.`,
+                onebutton: `<button class="btn btn_fill" onclick="$.modal('hide')">확인</button>`,
             });
         });
-    </script>    
+    </script>
 </body>
 
 </html>

@@ -35,16 +35,16 @@
                         autocomplete="off" required>
                     <div class="input_icon_wrap"></div>
                 </div>
-                <div class="guide">아이디는 필수 입력 항목입니다.</div>
+                <div class="guide"></div>
             </div>
             <div class="pt-10"></div>
             <label for="login_pw" class="required">비밀번호</label>
-            <div class="input_wrap">
+            <div class="input_wrap" name="login_pw">
                 <div class="p-relative">
-                    <input type="password" class="thx_txt righticon error" id="login_pw" name=""
-                        placeholder="비밀번호를 입력하세요" autocomplete="off" required>
+                    <input type="password" class="thx_txt righticon" id="login_pw" name="login_pw"
+                        placeholder="비밀번호를 입력하세요" autocomplete="off" required value="abcd1234!">
                 </div>
-                <div class="guide">비밀번호는 필수 입력 항목입니다.</div>
+                <div class="guide"></div>
             </div>
             <div class="autologin_area pt-10">
                 <input type="checkbox" id="autologin" class="thx_checkbox" checked /><label for="autologin"
@@ -93,6 +93,8 @@
         var inputWithReset_login_id = new InputWithReset('#login_id');
         /* 비밀번호 보기 안보기 */
         var inputWithToggle_login_pw = new InputWithToggle('#login_pw');
+
+
     </script>
 </body>
 

@@ -33,6 +33,45 @@ Number.prototype.zf = function (len) { return this.toString().zf(len); };
 var today = new Date();
 console.log(today.format('yyyy-MM-dd HH:mm:ss')); */
 
+/* 비밀번호 유효성 검사(8자 이상 영문, 숫자, 특수문자 포함) */
+function validatePassword(password) {
+    // 문자, 숫자, 특수문자가 포함되고 8자리 이상인지를 체크하는 정규식
+    const regex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/;
+    // 정규식과 비밀번호 매칭 결과 반환
+    return regex.test(password);
+}
+/* 사용예
+const passwords = ["Abcdef1!", "12345678", "abcdefg!", "ABCDEFGH1!", "Abc1!abcdef"];
+passwords.forEach(pw => {
+    console.log(`Password: ${pw}, Valid: ${validatePassword(pw)}`);
+}); */
+
+/* 아이디 입력시 숫자만 입력되고 핸드폰 형식으로 나오게 하기 */
+function formatPhoneNumber(event) {
+    let input = event.target.value;
+
+    // 숫자만 남기기
+    input = input.replace(/\D/g, '');
+    console.log(input);
+    // 원하는 형식으로 변환
+    let formattedNumber = '';
+    if (input.length > 3) {
+        formattedNumber += input.substring(0, 3) + '-';
+        if (input.length > 7) {
+            formattedNumber += input.substring(3, 7) + '-';
+            formattedNumber += input.substring(7, 11);
+        } else {
+            formattedNumber += input.substring(3);
+        }
+    } else {
+        formattedNumber = input;
+    }
+
+    // 변환된 값을 입력 필드에 설정
+    event.target.value = formattedNumber;
+}
+/* 사용예
+$('#account_id').on('input', formatPhoneNumber); */
 
 function DoubleCheck(option) {	// 중복체크 검사
     this.valid = true;
