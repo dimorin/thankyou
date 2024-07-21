@@ -11,16 +11,7 @@
 </head>
 
 <body>
-    <div class="container home">
-        <div class="banner_notice" style="display:none;">
-            <button class="btn txt">
-                사업자등록증이 없는 매장이 있습니다.<br>
-                확인 후 사업자등록증을 등록해주세요.
-            </button>
-            <button class="btn btn_close" onclick="control_banner_notice(false);">
-                <span class="material-symbols-outlined icon">close</span>
-            </button>
-        </div>
+    <div class="container home">        
         <header>
             <div class="header_area">
                 <button type="button" class="btn pr-10 home_header_icon">
@@ -272,8 +263,7 @@
     <script>
         $(function () {
             initData();
-            initEventListener();
-            control_banner_notice(true);
+            initEventListener();            
         });
 
         function initData() {
@@ -290,14 +280,13 @@
         });
     </script>
     <script>
-        /* 알림배너 */
-        function control_banner_notice(isOpen) {
-            if (isOpen) {
-                $('.banner_notice').show();
-            } else {
-                $('.banner_notice').hide();
-            }
-        }
+        /* 알림배너 등장 */
+        $.banner_notice('show',{
+            message:`
+                사업자등록증이 없는 매장이 있습니다.<br>
+                확인 후 사업자등록증을 등록해주세요.`,
+            link:`https://www.naver.com`
+        });
 
         /* 공지사항 상세 팝업 */
         function open_notice() {

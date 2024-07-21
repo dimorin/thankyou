@@ -391,34 +391,8 @@
         });
 
         /* 이미지동영상 파일선택 */
-        $("#playlist_file").change(function () {
-            var file = this.files[0];
-            var reader = new FileReader();
-            var btn_init_file = `
-                <button class="btn btn_init_file" onclick="init_playlist_file(this);">
-                    <span class="material-symbols-outlined">close</span>
-                </button>
-            `;
-            reader.onload = function (event) {
-                the_url = event.target.result;
-                $('.thumbnail_add_playlist').append("<img class='img' alt='' src='" + the_url + "' />");
-                $('.thumbnail_add_playlist').append(btn_init_file);
-                //console.log(file.name);
-                //console.log(file.size);
-                //console.log(file.type);
-            }
-            //when the file is read it triggers the onload event above.
-            reader.readAsDataURL(file);
-        });
-        /* 이미지동영상 파일취소 */
-        function init_playlist_file(element) {
-            var me = $(element)[0];
-            var target = $($(element)[0]).parent().find('.img');
-            me.remove();
-            target.remove();
-            $("#playlist_file").val("");
-        }
-
+        $("#playlist_file").file({container:'.thumbnail_add_playlist'});
+        
         /* 접었다 펼쳤다 */
         function equipment_detail_toggle(element) {
             var card_header = $(element);

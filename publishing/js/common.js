@@ -159,7 +159,16 @@ function DoubleCheck(option) {	// 중복체크 검사
 
     return this;
 }
-
+/* 사용 예
+var doubleCheck_id = new DoubleCheck({
+    target_name: '아이디',
+    target: 'input[name=account_id]',
+    btn_check: '.btn_check_duplicate',
+    init_value: '',
+    check_url: '',
+    param_arr: [],
+});
+doubleCheck_id.init(); */
 
 
 // 입력창에 텍스트가 들어가면 초기화 버튼이 생기고, 초기화 버튼을 누르면 초기화 되는 기능
@@ -393,6 +402,42 @@ $('.btn_open_one').on('click',function(){
         message:`템플릿 삭제에 실패했습니다.<br>다시 시도해보시고 관리자에게 문의하세요.`,
         onebutton:`<button class="btn btn_fill" onclick="$.modal('hide')">확인</button>`,
     });
+}); */
+
+/* 알림 배너 (점주 메인화면에서 쓰임) */
+$.banner_notice = function(showhide, option){
+    var option = option || undefined;
+    var message = undefined;
+    var link = undefined;
+    var target_element = $('.banner_notice');
+    var target_html = '';
+    if(option){
+        message = option.message || "";
+        link = option.link || "#";
+        target_html = `
+            <div class="banner_notice">
+                <a href="${link}" class="btn txt">
+                    ${message}
+                </a>
+                <button class="btn btn_close" onclick="$.banner_notice('hide');">
+                    <span class="material-symbols-outlined icon">close</span>
+                </button>
+            </div>
+        `;
+        target_element = $(target_html);
+    }
+    if(showhide === 'show'){
+        $('.container.home').prepend(target_element);
+    }else{
+        target_element.remove();
+    }
+}
+/* 사용 예
+$.banner_notice('show',{
+    message:`
+        사업자등록증이 없는 매장이 있습니다.<br>
+        확인 후 사업자등록증을 등록해주세요.`,
+    link:`https://www.naver.com`
 }); */
 
 /* 회사 자동완성 */
@@ -767,3 +812,66 @@ $.fn.autoComplete_account = function (multi) {
 };
 /* 사용 예 */
 //$('#account_name').autoComplete_account();  
+
+/* 이미지동영상 파일선택 */
+$.fn.file = function(option){
+    var _this = this;
+    var option = option || undefined;
+    var container = undefined;
+    var target_container = undefined;
+    var file = undefined;
+    var reader = undefined;
+    var btn_init_file = undefined;
+    var file_type = 'image';
+    var the_url = undefined;
+    
+    if(option){
+        container = option.container;
+        target_container = $(`${container}`);
+    }else{
+        return;
+    }
+    
+    _this.change(function () {
+        file = this.files[0];
+        reader = new FileReader();
+        btn_init_file = `
+            <button class="btn btn_init_file">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        `;
+        
+        reader.onload = function (event) {
+            the_url = event.target.result;            
+            file_type = file.type.split('/')[0];
+            if(file_type === 'video'){
+                target_container.append(`
+                    <video class="video" preload="metadata" src="${the_url}#t=0.1"></video>
+                    `);
+            }else{
+                target_container.append(`<img class='img' alt='' src='${the_url}' />`);
+            }
+            
+            target_container.append(btn_init_file);
+            //console.log(file.name);
+            //console.log(file.size);
+
+            /* 이미지동영상 파일취소 */
+            target_container.find('.btn_init_file').on('click', function(event){
+                $(event.currentTarget).remove();
+                if(file_type === 'video'){
+                    target_container.find('.video').remove();
+                }else{
+                    target_container.find('.img').remove();
+                }
+                
+                _this.val("");
+            });            
+        }
+        //when the file is read it triggers the onload event above.
+        reader.readAsDataURL(file);        
+    });    
+}
+/* 사용 예
+$("#playlist_file").file({container:'.thumbnail_add_playlist'}); */
+
