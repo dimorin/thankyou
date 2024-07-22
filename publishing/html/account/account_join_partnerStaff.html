@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <h1>계정 가입</h1>
+            </div>
+            <div class="header_area">
+                <button class="btn btn_fill">저장</button>
+            </div>
+        </header>
+        <div class="body pl-16 pr-16 pb-16">
+            <label for="account_kind" class="required">계정 종류</label>
+            <div class="input_wrap">
+                <div class="thx_select_box">
+                    <select name="" id="account_kind" class="thx_select">
+                        <option value="all">전체</option>
+                        <option value="">점주</option>
+                        <option value="">본사관리자</option>
+                        <option value="">본사직원</option>
+                        <option value="" selected>업체관리자</option>
+                    </select>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="account_id" class="required">아이디</label>
+            <div class="input_wrap">
+                <div class="inputWithBtn">
+                    <div class="p-relative d-flex-grow-1 validCheck">
+                        <input type="text" class="thx_txt rightdoubleicon valid" id="account_id" name="account_id"
+                            placeholder="연락처를 입력하세요." autocomplete="off" required value="">
+                        <div class="input_icon_wrap"></div>
+                    </div>
+                    <button class="btn btn_fill btn_check_duplicate" disabled>중복확인</button>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="account_pw" class="required">비밀번호</label>
+            <div class="input_wrap" name="account_pw">
+                <div class="p-relative">
+                    <input type="password" class="thx_txt righticon" id="account_pw" name="account_pw"
+                        placeholder="비밀번호를 입력하세요" autocomplete="off" required value="abcd1234!">
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <label for="account_name" class="required">이름</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <input type="text" class="thx_txt righticon" id="account_name" name="" placeholder="이름을 입력하세요."
+                        autocomplete="off" required>
+                    <div class="input_icon_wrap"></div>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="account_company" class="required">소속 회사</label>
+            <div class="input_wrap">
+                <div class="p-relative input_box search">
+                    <input type="text" class="thx_txt bothicon" id="account_company" name="account_company"
+                        placeholder="회사 이름을 입력하세요" autocomplete="off" required>
+                    <div class="input_icon_wrap"></div>
+                    <div class="autoList_wrap thx_scrollbar" data-autolist="account_company">
+                        <ul class="autoList">
+                        </ul>
+                    </div>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="account_company_kind" class="required">업체 종류</label>
+            <div class="input_wrap">
+                <div class="thx_select_box">
+                    <select name="" id="account_company_kind" class="thx_select">
+                        <option>업체 종류를 선택하세요.</option>
+                        <option value="에어컨">에어컨</option>
+                        <option value="CCTV">CCTV</option>
+                        <option value="엘지">엘지</option>
+                    </select>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="account_parter_company" class="required">거래 회사</label>
+            <div class="input_wrap">
+                <ul class="select_add_list">
+                    <li>
+                        <button class="btn btn_fill_small" onclick="$('#bottomsheet_partner_company').sheet('show');">
+                            <span class="material-symbols-outlined">add</span>
+                            <span class="d-inline-block ml-5">추가</span>
+                        </button>
+                    </li>
+                    <li>
+                        <div class="option_chip">
+                            <span class="txt">더본코리아</span>
+                            <button class="btn btn_chip ml-5">
+                                <span class="material-symbols-outlined">close_small</span>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="option_chip">
+                            <span class="txt">삼성</span>
+                            <button class="btn btn_chip ml-5">
+                                <span class="material-symbols-outlined">close_small</span>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="option_chip">
+                            <span class="txt">엘지</span>
+                            <button class="btn btn_chip ml-5">
+                                <span class="material-symbols-outlined">close_small</span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="account_partner_brand" class="required">거래 브랜드</label>
+            <div class="input_wrap">
+                <ul class="select_add_list">
+                    <li>
+                        <button class="btn btn_fill_small" onclick="$('#bottomsheet_partner_brand').sheet('show');">
+                            <span class="material-symbols-outlined">add</span>
+                            <span class="d-inline-block ml-5">추가</span>
+                        </button>
+                    </li>
+                    <li>
+                        <div class="option_chip">
+                            <span class="txt">새마을식당</span>
+                            <button class="btn btn_chip ml-5">
+                                <span class="material-symbols-outlined">close_small</span>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="option_chip">
+                            <span class="txt">홍콩반점</span>
+                            <button class="btn btn_chip ml-5">
+                                <span class="material-symbols-outlined">close_small</span>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="option_chip">
+                            <span class="txt">빽다방</span>
+                            <button class="btn btn_chip ml-5">
+                                <span class="material-symbols-outlined">close_small</span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <input type="checkbox" id="personal_info" class="thx_checkbox vertical-align-middle" checked />
+            <label for="personal_info" class="ml-5 vertical-align-middle">[필수] 개인정보수집 및 동의</label>
+            <div class="input_wrap">
+                <div class="account_conditions_wrap thx_scrollbar mt-5">
+                    <div class="account_conditions">
+                        <div style="height:30rem;"></div>
+                    </div>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <input type="checkbox" id="marketing_info" class="thx_checkbox vertical-align-middle" checked />
+            <label for="marketing_info" class="ml-5 vertical-align-middle">[선택] 마케팅정보 수신동의</label>
+            <div class="input_wrap">
+                <div class="account_conditions_wrap thx_scrollbar mt-5">
+                    <div class="account_conditions">
+                        <div style="height:30rem;"></div>
+                    </div>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <input type="checkbox" id="sendsms" class="thx_checkbox vertical-align-middle" checked />
+            <label for="sendsms" class="ml-5 vertical-align-middle">저장 후 SMS로 접속 정보 발송</label>
+        </div>
+    </div>
+
+    <!-- 거래 회사 추가 -->
+    <div class="bottomSheetContainer" id="bottomsheet_partner_company" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#bottomsheet_partner_company').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">거래 회사 추가</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="input_wrap">
+                    <div class="p-relative input_box search">
+                        <input type="text" class="thx_txt bothicon" id="find_partner_company"
+                            name="find_partner_company" placeholder="거래할 회사 이름을 입력하세요" autocomplete="off" required>
+                        <div class="input_icon_wrap"></div>
+                        <div class="autoList_wrap thx_scrollbar" data-autolist="find_partner_company">
+                            <ul class="autoList">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="guide">거래할 회사 이름을 입력하세요</div>
+                </div>
+                <div class="autoList_result">
+                    <ul class="select_add_list" data-result="find_partner_company">
+                        <li>
+                            <div class="option_chip">
+                                <span class="txt">더본코리아</span>
+                                <button class="btn btn_chip ml-5">
+                                    <span class="material-symbols-outlined">close_small</span>
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="option_chip">
+                                <span class="txt">삼성</span>
+                                <button class="btn btn_chip ml-5">
+                                    <span class="material-symbols-outlined">close_small</span>
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="option_chip">
+                                <span class="txt">엘지</span>
+                                <button class="btn btn_chip ml-5">
+                                    <span class="material-symbols-outlined">close_small</span>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_fill btn_forward">적용</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 거래 브랜드 추가 -->
+    <div class="bottomSheetContainer" id="bottomsheet_partner_brand" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#bottomsheet_partner_brand').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">거래 브랜드 추가</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="input_wrap">
+                    <div class="p-relative input_box search">
+                        <input type="text" class="thx_txt bothicon" id="find_partner_brand" name="find_partner_brand"
+                            placeholder="거래할 브랜드 이름을 입력하세요" autocomplete="off" required>
+                        <div class="input_icon_wrap"></div>
+                        <div class="autoList_wrap thx_scrollbar" data-autolist="find_partner_brand">
+                            <ul class="autoList">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="guide">거래할 브랜드 이름을 입력하세요</div>
+                </div>
+                <div class="autoList_result">
+                    <ul class="select_add_list" data-result="find_partner_brand">
+                        <li>
+                            <div class="option_chip">
+                                <span class="txt">새마을식당</span>
+                                <button class="btn btn_chip ml-5">
+                                    <span class="material-symbols-outlined">close_small</span>
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="option_chip">
+                                <span class="txt">홍콩반점</span>
+                                <button class="btn btn_chip ml-5">
+                                    <span class="material-symbols-outlined">close_small</span>
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="option_chip">
+                                <span class="txt">빽다방</span>
+                                <button class="btn btn_chip ml-5">
+                                    <span class="material-symbols-outlined">close_small</span>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_fill btn_forward">적용</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        };
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* bottomsheet 거래 회사 추가 */
+        //$('#bottomsheet_partner_company').sheet('show');
+        /* bottomsheet 거래 브랜드 추가 */
+        //$('#bottomsheet_partner_brand').sheet('show');
+
+        /* 소속 회사 자동완성 */
+        $('#account_company').autoComplete_company();
+        /* 거래 회사 자동완성 */
+        $('#find_partner_company').autoComplete_company('multi');
+        /* 거래 브랜드 자동완성 */
+        $('#find_partner_brand').autoComplete_brand('multi');
+
+        /* 아이디 입력 초기화 */
+        var inputWithReset_account_id = new InputWithReset('#account_id');
+        /* 비밀번호 보기 안보기 */
+        var inputWithToggle_account_pw = new InputWithToggle('#account_pw');
+        /* 이름 입력 초기화 */
+        var inputWithReset_account_name = new InputWithReset('#account_name');
+        /* 소속 회사 입력 초기화 */
+        var inputWithReset_account_company = new InputWithReset('#account_company');
+        /* 거래할 회사 이름 입력 초기화 */
+        var inputWithReset_find_partner_company = new InputWithReset('#find_partner_company');
+        /* 거래할 회사 이름 입력 초기화 */
+        var inputWithReset_find_partner_brand = new InputWithReset('#find_partner_brand');
+        /* 아이디 중복확인 */
+        var doubleCheck_id = new DoubleCheck({
+            target_name: '아이디',
+            target: 'input[name=account_id]',
+            btn_check: '.btn_check_duplicate',
+            init_value: '',
+            check_url: '',
+            param_arr: [],
+        });
+        doubleCheck_id.init();
+
+        /* 아이디 입력시 숫자만 입력되고 핸드폰 형식으로 나오게 하기 */
+        $('#account_id').on('input', formatPhoneNumber);
+
+        /* 비밀번호 입력 후 포커스가 빠졌을 때 비밀번호 유효성 검사하기 */
+        $('#account_pw').on('blur', function (event) {
+            var target = $(event.currentTarget);
+            var value = target.val();
+            var name = target.attr('name');
+            var result_validate = validatePassword(value);  //비밀번호 유효성 검사
+            if (result_validate) {
+                target.removeClass('error');
+                $(`.input_wrap[name=${name}] .guide`).text('');
+            } else {
+                target.addClass('error');
+                $(`.input_wrap[name=${name}] .guide`).text('영문, 숫자, 특수문자를 조합하여 최소 8자 이상 입력하세요.');
+            }
+        });
+    </script>
+</body>
+
+</html>
