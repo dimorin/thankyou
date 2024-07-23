@@ -405,13 +405,13 @@ $('.btn_open_one').on('click',function(){
 }); */
 
 /* 알림 배너 (점주 메인화면에서 쓰임) */
-$.banner_notice = function(showhide, option){
+$.banner_notice = function (showhide, option) {
     var option = option || undefined;
     var message = undefined;
     var link = undefined;
     var target_element = $('.banner_notice');
     var target_html = '';
-    if(option){
+    if (option) {
         message = option.message || "";
         link = option.link || "#";
         target_html = `
@@ -426,9 +426,9 @@ $.banner_notice = function(showhide, option){
         `;
         target_element = $(target_html);
     }
-    if(showhide === 'show'){
+    if (showhide === 'show') {
         $('.container.home').prepend(target_element);
-    }else{
+    } else {
         target_element.remove();
     }
 }
@@ -814,7 +814,7 @@ $.fn.autoComplete_account = function (multi) {
 //$('#account_name').autoComplete_account();  
 
 /* 이미지동영상 파일선택 */
-$.fn.file = function(option){
+$.fn.file = function (option) {
     var _this = this;
     var option = option || undefined;
     var container = undefined;
@@ -824,14 +824,14 @@ $.fn.file = function(option){
     var btn_init_file = undefined;
     var file_type = 'image';
     var the_url = undefined;
-    
-    if(option){
+
+    if (option) {
         container = option.container;
         target_container = $(`${container}`);
-    }else{
+    } else {
         return;
     }
-    
+
     _this.change(function () {
         file = this.files[0];
         reader = new FileReader();
@@ -840,38 +840,98 @@ $.fn.file = function(option){
                 <span class="material-symbols-outlined">close</span>
             </button>
         `;
-        
+
         reader.onload = function (event) {
-            the_url = event.target.result;            
+            the_url = event.target.result;
             file_type = file.type.split('/')[0];
-            if(file_type === 'video'){
+            if (file_type === 'video') {
                 target_container.append(`
                     <video class="video" preload="metadata" src="${the_url}#t=0.1"></video>
                     `);
-            }else{
+            } else {
                 target_container.append(`<img class='img' alt='' src='${the_url}' />`);
             }
-            
+
             target_container.append(btn_init_file);
             //console.log(file.name);
             //console.log(file.size);
 
             /* 이미지동영상 파일취소 */
-            target_container.find('.btn_init_file').on('click', function(event){
+            target_container.find('.btn_init_file').on('click', function (event) {
                 $(event.currentTarget).remove();
-                if(file_type === 'video'){
+                if (file_type === 'video') {
                     target_container.find('.video').remove();
-                }else{
+                } else {
                     target_container.find('.img').remove();
                 }
-                
+
                 _this.val("");
-            });            
+            });
         }
         //when the file is read it triggers the onload event above.
-        reader.readAsDataURL(file);        
-    });    
+        reader.readAsDataURL(file);
+    });
 }
 /* 사용 예
 $("#playlist_file").file({container:'.thumbnail_add_playlist'}); */
 
+/* 이미지확대팝업 */
+$.img_modal = function (showhide, element) {
+    var src = undefined;
+    var target_html = '';
+    var target_element = $('.imgModalContainer');
+    var backdrop_length = 0;
+    if (element) {
+        src = $(element).prev().attr('src');
+        target_html = `
+            <div class="imgModalContainer">
+                <div class="imgModal">                    
+                    <div class="img_wrap">
+                        <img src="${src}" alt="" class="img">
+                    </div>
+                    <button class="btn btn_close_imgModal" onclick="$.img_modal('hide');">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
+                </div>
+            </div>
+        `;
+        target_element = $(target_html);
+    }
+
+    if (showhide === 'show') {
+        $('body').css('overflow', 'hidden');
+        $('body').append(`<div class="backdrop img_modal"></div>`);
+        backdrop_length = $('body').children('.backdrop').length;
+        $(`.backdrop.img_modal`).css('z-index', (backdrop_length - 1) * 2 + 1000);
+        setTimeout(() => {
+            $(`.backdrop.img_modal`).addClass('show');
+        }, 10);
+        target_element.css('z-index', (backdrop_length - 1) * 2 + 1000 + 1);
+        target_element.addClass('show');
+        $('body').append(target_element);
+        $(`.backdrop.img_modal`).on('click', hide_modal);
+    } else {
+        hide_modal();
+    }
+
+    function hide_modal() {
+        //$.modal('hide');
+        if ($('body .backdrop').length <= 1) {
+            /* backdrop이 두 개 이상 이라는 것은 이미 다른 팝업이 열려 있다는 것이기 때문에 해당 팝업을 닫아도 overflow는 hidden으로 유지 하기 위해 
+            backdrop이 하나일 때만 body의 overflow를 auto로 되돌림 */
+            $('body').css('overflow', 'auto');
+        }
+        target_element.remove();
+        $(`.backdrop.img_modal.show`).removeClass('show');
+        $(`.backdrop.img_modal`).off('click', hide_modal);
+        $(`.backdrop.img_modal`).remove();
+    }
+};
+/* 사용 예 */
+/* 
+<button class="btn btn_expand" onclick="$.img_modal('show', this);">
+    <span class="material-symbols-outlined">fullscreen</span>
+</button>
+*/

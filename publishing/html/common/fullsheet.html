@@ -141,7 +141,8 @@
                     <div class="detail_item">
                         <label class="title">레이아웃</label>
                         <div class="value">
-                            <button class="btn btn_fill btn_open_waitnumberlayout" onclick="$('#view_waitnumberlayout').sheet('show');">대기번호 레이아웃</button>
+                            <button class="btn btn_fill btn_open_waitnumberlayout"
+                                onclick="$('#view_waitnumberlayout').sheet('show');">대기번호 레이아웃</button>
                         </div>
                     </div>
                 </div>
@@ -195,12 +196,14 @@
     <div class="fullSheetContainer" id="view_waitnumberlayout" data-type="full">
         <div class="fullSheet">
             <div class="fullSheet_header">
-                <button class="btn btn_close_fullSheet" onclick="$('#view_waitnumberlayout').sheet('hide');">
-                    <span class="material-symbols-outlined">
-                        close
-                    </span>
-                </button>
-                <span class="title">대기번호 레이아웃</span>
+                <div class="header_area">
+                    <button class="btn btn_close_fullSheet" onclick="$('#view_waitnumberlayout').sheet('hide');">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
+                    <span class="title">대기번호 레이아웃</span>
+                </div>
             </div>
 
             <div class="fullSheet_body waitnumberlayout_detail">
