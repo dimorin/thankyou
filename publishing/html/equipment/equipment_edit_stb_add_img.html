@@ -138,7 +138,7 @@
                         <div class="value">
                             <div class="input_wrap">
                                 <div class="p-relative d-inline-block mainnumbertime">
-                                    <input type="number" pattern="[0-9]*" inputmode="numeric" min="0" max="86400"
+                                    <input type="tel" pattern="[0-9]*" inputmode="numeric" min="0" max="86400"
                                         class="thx_txt righticon" id="mainnumbertime" name="" placeholder=""
                                         autocomplete="off" required value="30">
                                     <div class="input_icon_wrap"></div>
@@ -284,7 +284,7 @@
                     <div class="value d-flex-grow-0 ml-10">
                         <div class="input_wrap">
                             <div class="p-relative d-inline-block" style="width:10rem;">
-                                <input type="number" pattern="[0-9]*" inputmode="numeric" class="thx_txt righticon"
+                                <input type="tel" pattern="[0-9]*" inputmode="numeric" class="thx_txt righticon"
                                     id="playing_time" name="" placeholder="" autocomplete="off" required value="">
                                 <div class="input_icon_wrap"></div>
                             </div>
@@ -391,8 +391,8 @@
         });
 
         /* 이미지동영상 파일선택 */
-        $("#playlist_file").file({container:'.thumbnail_add_playlist'});
-        
+        $("#playlist_file").file({ container: '.thumbnail_add_playlist' });
+
         /* 접었다 펼쳤다 */
         function equipment_detail_toggle(element) {
             var card_header = $(element);
