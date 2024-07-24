@@ -204,9 +204,10 @@ header h1{font-weight:500;font-size:2rem;}
 .detail_item{display:flex;align-items:center;}
 .detail_item.vertical{flex-direction: column;align-items: flex-start;}
 .detail_item.start{align-items:flex-start;}
-.detail_item.baseline{-webkit-box-align: baseline;-moz-align-items: baseline;-ms-flex-align: baseline;align-items: baseline;align-items:baseline;}
+.detail_item.baseline{align-items:baseline;}
 .detail_item .title{flex-shrink:0;width:14rem;color:var(--title_color);margin:0 0 0 0.2rem;}
 .detail_item .value{flex-grow:1;display:inline-flex;align-items:center;}
+.detail_item.start .title{padding-top:1.2rem;}
 .detail_item.vertical .title{width:100%;}
 .detail_item.vertical .value{width:100%;flex-direction:column;align-items:flex-start;}
 .detail_item .spec{transform: translateY(5px);}
