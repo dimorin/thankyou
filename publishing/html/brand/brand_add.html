@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>브랜드 등록&편집</h1>
+            </div>
+            <div class="header_area">
+                <button class="btn btn_fill">저장</button>
+            </div>
+        </header>
+        <div class="body pl-16 pr-16 pb-16">
+            <label for="brand_name" class="required">브랜드명</label>
+            <div class="input_wrap">
+                <div class="inputWithBtn">
+                    <div class="p-relative d-flex-grow-1 validCheck">
+                        <input type="text" class="thx_txt rightdoubleicon valid" id="brand_name" name="brand_name"
+                            placeholder="브랜드 이름을 입력하세요." autocomplete="off" required value="">
+                        <div class="input_icon_wrap"></div>
+                    </div>
+                    <button class="btn btn_fill btn_check_duplicate" disabled>중복확인</button>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="brand_franchise" class="required">본사명</label>
+            <div class="input_wrap">
+                <div class="p-relative input_box search">
+                    <input type="text" class="thx_txt bothicon" id="brand_franchise" name="brand_franchise"
+                        placeholder="본사 이름을 입력하세요" autocomplete="off" required>
+                    <div class="input_icon_wrap"></div>
+                    <div class="autoList_wrap thx_scrollbar" data-autolist="brand_franchise">
+                        <ul class="autoList">
+                        </ul>
+                    </div>
+                </div>
+                <div class="guide"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        };
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 브랜드명 입력 초기화 */
+        var inputWithReset_brand_name = new InputWithReset('#brand_name');
+        /* 본사명 입력 초기화 */
+        var inputWithReset_brand_franchise = new InputWithReset('#brand_franchise');
+
+        /* 브랜드명 중복확인 */
+        var doubleCheck_brand_name = new DoubleCheck({
+            target_name: '브랜드 이름',
+            target: 'input[name=brand_name]',
+            btn_check: '.btn_check_duplicate',
+            init_value: '',
+            check_url: '',
+            param_arr: [],
+        });
+        doubleCheck_brand_name.init();
+
+        /* 본사명 자동완성 */
+        $('#brand_franchise').autoComplete_company();
+
+
+
+    </script>
+
+</body>
+
+</html>

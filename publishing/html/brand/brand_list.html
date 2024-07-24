@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>브랜드 목록</h1>
+            </div>
+        </header>
+        <div class="body list">
+            <div class="input_wrap">
+                <div class="p-relative input_box search">
+                    <input type="text" class="thx_txt bothicon" id="find_brand_name" name="find_brand_name"
+                        placeholder="본사나 브랜드를 입력하세요" autocomplete="off">
+                    <div class="input_icon_wrap"></div>
+                </div>
+            </div>
+            <ul class="brand_list mt-10">
+                <li class="item">
+                    <ul class="item_body_list">
+                        <li>
+                            <label class="brand_label">브랜드</label>
+                            <div class="brand_value">빽다방</div>
+                        </li>
+                        <li>
+                            <label class="brand_label">본사</label>
+                            <div class="brand_value">더본코리아</div>
+                        </li>
+                        <li>
+                            <label class="brand_label">브랜드 담당자</label>
+                            <div class="brand_value">김미영 외 1인</div>
+                            <button class="btn btn_view_manager" onclick="brand_manager_toggle(this)">
+                                <span class="material-symbols-outlined">expand_circle_down</span>
+                            </button>
+                            <div class="manager_wrap mt-5">
+                                김미영, 김미숙
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="item_footer d-between-center pt-5 pb-5 pr-10">
+                        <button class="btn btn_txt">편집</button>
+                        <button class="btn btn_fill_small" onclick="$('#management_brand_manager').sheet('show');">브랜드
+                            담당자 관리</button>
+                    </div>
+                </li>
+                <li class="item">
+                    <ul class="item_body_list">
+                        <li>
+                            <label class="brand_label">브랜드</label>
+                            <div class="brand_value">새마을식당</div>
+                        </li>
+                        <li>
+                            <label class="brand_label">본사</label>
+                            <div class="brand_value">더본코리아</div>
+                        </li>
+                        <li>
+                            <label class="brand_label">브랜드 담당자</label>
+                            <div class="brand_value">-</div>
+                        </li>
+                    </ul>
+                    <div class="item_footer d-between-center pt-5 pb-5 pr-10">
+                        <button class="btn btn_txt">편집</button>
+                        <button class="btn btn_fill_small" onclick="$('#management_brand_manager').sheet('show');">브랜드
+                            담당자 관리</button>
+                    </div>
+                </li>
+            </ul>
+            <button class="btn btn_fill btn_big btn_add">
+                <span class="material-symbols-outlined">edit</span>
+                <span class="d-inline-block ml-10">브랜드 등록</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 브랜드 담당자 관리 -->
+    <div class="bottomSheetContainer" id="management_brand_manager" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#management_brand_manager').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">브랜드 담당자 관리</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="input_wrap">
+                    <div class="p-relative input_box search">
+                        <input type="text" class="thx_txt bothicon" id="account_name" name="account_name"
+                            placeholder="이름을 입력하세요" autocomplete="off" required>
+                        <div class="input_icon_wrap"></div>
+                        <div class="autoList_wrap thx_scrollbar" data-autolist="account_name">
+                            <ul class="autoList">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="guide"></div>
+                </div>
+                <div class="autoList_result">
+                    <ul class="select_add_list" data-result="account_name">
+
+                    </ul>
+                </div>
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_fill">적용</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        $(function () {
+            // 현재 페이지 번호 및 페이지당 아이템 수 설정
+            let page = 1;
+            const itemsPerPage = 10;
+
+            // 아이템을 표시할 컨테이너와 아이템 클래스 설정
+            const itemContainer = 'brand_list';
+            const itemClass = 'item';
+
+            // 마지막으로 로드된 아이템과 관찰된 아이템을 추적하기 위한 변수 초기화
+            let lastItem; // 마지막으로 로드된 아이템
+            let lastObservedItem; // 마지막 아이템이면서 화면에 들어온 것으로 관찰된 아이템
+
+            // 아이템을 로드하고 화면에 추가하는 함수
+            function loadItems() {
+                $.ajax({
+                    url: `https://raw.githubusercontent.com/ctrlcccv/ctrlcccv-demo/main/2023-11-01-ajax-Infinite/test.json`,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        // 현재 페이지에 해당하는 아이템만 선택 0~9, 10~19, 20~29 ,...
+                        const newData = data.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+                        newData.forEach(newItem => {
+                            // 아이템을 컨테이너에 추가                            
+                            $(`.${itemContainer}`).append(
+                                `
+                               <li class="${itemClass}">
+                                    <ul class="item_body_list">
+                                        <li>
+                                            <label class="brand_label">브랜드</label>
+                                            <div class="brand_value">빽다방${newItem.item}</div>
+                                        </li>
+                                        <li>
+                                            <label class="brand_label">본사</label>
+                                            <div class="brand_value">더본코리아</div>
+                                        </li>
+                                        <li>
+                                            <label class="brand_label">브랜드 담당자</label>
+                                            <div class="brand_value">김미영 외 1인</div>
+                                            <button class="btn btn_view_manager" onclick="brand_manager_toggle(this)">
+                                                <span class="material-symbols-outlined">expand_circle_down</span>
+                                            </button>
+                                            <div class="manager_wrap mt-5">
+                                                김미영, 김미숙
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="item_footer d-between-center pt-5 pb-5 pr-10">
+                                        <button class="btn btn_txt">편집</button>
+                                        <button class="btn btn_fill_small" onclick="$('#management_brand_manager').sheet('show');">브랜드 담당자 관리</button>
+                                    </div>                                    
+                                </li>
+                                `
+                            );
+                        });
+                        page++; // 다음 페이지로 이동
+
+                        // 마지막으로 추가된 아이템 설정 및 Intersection Observer에 관찰
+                        lastItem = $(`.${itemContainer} .${itemClass}:last`)[0];
+
+                        if (lastItem !== lastObservedItem) { // 마지막으로 추가된 아이템이 컨테이너 안에 있을 때는 관찰할 필요 없음
+                            observer.observe(lastItem); // 관찰자 바꾸기                            
+                        }
+                    },
+                    error: function (error) {
+                        console.error('데이터를 가져오는 동안 오류가 발생했습니다:', error);
+                    }
+                });
+            }
+
+            // 초기 페이지 로드 시 아이템 로드 함수 호출
+            loadItems();
+
+            // Intersection Observer 설정
+            const observerOptions = {
+                root: null, // 관찰자의 루트 요소 설정 (null은 브라우저의 뷰포트)
+                threshold: 0.5 // 아이템이 50% 이상 화면에 나타날 때 콜백 함수 실행
+            };
+
+            // Intersection Observer 생성
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // 관찰하고 있던 아이템이 화면에 나타나면 아이템을 로드하고 관찰 해제                        
+                        //lastObservedItem = $(`.${itemContainer} .${itemClass}:last`)[0];
+                        //console.log(entry.target === lastObservedItem);
+                        lastObservedItem = entry.target;
+                        loadItems();
+                        observer.unobserve(entry.target); // 기존 관찰대상은 관찰 해제
+                    }
+                });
+            }, observerOptions);
+        });
+    </script>
+    <script>
+        /* 본사명 입력 초기화 */
+        var inputWithReset_find_brand_name = new InputWithReset('#find_brand_name');
+
+        /* bottomsheet 브랜드 담당자 관리 */
+        //$('#management_brand_manager').sheet('show');
+
+        /* 브랜드 담당자 관리 이름 입력 초기화 */
+        var inputWithReset_account_name = new InputWithReset('#account_name');
+
+        /* 브랜드 담당자 관리 자동완성 */
+        $('#account_name').autoComplete_account('multi');
+
+        /* 브랜드담당자 접었다 폈다 */
+        function brand_manager_toggle(element) {
+            $(element).toggleClass('show');
+            $(element).next().toggleClass('show');
+        }        
+    </script>
+</body>
+
+</html>
