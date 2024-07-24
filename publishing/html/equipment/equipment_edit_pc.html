@@ -139,11 +139,26 @@
                                         value="beverage"><label class="ml-5" for="comment2">주문하신 음료 나왔습니다</label>
                                 </div>
                                 <div class="pt-10"></div>
-                                <div class="d-left-center w-100">
+                                <div class="d-flex w-100">
                                     <input type="radio" id="comment3" class="thx_radio" name="comment" value="direct">
-                                    <label class="ml-5 w-100" for="comment3">
-                                        <div class="direct">직접 입력해주세요.</div>
-                                    </label>
+                                    <div class="ml-5 w-100">
+                                        <div class="thx_select_box mb-5">
+                                            <select name="" id="select_direct" class="thx_select">
+                                                <option value="">마무리 멘트를 선택하세요.</option>
+                                                <option value="주문하신 음료가 준비되었습니다">주문하신 음료가 준비되었습니다</option>
+                                                <option value="주문하신 음식이 준비되었습니다">주문하신 음식이 준비되었습니다</option>
+                                            </select>
+                                        </div>
+                                        <button class="btn btn_audio_make">
+                                            <div class="d-center">
+                                                <span class="icon mr-10">
+                                                    <span class="material-symbols-outlined">add</span>
+                                                </span>
+                                                <span>마무리 멘트 생성</span>
+                                            </div>
+                                        </button>
+                                    </div>
+
                                 </div>
                                 <div class="guide"></div>
                             </div>
@@ -241,11 +256,17 @@
         /* 멘트 내용 입력 초기화 */
         var inputWithReset_last_comment = new InputWithReset('#last_comment');
 
-        /* 마무리 멘트 생성 팝업 띄우기 */
-        $('input[name=comment]').on('click', function (event) {
-            if (event.target.value === 'direct') {
-                $('#view_audio_make').sheet('show');
+        /* 직접 만든 마무리멘트를 선택하면 마무리멘트 라디오버튼 마지막 항목이 자동 선택된다. */
+        $('#select_direct').on('input', function (event) {
+            if (event.target.value) {
+                $('.thx_radio[name=comment][value=direct]').prop('checked', true);
+            } else {
             }
+        });
+
+        /* 마무리 멘트 생성 팝업 띄우기 */
+        $('.btn_audio_make').on('click', function (event) {
+            $('#view_audio_make').sheet('show');
         });
 
         /* 멘트 속도 */
