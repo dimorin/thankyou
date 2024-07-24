@@ -131,12 +131,12 @@
                             <div class="input_wrap w-100">
                                 <div class="d-left-center w-100">
                                     <input type="radio" id="comment1" class="thx_radio" name="comment" value="food"
-                                        checked=""><label class="ml-5" for="comment1">주문하신 음식 나왔습니다.</label>
+                                        checked=""><label class="ml-5" for="comment1">주문하신 음식 나왔습니다</label>
                                 </div>
                                 <div class="pt-10"></div>
                                 <div class="d-left-center w-100">
                                     <input type="radio" id="comment2" class="thx_radio" name="comment"
-                                        value="beverage"><label class="ml-5" for="comment2">주문하신 음료 나왔습니다.</label>
+                                        value="beverage"><label class="ml-5" for="comment2">주문하신 음료 나왔습니다</label>
                                 </div>
                                 <div class="pt-10"></div>
                                 <div class="d-left-center w-100">
@@ -157,7 +157,7 @@
         <div class="bottomSheet">
             <button class="btn handle" onclick="$('#view_audio_make').sheet('hide');"><span></span></button>
             <div class="bottomSheet_header">
-                <div class="title">멘트 오디오 생성</div>
+                <div class="title">마무리 멘트 생성</div>
             </div>
             <div class="pt-10 mt-10"></div>
             <div class="bottomSheet_body">
@@ -241,7 +241,7 @@
         /* 멘트 내용 입력 초기화 */
         var inputWithReset_last_comment = new InputWithReset('#last_comment');
 
-        /* 멘트 오디오 생성 팝업 띄우기 */
+        /* 마무리 멘트 생성 팝업 띄우기 */
         $('input[name=comment]').on('click', function (event) {
             if (event.target.value === 'direct') {
                 $('#view_audio_make').sheet('show');

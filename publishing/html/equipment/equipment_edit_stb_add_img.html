@@ -241,19 +241,34 @@
                             <div class="input_wrap w-100">
                                 <div class="d-left-center w-100">
                                     <input type="radio" id="comment1" class="thx_radio" name="comment" value="food"
-                                        checked=""><label class="ml-5" for="comment1">주문하신 음식 나왔습니다.</label>
+                                        checked=""><label class="ml-5" for="comment1">주문하신 음식 나왔습니다</label>
                                 </div>
                                 <div class="pt-10"></div>
                                 <div class="d-left-center w-100">
                                     <input type="radio" id="comment2" class="thx_radio" name="comment"
-                                        value="beverage"><label class="ml-5" for="comment2">주문하신 음료 나왔습니다.</label>
+                                        value="beverage"><label class="ml-5" for="comment2">주문하신 음료 나왔습니다</label>
                                 </div>
                                 <div class="pt-10"></div>
-                                <div class="d-left-center w-100">
+                                <div class="d-flex w-100">
                                     <input type="radio" id="comment3" class="thx_radio" name="comment" value="direct">
-                                    <label class="ml-5 w-100" for="comment3">
-                                        <div class="direct">직접 입력해주세요.</div>
-                                    </label>
+                                    <div class="ml-5 w-100">
+                                        <div class="thx_select_box mb-5">
+                                            <select name="" id="select_direct" class="thx_select">
+                                                <option value="">마무리 멘트를 선택하세요.</option>
+                                                <option value="주문하신 음료가 준비되었습니다">주문하신 음료가 준비되었습니다</option>
+                                                <option value="주문하신 음식이 준비되었습니다">주문하신 음식이 준비되었습니다</option>
+                                            </select>
+                                        </div>
+                                        <button class="btn btn_audio_make">
+                                            <div class="d-center">
+                                                <span class="icon mr-10">
+                                                    <span class="material-symbols-outlined">add</span>
+                                                </span>
+                                                <span>마무리 멘트 생성</span>
+                                            </div>
+                                        </button>
+                                    </div>
+
                                 </div>
                                 <div class="guide"></div>
                             </div>
