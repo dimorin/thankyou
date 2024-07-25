@@ -312,7 +312,7 @@ header h1{font-weight:500;font-size:2rem;}
 .company_list .company_value{font-size:1.4rem;color:var(--title_color);margin-left:0.5rem;}
 .company_list .item_footer{background-color:white;border-top:0.1rem solid #D9E1F2;}
 .company_list .thumbnail_cert{position:absolute;top:1rem;right:1rem;width:7.8rem;height:7.8rem;border:0.1rem solid #D9E1F2;border-radius:0.4rem;box-sizing:content-box;}
-.company_list .thumbnail_cert::before {content: '사업자등록증';font-weight: 500;font-size: 1.2rem;color: var(--blur_color);position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
+.company_list .thumbnail_cert::before {content: '사업자등록증';text-align: center;font-weight: 500;font-size: 1.2rem;color: var(--blur_color);position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
 .company_list .thumbnail_cert .img {position: absolute;left:50%;top:50%;transform:translate(-50%,-50%);display: inline-block;width: inherit;height: inherit;object-fit: cover;}
 .company_list .thumbnail_cert .btn_expand{position:absolute;top:0;right:0;width:2.4rem;height:2.4rem;background-color:black;color:white;}
 
@@ -329,6 +329,23 @@ header h1{font-weight:500;font-size:2rem;}
 .brand_list .btn_view_manager.show{transform:rotate(180deg);}
 .brand_list .manager_wrap{width:100%;height:0;padding:0 1.6rem;line-height:1.4;background-color:var(--read_color);border-radius:0.4rem;overflow:hidden;transition:padding 0.4s ease;}
 .brand_list .manager_wrap.show{height:auto;padding:1.6rem;}
+
+/* store */
+.add_file{position:relative;width:7.8rem;height:7.8rem;border:0.1rem solid #D9E1F2;border-radius:0.4rem;box-sizing:content-box;}
+.add_file::before {content: '사업자등록증';text-align: center;font-weight: 500;font-size: 1.2rem;color: var(--blur_color);position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
+.add_file .img {position: absolute;left:50%;top:50%;transform:translate(-50%,-50%);display: inline-block;width: inherit;height: inherit;object-fit: cover;}
+.add_file .btn_expand{position:absolute;top:0;right:0;width:2.4rem;height:2.4rem;background-color:black;color:white;}
+.btn_call_waitnumber{position:absolute;top:0.5rem;right:0.5rem;height:3rem;padding:0 1rem;color:white;background-color:var(--primary_color);border-radius:0.4rem;}
+.btn_link_transfer{display:flex;align-items:center;color:var(--primary_color);}
+.store_btn_wrap{display:flex;flex-wrap:wrap;gap:1rem;}
+.store_hr{width: 100%;height: 0.1rem;background-color: #D9E1F2;}
+.btn_store{position:relative;}
+.btn_store.progress::after {content: '';position: absolute;right: 0;top: 0;transform: translate(50%, -50%);display: inline-block;width: 0.8rem;height: 0.8rem;border-radius: 0.8rem;border:2px solid var(--bg_color);background-color: var(--progress_color);}
+.call_waitnumber_wrap{}
+.call_waitnumber_wrap .display_number{display:flex;justify-content:center;align-items:center;width:23.6rem;height:4.8rem;color:var(--txt_color);font-weight:500;font-size:3rem;border-radius:0.4rem;background-color:var(--read_color);}
+.call_waitnumber_wrap .number_pad{width:23.6rem;display:flex;flex-wrap:wrap;gap:1rem;}
+.call_waitnumber_wrap .btn_number{width:7.2rem;height:4.8rem;border:1px solid #D9E1F2;font-weight:500;font-size:2rem;color:var(--txt_color);border-radius:0.4rem;background-color:white;}
+.call_waitnumber_wrap .btn_number.txt{font-size:1.4rem;}
 
 /* equipment */
 .equipment_list{}
