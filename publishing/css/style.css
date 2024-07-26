@@ -349,8 +349,8 @@ header h1{font-weight:500;font-size:2rem;}
 .store_list > li .btn_detail.closed{border:1px solid #D9E1F2;background-color:transparent;}
 .store_list > li .btn_detail.closed .store_call{opacity:0.28;}
 .store_list > li .btn_represent_store{position:absolute;bottom:1rem;right:1rem;display:flex;justify-content:center;align-items:center;width:6rem;height:4rem;font-size:1.2rem;color:white;background-color:var(--primary_color);font-weight:400;border-radius:0.4rem;}
-
 .add_file{position:relative;width:7.8rem;height:7.8rem;border:0.1rem solid #D9E1F2;border-radius:0.4rem;box-sizing:content-box;}
+.add_file.wait{border:1rem solid rgba(31,119,196,0.28);}
 .add_file::before {content: '사업자등록증';text-align: center;font-weight: 500;font-size: 1.2rem;color: var(--blur_color);position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
 .add_file .img {position: absolute;left:50%;top:50%;transform:translate(-50%,-50%);display: inline-block;width: inherit;height: inherit;object-fit: cover;}
 .add_file .btn_expand{position:absolute;top:0;right:0;width:2.4rem;height:2.4rem;background-color:black;color:white;}
