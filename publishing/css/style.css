@@ -331,6 +331,25 @@ header h1{font-weight:500;font-size:2rem;}
 .brand_list .manager_wrap.show{height:auto;padding:1.6rem;}
 
 /* store */
+.store_list > li{position:relative;margin-top:1rem;}
+.store_list > li:first-child{margin-top:0;}
+.store_list > li .btn_detail{display:block;width:100%;padding:1rem;text-align:left;color:var(--title_color);border-radius:0.4rem;background-color:white;}
+.store_list > li .btn_detail .detail_header{display:flex;align-items:center;gap:1rem;}
+.store_list > li .btn_detail .badge_state.normal{display:inline-block;height:2.2rem;line-height:2.2rem;padding:0 1rem;font-weight:500;font-size:1.2rem;color:#2B7FFC;background-color:transparent;border:1px solid #eeeeee;border-radius:0.4rem;}
+.store_list > li .btn_detail .badge_state.closed{display:inline-block;height:2.2rem;line-height:2.2rem;padding:0 1rem;font-weight:500;font-size:1.2rem;color:#999999;background-color:transparent;border:1px solid #eeeeee;border-radius:0.4rem;}
+.store_list > li .btn_detail .badge_state.transfer{display:inline-block;height:2.2rem;line-height:2.2rem;padding:0 1rem;font-weight:500;font-size:1.2rem;color:#2B7FFC;background-color:transparent;border:1px solid #eeeeee;border-radius:0.4rem;}
+.store_list > li .btn_detail .badge_state.wait{display:inline-block;height:2.2rem;line-height:2.2rem;padding:0 1rem;font-weight:500;font-size:1.2rem;color:tomato;background-color:transparent;border:1px solid #eeeeee;border-radius:0.4rem;}
+.store_list > li .btn_detail .badge_no_cert{display:inline-flex;align-items:center;height:2.2rem;line-height:0;padding:0 1rem 0 0;font-weight:500;font-size:1.2rem;color:white;background-color:tomato;border-radius:0.4rem;}
+.store_list > li .btn_detail .store_wrap{display:flex;align-items:center;gap:1rem;}
+.store_list > li .btn_detail .store_wrap.represent_store{padding-right:7rem;}
+.store_list > li .btn_detail .store_call{flex-shrink:0;display:inline-flex;justify-content:center;align-items:center;width:4rem;height:4rem;border-radius:50%;background-color:var(--primary_color);color:white;}
+.store_list > li .btn_detail .name_wrap{width: calc(100% - 5rem);}
+.store_list > li .btn_detail .brand_name{font-size:1.4rem;color:var(--title_color);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.store_list > li .btn_detail .store_name{font-size:1.4rem;color:var(--title_color);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.store_list > li .btn_detail.closed{border:1px solid #D9E1F2;background-color:transparent;}
+.store_list > li .btn_detail.closed .store_call{opacity:0.28;}
+.store_list > li .btn_represent_store{position:absolute;bottom:1rem;right:1rem;display:flex;justify-content:center;align-items:center;width:6rem;height:4rem;font-size:1.2rem;color:white;background-color:var(--primary_color);font-weight:400;border-radius:0.4rem;}
+
 .add_file{position:relative;width:7.8rem;height:7.8rem;border:0.1rem solid #D9E1F2;border-radius:0.4rem;box-sizing:content-box;}
 .add_file::before {content: '사업자등록증';text-align: center;font-weight: 500;font-size: 1.2rem;color: var(--blur_color);position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
 .add_file .img {position: absolute;left:50%;top:50%;transform:translate(-50%,-50%);display: inline-block;width: inherit;height: inherit;object-fit: cover;}
