@@ -365,6 +365,8 @@ header h1{font-weight:500;font-size:2rem;}
 .call_waitnumber_wrap .number_pad{width:23.6rem;display:flex;flex-wrap:wrap;gap:1rem;}
 .call_waitnumber_wrap .btn_number{width:7.2rem;height:4.8rem;border:1px solid #D9E1F2;font-weight:500;font-size:2rem;color:var(--txt_color);border-radius:0.4rem;background-color:white;}
 .call_waitnumber_wrap .btn_number.txt{font-size:1.4rem;}
+.btn_add_account{display:flex;justify-content:center;align-items:center;width:100%;height:4rem;background-color:#D9E1F2;border-radius:0.4rem;font-weight:500;font-size:1.4rem;color:var(--primary_color);}
+.btn_add_account .icon{display:inline-flex;justify-content:center;align-items:center;width:2.4rem;height:2.4rem;background-color:var(--primary_color);color:white;border-radius:2.4rem;}
 
 /* equipment */
 .equipment_list{}
