@@ -52,7 +52,7 @@ function formatPhoneNumber(event) {
 
     // 숫자만 남기기
     input = input.replace(/\D/g, '');
-    console.log(input);
+    //console.log(input);
     // 원하는 형식으로 변환
     let formattedNumber = '';
     if (input.length > 3) {
@@ -73,7 +73,7 @@ function formatPhoneNumber(event) {
 /* 사용예
 $('#account_id').on('input', formatPhoneNumber); */
 
-function DoubleCheck(option) {	// 중복체크 검사
+function DoubleCheck(option) {	// 중복확인 검사
     this.valid = true;
     this.option = option;
     this.target_name = option.target_name;
@@ -84,9 +84,11 @@ function DoubleCheck(option) {	// 중복체크 검사
     this.param_arr = option.param_arr;
     this.parentOfTarget = this.target.parent();
     this.paramKey = this.target.attr('name');
-    _this_doubleCheck = this;
-
-    this.init = function () { // 처음일 때 입력창 아이콘, 버튼 상태, 입력창 값 세팅
+    this.addEventListeners();
+}
+DoubleCheck.prototype.addEventListeners = function () {
+    var _this_doubleCheck = this;
+    _this_doubleCheck.init = function () { // 처음일 때 입력창 아이콘, 버튼 상태, 입력창 값 세팅
         $(_this_doubleCheck.parentOfTarget).removeClass('valid');
         $(_this_doubleCheck.parentOfTarget).removeClass('unvalid');
         $(_this_doubleCheck.btn_check).attr('disabled', true);
@@ -95,9 +97,9 @@ function DoubleCheck(option) {	// 중복체크 검사
     };
 
     // 이벤트 바인딩
-    this.target.on('keyup', function (event) { // 입력창 값이 바뀔 때 입력창과 버튼 상태 세팅
+    _this_doubleCheck.target.on('keyup', function (event) { // 입력창 값이 바뀔 때 입력창과 버튼 상태 세팅
         var target_value = $(event.currentTarget).val();
-        if (target_value == _this_doubleCheck.init_value) { // 내용이 변경되어 처음과 같으면
+        if (target_value == _this_doubleCheck.init_value) { // 내용이 변경되어 처음과 같으면            
             $(_this_doubleCheck.parentOfTarget).removeClass('valid');
             $(_this_doubleCheck.parentOfTarget).removeClass('unvalid');
             $(_this_doubleCheck.btn_check).attr('disabled', true);
@@ -109,7 +111,7 @@ function DoubleCheck(option) {	// 중복체크 검사
             _this_doubleCheck.valid = false;
         };
     });
-    this.btn_check.on('click', function (event) { // 버튼 클릭시 결과에 따라 입력창 아이콘, 버튼 상태 세팅
+    _this_doubleCheck.btn_check.on('click', function (event) { // 버튼 클릭시 결과에 따라 입력창 아이콘, 버튼 상태 세팅
         if ($(_this_doubleCheck.target).val() == '') {
             alert(`중복체크할 ${_this_doubleCheck.target_name}을(를) 입력하세요.`);
             return;
@@ -159,6 +161,7 @@ function DoubleCheck(option) {	// 중복체크 검사
 
     return this;
 }
+
 /* 사용 예
 var doubleCheck_id = new DoubleCheck({
     target_name: '아이디',

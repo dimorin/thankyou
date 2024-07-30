@@ -401,7 +401,7 @@
         var inputWithReset_account_company = new InputWithReset('#account_company');
         /* 거래할 회사 이름 입력 초기화 */
         var inputWithReset_find_partner_company = new InputWithReset('#find_partner_company');
-        /* 거래할 회사 이름 입력 초기화 */
+        /* 거래할 브랜드 이름 입력 초기화 */
         var inputWithReset_find_partner_brand = new InputWithReset('#find_partner_brand');
         /* 아이디 중복확인 */
         var doubleCheck_id = new DoubleCheck({
@@ -428,7 +428,7 @@
                 $(`.input_wrap[name=${name}] .guide`).text('');
             } else {
                 target.addClass('error');
-                $(`.input_wrap[name=${name}] .guide`).text('8자 이상 영문, 숫자, 특수문자를 입력해 주세요.');
+                $(`.input_wrap[name=${name}] .guide`).text('영문, 숫자, 특수문자를 조합하여 최소 8자 이상 입력하세요.');
             }
         });
     </script>
