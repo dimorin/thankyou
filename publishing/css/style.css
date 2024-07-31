@@ -81,6 +81,7 @@ textarea.thx_txt:focus{border-color:#5F6368;}
 textarea.thx_txt::placeholder{color:var(--blur_color);}
 textarea.thx_txt[readonly]{background-color:var(--read_color);border-color:var(--read_color);}
 textarea.thx_txt[readonly]:focus{border-color:var(--read_color);}
+textarea.thx_txt.righticon{padding-right:3.4rem;}/* 우측에 초기화 아이콘 있는 입력창 */
 
 input{font-family:var(--txt-family);font-size:1.6rem;color:var(--txt_color);
 	-o-appearance:none;-webkit-appearance:none;-moz-appearance:none;appearance:none; /* form 요소의 디바이스 기반 스타일 초기화 */ -webkit-border-radius:0;}
@@ -93,15 +94,16 @@ input.thx_txt[readonly]{background-color:var(--read_color);border-color:var(--re
 input.thx_txt[readonly]:focus{border-color:var(--read_color);}
 input.thx_txt.righticon{padding-right:3.4rem;}/* 우측에 초기화 아이콘 있는 입력창 */
 input.thx_txt.rightdoubleicon{padding-right:5.4rem;}
-.input_icon_wrap{position: absolute;top: 50%;right: 0;transform: translate(0, -50%);display:flex;align-items:center;}
+.input_icon_wrap{position: absolute;top:0;right: 0;transform: translate(0, 0);display:flex;align-items:center;}
 input.thx_txt.rightdoubleicon + .input_icon_wrap{right:2rem;}
 /*valid*/
 .validCheck input {padding-right: 2rem;}
 .validCheck::after {font-family: 'Material Symbols Outlined';position: absolute;font-size: 20px;right: 5px;top: 50%;transform: translate(0, -50%);}
 .validCheck.unvalid::after {content: "\ef64";color: tomato;}
 .validCheck.valid::after {content: "\e86c";color: #27A17A;}
-/* .icon_valid{font-size:2.4rem;color:var(--progress_color);}
-.icon_unvalid{font-size:2.4rem;color:tomato;} */
+/* date */
+.input_date::after {content:'\ebcc';font-family: 'Material Symbols Outlined';position: absolute;color:var(--blur_color);font-size: 20px;right: 5px;top: 50%;transform: translate(0, -50%);}
+
 input.thx_txt.bothicon{padding:0 3.4rem;}/* 양 옆에 아이콘 있는 입력창 */
 input.thx_txt.error{border-color:tomato;}
 .input_box.search::after{content: '\e8b6';position:absolute;left:0.5rem;top:50%;transform:translate(0, -50%);font-family:'Material Symbols Outlined';font-size:2.4rem;color:var(--blur_color);}
@@ -339,6 +341,7 @@ header h1{font-weight:500;font-size:2rem;}
 .notice_list .notice_label{font-size:1.4rem;color:var(--blur_color);white-space:nowrap;}
 .notice_list .notice_value{font-size:1.4rem;color:var(--title_color);margin-left:0.5rem;}
 .notice_list .item_footer{background-color:white;border-top:0.1rem solid #D9E1F2;line-height:2;}
+textarea.thx_txt.notice_content{height:20rem;}
 
 /* push */
 .push_list{}
@@ -350,6 +353,7 @@ header h1{font-weight:500;font-size:2rem;}
 .push_list .push_value{font-size:1.4rem;color:var(--title_color);margin-left:0.5rem;}
 .push_list .item_footer{background-color:white;border-top:0.1rem solid #D9E1F2;line-height:2;}
 .push_list .item_footer .link_detail{color:var(--primary_color);font-weight:600;}
+textarea.thx_txt.push_content{height:20rem;}
 
 /* store */
 .store_list > li{position:relative;margin-top:1rem;}

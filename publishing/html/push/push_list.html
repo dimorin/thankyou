@@ -79,25 +79,22 @@
             <div class="topSheet_body">
                 <div class="input_wrap">
                     <div class="p-relative input_box search">
-                        <input type="text" class="thx_txt bothicon" id="find_company_name" name="find_company_name"
-                            placeholder="회사명을 입력하세요" autocomplete="off">
+                        <input type="text" class="thx_txt bothicon" id="find_content" name="find_content" placeholder=""
+                            autocomplete="off">
                         <div class="input_icon_wrap"></div>
                     </div>
                 </div>
                 <div class="pt-10"></div>
-                <div class="filter_item baseline">
-                    <label class="title">구분</label>
-                    <div class="value">
-                        <div class="input_wrap w-100">
-                            <div class="thx_select_box">
-                                <select name="" id="" class="thx_select">
-                                    <option value="all">전체</option>
-                                    <option value="">본사</option>
-                                    <option value="">업체</option>
-                                </select>
-                            </div>
+                <label for="" class="">작성일 기간</label>
+                <div class="input_wrap">
+                    <div class="p-relative input_date">
+                        <input type="date" class="thx_txt rightdoubleicon" id="find_date" name="find_date"
+                            placeholder="" autocomplete="off">
+                        <div class="input_icon_wrap">
+
                         </div>
                     </div>
+                    <div class="guide"></div>
                 </div>
                 <div class="d-center pt-16 pb-16">
                     <button class="btn btn_txt">초기화</button>
@@ -221,8 +218,10 @@
         });
     </script>
     <script>
-        /* 회사명 입력 초기화 */
-        var inputWithReset_find_company_name = new InputWithReset('#find_company_name');
+        /* 내용 입력 초기화 */
+        var inputWithReset_find_content = new InputWithReset('#find_content');
+        /* 기간 입력 초기화 */
+        var inputWithReset_find_date = new InputWithReset('#find_date');
 
         /* topsheet 검색 */
         //$('#find_company').sheet('show');

@@ -33,9 +33,9 @@ Number.prototype.zf = function (len) { return this.toString().zf(len); };
 var today = new Date();
 console.log(today.format('yyyy-MM-dd HH:mm:ss')); */
 
-/* 비밀번호 유효성 검사(8자 이상 영문, 숫자, 특수문자 포함) */
+/* 비밀번호 유효성 검사(영문, 숫자, 특수문자를 조합하여 최소 8자 이상) */
 function validatePassword(password) {
-    // 문자, 숫자, 특수문자가 포함되고 8자리 이상인지를 체크하는 정규식
+    // 영문, 숫자, 특수문자를 조합하여 최소 8자 이상인지를 체크하는 정규식
     const regex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/;
     // 정규식과 비밀번호 매칭 결과 반환
     return regex.test(password);
