@@ -238,13 +238,14 @@
         //$('#find_company').sheet('show');
     </script>
     <script>
+        $('#find_date_start').prop('min', '2024-07-10');
         $('#find_date_end').prop('disabled', true);
         $('#find_date_start').on('input', function (event) {
             var start_date_str = $(event.currentTarget).val();
             console.log("---change---" + start_date_str);
             if (start_date_str) {
                 $('#find_date_end').prop('disabled', false);
-                $('#find_date_end').attr('min', new Date(start_date_str));
+                $('#find_date_end').prop('min', start_date_str);
             } else {
                 $('#find_date_end').val('');
                 $('#find_date_end').prop('disabled', true);
