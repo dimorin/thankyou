@@ -230,12 +230,32 @@
         var inputWithReset_find_date_end = new InputWithReset('#find_date_end');
 
         function test() {
-            console.log($('#find_date_start').val(), $('#find_date_end').val());
+            console.log(new Date($('#find_date_start').val()), new Date($('#find_date_end').val()));
             alert($('#find_date_start').val());
             alert($('#find_date_end').val());
         }
         /* topsheet 검색 */
         //$('#find_company').sheet('show');
+    </script>
+    <script>
+        $('#find_date_end').prop('disabled', true);
+        $('#find_date_start').on('input', function (event) {
+            var start_date_str = $(event.currentTarget).val();
+            console.log("---change---" + start_date_str);
+            if (start_date_str) {
+                $('#find_date_end').prop('disabled', false);
+                $('#find_date_end').prop('min', new Date(start_date_str));
+            } else {
+                $('#find_date_end').val('');
+            }
+        });
+        /* $('#find_date_start').on('change', function (event) {
+            var start_date_str = $(event.currentTarget).val();
+            console.log(start_date_str);
+            if (!start_date_str) {
+                $('#find_date_end').val('');
+            }
+        }); */
     </script>
 </body>
 
