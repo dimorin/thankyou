@@ -238,6 +238,8 @@
         앞의 날짜를 지우면 뒤의 날짜를 지우고 뒤의 날짜를 비활성한다.
         뒤의 날짜를 입력할 때 앞의 날짜보다 작으면 경고글 띄우고 날짜를 지운다.
         뒤의 날짜를 입력할 때 오늘 날짜보다 크면 경고글 띄우고 오늘 날짜로 세팅한다. */
+        $('#find_date_end').val('');
+        $('#find_date_end').removeClass('error');
         $('#find_date_end').prop('disabled', true);
         $('#find_date_start').on('input', function (event) {
             $('#find_date_start').removeClass('error');
@@ -249,6 +251,7 @@
                     $('#find_date_start').val('');
                     $('#find_date_start').addClass('error');
                     $('#find_range .guide').text('오늘 이후는 검색 범위가 아닙니다. 시작 날짜를 다시 입력해주세요.');
+                    $('#find_date_end').val('');
                     $('#find_date_end').removeClass('error');
                     $('#find_date_end').prop('disabled', true); // 사파리의 경우, 달력을 여는 순간 오늘날짜가 세팅되어 끝날짜가 disable이 false가 되는 현상 있음
                     return;
@@ -256,6 +259,7 @@
                 $('#find_date_end').prop('disabled', false);
             } else {
                 $('#find_date_end').val('');
+                $('#find_date_end').removeClass('error');
                 $('#find_date_end').prop('disabled', true);
             }
         });
