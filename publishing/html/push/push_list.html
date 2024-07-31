@@ -89,14 +89,14 @@
                 <div class="input_wrap" id="find_range">
                     <div class="d-left-center">
                         <div class="p-relative input_date" style="width:calc(50% - 1.4rem);">
-                            <input type="date" class="thx_txt" id="find_date_start" name="find_date_start"
-                                placeholder="" autocomplete="off">
+                            <input type="date" class="thx_txt text-align-left" id="find_date_start"
+                                name="find_date_start" placeholder="" autocomplete="off">
                             <div class="input_icon_wrap"></div>
                         </div>
                         <span class="d-inline-block pl-10 pr-10">~</span>
                         <div class="p-relative input_date" style="width:calc(50% - 1.4rem);">
-                            <input type="date" class="thx_txt" id="find_date_end" name="find_date_end" placeholder=""
-                                autocomplete="off">
+                            <input type="date" class="thx_txt text-align-left" id="find_date_end" name="find_date_end"
+                                placeholder="" autocomplete="off">
                             <div class="input_icon_wrap"></div>
                         </div>
                     </div>
@@ -249,6 +249,7 @@
                     $('#find_date_start').val('');
                     $('#find_date_start').addClass('error');
                     $('#find_range .guide').text('오늘 이후는 검색 범위가 아닙니다. 시작 날짜를 다시 입력해주세요.');
+                    $('#find_date_end').removeClass('error');
                     $('#find_date_end').prop('disabled', true); // 사파리의 경우, 달력을 여는 순간 오늘날짜가 세팅되어 끝날짜가 disable이 false가 되는 현상 있음
                     return;
                 }
