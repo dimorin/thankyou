@@ -86,19 +86,23 @@
                 </div>
                 <div class="pt-10"></div>
                 <label for="" class="">작성일 기간</label>
-                <div class="input_wrap">
-                    <div class="p-relative input_date">
-                        <input type="date" class="thx_txt rightdoubleicon" id="find_date" name="find_date"
-                            placeholder="" autocomplete="off">
-                        <div class="input_icon_wrap">
-
-                        </div>
+                <div class="input_wrap d-left-center">
+                    <div class="p-relative input_date d-flex-grow-1 d-flex-shrink-1">
+                        <input type="date" class="thx_txt" id="find_date_start" name="find_date_start" placeholder=""
+                            autocomplete="off">
+                        <div class="input_icon_wrap"></div>
+                    </div>
+                    <span class="d-inline-block pl-10 pr-10">~</span>
+                    <div class="p-relative input_date d-flex-grow-1 d-flex-shrink-1">
+                        <input type="date" class="thx_txt" id="find_date_end" name="find_date_end" placeholder=""
+                            autocomplete="off">
+                        <div class="input_icon_wrap"></div>
                     </div>
                     <div class="guide"></div>
                 </div>
                 <div class="d-center pt-16 pb-16">
                     <button class="btn btn_txt">초기화</button>
-                    <button class="btn btn_fill">적용</button>
+                    <button class="btn btn_fill" onclick="test();">적용</button>
                 </div>
             </div>
             <button class="btn handle" onclick="$('#find_company').sheet('hide');">
@@ -220,9 +224,15 @@
     <script>
         /* 내용 입력 초기화 */
         var inputWithReset_find_content = new InputWithReset('#find_content');
-        /* 기간 입력 초기화 */
-        var inputWithReset_find_date = new InputWithReset('#find_date');
+        /* 작성일 기간 시작 입력 초기화 */
+        var inputWithReset_find_date_start = new InputWithReset('#find_date_start');
+        /* 작성일 기간 끝 입력 초기화 */
+        var inputWithReset_find_date_end = new InputWithReset('#find_date_end');
 
+        function test() {
+            console.log($('#find_date_start').val(), $('#find_date_end').val());
+            alert($('#find_date_start').val(), $('#find_date_end').val());
+        }
         /* topsheet 검색 */
         //$('#find_company').sheet('show');
     </script>
