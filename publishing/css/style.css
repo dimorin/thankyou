@@ -108,7 +108,7 @@ input.thx_txt[type="date"]::-webkit-inner-spin-button {
     display: none;
     appearance: none;
 }
-.input_date::after {content:'\ebcc';font-family: 'Material Symbols Outlined';position: absolute;color:var(--blur_color);font-size: 20px;right: 5px;top: 50%;transform: translate(0, -50%);}
+.input_date::after {content:'\ebcc';font-family: 'Material Symbols Outlined';position: absolute;color:var(--blur_color);font-size: 20px;right: 5px;top: 50%;transform: translate(0, -50%);pointer-events: none;}
 
 input.thx_txt.bothicon{padding:0 3.4rem;}/* 양 옆에 아이콘 있는 입력창 */
 input.thx_txt.error{border-color:tomato;}
