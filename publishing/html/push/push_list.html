@@ -88,13 +88,13 @@
                 <label for="" class="">작성일 기간</label>
                 <div class="input_wrap" id="find_range">
                     <div class="d-left-center">
-                        <div class="p-relative input_date d-flex-grow-1 d-flex-shrink-0">
+                        <div class="p-relative input_date" style="width:calc(50% - 1.4rem);">
                             <input type="date" class="thx_txt" id="find_date_start" name="find_date_start"
                                 placeholder="" autocomplete="off">
                             <div class="input_icon_wrap"></div>
                         </div>
                         <span class="d-inline-block pl-10 pr-10">~</span>
-                        <div class="p-relative input_date d-flex-grow-1 d-flex-shrink-0">
+                        <div class="p-relative input_date" style="width:calc(50% - 1.4rem);">
                             <input type="date" class="thx_txt" id="find_date_end" name="find_date_end" placeholder=""
                                 autocomplete="off">
                             <div class="input_icon_wrap"></div>
@@ -226,16 +226,18 @@
     <script>
         /* 내용 입력 초기화 */
         var inputWithReset_find_content = new InputWithReset('#find_content');
-        /* 작성일 기간 시작 입력 초기화 */
-        //var inputWithReset_find_date_start = new InputWithReset('#find_date_start');
-        /* 작성일 기간 끝 입력 초기화 */
-        //var inputWithReset_find_date_end = new InputWithReset('#find_date_end');
 
-        
         /* topsheet 검색 */
         //$('#find_company').sheet('show');
     </script>
-    <script>        
+    <script>
+        /* 기간
+        초기에 뒤의 날짜를 비활성한다.
+        앞의 날짜가 입력되면 뒤의 날짜가 활성된다.
+        앞의 날짜가 오늘보다 이후이면 경고글 띄우고 날짜를 지운다.
+        앞의 날짜를 지우면 뒤의 날짜를 지우고 뒤의 날짜를 비활성한다.
+        뒤의 날짜를 입력할 때 앞의 날짜보다 작으면 경고글 띄우고 날짜를 지운다.
+        뒤의 날짜를 입력할 때 오늘 날짜보다 크면 경고글 띄우고 오늘 날짜로 세팅한다. */
         $('#find_date_end').prop('disabled', true);
         $('#find_date_start').on('input', function (event) {
             $('#find_date_start').removeClass('error');
