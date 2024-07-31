@@ -104,7 +104,7 @@
                 </div>
                 <div class="d-center pt-16 pb-16">
                     <button class="btn btn_txt">초기화</button>
-                    <button class="btn btn_fill" onclick="test();">적용</button>
+                    <button class="btn btn_fill">적용</button>
                 </div>
             </div>
             <button class="btn handle" onclick="$('#find_company').sheet('hide');">
@@ -231,16 +231,11 @@
         /* 작성일 기간 끝 입력 초기화 */
         //var inputWithReset_find_date_end = new InputWithReset('#find_date_end');
 
-        function test() {
-            console.log(new Date($('#find_date_start').val()), new Date($('#find_date_end').val()));
-            alert($('#find_date_start').val());
-            alert($('#find_date_end').val());
-        }
+        
         /* topsheet 검색 */
         //$('#find_company').sheet('show');
     </script>
-    <script>
-        $('#find_date_start').prop('min', '2024-07-10');
+    <script>        
         $('#find_date_end').prop('disabled', true);
         $('#find_date_start').on('input', function (event) {
             $('#find_date_start').removeClass('error');
@@ -252,10 +247,11 @@
                     $('#find_date_start').val('');
                     $('#find_date_start').addClass('error');
                     $('#find_range .guide').text('오늘 이후는 검색 범위가 아닙니다. 시작 날짜를 다시 입력해주세요.');
+                    $('#find_date_end').prop('disabled', true); // 사파리의 경우, 달력을 여는 순간 오늘날짜가 세팅되어 끝날짜가 disable이 false가 되는 현상 있음
                     return;
                 }
                 $('#find_date_end').prop('disabled', false);
-            } else {// <-- 이 부분이 안되고 있음
+            } else {
                 $('#find_date_end').val('');
                 $('#find_date_end').prop('disabled', true);
             }
