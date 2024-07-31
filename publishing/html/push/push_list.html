@@ -244,9 +244,10 @@
             console.log("---change---" + start_date_str);
             if (start_date_str) {
                 $('#find_date_end').prop('disabled', false);
-                $('#find_date_end').prop('min', new Date(start_date_str));
+                $('#find_date_end').attr('min', new Date(start_date_str));
             } else {
                 $('#find_date_end').val('');
+                $('#find_date_end').prop('disabled', true);
             }
         });
         /* $('#find_date_start').on('change', function (event) {
