@@ -87,13 +87,13 @@
                 <div class="pt-10"></div>
                 <label for="" class="">작성일 기간</label>
                 <div class="input_wrap d-left-center">
-                    <div class="p-relative input_date d-flex-grow-1 d-flex-shrink-1">
+                    <div class="p-relative input_date d-flex-grow-1">
                         <input type="date" class="thx_txt" id="find_date_start" name="find_date_start" placeholder=""
                             autocomplete="off">
                         <div class="input_icon_wrap"></div>
                     </div>
                     <span class="d-inline-block pl-10 pr-10">~</span>
-                    <div class="p-relative input_date d-flex-grow-1 d-flex-shrink-1">
+                    <div class="p-relative input_date d-flex-grow-1">
                         <input type="date" class="thx_txt" id="find_date_end" name="find_date_end" placeholder=""
                             autocomplete="off">
                         <div class="input_icon_wrap"></div>
@@ -231,7 +231,8 @@
 
         function test() {
             console.log($('#find_date_start').val(), $('#find_date_end').val());
-            alert($('#find_date_start').val(), $('#find_date_end').val());
+            alert($('#find_date_start').val());
+            alert($('#find_date_end').val());
         }
         /* topsheet 검색 */
         //$('#find_company').sheet('show');
