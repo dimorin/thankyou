@@ -86,17 +86,19 @@
                 </div>
                 <div class="pt-10"></div>
                 <label for="" class="">작성일 기간</label>
-                <div class="input_wrap d-left-center">
-                    <div class="p-relative input_date d-flex-grow-1 d-flex-shrink-0">
-                        <input type="date" class="thx_txt" id="find_date_start" name="find_date_start" placeholder=""
-                            autocomplete="off">
-                        <div class="input_icon_wrap"></div>
-                    </div>
-                    <span class="d-inline-block pl-10 pr-10">~</span>
-                    <div class="p-relative input_date d-flex-grow-1 d-flex-shrink-0">
-                        <input type="date" class="thx_txt" id="find_date_end" name="find_date_end" placeholder=""
-                            autocomplete="off">
-                        <div class="input_icon_wrap"></div>
+                <div class="input_wrap" id="find_range">
+                    <div class="d-left-center">
+                        <div class="p-relative input_date d-flex-grow-1 d-flex-shrink-0">
+                            <input type="date" class="thx_txt" id="find_date_start" name="find_date_start"
+                                placeholder="" autocomplete="off">
+                            <div class="input_icon_wrap"></div>
+                        </div>
+                        <span class="d-inline-block pl-10 pr-10">~</span>
+                        <div class="p-relative input_date d-flex-grow-1 d-flex-shrink-0">
+                            <input type="date" class="thx_txt" id="find_date_end" name="find_date_end" placeholder=""
+                                autocomplete="off">
+                            <div class="input_icon_wrap"></div>
+                        </div>
                     </div>
                     <div class="guide"></div>
                 </div>
@@ -241,23 +243,42 @@
         $('#find_date_start').prop('min', '2024-07-10');
         $('#find_date_end').prop('disabled', true);
         $('#find_date_start').on('input', function (event) {
+            $('#find_date_start').removeClass('error');
+            $('#find_range .guide').text('');
             var start_date_str = $(event.currentTarget).val();
-            console.log("---change---" + start_date_str);
+            var start_date = new Date(start_date_str);
             if (start_date_str) {
+                if (start_date > new Date()) {
+                    $('#find_date_start').val('');
+                    $('#find_date_start').addClass('error');
+                    $('#find_range .guide').text('오늘 이후는 검색 범위가 아닙니다. 시작 날짜를 다시 입력해주세요.');
+                    return;
+                }
                 $('#find_date_end').prop('disabled', false);
-                $('#find_date_end').prop('min', start_date_str);
-            } else {
+            } else {// <-- 이 부분이 안되고 있음
                 $('#find_date_end').val('');
                 $('#find_date_end').prop('disabled', true);
             }
         });
-        /* $('#find_date_start').on('change', function (event) {
-            var start_date_str = $(event.currentTarget).val();
-            console.log(start_date_str);
-            if (!start_date_str) {
+        $('#find_date_end').on('input', function (event) {
+            $('#find_date_end').removeClass('error');
+            $('#find_range .guide').text('');
+            var start_date_str = $('#find_date_start').val();
+            var end_date_str = $(event.currentTarget).val();
+            var start_date = new Date(start_date_str);
+            var end_date = new Date(end_date_str);
+
+            if (end_date < start_date) {
                 $('#find_date_end').val('');
+                $('#find_date_end').addClass('error');
+                $('#find_range .guide').text('올바른 기간이 아닙니다. 끝 날짜를 다시 입력해주세요.');
             }
-        }); */
+            if (end_date > new Date()) {
+                $('#find_date_end').val('');
+                $('#find_date_end').addClass('error');
+                $('#find_range .guide').text('오늘 이후는 검색 범위가 아닙니다. 끝 날짜를 다시 입력해주세요.');
+            }
+        });
     </script>
 </body>
 
