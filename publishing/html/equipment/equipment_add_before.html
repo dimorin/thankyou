@@ -31,6 +31,15 @@
                 <!-- <input type="file" class="thx_file" name="" id=""> -->
             </div>
             <div class="pt-10"></div>
+            <label for="equipment_store" class="">설치 매장</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <input type="text" class="thx_txt" id="equipment_store" name="" placeholder="" autocomplete="off"
+                        readonly>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
             <label for="equipment_kind" class="required">장비 종류</label>
             <div class="input_wrap">
                 <div class="p-relative">
@@ -47,21 +56,6 @@
                         placeholder="해당 장비에 닉네임을 달아주세요" autocomplete="off" required>
                     <div class="input_icon_wrap"></div>
                 </div>
-                <div class="guide"></div>
-            </div>
-            <div class="pt-10"></div>
-            <label for="equipment_store" class="required">설치할 매장</label>
-            <div class="input_wrap">
-                <div class="p-relative input_box search">
-                    <input type="text" class="thx_txt bothicon" id="equipment_store" name="equipment_store"
-                        placeholder="매장명을 입력하세요" autocomplete="off" required>
-                    <div class="input_icon_wrap"></div>
-                    <div class="autoList_wrap thx_scrollbar" data-autolist="equipment_store">
-                        <ul class="autoList">
-                        </ul>
-                    </div>
-                </div>
-
                 <div class="guide"></div>
             </div>
         </div>
@@ -96,11 +90,7 @@
     <script>
         /* 장비 닉네임 입력 초기화 */
         var inputWithReset_equipment_nickname = new InputWithReset('#equipment_nickname');
-        /* 설치할 매장 입력 초기화 */
-        var inputWithReset_equipment_store = new InputWithReset('#equipment_store');
 
-        /* 설치할 매장 자동완성 */
-        $('#equipment_store').autoComplete_store();        
     </script>
 </body>
 
