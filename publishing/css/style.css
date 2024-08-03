@@ -411,6 +411,7 @@ textarea.thx_txt.push_content{height:20rem;}
 
 /* transfer */
 .transfer_add_title {color: var(--blur_color);}
+.btn_pop_signature{position:relative;display:block;width:100%;height:100%;}
 
 /* work */
 textarea.thx_txt.work_content{height:15rem;}

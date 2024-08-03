@@ -58,10 +58,10 @@
             <label for="" class="">양도자</label>
             <div class="thx_value_readonly">고잔역</div>           
             <div class="pt-10"></div>
-            <label for="store_receiver_cert" class="required">양도자 서명</label>
+            <label for="" class="required">양도자 서명</label>
             <div class="input_wrap">
-                <div class="thumbnail_add_file">
-                    <button class="btn" onclick="$('#bottomsheet_store_receiver_cert').sheet('show');">ssdfsd</button>
+                <div class="thumbnail_add_file store_receiver_cert">
+                    <button class="btn btn_pop_signature" onclick="$('#bottomsheet_store_receiver_cert').sheet('show');$('.wrap_canvas').delete_signature();"></button>
                     <!--image will be inserted here-->
                 </div>
                 <div class="guide"></div>
@@ -98,21 +98,11 @@
             <div class="pt-10 mt-10"></div>
             <div class="bottomSheet_body">
                 <div class="wrap_canvas" style="border:1px solid #D9E1F2;">
-                    <canvas id="drawCanvas" style=" position: relative;"></canvas>
+                    <canvas class="p-relative drawCanvas"></canvas>
                 </div>
-                <br>
-                <button class="btn_clear">지우기</button>
-                <br><br>
-                <div style="display:flex;align-items:flex-start;">
-                    <button class="btn_save" style="flex-shrink:0;margin-right:10px;">저장</button>
-                    <textarea id="input_text"></textarea>
-                    <span><-- DB 저장용</span>
-                </div>
-                <br><br>
-                <button class="btn_download">서명 다운로드</button>
                 <div class="d-center mt-16 pt-16 pb-16">
-                    <button class="btn btn_txt">초기화</button>
-                    <button class="btn btn_fill btn_forward ml-10">적용</button>
+                    <button class="btn btn_txt btn_init_signature">초기화</button>
+                    <button class="btn btn_fill btn_apply_signature ml-10">적용</button>
                 </div>
             </div>
         </div>
@@ -152,54 +142,40 @@
     </script>
     <script>
         /* 
-        1. 플러스 버튼을 클릭하면 서명 추가 팝업이 뜬다. 
-        2. 서명을 하고 적용 버튼을 누르면 
-        2_0. 확인 팝업이 뜬다.
-        2_1. blob 데이터와 png가 플러스 버튼 다음 요소인 img에 요소에 전달된다.
-        2_2. 플러스 버튼은 비활성된다.
-        2_3. 삭제 버튼이 생긴다.
-        2_4. 서명이 지워진다.
-        2_5. 팝업이 닫힌다.
-        3. 삭제 버튼을 클릭하면 img 요소와 삭제 버튼이 remove되고, 플러스 버튼이 활성된다.
+        
+        삭제시 경고나옴
+        서명 그릴 때 경고 나옴
 
         */
-        var signature = new Signature();
-        function Signature(){
-            window.addEventListener('load', InitEvent, false);
+        /* 서명 */        
+        $.fn.draw_signature = function(){            
             var canvas, context, tool;
-            function InitEvent() {
-                canvas = document.getElementById('drawCanvas');
-                if (!canvas) {
-                    alert("캔버스 객체를 찾을 수 없음");
-                    return;
-                }
-                if (!canvas.getContext) {
-                    alert("Drawing Context를 찾을 수 없음");
-                    return;
-                }
-                context = canvas.getContext('2d');
-                if (!context) {
-                    alert("getContext() 함수를 호출 할 수 없음");
-                    return;
-                }
-                // Pencil tool 객체를 생성 한다.
-                tool = new tool_pencil();
-                canvas.addEventListener('mousedown', ev_canvas, false);
-                canvas.addEventListener('mousemove', ev_canvas, false);
-                canvas.addEventListener('mouseup', ev_canvas, false);
-                canvas.addEventListener('touchstart', ev_canvas, false);
-                canvas.addEventListener('touchmove', ev_canvas, false);
-                canvas.addEventListener('touchend', ev_canvas, false);
-                $('.btn_clear').on('click', onClear);
-                $('.btn_save').on('click', onSave);
-                $('.btn_download').on('click', onDownload);
-                resize();
+            canvas = this.find('.drawCanvas')[0];            
+            if (!canvas) {
+                console.log("캔버스 객체를 찾을 수 없음");
+                return;
             }
+            context = canvas.getContext('2d');
+            
+            
+            // Pencil tool 객체를 생성 한다.
+            tool = new tool_pencil();
+            canvas.addEventListener('mousedown', ev_canvas, false);
+            canvas.addEventListener('mousemove', ev_canvas, false);
+            canvas.addEventListener('mouseup', ev_canvas, false);
+            canvas.addEventListener('touchstart', ev_canvas, false);
+            canvas.addEventListener('touchmove', ev_canvas, false);
+            canvas.addEventListener('touchend', ev_canvas, false);
+                        
             var wrap_canvas = document.querySelector('.wrap_canvas');
             window.addEventListener('resize', resize);
             function resize() {
-                canvas.width = wrap_canvas.offsetWidth;                
+                canvas.width = wrap_canvas.offsetWidth;    
+                canvas.height = wrap_canvas.offsetHeight;
+                context.fillStyle = '#ffffff';
+                context.fillRect(0,0,canvas.width,canvas.height);            
             }
+            resize();
             function tool_pencil() {
                 var tool = this;
                 this.started = false;
@@ -250,20 +226,21 @@
             function ev_canvas(ev) {
                 //console.dir(ev);
                 if (ev.layerX || ev.layerX == 0) { // Firefox 브라우저
-                    alert('firefox');
+                    //alert('firefox');
                     ev._x = ev.layerX;
                     ev._y = ev.layerY;
                 }
                 else if (ev.offsetX || ev.offsetX == 0) { // Opera 브라우저
-                    alert('opera');
+                    //alert('opera');
                     ev._x = ev.offsetX;
                     ev._y = ev.offsetY;
                 }
                 else if (ev.targetTouches[0] || ev.targetTouches[0].pageX == 0) {	//핸드폰
-                    alert('mobile');
+                    //alert('mobile');
                     var left = 0;
                     var top = 0;
-                    var elem = document.getElementById('drawCanvas');
+                    
+                    var elem = canvas;
 
                     while (elem) {
                         left = left + parseInt(elem.offsetLeft);
@@ -280,20 +257,37 @@
                     func(ev);
                 }
             }
+        }
 
-            function onClear() {
-                canvas = document.getElementById('drawCanvas');
-                if (isCanvasCleared()) {
-                    console.log("지울 것이 없습니다.");
-                    return;
-                }
-                //context.save();
-                //context.setTransform(1, 0, 0, 1, 0, 0);
-                context.clearRect(0, 0, canvas.width, canvas.height);
-                console.log("지웠습니다");
-                //context.restore();
-                $('#input_text').val('');
+        $.fn.delete_signature = function(){      
+            var canvas, context, tool;
+            canvas = this.find('.drawCanvas')[0];            
+            if (!canvas) {
+                console.log("캔버스 객체를 찾을 수 없음");
+                return;
             }
+            context = canvas.getContext('2d');          
+                
+                      
+            
+
+            if (isCanvasCleared()) {
+                console.log("지울 것이 없습니다.");
+                return;
+            }
+            //context.save();
+            //context.setTransform(1, 0, 0, 1, 0, 0);
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            console.log("지웠습니다");
+            //context.restore();
+
+
+            var wrap_canvas = document.querySelector('.wrap_canvas');           
+            canvas.width = wrap_canvas.offsetWidth;    
+            canvas.height = wrap_canvas.offsetHeight;
+            context.fillStyle = '#ffffff';
+            context.fillRect(0,0,canvas.width,canvas.height);  
+
 
             function isCanvasCleared() {
                 // 캔버스를 클리어하고, 클리어된 부분을 새로 그림
@@ -310,44 +304,67 @@
                 // 모든 픽셀값이 0이면 클리어된 것으로 간주
                 return true;
             }
-
-            function onSave() {
-                $('#input_text').val(canvas.toDataURL());
-            }
-            function onDownload() {
-                download(canvas.toDataURL(), "signature.png");
-            }
-            function download(dataURL, filename) {
-                const blob = dataURLToBlob(dataURL);
-                const url = window.URL.createObjectURL(blob);
-
-                const a = document.createElement("a");
-                a.style = "display: none";
-                a.href = url;
-                a.download = filename;
-
-                document.body.appendChild(a);
-                a.click();
-
-                window.URL.revokeObjectURL(url);
-            }
-            function dataURLToBlob(dataURL) {
-                // Code taken from https://github.com/ebidel/filer.js
-                const parts = dataURL.split(';base64,');
-                const contentType = parts[0].split(":")[1];
-                const raw = window.atob(parts[1]);
-                const rawLength = raw.length;
-                const uInt8Array = new Uint8Array(rawLength);
-
-                for (let i = 0; i < rawLength; ++i) {
-                    uInt8Array[i] = raw.charCodeAt(i);
-                }
-
-                return new Blob([uInt8Array], { type: contentType });
-            }
-
         }
-        
+
+        $.fn.make_signature_data = function(option){
+            var option = option || undefined;
+            var container = undefined;  
+            var target_container = undefined;
+            var canvas, context, tool, data_url;
+
+            if(option){
+                container = option.container;
+                target_container = $(`${container}`);
+            }else{
+                return;
+            }
+
+            canvas = this.find('.drawCanvas')[0];            
+            if (!canvas) {
+                console.log("캔버스 객체를 찾을 수 없음");
+                return;
+            }
+            context = canvas.getContext('2d');      
+            
+            
+            data_url = canvas.toDataURL();
+                        
+            target_container.append(`
+                <img class='img' alt='' src='${data_url}' />
+            `);
+           
+            target_container.append(`
+                <button class="btn btn_init_file">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            `);
+
+            target_container.find('.btn_init_file').on('click', function (event) {
+                $(event.currentTarget).remove();                
+                target_container.find('.img').remove();                
+            });
+        }      
+
+        $('.wrap_canvas').draw_signature();        
+        $('.btn_init_signature').on('click', function(){
+            $('.wrap_canvas').delete_signature();
+        });
+        $('.btn_apply_signature').on('click', function(){   
+            var canvas = $('.wrap_canvas .drawCanvas')[0];  
+            var data_url = canvas.toDataURL();
+            if(data_url){
+                $('.wrap_canvas').make_signature_data({container:'.store_receiver_cert'});
+                $('.wrap_canvas').delete_signature();
+                $('#bottomsheet_store_receiver_cert').sheet('hide');
+            }else{
+                $.modal('show', {
+                    message:`서명난이 비었습니다.`,
+                    onebutton:`<button class="btn btn_fill" onclick="$.modal('hide')">확인</button>`,
+                }); 
+            }
+            
+            
+        });
     </script>
 </body>
 
