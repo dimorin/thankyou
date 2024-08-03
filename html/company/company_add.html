@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>회사 등록&편집</h1>
+            </div>
+            <div class="header_area">
+                <button class="btn btn_fill">저장</button>
+            </div>
+        </header>
+        <div class="body pl-16 pr-16 pb-16">
+            <label class="required">구분</label>
+            <div class="input_wrap mt-5">
+                <div class="d-inline-center">
+                    <input type="radio" name="company_type" id="company_type_franchise"
+                        class="thx_radio vertical-align-middle" checked />
+                    <label for="company_type_franchise" class="ml-5 vertical-align-middle">본사</label>
+                </div>
+                <div class="d-inline-center ml-16">
+                    <input type="radio" name="company_type" id="company_type_common"
+                        class="thx_radio vertical-align-middle" />
+                    <label for="company_type_common" class="ml-5 vertical-align-middle">업체</label>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="company_name" class="required">회사명</label>
+            <div class="input_wrap">
+                <div class="inputWithBtn">
+                    <div class="p-relative d-flex-grow-1 validCheck">
+                        <input type="text" class="thx_txt rightdoubleicon valid" id="company_name" name="company_name"
+                            placeholder="회사 이름을 입력하세요." autocomplete="off" required value="">
+                        <div class="input_icon_wrap"></div>
+                    </div>
+                    <button class="btn btn_fill btn_check_duplicate" disabled>중복확인</button>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="company_phone" class="required">회사 연락처</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <input type="text" class="thx_txt righticon" id="company_phone" name="" placeholder=""
+                        autocomplete="off" required value="">
+                    <div class="input_icon_wrap"></div>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="company_ceo" class="required">대표자명</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <input type="text" class="thx_txt righticon" id="company_ceo" name="" placeholder=""
+                        autocomplete="off" required value="">
+                    <div class="input_icon_wrap"></div>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="company_address" class="required">회사 주소</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <input type="text" class="thx_txt righticon" id="company_address" name="" placeholder=""
+                        autocomplete="off" required value="">
+                    <div class="input_icon_wrap"></div>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="company_business_type" class="required">업태</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <input type="text" class="thx_txt righticon" id="company_business_type" name="" placeholder=""
+                        autocomplete="off" required value="">
+                    <div class="input_icon_wrap"></div>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="company_business_item" class="required">종목</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <input type="text" class="thx_txt righticon" id="company_business_item" name="" placeholder=""
+                        autocomplete="off" required value="">
+                    <div class="input_icon_wrap"></div>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="company_business_no" class="required">사업자등록번호</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <input type="text" class="thx_txt righticon" id="company_business_no" name="" placeholder=""
+                        autocomplete="off" required value="">
+                    <div class="input_icon_wrap"></div>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="company_business_cert" class="">사업자등록증</label>
+            <div class="input_wrap">
+                <div class="thumbnail_add_file">
+                    <input type="file" class="thx_file" id="business_cert_file">
+                    <!--image will be inserted here-->
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+        </div>
+    </div>
+
+
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        };
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 회사명 입력 초기화 */
+        var inputWithReset_company_name = new InputWithReset('#company_name');
+        /* 회사 연락처 입력 초기화 */
+        var inputWithReset_company_phone = new InputWithReset('#company_phone');
+        /* 대표자명 입력 초기화 */
+        var inputWithReset_company_ceo = new InputWithReset('#company_ceo');
+        /* 회사 주소 입력 초기화 */
+        var inputWithReset_company_address = new InputWithReset('#company_address');
+        /* 업태 입력 초기화 */
+        var inputWithReset_company_business_type = new InputWithReset('#company_business_type');
+        /* 종목 입력 초기화 */
+        var inputWithReset_company_business_item = new InputWithReset('#company_business_item');
+        /* 사업자등록번호 입력 초기화 */
+        var inputWithReset_company_business_no = new InputWithReset('#company_business_no');
+
+        /* 회사명 중복확인 */
+        var doubleCheck_company_name = new DoubleCheck({
+            target_name: '회사 이름',
+            target: 'input[name=company_name]',
+            btn_check: '.btn_check_duplicate',
+            init_value: '',
+            check_url: '',
+            param_arr: [],
+        });
+        doubleCheck_company_name.init();
+
+        /* 사업자등록증 파일선택 */
+        $("#business_cert_file").file({ container: '.thumbnail_add_file' });
+
+
+    </script>
+
+</body>
+
+</html>

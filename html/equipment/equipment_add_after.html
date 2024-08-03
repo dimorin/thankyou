@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>장비 등록</h1>
+            </div>
+            <div class="header_area">
+                <button class="btn btn_fill">저장</button>
+            </div>
+        </header>
+        <div class="body equipment_add">
+            <div class="qr after_add">
+                <div class="qr_txt">QR 스캔</div>
+                <div class="qr_id">ID 20240930080213</div>
+                <button class="btn btn_file" onclick="alert('QR스캔시작');"></button>
+                <!-- <input type="file" class="thx_file" name="" id="" disabled> -->
+            </div>
+            <div class="pt-10"></div>
+            <label for="equipment_store" class="">설치 매장</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <input type="text" class="thx_txt" id="equipment_store" name="" placeholder="" autocomplete="off"
+                        readonly>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="equipment_kind" class="required">장비 종류</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <input type="text" class="thx_txt" id="equipment_kind" name="" placeholder="" autocomplete="off"
+                        readonly required value="STB-Agent">
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="equipment_nickname" class="required">장비 닉네임</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <input type="text" class="thx_txt righticon" id="equipment_nickname" name=""
+                        placeholder="해당 장비에 닉네임을 달아주세요" autocomplete="off" required>
+                    <div class="input_icon_wrap"></div>
+                </div>
+                <div class="guide"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        };
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 장비 닉네임 입력 초기화 */
+        var inputWithReset_equipment_nickname = new InputWithReset('#equipment_nickname');
+
+    </script>
+</body>
+
+</html>

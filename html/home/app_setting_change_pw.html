@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container p-relative">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>앱 설정</h1>
+            </div>
+        </header>
+        <div class="body detail pl-16 pr-16">
+            <div class="account_hr"></div>
+            <div class="app_setting_title">기본 정보</div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">프로그램 정보</label>
+                <div class="value">
+                    <div class="thx_value_readonly">버전정보(1.0.0)</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="app_setting_title">설정 정보</div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">업체종류 관리</label>
+                <div class="value">
+                    <div class="thx_value_readonly shortcut">
+                        <button class="btn btn_shortcut" onclick="$('#manage_company_category').sheet('show');">
+                            <span class="material-symbols-outlined">open_in_new</span>
+                            <span class="d-inline-block ml-5">바로가기</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="app_setting_title">로그인 정보</div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">계정 종류</label>
+                <div class="value">
+                    <div class="thx_value_readonly">점주</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">이름</label>
+                <div class="value">
+                    <div class="thx_value_readonly">고잔역1호점</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">최근 로그인한 날짜</label>
+                <div class="value">
+                    <div class="thx_value_readonly">2024-06-09</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">비밀번호 변경</label>
+                <div class="value">
+                    <div class="thx_value_readonly shortcut">
+                        <button class="btn btn_shortcut" onclick="$('#change_pw').sheet('show');">
+                            <span class="material-symbols-outlined">open_in_new</span>
+                            <span class="d-inline-block ml-5">바로가기</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">사용자정보 수정</label>
+                <div class="value">
+                    <div class="thx_value_readonly shortcut">
+                        <button class="btn btn_shortcut" onclick="$('#change_account').sheet('show');">
+                            <span class="material-symbols-outlined">open_in_new</span>
+                            <span class="d-inline-block ml-5">바로가기</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10 mt-10"></div>
+            <div class="d-center">
+                <button class="btn btn_txt">로그아웃</button>
+            </div>
+        </div>
+        <div class="copyright pb-16">
+            Copyright 2024.AirQuay Corp. all rights reserved.
+        </div>
+    </div>
+
+    <div class="fullSheetContainer" id="manage_company_category" data-type="full">
+        <div class="fullSheet">
+            <div class="fullSheet_header">
+                <div class="header_area">
+                    <button class="btn btn_close_fullSheet" onclick="$('#manage_company_category').sheet('hide');">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
+                    <span class="title">업체종류 관리</span>
+                </div>
+                <div class="header_area">
+                    <button class="btn btn_fill">저장</button>
+                </div>
+            </div>
+
+            <div class="fullSheet_body">
+                <ul class="company_category_list">
+                    <li class="d-left-center">
+                        <button class="btn btn_delete_company_category_list"
+                            onclick="delete_company_category_list_item(this)">
+                            <span class="material-symbols-outlined icon">remove</span>
+                        </button>
+                        <div class="d-flex-grow-1 ml-10">
+                            <input type="text" class="thx_txt" name="" placeholder="업체종류를 입력하세요." autocomplete="off"
+                                value="CCTV">
+                        </div>
+                    </li>
+                    <li class="d-left-center">
+                        <button class="btn btn_delete_company_category_list"
+                            onclick="delete_company_category_list_item(this)">
+                            <span class="material-symbols-outlined icon">remove</span>
+                        </button>
+                        <div class="d-flex-grow-1 ml-10">
+                            <input type="text" class="thx_txt" name="" placeholder="업체종류를 입력하세요." autocomplete="off">
+                        </div>
+                    </li>
+                </ul>
+                <div class="pt-10"></div>
+                <button class="btn btn_add_company_category_list">
+                    <div class="d-center">
+                        <span class="icon mr-10">
+                            <span class="material-symbols-outlined">add</span>
+                        </span>
+                        <span>업체종류 추가</span>
+                    </div>
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="fullSheetContainer" id="change_pw" data-type="full">
+        <div class="fullSheet">
+            <div class="fullSheet_header">
+                <div class="header_area">
+                    <button class="btn btn_close_fullSheet" onclick="$('#change_pw').sheet('hide');">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
+                    <span class="title">비밀번호 변경</span>
+                </div>
+                <div class="header_area">
+                    <button class="btn btn_fill">저장</button>
+                </div>
+            </div>
+
+            <div class="fullSheet_body">
+                <label for="new_pw" class="required">새 비밀번호</label>
+                <div class="input_wrap" name="new_pw">
+                    <div class="p-relative">
+                        <input type="password" class="thx_txt righticon" id="new_pw" name="new_pw"
+                            placeholder="비밀번호를 입력하세요" autocomplete="off" required value="abcd1234!">
+                    </div>
+                    <div class="guide"></div>
+                </div>
+                <div class="pt-10"></div>
+                <label for="new_pw_double" class="required">새 비밀번호 재입력</label>
+                <div class="input_wrap" name="new_pw_double">
+                    <div class="p-relative">
+                        <input type="password" class="thx_txt righticon" id="new_pw_double" name="new_pw_double"
+                            placeholder="비밀번호를 입력하세요" autocomplete="off" required value="abcd1234!">
+                    </div>
+                    <div class="guide"></div>
+                </div>
+                <div class="pt-10"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fullSheetContainer" id="change_account" data-type="full">
+        <div class="fullSheet">
+            <div class="fullSheet_header">
+                <div class="header_area">
+                    <button class="btn btn_close_fullSheet" onclick="$('#change_account').sheet('hide');">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
+                    <span class="title">사용자정보 수정</span>
+                </div>
+                <div class="header_area">
+                    <button class="btn btn_fill">저장</button>
+                </div>
+            </div>
+
+            <div class="fullSheet_body">
+                <label for="account_kind" class="required">계정 종류</label>
+                <div class="input_wrap">
+                    <div class="thx_select_box">
+                        <select name="" id="account_kind" class="thx_select" disabled>
+                            <option value="all">전체</option>
+                            <option value="" selected>점주</option>
+                            <option value="">본사관리자</option>
+                            <option value="">본사직원</option>
+                            <option value="">업체직원</option>
+                        </select>
+                    </div>
+                    <div class="guide"></div>
+                </div>
+                <div class="pt-10"></div>
+                <label for="account_id" class="required">아이디</label>
+                <div class="input_wrap">
+                    <div class="inputWithBtn">
+                        <div class="p-relative d-flex-grow-1 validCheck">
+                            <input type="text" class="thx_txt rightdoubleicon valid" id="account_id" name="account_id"
+                                placeholder="연락처를 입력하세요." autocomplete="off" required value="010-2222-3333">
+                            <div class="input_icon_wrap"></div>
+                        </div>
+                        <button class="btn btn_fill btn_check_duplicate" disabled>중복확인</button>
+                    </div>
+                    <div class="guide"></div>
+                </div>
+                <div class="pt-10"></div>
+                <label for="account_pw" class="required">비밀번호</label>
+                <div class="input_wrap" name="account_pw">
+                    <div class="p-relative">
+                        <input type="password" class="thx_txt righticon" id="account_pw" name="account_pw"
+                            placeholder="비밀번호를 입력하세요" autocomplete="off" required value="abcd1234!" disabled>
+                    </div>
+                    <div class="guide info">'홈화면<span class="material-symbols-outlined fill icon">settings</span> > 앱설정
+                        >
+                        비밀번호
+                        변경'에서 수정 가능합니다.</div>
+                </div>
+                <div class="pt-10 mt-10"></div>
+                <label class="">계정 상태</label>
+                <div class="input_wrap mt-5">
+                    <div class="d-inline-center">
+                        <input type="radio" name="account_state" id="account_state_normal"
+                            class="thx_radio vertical-align-middle" checked />
+                        <label for="account_state_normal" class="ml-5 vertical-align-middle">정상</label>
+                    </div>
+                    <div class="d-inline-center ml-16">
+                        <input type="radio" name="account_state" id="account_state_withdrawal"
+                            class="thx_radio vertical-align-middle" />
+                        <label for="account_state_withdrawal" class="ml-5 vertical-align-middle">탈퇴</label>
+                    </div>
+                    <div class="guide"></div>
+                </div>
+                <div class="pt-10"></div>
+                <div class="account_hr"></div>
+                <div class="pt-10"></div>
+                <label for="account_represent_store">대표 매장</label>
+                <div class="input_wrap">
+                    <div class="thx_select_box">
+                        <select name="" id="account_represent_store" class="thx_select">
+                            <option value="">[빽다방]안산역점</option>
+                            <option value="">[빽보이]본오점</option>
+                            <option value="">[빽다방]상록수역점</option>
+                        </select>
+                    </div>
+                    <div class="guide"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 업체종류 추가 */
+        var company_category_list_item = `
+                    <li class="d-left-center">
+                        <button class="btn btn_delete_company_category_list"
+                            onclick="delete_company_category_list_item(this)">
+                            <span class="material-symbols-outlined icon">remove</span>
+                        </button>
+                        <div class="d-flex-grow-1 ml-10">
+                            <input type="text" class="thx_txt" name="" placeholder="업체종류를 입력하세요." autocomplete="off">
+                        </div>
+                    </li>
+                `;
+        $('.btn_add_company_category_list').on('click', function () {
+            $('.company_category_list').append(company_category_list_item);
+        });
+
+        /* 업체종류 삭제 */
+        function delete_company_category_list_item(element) {
+            $(element).parent()[0].remove();
+        }
+    </script>
+    <script>
+        /* 비밀번호 변경 열기 */
+        $('#change_pw').sheet('show');
+
+        /* 새 비밀번호 보기 안보기 */
+        var inputWithToggle_new_pw = new InputWithToggle('#new_pw');
+        /* 새 비밀번호 재입력 보기 안보기 */
+        var inputWithToggle_new_pw_double = new InputWithToggle('#new_pw_double');
+        /* 비밀번호 입력 후 포커스가 빠졌을 때 비밀번호 유효성 검사하기 */
+        $('#new_pw').on('blur', function (event) {
+            var target = $(event.currentTarget);
+            var value = target.val();
+            var name = target.attr('name');
+            var result_validate = validatePassword(value);  //비밀번호 유효성 검사
+            if (result_validate) {
+                target.removeClass('error');
+                $(`.input_wrap[name=${name}] .guide`).text('');
+            } else {
+                target.addClass('error');
+                $(`.input_wrap[name=${name}] .guide`).text('영문, 숫자, 특수문자를 조합하여 최소 8자 이상 입력하세요.');
+            }
+        });
+        $('#new_pw_double').on('blur', function (event) {
+            var target = $(event.currentTarget);
+            var value = target.val();
+            var name = target.attr('name');
+            var result_validate = validatePassword(value);  //비밀번호 유효성 검사
+            if (result_validate) {
+                target.removeClass('error');
+                $(`.input_wrap[name=${name}] .guide`).text('');
+            } else {
+                target.addClass('error');
+                $(`.input_wrap[name=${name}] .guide`).text('영문, 숫자, 특수문자를 조합하여 최소 8자 이상 입력하세요.');
+            }
+        });
+    </script>
+    <script>
+        /* 아이디 입력 초기화 */
+        var inputWithReset_account_id = new InputWithReset('#account_id');
+        /* 비밀번호 보기 안보기 */
+        var inputWithToggle_account_pw = new InputWithToggle('#account_pw');
+        /* 아이디 중복확인 */
+        var doubleCheck_id = new DoubleCheck({
+            target_name: '아이디',
+            target: 'input[name=account_id]',
+            btn_check: '.btn_check_duplicate',
+            init_value: '010-2222-3333',
+            check_url: '',
+            param_arr: [],
+        });
+        doubleCheck_id.init();
+
+        /* 아이디 입력시 숫자만 입력되고 핸드폰 형식으로 나오게 하기 */
+        $('#account_id').on('input', formatPhoneNumber);        
+    </script>
+</body>
+
+</html>

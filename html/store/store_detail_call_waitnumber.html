@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>매장 상세</h1>
+            </div>
+            <div class="header_area">
+                <button type="button" class="btn btn_txt">편집</button>
+            </div>
+        </header>
+        <div class="body detail pl-16 pr-16">
+            <div class="store_btn_wrap">
+                <button class="btn btn_blue_fill_small btn_store">장비등록</button>
+                <button class="btn btn_blue_fill_small btn_store progress">작업목록</button>
+                <button class="btn btn_blue_fill_small btn_store progress">납품목록</button>
+                <button class="btn btn_blue_fill_small btn_store">명의이전요청</button>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">상태</label>
+                <div class="value p-relative">
+                    <div class="thx_value_readonly">운영</div>
+                    <button class="btn btn_call_waitnumber" onclick="$('#call_waitnumber').sheet('show');">대기번호
+                        호출</button>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">등록일</label>
+                <div class="value">
+                    <div class="thx_value_readonly">2024-09-30</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">매장명</label>
+                <div class="value">
+                    <div class="thx_value_readonly">빽다방 빵연구소 김해 삼계한라비발디점</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">매장 연락처</label>
+                <div class="value">
+                    <div class="thx_value_readonly">0705558888</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">주소</label>
+                <div class="value">
+                    <div class="thx_value_readonly">경기도 안산시 상록구 상록번화길 10-2 3층</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">본사</label>
+                <div class="value">
+                    <div class="thx_value_readonly">더본코리아</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">브랜드</label>
+                <div class="value">
+                    <div class="thx_value_readonly">빽다방</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">점주</label>
+                <div class="value">
+                    <div class="thx_value_readonly">안산1호점</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item start">
+                <label class="title">사업자등록증</label>
+                <div class="value">
+                    <div class="add_file">
+                        <img src="../../img/cert.png" alt="" class="img">
+                        <button class="btn btn_expand" onclick="$.img_modal('show', this);">
+                            <span class="material-symbols-outlined">fullscreen</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="store_hr"></div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">사업자등록번호</label>
+                <div class="value">
+                    <div class="thx_value_readonly">211-86-00870</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">브랜드 담당자</label>
+                <div class="value">
+                    <div class="thx_value_readonly">김유신, 이순신, 강감찬, 을지문덕</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">업체 담당자</label>
+                <div class="value">
+                    <div class="thx_value_readonly">에어컨 우주산업 홍길동, 오디오 아남산업 박찬호</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+        </div>
+    </div>
+
+    <div class="bottomSheetContainer" id="call_waitnumber" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#call_waitnumber').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">대기번호 호출</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body call_waitnumber_wrap">
+                <div class="d-center">
+                    <div class="display_number">800</div>
+                </div>
+                <div class="pt-10"></div>
+                <div class="d-center">
+                    <div class="number_pad">
+                        <button class="btn btn_number" onclick="input_number(1);">1</button>
+                        <button class="btn btn_number" onclick="input_number(2);">2</button>
+                        <button class="btn btn_number" onclick="input_number(3);">3</button>
+                        <button class="btn btn_number" onclick="input_number(4);">4</button>
+                        <button class="btn btn_number" onclick="input_number(5);">5</button>
+                        <button class="btn btn_number" onclick="input_number(6);">6</button>
+                        <button class="btn btn_number" onclick="input_number(7);">7</button>
+                        <button class="btn btn_number" onclick="input_number(8);">8</button>
+                        <button class="btn btn_number" onclick="input_number(9);">9</button>
+                        <button class="btn btn_number txt" onclick="input_number('-');">초기화</button>
+                        <button class="btn btn_number" onclick="input_number(0);">0</button>
+                        <button class="btn btn_number" onclick="input_number(-1);"><span
+                                class="material-symbols-outlined">arrow_left_alt</span></button>
+                    </div>
+                </div>
+
+
+
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_fill btn_add_playlist">호출</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        var ele_display_number = $('.display_number');
+        var ele_display_number_txt = '';
+        function input_number(option) {
+            if (option === '-') {
+                ele_display_number_txt = '';
+
+            } else if (option === -1) {
+                ele_display_number_txt = ele_display_number.text();
+                ele_display_number_txt = ele_display_number_txt.slice(0, -1); // 시작부터 뒷자리를 제외한 나머지 추출
+            } else {
+                ele_display_number_txt = ele_display_number.text() + option;
+                ele_display_number_txt = ele_display_number_txt.slice(-3); // 세자리수 추출
+            }
+            ele_display_number.text(ele_display_number_txt);
+        }
+
+        /* 대기번호 호출 열기 */
+        $('#call_waitnumber').sheet('show');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>푸시메시지 등록</h1>
+            </div>
+            <div class="header_area">
+                <button class="btn btn_fill">저장</button>
+            </div>
+        </header>
+        <div class="body pl-16 pr-16 pb-16">
+            <label for="push_content" class="required">내용</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <textarea class="thx_txt righticon push_content" id="push_content" name="" placeholder="내용을 입력하세요."
+                        autocomplete="off" required value=""></textarea>
+                    <div class="input_icon_wrap"></div>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="" class="required">수신 대상</label>
+            <div class="input_wrap">
+                <ul class="select_add_list">
+                    <li>
+                        <button class="btn btn_fill_small" onclick="$('#bottomsheet_push_receiver').sheet('show');">
+                            <span class="material-symbols-outlined">add</span>
+                            <span class="d-inline-block ml-5">추가</span>
+                        </button>
+                    </li>
+                    <li>
+                        <div class="option_chip">
+                            <span class="txt">[점주] 서울대입구점</span>
+                            <button class="btn btn_chip ml-5">
+                                <span class="material-symbols-outlined">close_small</span>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="option_chip">
+                            <span class="txt">[업체직원] 홍길동</span>
+                            <button class="btn btn_chip ml-5">
+                                <span class="material-symbols-outlined">close_small</span>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="option_chip">
+                            <span class="txt">[본사직원] 김유신</span>
+                            <button class="btn btn_chip ml-5">
+                                <span class="material-symbols-outlined">close_small</span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="guide"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 수신 대상 추가 -->
+    <div class="bottomSheetContainer" id="bottomsheet_push_receiver" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#bottomsheet_push_receiver').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">수신 대상 추가</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="input_wrap">
+                    <div class="p-relative input_box search">
+                        <input type="text" class="thx_txt bothicon" id="find_push_receiver" name="find_push_receiver"
+                            placeholder="이름을 입력하세요" autocomplete="off" required>
+                        <div class="input_icon_wrap"></div>
+                        <div class="autoList_wrap thx_scrollbar" data-autolist="find_push_receiver">
+                            <ul class="autoList">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="guide"></div>
+                </div>
+                <div class="autoList_result">
+                    <ul class="select_add_list" data-result="find_push_receiver">
+                        <li>
+                            <div class="option_chip">
+                                <span class="txt">이순신</span>
+                                <button class="btn btn_chip ml-5">
+                                    <span class="material-symbols-outlined">close_small</span>
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="option_chip">
+                                <span class="txt">황희</span>
+                                <button class="btn btn_chip ml-5">
+                                    <span class="material-symbols-outlined">close_small</span>
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="option_chip">
+                                <span class="txt">이이</span>
+                                <button class="btn btn_chip ml-5">
+                                    <span class="material-symbols-outlined">close_small</span>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_fill btn_forward">적용</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        };
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 내용 입력 초기화 */
+        var inputWithReset_push_content = new InputWithReset('#push_content');
+
+        /* 수신 대상 이름 입력 초기화 */
+        var inputWithReset_find_push_receiver = new InputWithReset('#find_push_receiver');
+        /* 수신 대상 자동완성 */
+        $('#find_push_receiver').autoComplete_account('multi');
+
+    </script>
+
+</body>
+
+</html>

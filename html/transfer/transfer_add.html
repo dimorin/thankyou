@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>명의이전 등록</h1>
+            </div>
+            <div class="header_area">
+                <button class="btn btn_fill">저장</button>
+            </div>
+        </header>
+        <div class="body pl-16 pr-16 pb-16">            
+            <div class="transfer_add_title">양도 매장 정보</div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <label for="" class="">매장명</label>
+            <div class="thx_value_readonly">[빽다방]안산역1호점</div>
+            <div class="pt-10"></div>
+            <label for="" class="">사업자등록번호</label>
+            <div class="thx_value_readonly">211-87-00870</div>
+            <div class="pt-10"></div>
+            <label for="" class="">주소</label>
+            <div class="thx_value_readonly">경기도 안산시 상록구 현대로터리버드나무길 10005-99999 3층</div>
+            <div class="pt-10"></div>
+            <label class="required">데이터 보존 여부</label>
+            <div class="input_wrap mt-5">
+                <div class="d-inline-center">
+                    <input type="radio" name="data_remain" id="data_remain_true"
+                        class="thx_radio vertical-align-middle" checked />
+                    <label for="data_remain_true" class="ml-5 vertical-align-middle">보존</label>
+                </div>
+                <div class="d-inline-center ml-16">
+                    <input type="radio" name="data_remain" id="data_remain_false"
+                        class="thx_radio vertical-align-middle" />
+                    <label for="data_remain_false" class="ml-5 vertical-align-middle">미보존</label>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <div class="transfer_add_title">양도자 정보</div>
+            <div class="pt-10"></div>
+            <label for="" class="">양도자</label>
+            <div class="thx_value_readonly">고잔역</div>           
+            <div class="pt-10"></div>
+            <label for="store_receiver_cert" class="required">양도자 서명</label>
+            <div class="input_wrap">
+                <div class="thumbnail_add_file">
+                    <button class="btn" onclick="$('#bottomsheet_store_receiver_cert').sheet('show');">ssdfsd</button>
+                    <!--image will be inserted here-->
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <div class="transfer_add_title">양수자 정보</div>
+            <div class="pt-10"></div>
+            <label for="store_receiver" class="required">양수자</label>
+            <div class="input_wrap">
+                <div class="p-relative input_box search">
+                    <input type="text" class="thx_txt bothicon" id="store_receiver" name="store_receiver"
+                        placeholder="양수자 이름을 입력하세요" autocomplete="off" required>
+                    <div class="input_icon_wrap"></div>
+                    <div class="autoList_wrap thx_scrollbar" data-autolist="store_receiver">
+                        <ul class="autoList">
+                        </ul>
+                    </div>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+        </div>
+    </div>
+
+    <!-- 양도자 서명 -->
+    <div class="bottomSheetContainer" id="bottomsheet_store_receiver_cert" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#bottomsheet_store_receiver_cert').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">양도자 서명</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="wrap_canvas" style="border:1px solid #D9E1F2;">
+                    <canvas id="drawCanvas" style=" position: relative;"></canvas>
+                </div>
+                <br>
+                <button class="btn_clear">지우기</button>
+                <br><br>
+                <div style="display:flex;align-items:flex-start;">
+                    <button class="btn_save" style="flex-shrink:0;margin-right:10px;">저장</button>
+                    <textarea id="input_text"></textarea>
+                    <span><-- DB 저장용</span>
+                </div>
+                <br><br>
+                <button class="btn_download">서명 다운로드</button>
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_txt">초기화</button>
+                    <button class="btn btn_fill btn_forward ml-10">적용</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        };
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 양수자 입력 초기화 */
+        var inputWithReset_store_receiver = new InputWithReset('#store_receiver');
+        /* 양수자 자동완성 */
+        $('#store_receiver').autoComplete_account();
+    </script>
+    <script>
+        var signature = new Signature();
+        function Signature(){
+            window.addEventListener('load', InitEvent, false);
+            var canvas, context, tool;
+            function InitEvent() {
+                canvas = document.getElementById('drawCanvas');
+                if (!canvas) {
+                    alert("캔버스 객체를 찾을 수 없음");
+                    return;
+                }
+                if (!canvas.getContext) {
+                    alert("Drawing Context를 찾을 수 없음");
+                    return;
+                }
+                context = canvas.getContext('2d');
+                if (!context) {
+                    alert("getContext() 함수를 호출 할 수 없음");
+                    return;
+                }
+                // Pencil tool 객체를 생성 한다.
+                tool = new tool_pencil();
+                canvas.addEventListener('mousedown', ev_canvas, false);
+                canvas.addEventListener('mousemove', ev_canvas, false);
+                canvas.addEventListener('mouseup', ev_canvas, false);
+                canvas.addEventListener('touchstart', ev_canvas, false);
+                canvas.addEventListener('touchmove', ev_canvas, false);
+                canvas.addEventListener('touchend', ev_canvas, false);
+                $('.btn_clear').on('click', onClear);
+                $('.btn_save').on('click', onSave);
+                $('.btn_download').on('click', onDownload);
+                resize();
+            }
+            var wrap_canvas = document.querySelector('.wrap_canvas');
+            window.addEventListener('resize', resize);
+            function resize() {
+                canvas.width = wrap_canvas.offsetWidth;                
+            }
+            function tool_pencil() {
+                var tool = this;
+                this.started = false;
+
+                // 마우스를 누르는 순간 그리기 작업을 시작 한다. 
+                this.mousedown = function (ev) {
+                    context.beginPath();
+                    context.moveTo(ev._x, ev._y);
+                    tool.started = true;
+                };
+                // 마우스가 이동하는 동안 계속 호출하여 Canvas에 Line을 그려 나간다
+                this.mousemove = function (ev) {
+                    if (tool.started) {
+                        context.lineTo(ev._x, ev._y);
+                        context.stroke();
+                    }
+                };
+                // 마우스 떼면 그리기 작업을 중단한다
+                this.mouseup = function (ev) {
+                    if (tool.started) {
+                        tool.mousemove(ev);
+                        tool.started = false;
+                    }
+                };
+
+                // 마우스를 누르는 순간 그리기 작업을 시작 한다. 
+                this.touchstart = function (ev) {
+                    context.beginPath();
+                    context.moveTo(ev._x, ev._y);
+                    tool.started = true;
+                };
+                // 마우스가 이동하는 동안 계속 호출하여 Canvas에 Line을 그려 나간다
+                this.touchmove = function (ev) {
+                    if (tool.started) {
+                        context.lineTo(ev._x, ev._y);
+                        context.stroke();
+                    }
+                };
+                // 마우스 떼면 그리기 작업을 중단한다
+                this.touchend = function (ev) {
+                    if (tool.started) {
+                        tool.touchmove(ev);
+                        tool.started = false;
+                    }
+                };
+            }
+            // Canvas요소 내의 좌표를 결정 한다.
+            function ev_canvas(ev) {
+                //console.dir(ev);
+                if (ev.layerX || ev.layerX == 0) { // Firefox 브라우저
+                    alert('firefox');
+                    ev._x = ev.layerX;
+                    ev._y = ev.layerY;
+                }
+                else if (ev.offsetX || ev.offsetX == 0) { // Opera 브라우저
+                    alert('opera');
+                    ev._x = ev.offsetX;
+                    ev._y = ev.offsetY;
+                }
+                else if (ev.targetTouches[0] || ev.targetTouches[0].pageX == 0) {	//핸드폰
+                    alert('mobile');
+                    var left = 0;
+                    var top = 0;
+                    var elem = document.getElementById('drawCanvas');
+
+                    while (elem) {
+                        left = left + parseInt(elem.offsetLeft);
+                        top = top + parseInt(elem.offsetTop);
+                        elem = elem.offsetParent;
+                    }
+
+                    ev._x = ev.targetTouches[0].pageX - left;
+                    ev._y = ev.targetTouches[0].pageY - top;
+                }
+                // tool의 이벤트 핸들러를 호출한다.
+                var func = tool[ev.type];
+                if (func) {
+                    func(ev);
+                }
+            }
+
+            function onClear() {
+                canvas = document.getElementById('drawCanvas');
+                if (isCanvasCleared()) {
+                    console.log("지울 것이 없습니다.");
+                    return;
+                }
+                //context.save();
+                //context.setTransform(1, 0, 0, 1, 0, 0);
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                console.log("지웠습니다");
+                //context.restore();
+                $('#input_text').val('');
+            }
+
+            function isCanvasCleared() {
+                // 캔버스를 클리어하고, 클리어된 부분을 새로 그림
+                //context.clearRect(0, 0, canvas.width, canvas.height);
+                // 클리어 후 캔버스에 그려진 데이터의 픽셀값 가져오기
+                var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+                // 클리어된 캔버스의 모든 픽셀값이 0이면 클리어된 것으로 간주
+                for (var i = 0; i < imgData.data.length; i++) {
+                    if (imgData.data[i] !== 0) {
+                        // 픽셀값이 0이 아닌 것이 발견되면 클리어되지 않은 것으로 간주
+                        return false;
+                    }
+                }
+                // 모든 픽셀값이 0이면 클리어된 것으로 간주
+                return true;
+            }
+
+            function onSave() {
+                $('#input_text').val(canvas.toDataURL());
+            }
+            function onDownload() {
+                download(canvas.toDataURL(), "signature.png");
+            }
+            function download(dataURL, filename) {
+                const blob = dataURLToBlob(dataURL);
+                const url = window.URL.createObjectURL(blob);
+
+                const a = document.createElement("a");
+                a.style = "display: none";
+                a.href = url;
+                a.download = filename;
+
+                document.body.appendChild(a);
+                a.click();
+
+                window.URL.revokeObjectURL(url);
+            }
+            function dataURLToBlob(dataURL) {
+                // Code taken from https://github.com/ebidel/filer.js
+                const parts = dataURL.split(';base64,');
+                const contentType = parts[0].split(":")[1];
+                const raw = window.atob(parts[1]);
+                const rawLength = raw.length;
+                const uInt8Array = new Uint8Array(rawLength);
+
+                for (let i = 0; i < rawLength; ++i) {
+                    uInt8Array[i] = raw.charCodeAt(i);
+                }
+
+                return new Blob([uInt8Array], { type: contentType });
+            }
+
+        }
+        
+    </script>
+</body>
+
+</html>

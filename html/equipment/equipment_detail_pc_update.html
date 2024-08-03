@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>장비 상세</h1>
+            </div>
+            <div class="header_area">
+                <button type="button" class="btn btn_txt">삭제</button>
+                <button type="button" class="btn btn_txt">편집</button>
+            </div>
+        </header>
+        <div class="body detail">
+            <div class="card">
+                <button class="btn card_header" onclick="equipment_detail_toggle(this);">
+                    <div class="title">기본</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item">
+                        <label class="title">장비 종류</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">PC-Agent</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label class="title">라이브 상태</label>
+                        <div class="value p-relative">
+                            <div class="thx_value_readonly on">ON</div>
+                            <button class="btn btn_equipment_detail">라이브 체크</button>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label class="title">버전 정보</label>
+                        <div class="value p-relative">
+                            <div class="thx_value_readonly">업데이트중</div>
+                            <button class="btn btn_equipment_detail" disabled>업데이트</button>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label class="title">설치 매장</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">[빽다방] 빽다방 빵연구소 김해 삼계 한라 비발디점</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label class="title">장비 닉네임</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">주방 맨 오른쪽 모니터</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label class="title">장비 등록자</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">서울대비발디점</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label class="title">장비 등록일</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">2024-09-03</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <button class="btn card_header" onclick="equipment_detail_toggle(this);">
+                    <div class="title">소리</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="common_sound_title pc">같은 매장 장비에 공통 적용되는 항목</div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label class="title">목소리 종류</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">아린</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label class="title">벨소리 종류</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">띠링</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label class="title">호칭 멘트</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">고객님</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label class="title">마무리 멘트</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">주문하신 음식 나왔습니다.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 카드 접었다 폈다 */
+        function equipment_detail_toggle(element) {
+            var card_header = $(element);
+            var card_body = $($(element).siblings()[0]);
+            card_header.toggleClass('hide');
+            card_body.toggleClass('hide');
+        }
+    </script>
+</body>
+
+</html>

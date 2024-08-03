@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>회사 목록</h1>
+            </div>
+            <div class="header_area">
+                <button type="button" class="btn btn_search" onclick="$('#find_company').sheet('show');">
+                    <span class="material-symbols-outlined">search</span>
+                </button>
+            </div>
+        </header>
+        <div class="body list">
+            <!-- chip -->
+            <ul class="filter_list">
+                <li class="chip_filter">
+                    <span class="txt">더본</span>
+                    <button class="btn btn_chip">
+                        <span class="material-symbols-outlined">close_small</span>
+                    </button>
+                </li>
+                <li class="chip_filter">
+                    <span class="txt">본사</span>
+                    <button class="btn btn_chip">
+                        <span class="material-symbols-outlined">close_small</span>
+                    </button>
+                </li>
+            </ul>
+            <ul class="company_list">
+                <li class="item">
+                    <div class="item_header">
+                        <span class="badge_companyType">본사</span>
+                        <span class="d-inline-block ml-5 company_name">더본코리아</span>
+                    </div>
+                    <ul class="item_body_list">
+                        <li>
+                            <label class="company_label">대표</label>
+                            <div class="company_value">홍길동</div>
+                        </li>
+                        <li>
+                            <label class="company_label">연락처</label>
+                            <div class="company_value">02-555-6666</div>
+                        </li>
+                        <li>
+                            <label class="company_label">주소</label>
+                            <div class="company_value">서울 서초구 사평대로 16</div>
+                        </li>
+                        <li>
+                            <label class="company_label">업태</label>
+                            <div class="company_value">서비스</div>
+                        </li>
+                        <li>
+                            <label class="company_label">종목</label>
+                            <div class="company_value">상품권 및 쿠폰발행유통 외</div>
+                        </li>
+                        <li>
+                            <label class="company_label">사업자등록번호</label>
+                            <div class="company_value">211-86-00870</div>
+                        </li>
+                    </ul>
+                    <div class="item_footer pt-5 pb-5">
+                        <button class="btn btn_txt">편집</button>
+                    </div>
+                    <div class="thumbnail_cert">
+                        <img src="../../img/cert.png" alt="" class="img">
+                        <button class="btn btn_expand" onclick="$.img_modal('show', this);">
+                            <span class="material-symbols-outlined">fullscreen</span>
+                        </button>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="item_header">
+                        <span class="badge_companyType">업체</span>
+                        <span class="d-inline-block ml-5 company_name">우주산업</span>
+                    </div>
+                    <ul class="item_body_list">
+                        <li>
+                            <label class="company_label">대표</label>
+                            <div class="company_value">이성계</div>
+                        </li>
+                        <li>
+                            <label class="company_label">연락처</label>
+                            <div class="company_value">02-555-6666</div>
+                        </li>
+                        <li>
+                            <label class="company_label">주소</label>
+                            <div class="company_value">서울 서초구 사평대로 16</div>
+                        </li>
+                        <li>
+                            <label class="company_label">업태</label>
+                            <div class="company_value">서비스</div>
+                        </li>
+                        <li>
+                            <label class="company_label">종목</label>
+                            <div class="company_value">상품권 및 쿠폰발행유통 외</div>
+                        </li>
+                        <li>
+                            <label class="company_label">사업자등록번호</label>
+                            <div class="company_value">211-86-00870</div>
+                        </li>
+                    </ul>
+                    <div class="item_footer pt-5 pb-5">
+                        <button class="btn btn_txt">편집</button>
+                    </div>
+                    <div class="thumbnail_cert">
+                    </div>
+                </li>
+            </ul>
+            <button class="btn btn_fill btn_big btn_add">
+                <span class="material-symbols-outlined">edit</span>
+                <span class="d-inline-block ml-10">회사 등록</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="topSheetContainer" id="find_company" data-type="top">
+        <div class="topSheet">
+            <div class="topSheet_header">
+                <span class="title">검색&필터</span>
+            </div>
+            <div class="pt-10"></div>
+            <div class="topSheet_body">
+                <div class="input_wrap">
+                    <div class="p-relative input_box search">
+                        <input type="text" class="thx_txt bothicon" id="find_company_name" name="find_company_name"
+                            placeholder="회사명을 입력하세요" autocomplete="off">
+                        <div class="input_icon_wrap"></div>
+                    </div>
+                </div>
+                <div class="pt-10"></div>
+                <div class="filter_item baseline">
+                    <label class="title">구분</label>
+                    <div class="value">
+                        <div class="input_wrap w-100">
+                            <div class="thx_select_box">
+                                <select name="" id="" class="thx_select">
+                                    <option value="all">전체</option>
+                                    <option value="">본사</option>
+                                    <option value="">업체</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-center pt-16 pb-16">
+                    <button class="btn btn_txt">초기화</button>
+                    <button class="btn btn_fill">적용</button>
+                </div>
+            </div>
+            <button class="btn handle" onclick="$('#find_company').sheet('hide');">
+                <span></span>
+            </button>
+        </div>
+    </div>
+
+
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        $(function () {
+            // 현재 페이지 번호 및 페이지당 아이템 수 설정
+            let page = 1;
+            const itemsPerPage = 10;
+
+            // 아이템을 표시할 컨테이너와 아이템 클래스 설정
+            const itemContainer = 'company_list';
+            const itemClass = 'item';
+
+            // 마지막으로 로드된 아이템과 관찰된 아이템을 추적하기 위한 변수 초기화
+            let lastItem; // 마지막으로 로드된 아이템
+            let lastObservedItem; // 마지막 아이템이면서 화면에 들어온 것으로 관찰된 아이템
+
+            // 아이템을 로드하고 화면에 추가하는 함수
+            function loadItems() {
+                $.ajax({
+                    url: `https://raw.githubusercontent.com/ctrlcccv/ctrlcccv-demo/main/2023-11-01-ajax-Infinite/test.json`,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        // 현재 페이지에 해당하는 아이템만 선택 0~9, 10~19, 20~29 ,...
+                        const newData = data.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+                        newData.forEach(newItem => {
+                            // 아이템을 컨테이너에 추가                            
+                            $(`.${itemContainer}`).append(
+                                `
+                               <li class="${itemClass}">
+                                    <div class="item_header">
+                                        <span class="badge_companyType">본사</span>
+                                        <span class="d-inline-block ml-5 company_name">${newItem.item}</span>
+                                    </div>
+                                    <ul class="item_body_list">
+                                        <li>
+                                            <label class="company_label">대표</label>
+                                            <div class="company_value">홍길동</div>
+                                        </li>
+                                        <li>
+                                            <label class="company_label">연락처</label>
+                                            <div class="company_value">02-555-6666</div>
+                                        </li>
+                                        <li>
+                                            <label class="company_label">주소</label>
+                                            <div class="company_value">서울 서초구 사평대로 16</div>
+                                        </li>
+                                        <li>
+                                            <label class="company_label">업태</label>
+                                            <div class="company_value">서비스</div>
+                                        </li>
+                                        <li>
+                                            <label class="company_label">종목</label>
+                                            <div class="company_value">상품권 및 쿠폰발행유통 외</div>
+                                        </li>
+                                        <li>
+                                            <label class="company_label">사업자등록번호</label>
+                                            <div class="company_value">211-86-00870</div>
+                                        </li>
+                                    </ul>
+                                    <div class="item_footer pt-5 pb-5">
+                                        <button class="btn btn_txt">편집</button>
+                                    </div>
+                                    <div class="thumbnail_cert">
+                                        <img src="../../img/cert.png" alt="" class="img">
+                                        <button class="btn btn_expand" onclick="$.img_modal('show', this);">
+                                            <span class="material-symbols-outlined">fullscreen</span>
+                                        </button>
+                                    </div>
+                                </li>
+                                `
+                            );
+                        });
+                        page++; // 다음 페이지로 이동
+
+                        // 마지막으로 추가된 아이템 설정 및 Intersection Observer에 관찰
+                        lastItem = $(`.${itemContainer} .${itemClass}:last`)[0];
+
+                        if (lastItem !== lastObservedItem) { // 마지막으로 추가된 아이템이 컨테이너 안에 있을 때는 관찰할 필요 없음
+                            observer.observe(lastItem); // 관찰자 바꾸기                            
+                        }
+                    },
+                    error: function (error) {
+                        console.error('데이터를 가져오는 동안 오류가 발생했습니다:', error);
+                    }
+                });
+            }
+
+            // 초기 페이지 로드 시 아이템 로드 함수 호출
+            loadItems();
+
+            // Intersection Observer 설정
+            const observerOptions = {
+                root: null, // 관찰자의 루트 요소 설정 (null은 브라우저의 뷰포트)
+                threshold: 0.5 // 아이템이 50% 이상 화면에 나타날 때 콜백 함수 실행
+            };
+
+            // Intersection Observer 생성
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // 관찰하고 있던 아이템이 화면에 나타나면 아이템을 로드하고 관찰 해제                        
+                        //lastObservedItem = $(`.${itemContainer} .${itemClass}:last`)[0];
+                        //console.log(entry.target === lastObservedItem);
+                        lastObservedItem = entry.target;
+                        loadItems();
+                        observer.unobserve(entry.target); // 기존 관찰대상은 관찰 해제
+                    }
+                });
+            }, observerOptions);
+        });
+    </script>
+    <script>
+        /* 회사명 입력 초기화 */
+        var inputWithReset_find_company_name = new InputWithReset('#find_company_name');
+
+        /* topsheet 검색 */
+        $('#find_company').sheet('show');
+    </script>
+</body>
+
+</html>
