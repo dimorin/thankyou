@@ -392,7 +392,8 @@ textarea.thx_txt.push_content{height:20rem;}
 .store_list > li .btn_represent_store{position:absolute;bottom:1rem;right:1rem;display:flex;justify-content:center;align-items:center;width:6rem;height:4rem;font-size:1.2rem;color:white;background-color:var(--primary_color);font-weight:400;border-radius:0.4rem;}
 .add_file{position:relative;width:7.8rem;height:7.8rem;border:0.1rem solid #D9E1F2;border-radius:0.4rem;box-sizing:content-box;}
 .add_file.wait{border:1rem solid rgba(31,119,196,0.28);}
-.add_file::before {content: '사업자등록증';text-align: center;font-weight: 500;font-size: 1.2rem;color: var(--blur_color);position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
+.add_file::before {content: '';text-align: center;font-weight: 500;font-size: 1.2rem;color: var(--blur_color);position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
+.add_file.cert::before {content: '사업자등록증';text-align: center;font-weight: 500;font-size: 1.2rem;color: var(--blur_color);position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
 .add_file .img {position: absolute;left:50%;top:50%;transform:translate(-50%,-50%);display: inline-block;width: inherit;height: inherit;object-fit: cover;}
 .add_file .btn_expand{position:absolute;top:0;right:0;width:2.4rem;height:2.4rem;background-color:black;color:white;}
 .btn_call_waitnumber{position:absolute;top:0.5rem;right:0.5rem;height:3rem;padding:0 1rem;color:white;background-color:var(--primary_color);border-radius:0.4rem;}
@@ -410,11 +411,35 @@ textarea.thx_txt.push_content{height:20rem;}
 .btn_add_account .icon{display:inline-flex;justify-content:center;align-items:center;width:2.4rem;height:2.4rem;background-color:var(--primary_color);color:white;border-radius:2.4rem;}
 
 /* transfer */
+.transfer_list{}
+.transfer_list > li{margin-top:1rem;}
+.transfer_list > li:first-child{margin-top:0;}
+.transfer_list > li .btn_detail{display:block;width:100%;padding:1rem;text-align:left;color:var(--title_color);border-radius:0.4rem;background-color:white;}
+.transfer_list > li .btn_detail .detail_header{display:flex;justify-content:space-between;align-items:center;}
+.transfer_list > li .btn_detail .transfer_state{display:flex;align-items:center;}
+.transfer_list > li .btn_detail .transfer_state.complete .icon{color:var(--progress_color);}
+.transfer_list > li .btn_detail .badge_state{display:inline-block;height:2.2rem;line-height:2.2rem;padding:0 1rem;font-weight:500;font-size:1.2rem;color:#2B7FFC;background-color:white;border:1px solid #eeeeee;border-radius:0.4rem;white-space:nowrap;}
+.transfer_list > li .btn_detail .transfer_store{display: block;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;color:var(--title_color);font-size:1.4rem;}
+.transfer_list > li .btn_detail .transfer_date{color:var(--title_color);font-size:1.4rem;}
 .transfer_add_title {color: var(--blur_color);}
 .btn_pop_signature{position:relative;display:block;width:100%;height:100%;}
 
 /* work */
 textarea.thx_txt.work_content{height:15rem;}
+.work_list{}
+.work_list > li{position:relative;margin-top:1rem;}
+.work_list > li:first-child{margin-top:0;}
+.work_list > li .btn_detail{display:block;width:100%;text-align:left;color:var(--title_color);border-radius:0.4rem;background-color:white;}
+.work_list > li .btn_detail .detail_header{display:flex;justify-content:space-between;align-items:center;padding:1rem;}
+.work_list > li .btn_detail .badge_work_type{display:inline-block;height:2.2rem;line-height:2.2rem;padding:0 1rem;font-weight:500;font-size:1.2rem;color:#613BE7;background-color:#F0EDFD;border-radius:0.4rem;}
+.work_list > li .btn_detail .work_state{display:flex;align-items:center;}
+.work_list > li .btn_detail .work_state.complete .icon{color:var(--progress_color);}
+.work_list > li .btn_detail .badge_state{display:inline-block;height:2.2rem;line-height:2.2rem;padding:0 1rem;font-weight:500;font-size:1.2rem;color:#2B7FFC;background-color:white;border:1px solid #eeeeee;border-radius:0.4rem;white-space:nowrap;}
+.work_list > li .btn_detail .work_store{display:block;padding:0 1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.work_list > li .btn_detail .work_worker_info_wrap{padding:1rem;color:var(--title_color);fon-size:1.4rem;}
+.work_list > li .btn_detail .item_footer{height:5rem;padding:1rem;background-color:white;border-top:0.1rem solid #D9E1F2;}
+.work_list > li .btn_report{position:absolute;left:1rem;bottom:1rem;}
+.work_detail_title {color: var(--blur_color);}
 
 /* equipment */
 .equipment_list{}
