@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>명의이전 상세</h1>
+            </div>
+            <div class="header_area">
+                <!-- <button type="button" class="btn btn_fill">양수 요청</button> -->
+            </div>
+        </header>
+        <div class="body detail pl-16 pr-16">
+            <div class="detail_item">
+                <label class="title">상태</label>
+                <div class="value">
+                    <div class="thx_value_readonly">이전완료</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">명의이전 요청일</label>
+                <div class="value">
+                    <div class="thx_value_readonly">2024-09-30</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">명의이전 완료일</label>
+                <div class="value">
+                    <div class="thx_value_readonly">2024-10-30</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <div class="transfer_add_title">양도 매장 정보</div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">매장명</label>
+                <div class="value">
+                    <div class="thx_value_readonly">[빽다방] 제주한라산비발디작은연못120차1호점</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">사업자등록번호</label>
+                <div class="value">
+                    <div class="thx_value_readonly">211-86-00870</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">주소</label>
+                <div class="value">
+                    <div class="thx_value_readonly">경기도 안산시 상록구 상록번화길 10-2 3층</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">데이터 보존 여부</label>
+                <div class="value">
+                    <div class="thx_value_readonly">보존</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <div class="transfer_add_title">양도자 정보</div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">양도자</label>
+                <div class="value">
+                    <div class="thx_value_readonly">안산역2호점</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">연락처</label>
+                <div class="value">
+                    <div class="thx_value_readonly">010-5555-8888</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item start">
+                <label class="title">서명</label>
+                <div class="value">
+                    <div class="add_file">
+                        <img src="../../img/sign.png" alt="" class="img">
+                    </div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <div class="transfer_add_title">양수자 정보</div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">양수자</label>
+                <div class="value">
+                    <div class="thx_value_readonly">고잔역2호점</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">연락처</label>
+                <div class="value">
+                    <div class="thx_value_readonly">010-5555-8888</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item start">
+                <label class="title">서명</label>
+                <div class="value">
+                    <div class="add_file">
+                        <img src="../../img/sign2.png" alt="" class="img">
+                    </div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>작업 상세</h1>
+            </div>
+            <div class="header_area">
+                <button type="button" class="btn btn_fill" onclick="$('#set_visit_date').sheet('show');">방문일자일시
+                    설정</button>
+            </div>
+        </header>
+        <div class="body detail pl-16 pr-16">
+            <div class="detail_item">
+                <label class="title">작업 구분</label>
+                <div class="value">
+                    <div class="thx_value_readonly">A/S</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">상태</label>
+                <div class="value">
+                    <div class="thx_value_readonly">작업수락</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">작업요청일</label>
+                <div class="value">
+                    <div class="thx_value_readonly">2024-09-30</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <div class="work_detail_title">매장 정보</div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">매장명</label>
+                <div class="value">
+                    <div class="thx_value_readonly">빽다방 빵연구소 김해 삼계한라비발디점</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">매장 연락처</label>
+                <div class="value">
+                    <div class="thx_value_readonly">0705558888</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">주소</label>
+                <div class="value">
+                    <div class="thx_value_readonly">경기도 안산시 상록구 상록번화길 10-2 3층</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <div class="work_detail_title">업체 정보</div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">업체명</label>
+                <div class="value">
+                    <div class="thx_value_readonly">우주산업</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">업체종류</label>
+                <div class="value">
+                    <div class="thx_value_readonly">오디오</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">업체직원</label>
+                <div class="value">
+                    <div class="thx_value_readonly">홍길동</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">업체직원 연락처</label>
+                <div class="value">
+                    <div class="thx_value_readonly">010-5555-8888</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <div class="work_detail_title">작업 요청 정보</div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">요청 내용</label>
+                <div class="value">
+                    <div class="thx_value_readonly">오디오 소리가 자주 끊깁니다.<br>케이블 교체해주세요.</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item start">
+                <label class="title">첨부 사진</label>
+                <div class="value">
+                    <div style="display:flex;flex-wrap:wrap;gap:1rem;">
+                        <div class="add_file cert">
+                            <img src="../../img/work.png" alt="" class="img">
+                            <button class="btn btn_expand" onclick="$.img_modal('show', this);">
+                                <span class="material-symbols-outlined">fullscreen</span>
+                            </button>
+                        </div>
+                        <div class="add_file cert">
+                            <img src="../../img/store.png" alt="" class="img">
+                            <button class="btn btn_expand" onclick="$.img_modal('show', this);">
+                                <span class="material-symbols-outlined">fullscreen</span>
+                            </button>
+                        </div>
+                        <div class="add_file cert">
+                            <img src="../../img/work.png" alt="" class="img">
+                            <button class="btn btn_expand" onclick="$.img_modal('show', this);">
+                                <span class="material-symbols-outlined">fullscreen</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">방문일자일시</label>
+                <div class="value">
+                    <div class="thx_value_readonly">2024-09-30 10:00</div>
+                </div>
+            </div>
+            <div class="pt-16"></div>
+        </div>
+    </div>
+
+    <div class="bottomSheetContainer" id="set_visit_date" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#set_visit_date').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">방문일자일시 설정</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body set_visit_date_wrap">
+                <div class="input_wrap" id="find_range">
+                    <div class="p-relative input_date">
+                        <input type="datetime-local" class="thx_txt text-align-left" id="find_date_start"
+                            name="find_date_start" placeholder="" autocomplete="off">
+                        <div class="input_icon_wrap"></div>
+                    </div>
+                    <div class="guide"></div>
+                </div>
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_fill">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        $('#find_date_start').on('input', function (event) {
+            $('#find_date_start').removeClass('error');
+            $('#find_range .guide').text('');
+            var start_date_str = $(event.currentTarget).val();
+            var start_date = new Date(start_date_str);
+            if (start_date_str) {
+                if (start_date < new Date()) {  //오늘보다 이전이면 경고글 띄우고 날짜를 지운다.
+                    $('#find_date_start').val('');
+                    $('#find_date_start').addClass('error');
+                    $('#find_range .guide').text('현재 시간 이후로 방문 날짜를 다시 입력해주세요.');
+                    return;
+                } else {
+                    console.log($(event.currentTarget).val());
+                }
+            }
+        });
+
+
+        $('#set_visit_date').sheet('show');
+    </script>
+</body>
+
+</html>

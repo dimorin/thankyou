@@ -17,85 +17,131 @@
                 <button type="button" class="btn pr-10">
                     <span class="material-symbols-outlined">arrow_back</span>
                 </button>
-                <h1>명의이전 등록</h1>
+                <h1>명의이전 상세</h1>
             </div>
             <div class="header_area">
-                <button class="btn btn_fill">저장</button>
+                <button type="button" class="btn btn_fill"
+                    onclick="$('#bottomsheet_store_receiver_cert').sheet('show');$('.wrap_canvas').delete_signature();">수락</button>
             </div>
         </header>
-        <div class="body pl-16 pr-16 pb-16">
-            <div class="transfer_add_title">양도 매장 정보</div>
-            <div class="pt-10"></div>
-            <div class="account_hr"></div>
-            <div class="pt-10"></div>
-            <label for="" class="">매장명</label>
-            <div class="thx_value_readonly">[빽다방]안산역1호점</div>
-            <div class="pt-10"></div>
-            <label for="" class="">사업자등록번호</label>
-            <div class="thx_value_readonly">211-87-00870</div>
-            <div class="pt-10"></div>
-            <label for="" class="">주소</label>
-            <div class="thx_value_readonly">경기도 안산시 상록구 현대로터리버드나무길 10005-99999 3층</div>
-            <div class="pt-10"></div>
-            <label class="required">데이터 보존 여부</label>
-            <div class="input_wrap mt-5">
-                <div class="d-inline-center">
-                    <input type="radio" name="data_remain" id="data_remain_true" class="thx_radio vertical-align-middle"
-                        checked />
-                    <label for="data_remain_true" class="ml-5 vertical-align-middle">보존</label>
+        <div class="body detail pl-16 pr-16">
+            <div class="detail_item">
+                <label class="title">상태</label>
+                <div class="value">
+                    <div class="thx_value_readonly">양수자서명대기</div>
                 </div>
-                <div class="d-inline-center ml-16">
-                    <input type="radio" name="data_remain" id="data_remain_false"
-                        class="thx_radio vertical-align-middle" />
-                    <label for="data_remain_false" class="ml-5 vertical-align-middle">미보존</label>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">명의이전 요청일</label>
+                <div class="value">
+                    <div class="thx_value_readonly">2024-09-30</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">명의이전 완료일</label>
+                <div class="value">
+                    <div class="thx_value_readonly">-</div>
                 </div>
             </div>
             <div class="pt-10"></div>
             <div class="account_hr"></div>
             <div class="pt-10"></div>
-            <div class="transfer_add_title">양도자 정보</div>
+            <div class="transfer_add_title">양도 매장 정보</div>
             <div class="pt-10"></div>
-            <label for="" class="">양도자</label>
-            <div class="thx_value_readonly">고잔역</div>
-            <div class="pt-10"></div>
-            <label for="" class="required">양도자 서명</label>
-            <div class="input_wrap">
-                <div class="thumbnail_add_file store_giver_cert">
-                    <button class="btn btn_pop_signature"
-                        onclick="$('#bottomsheet_store_giver_cert').sheet('show');$('.wrap_canvas').delete_signature();"></button>
-                    <!--image will be inserted here-->
+            <div class="detail_item baseline">
+                <label class="title">매장명</label>
+                <div class="value">
+                    <div class="thx_value_readonly">[빽다방] 제주한라산비발디작은연못120차1호점</div>
                 </div>
-                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">사업자등록번호</label>
+                <div class="value">
+                    <div class="thx_value_readonly">211-86-00870</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">주소</label>
+                <div class="value">
+                    <div class="thx_value_readonly">경기도 안산시 상록구 상록번화길 10-2 3층</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">데이터 보존 여부</label>
+                <div class="value">
+                    <div class="thx_value_readonly">보존</div>
+                </div>
             </div>
             <div class="pt-10"></div>
             <div class="account_hr"></div>
             <div class="pt-10"></div>
             <div class="transfer_add_title">양수자 정보</div>
             <div class="pt-10"></div>
-            <label for="store_receiver" class="required">양수자</label>
-            <div class="input_wrap">
-                <div class="p-relative input_box search">
-                    <input type="text" class="thx_txt bothicon" id="store_receiver" name="store_receiver"
-                        placeholder="양수자 이름을 입력하세요" autocomplete="off" required>
-                    <div class="input_icon_wrap"></div>
-                    <div class="autoList_wrap thx_scrollbar" data-autolist="store_receiver">
-                        <ul class="autoList">
-                        </ul>
+            <div class="detail_item baseline">
+                <label class="title">양수자</label>
+                <div class="value">
+                    <div class="thx_value_readonly">안산역2호점</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">연락처</label>
+                <div class="value">
+                    <div class="thx_value_readonly">010-5555-8888</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item start">
+                <label class="title">서명</label>
+                <div class="value">
+                    <div class="add_file">
+                        <img src="../../img/sign.png" alt="" class="img">
                     </div>
                 </div>
-                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <div class="transfer_add_title">양수자 정보</div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">양수자</label>
+                <div class="value">
+                    <div class="thx_value_readonly">고잔역2호점</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">연락처</label>
+                <div class="value">
+                    <div class="thx_value_readonly">010-5555-8888</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item start">
+                <label class="title">서명</label>
+                <div class="value">
+                    <div class="add_file">
+                        <!-- <img src="../../img/sign.png" alt="" class="img"> -->
+                    </div>
+                </div>
             </div>
             <div class="pt-10"></div>
         </div>
     </div>
 
-    <!-- 양도자 서명 -->
-    <div class="bottomSheetContainer" id="bottomsheet_store_giver_cert" data-type="bottom">
+    <!-- 양수자 서명 -->
+    <div class="bottomSheetContainer" id="bottomsheet_store_receiver_cert" data-type="bottom">
         <div class="bottomSheet">
             <button class="btn handle"
-                onclick="$('#bottomsheet_store_giver_cert').sheet('hide');"><span></span></button>
+                onclick="$('#bottomsheet_store_receiver_cert').sheet('hide');"><span></span></button>
             <div class="bottomSheet_header">
-                <div class="title">양도자 서명</div>
+                <div class="title">양수자 서명</div>
             </div>
             <div class="pt-10 mt-10"></div>
             <div class="bottomSheet_body">
@@ -104,7 +150,7 @@
                 </div>
                 <div class="d-center mt-16 pt-16 pb-16">
                     <button class="btn btn_txt btn_init_signature">초기화</button>
-                    <button class="btn btn_fill btn_apply_signature ml-10">적용</button>
+                    <button class="btn btn_fill btn_apply_signature ml-10">저장</button>
                 </div>
             </div>
         </div>
@@ -125,7 +171,7 @@
 
         function initData() {
 
-        };
+        }
 
         function initEventListener() {
 
@@ -137,17 +183,11 @@
         });
     </script>
     <script>
-        /* 양수자 입력 초기화 */
-        var inputWithReset_store_receiver = new InputWithReset('#store_receiver');
-        /* 양수자 자동완성 */
-        $('#store_receiver').autoComplete_account();
-    </script>
-    <script>
         /* 
         
         삭제시 경고나옴
         서명 그릴 때 경고 나옴
-
+ 
         */
         /* 서명 */
         $.fn.draw_signature = function () {
@@ -332,14 +372,14 @@
             data_url = canvas.toDataURL();
 
             target_container.append(`
-                <img class='img' alt='' src='${data_url}' />
-            `);
+                    <img class='img' alt='' src='${data_url}' />
+                `);
 
             target_container.append(`
-                <button class="btn btn_init_file">
-                    <span class="material-symbols-outlined">close</span>
-                </button>
-            `);
+                    <button class="btn btn_init_file">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                `);
 
             target_container.find('.btn_init_file').on('click', function (event) {
                 $(event.currentTarget).remove();
@@ -355,9 +395,9 @@
             var canvas = $('.wrap_canvas .drawCanvas')[0];
             var data_url = canvas.toDataURL();
             if (data_url) {
-                $('.wrap_canvas').make_signature_data({ container: '.store_giver_cert' });
+                $('.wrap_canvas').make_signature_data({ container: '.store_receiver_cert' });
                 $('.wrap_canvas').delete_signature();
-                $('#bottomsheet_store_giver_cert').sheet('hide');
+                $('#bottomsheet_store_receiver_cert').sheet('hide');
             } else {
                 $.modal('show', {
                     message: `서명난이 비었습니다.`,

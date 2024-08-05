@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>작업 보고서 등록</h1>
+            </div>
+            <div class="header_area">
+                <button class="btn btn_fill">저장</button>
+            </div>
+        </header>
+        <div class="body pl-16 pr-16 pb-16">
+            <label class="">작업 구분</label>
+            <div class="input_wrap">
+                <div class="thx_value_readonly">일반</div>
+            </div>
+            <div class="pt-10"></div>
+            <label class="">작업자</label>
+            <div class="input_wrap">
+                <div class="thx_value_readonly">서재필</div>
+            </div>
+            <div class="pt-10"></div>
+            <label class="">작업한 매장</label>
+            <div class="input_wrap">
+                <div class="thx_value_readonly">[빽다방] 서울대입구점</div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="work_content" class="required">작업 내용</label>
+            <div class="input_wrap">
+                <div class="p-relative">
+                    <textarea class="thx_txt righticon work_content" id="work_content" name=""
+                        placeholder="작업 내용을 입력하세요." autocomplete="off" required value=""></textarea>
+                    <div class="input_icon_wrap"></div>
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+            <label for="work_picture" class="">첨부 사진</label>
+            <div class="input_wrap">
+                <div class="thumbnail_add_file">
+                    <input type="file" class="thx_file" id="work_picture">
+                    <!--image will be inserted here-->
+                </div>
+                <div class="guide"></div>
+            </div>
+            <div class="pt-10"></div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        };
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 작업 내용 입력 초기화 */
+        var inputWithReset_work_content = new InputWithReset('#work_content');
+
+        /* 첨부 사진 파일선택 */
+        $("#work_picture").file({ container: '.thumbnail_add_file' });
+
+
+    </script>
+</body>
+
+</html>
