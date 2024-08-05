@@ -17,40 +17,49 @@
                 <button type="button" class="btn pr-10">
                     <span class="material-symbols-outlined">arrow_back</span>
                 </button>
-                <h1>매장 상세</h1>
+                <h1>명의이전 상세</h1>
+            </div>
+            <div class="header_area">
+                <button type="button" class="btn btn_fill">양수 요청</button>
             </div>
         </header>
         <div class="body detail pl-16 pr-16">
             <div class="detail_item">
                 <label class="title">상태</label>
                 <div class="value">
-                    <div class="thx_value_readonly">
-                        <button class="btn btn_link_transfer">
-                            <span>명의이전중</span>
-                            <span class="material-symbols-outlined">open_in_new</span>
-                        </button>
-                    </div>
+                    <div class="thx_value_readonly">관리자수락대기</div>
                 </div>
             </div>
             <div class="pt-10"></div>
             <div class="detail_item">
-                <label class="title">등록일</label>
+                <label class="title">명의이전 요청일</label>
                 <div class="value">
                     <div class="thx_value_readonly">2024-09-30</div>
                 </div>
             </div>
             <div class="pt-10"></div>
+            <div class="detail_item">
+                <label class="title">명의이전 완료일</label>
+                <div class="value">
+                    <div class="thx_value_readonly">-</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <div class="transfer_add_title">양도 매장 정보</div>
+            <div class="pt-10"></div>
             <div class="detail_item baseline">
                 <label class="title">매장명</label>
                 <div class="value">
-                    <div class="thx_value_readonly">빽다방 빵연구소 김해 삼계한라비발디점</div>
+                    <div class="thx_value_readonly">[빽다방] 제주한라산비발디작은연못120차1호점</div>
                 </div>
             </div>
             <div class="pt-10"></div>
             <div class="detail_item">
-                <label class="title">매장 연락처</label>
+                <label class="title">사업자등록번호</label>
                 <div class="value">
-                    <div class="thx_value_readonly">0705558888</div>
+                    <div class="thx_value_readonly">211-86-00870</div>
                 </div>
             </div>
             <div class="pt-10"></div>
@@ -61,59 +70,64 @@
                 </div>
             </div>
             <div class="pt-10"></div>
-            <div class="detail_item baseline">
-                <label class="title">본사</label>
+            <div class="detail_item">
+                <label class="title">데이터 보존 여부</label>
                 <div class="value">
-                    <div class="thx_value_readonly">더본코리아</div>
+                    <div class="thx_value_readonly">보존</div>
                 </div>
             </div>
             <div class="pt-10"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <div class="transfer_add_title">양도자 정보</div>
+            <div class="pt-10"></div>
             <div class="detail_item baseline">
-                <label class="title">브랜드</label>
+                <label class="title">양도자</label>
                 <div class="value">
-                    <div class="thx_value_readonly">빽다방</div>
+                    <div class="thx_value_readonly">안산역2호점</div>
                 </div>
             </div>
             <div class="pt-10"></div>
-            <div class="detail_item baseline">
-                <label class="title">점주</label>
+            <div class="detail_item">
+                <label class="title">연락처</label>
                 <div class="value">
-                    <div class="thx_value_readonly">안산1호점</div>
+                    <div class="thx_value_readonly">010-5555-8888</div>
                 </div>
             </div>
             <div class="pt-10"></div>
             <div class="detail_item start">
-                <label class="title">사업자등록증</label>
+                <label class="title">서명</label>
                 <div class="value">
-                    <div class="add_file cert">
-                        <img src="../../img/cert.png" alt="" class="img">
-                        <button class="btn btn_expand" onclick="$.img_modal('show', this);">
-                            <span class="material-symbols-outlined">fullscreen</span>
-                        </button>
+                    <div class="add_file">
+                        <img src="../../img/sign.png" alt="" class="img">
                     </div>
                 </div>
             </div>
             <div class="pt-10"></div>
-            <div class="store_hr"></div>
+            <div class="account_hr"></div>
+            <div class="pt-10"></div>
+            <div class="transfer_add_title">양수자 정보</div>
+            <div class="pt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">양수자</label>
+                <div class="value">
+                    <div class="thx_value_readonly">고잔역2호점</div>
+                </div>
+            </div>
             <div class="pt-10"></div>
             <div class="detail_item">
-                <label class="title">사업자등록번호</label>
+                <label class="title">연락처</label>
                 <div class="value">
-                    <div class="thx_value_readonly">211-86-00870</div>
+                    <div class="thx_value_readonly">010-5555-8888</div>
                 </div>
             </div>
             <div class="pt-10"></div>
-            <div class="detail_item baseline">
-                <label class="title">브랜드 담당자</label>
+            <div class="detail_item start">
+                <label class="title">서명</label>
                 <div class="value">
-                    <div class="thx_value_readonly">김유신, 이순신, 강감찬, 을지문덕</div>
-                </div>
-            </div>
-            <div class="pt-10"></div>
-            <div class="detail_item baseline">
-                <label class="title">업체 담당자</label>
-                <div class="value">
-                    <div class="thx_value_readonly">에어컨 우주산업 홍길동, 오디오 아남산업 박찬호</div>
+                    <div class="add_file">
+                        <!-- <img src="../../img/sign.png" alt="" class="img"> -->
+                    </div>
                 </div>
             </div>
             <div class="pt-10"></div>
