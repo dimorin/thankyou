@@ -878,6 +878,58 @@ $.fn.file = function (option) {
 /* 사용 예
 $("#playlist_file").file({container:'.thumbnail_add_playlist'}); */
 
+/* 파일 여러개 선택 */
+$.fn.multi_file = function (option) {
+    var _this = this;
+    var option = option || undefined;
+    var container = undefined;
+    var file = undefined;
+    var reader = undefined;
+    var the_url = undefined;
+
+
+
+    if (option) {
+        container = $(`${option.container}`);
+    } else {
+        return;
+    }
+
+    _this.change(function () {
+        file = this.files[0];
+        console.log("---change");
+        console.log(this.files);
+        reader = new FileReader();
+        reader.onload = function (event) {
+            the_url = event.target.result;
+            container.append(`
+                <div class="thumbnail_multi_file">
+                    <img class='img' alt='' src='${the_url}' />
+                    <button class="btn btn_init_file">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                `);
+
+            //console.log(file.name);
+            //console.log(file.size);
+
+            /* 이미지 파일취소 */
+            container.find('.btn_init_file').on('click', function (event) {
+                $(event.currentTarget).parent().remove();
+                console.log(_this.val());
+                //_this.val("");
+            });
+            _this.val("");
+        }
+        //when the file is read it triggers the onload event above.
+        reader.readAsDataURL(file);
+    });
+}
+/* 사용 예
+$("#playlist_file").file({container:'.thumbnail_add_playlist'}); */
+
+
 /* 이미지확대팝업 */
 $.img_modal = function (showhide, element) {
     var src = undefined;
