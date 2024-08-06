@@ -981,3 +981,190 @@ $.img_modal = function (showhide, element) {
     <span class="material-symbols-outlined">fullscreen</span>
 </button>
 */
+
+
+/* 서명 그리기 */
+$.fn.draw_signature = function () {
+    var canvas, context, tool, wrap_canvas;
+    canvas = this.find('canvas')[0];
+    if (!canvas) {
+        //console.log("캔버스 객체를 찾을 수 없음");
+        return;
+    }
+    context = canvas.getContext('2d', { willReadFrequently: true });
+    wrap_canvas = this[0];
+
+    function Tool_pencil() {
+        var tool = this;
+        tool.started = false;
+        // 마우스를 누르는 순간 그리기 작업을 시작 한다. 
+        tool.mousedown = function (event) {
+            context.beginPath();
+            context.moveTo(event._x, event._y);
+            tool.started = true;
+        };
+        // 마우스가 이동하는 동안 계속 호출하여 Canvas에 Line을 그려 나간다
+        tool.mousemove = function (event) {
+            if (tool.started) {
+                context.lineTo(event._x, event._y);
+                context.stroke();
+            }
+        };
+        // 마우스 떼면 그리기 작업을 중단한다
+        tool.mouseup = function (event) {
+            if (tool.started) {
+                tool.mousemove(event);
+                tool.started = false;
+            }
+        };
+        // 마우스를 누르는 순간 그리기 작업을 시작 한다. 
+        tool.touchstart = function (event) {
+            context.beginPath();
+            context.moveTo(event._x, event._y);
+            tool.started = true;
+        };
+        // 마우스가 이동하는 동안 계속 호출하여 Canvas에 Line을 그려 나간다
+        tool.touchmove = function (event) {
+            if (tool.started) {
+                context.lineTo(event._x, event._y);
+                context.stroke();
+            }
+        };
+        // 마우스 떼면 그리기 작업을 중단한다
+        tool.touchend = function (event) {
+            if (tool.started) {
+                tool.touchmove(event);
+                tool.started = false;
+            }
+        };
+    }
+    // Pencil tool 객체를 생성 한다.
+    tool = new Tool_pencil();
+    canvas.addEventListener('mousedown', event_canvas, false);
+    canvas.addEventListener('mousemove', event_canvas, false);
+    canvas.addEventListener('mouseup', event_canvas, false);
+    canvas.addEventListener('touchstart', event_canvas, false);
+    canvas.addEventListener('touchmove', event_canvas, false);
+    canvas.addEventListener('touchend', event_canvas, false);
+
+    // Canvas요소 내의 좌표를 결정 한다.
+    function event_canvas(event) {
+        if (event.layerX || event.layerX == 0) { // Firefox 브라우저
+            event._x = event.layerX;
+            event._y = event.layerY;
+        } else if (event.offsetX || event.offsetX == 0) { // Opera 브라우저
+            event._x = event.offsetX;
+            event._y = event.offsetY;
+        } else if (event.targetTouches[0]) {	//핸드폰
+            var left = 0;
+            var top = 0;
+            var elem = canvas;
+            while (elem) {
+                left = left + parseInt(elem.offsetLeft);
+                top = top + parseInt(elem.offsetTop);
+                elem = elem.offsetParent;
+            }
+            event._x = event.targetTouches[0].pageX - left;
+            event._y = event.targetTouches[0].pageY - top;
+        }
+        // tool의 이벤트 핸들러를 호출한다.
+        var func = tool[event.type];
+        if (func) {
+            func(event);
+        }
+    }
+
+    window.addEventListener('resize', resize);
+    function resize() {
+        canvas.width = wrap_canvas.offsetWidth;
+        canvas.height = wrap_canvas.offsetHeight;
+        //context.fillStyle = '#ffffff';
+        //context.fillRect(0, 0, canvas.width, canvas.height);
+    }
+    resize();
+}
+/* 사용 예 */
+/* $('#wrap_canvas_receiver_cert').draw_signature(); */
+
+/* 서명 지우기 */
+$.fn.delete_signature = function () {
+    var canvas, context;
+    canvas = this.find('canvas')[0];
+    if (!canvas) {
+        //console.log("캔버스 객체를 찾을 수 없음");
+        return;
+    }
+    context = canvas.getContext('2d', { willReadFrequently: true });
+    canvas.width = this[0].clientWidth;
+    canvas.height = this[0].clientHeight;
+
+    function isCanvasCleared(canvas) {
+        var context = canvas.getContext('2d', { willReadFrequently: true });
+        var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+        // 캔버스의 모든 픽셀값이 0이면 클리어된 것으로 간주
+        for (var i = 0; i < imgData.data.length; i++) {
+            if (imgData.data[i] !== 0) {
+                // 픽셀값이 0이 아닌 것이 발견되면 클리어되지 않은 것으로 간주
+                return false;
+            }
+        }
+        // 모든 픽셀값이 0이면 클리어된 것으로 간주
+        return true;
+    }
+
+    if (isCanvasCleared(canvas)) {
+        //console.log("지울 것이 없습니다.");
+        return;
+    }
+
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    //console.log("지웠습니다");
+    //context.fillStyle = '#ffffff';
+    //context.fillRect(0, 0, canvas.width, canvas.height);
+}
+/* 사용 예 */
+/* $('#wrap_canvas_receiver_cert').delete_signature(); */
+
+/* 서명 이미지를 컨테이너에 붙이기 */
+$.fn.make_signature_data = function (option) {
+    var option = option || undefined;
+    var container = undefined;
+    var btn_open = undefined;
+    var canvas, context, data_url;
+
+    if (option) {
+        container = $(`${option.container}`);
+        btn_open = (option.btn_open) ? $(`${option.btn_open}`) : undefined;
+    } else {
+        return;
+    }
+
+    canvas = this.find('canvas')[0];
+    if (!canvas) {
+        //console.log("캔버스 객체를 찾을 수 없음");
+        return;
+    }
+
+    context = canvas.getContext('2d', { willReadFrequently: true });
+    data_url = canvas.toDataURL();
+
+    container.append(`
+                    <img class='img' alt='' src='${data_url}' />
+                    <button class="btn btn_init_file">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+            `);
+
+    if (btn_open) { // 서명 배경이 투명해서 플러스 모양이 비치므로 플러스 모양을 감춘다.
+        btn_open.css('backgroundColor', 'rgba(255,255,255,1');
+    }
+    container.find('.btn_init_file').on('click', function (event) {
+        $(event.currentTarget).remove();
+        container.find('.img').remove();
+        if (btn_open) { // 서명을 제거할 때 감춰뒀던 플러스 모양을 다시 보여준다.
+            btn_open.css('backgroundColor', 'rgba(0,0,0,0');
+        }
+    });
+}
+/* 사용 예 */
+/* $('#wrap_canvas_receiver_cert').make_signature_data({ container: '#receiver_cert' }); */
