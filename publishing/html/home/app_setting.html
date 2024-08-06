@@ -518,34 +518,23 @@
         /* 예금주 입력 초기화 */
         var inputWithReset_account_holder = new InputWithReset('#account_holder');
 
-        /* function comma(str) {
-            str = String(str);
-            return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
-        }
-
-        function uncomma(str) {
-            str = String(str);
-            return str.replace(/[^\d]+/g, '');
-        }
-
-        function inputNumberFormat(obj) {
-            obj.value = comma(uncomma(obj.value));
-        } */
         var str;
         function comma(str) {
+            if (str === '') {
+                return '';
+            }
             str = parseInt(str);
-            str = str.toLocaleString();
+            str = str.toLocaleString(); // 천단위 콤마
             return str;
-            //return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
         }
 
         function uncomma(str) {
             str = String(str);
-            return str.replace(/[^\d]+/g, '');// 숫자 외에는 지운다.
+            return str.replace(/[^\d]+/g, ''); // 숫자 외에는 지운다.
         }
 
         function inputNumberFormat(obj) {
-            str = obj.value || 0;
+            str = obj.value;
             obj.value = comma(uncomma(str));
         }
 
