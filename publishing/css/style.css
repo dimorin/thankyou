@@ -286,8 +286,12 @@ header h1{font-weight:500;font-size:2rem;}
 .pop_pushmsg_link{text-align:left;font-size:1.4rem;color:var(--primary_color);}
 .pop_pushmsg_date{text-align:left;font-size:1.4rem;color:var(--blur_color);}
 .btn_shortcut{color:var(--primary_color);}
+.app_setting_wrap{display:flex;flex-direction:column;}
+.app_setting_header{flex-shrink:0;}
+.app_setting_body{flex:1 0 auto;}
+.app_setting_footer{flex-shrink:0;}
 .app_setting_title {padding: 1rem 0 0;color: var(--blur_color);border-top: 1px solid #D9E1F2;}
-.copyright{position:absolute;left:50%;bottom:0;transform:translate(-50%,0);color:var(--txt_color);font-size:1.2rem;white-space:nowrap;}
+.copyright{text-align:center;color:var(--txt_color);font-size:1.2rem;white-space:nowrap;}
 .company_category_list{}
 .company_category_list > li{margin-top:1rem;}
 .company_category_list > li:first-child{margin-top:0;}
