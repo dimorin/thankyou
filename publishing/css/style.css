@@ -401,6 +401,7 @@ textarea.thx_txt.push_content{height:20rem;}
 .add_file.cert::before {content: '사업자등록증';text-align: center;font-weight: 500;font-size: 1.2rem;color: var(--blur_color);position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
 .add_file .img {position: absolute;left:50%;top:50%;transform:translate(-50%,-50%);display: inline-block;width: inherit;height: inherit;object-fit: cover;}
 .add_file .btn_expand{position:absolute;top:0;right:0;width:2.4rem;height:2.4rem;background-color:black;color:white;}
+.add_file .btn_init_file{position:absolute;right:0;top:0;transform:translate(50%, -50%);display:inline-block;width:2.4rem;height:2.4rem;border-radius:2.4rem;background-color:black;color:white;}
 .btn_call_waitnumber{position:absolute;top:0.5rem;right:0.5rem;height:3rem;padding:0 1rem;color:white;background-color:var(--primary_color);border-radius:0.4rem;}
 .btn_link_transfer{display:flex;align-items:center;color:var(--primary_color);}
 .store_btn_wrap{display:flex;flex-wrap:wrap;gap:1rem;}
@@ -428,6 +429,7 @@ textarea.thx_txt.push_content{height:20rem;}
 .transfer_list > li .btn_detail .transfer_date{color:var(--title_color);font-size:1.4rem;}
 .transfer_add_title {color: var(--blur_color);}
 .btn_pop_signature{position:relative;display:block;width:100%;height:100%;}
+.wrap_canvas{width:100%;height:16rem;border:1px solid #D9E1F2;}
 
 /* work */
 textarea.thx_txt.work_content{height:15rem;}
