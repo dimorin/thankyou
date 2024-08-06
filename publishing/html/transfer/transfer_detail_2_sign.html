@@ -218,6 +218,11 @@
                 $('#bottomsheet_store_receiver_cert').sheet('hide');
             }
         });
+
+        /* 양수자 서명 열기 */
+        $('#bottomsheet_store_receiver_cert').sheet('show');
+        $('#wrap_canvas_receiver_cert').delete_signature();
+        $('#wrap_canvas_receiver_cert').draw_signature();
     </script>
 </body>
 

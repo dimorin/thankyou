@@ -178,6 +178,11 @@
                 $('#bottomsheet_store_giver_cert').sheet('hide');
             }
         });
+
+        /* 양도자 서명 열기 */
+        $('#bottomsheet_store_giver_cert').sheet('show');
+        $('#wrap_canvas_giver_cert').delete_signature();
+        $('#wrap_canvas_giver_cert').draw_signature();
     </script>
 </body>
 

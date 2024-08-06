@@ -51,9 +51,16 @@
             <div class="pt-10"></div>
             <label for="work_picture" class="">첨부 사진</label>
             <div class="input_wrap">
-                <div class="thumbnail_add_file">
-                    <input type="file" class="thx_file" id="work_picture">
-                    <!--image will be inserted here-->
+                <div class="thumbnail_multi_add_file_wrap">
+                    <div class="thumbnail_add_file">
+                        <input type="file" class="thx_file" id="work_picture">
+                    </div>
+                    <!-- <div class="thumbnail_multi_file">
+                            <img src="../../img/store.png" alt="" class="img">
+                            <button class="btn btn_init_file">
+                                <span class="material-symbols-outlined">close</span>
+                            </button>
+                        </div> -->
                 </div>
                 <div class="guide"></div>
             </div>
@@ -92,8 +99,7 @@
         var inputWithReset_work_content = new InputWithReset('#work_content');
 
         /* 첨부 사진 파일선택 */
-        $("#work_picture").file({ container: '.thumbnail_add_file' });
-
+        $("#work_picture").multi_file({ container: '.thumbnail_multi_add_file_wrap' });
 
     </script>
 </body>
