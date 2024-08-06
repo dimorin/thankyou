@@ -886,9 +886,6 @@ $.fn.multi_file = function (option) {
     var file = undefined;
     var reader = undefined;
     var the_url = undefined;
-
-
-
     if (option) {
         container = $(`${option.container}`);
     } else {
@@ -897,8 +894,8 @@ $.fn.multi_file = function (option) {
 
     _this.change(function () {
         file = this.files[0];
-        console.log("---change");
-        console.log(this.files);
+        //console.log(file.name);
+        //console.log(file.size);
         reader = new FileReader();
         reader.onload = function (event) {
             the_url = event.target.result;
@@ -909,16 +906,10 @@ $.fn.multi_file = function (option) {
                         <span class="material-symbols-outlined">close</span>
                     </button>
                 </div>
-                `);
-
-            //console.log(file.name);
-            //console.log(file.size);
-
+            `);
             /* 이미지 파일취소 */
             container.find('.btn_init_file').on('click', function (event) {
                 $(event.currentTarget).parent().remove();
-                console.log(_this.val());
-                //_this.val("");
             });
             _this.val("");
         }
@@ -927,7 +918,7 @@ $.fn.multi_file = function (option) {
     });
 }
 /* 사용 예
-$("#playlist_file").file({container:'.thumbnail_add_playlist'}); */
+$("#work_picture").multi_file({ container: '.thumbnail_multi_add_file_wrap' }); */
 
 
 /* 이미지확대팝업 */
