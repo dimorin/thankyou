@@ -561,6 +561,21 @@ textarea.thx_txt.work_content{height:15rem;}
 .template_list .item_body{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0 1.6rem;background-color:white;min-height:7.4rem;}
 .template_list .item_footer{padding:1rem 1.6rem;background-color:white;border-top:1px solid #D9E1F2;}
 
+/* delivery */
+textarea.thx_txt.delivery_request_etc{height:15rem;}
+textarea.thx_txt.delivery_quotation_etc{height:15rem;}
+.btn_add_delivery_item{display:flex;justify-content:center;align-items:center;width:100%;height:4rem;background-color:#D9E1F2;border-radius:0.4rem;font-weight:500;font-size:1.4rem;color:var(--primary_color);}
+.btn_add_delivery_item .icon{display:inline-flex;justify-content:center;align-items:center;width:2.4rem;height:2.4rem;background-color:var(--primary_color);color:white;border-radius:2.4rem;}
+.delivery_item_list{width:100%;}
+.delivery_item_list > li{display:flex;align-items:start;margin-top:1rem;margin-bottom:1rem;}
+.delivery_item_list > li:first-child{margin-top:0;}
+.delivery_item_list > li .item{flex-grow:1;padding:1rem;border-radius:0.4rem;background-color:var(--read_color);}
+.delivery_item_list > li .item .item_info{display:flex;flex-wrap:wrap;gap:0.5rem;font-weight:500;}
+.delivery_item_list > li .btn_delete_delivery_item{flex-shrink:0;display:inline-flex;justify-content:center;align-items:center;background-color:var(--primary_color);border-radius:2.4rem;font-size:2.4rem;color:white;}
+.quotation_each_total_delivery_item{font-weight:700;font-size:1.4rem;color:var(--txt_color);}
+.quotation_total_delivery_item{display:flex;justify-content:space-between;width:100%;padding:0 1rem 1rem 4.4rem;font-weight:700;font-size:1.4rem;color:var(--txt_color);}
+.contract_total_delivery_item{display:flex;justify-content:space-between;width:100%;padding:0 1rem 1rem 1rem;font-weight:700;font-size:1.4rem;color:var(--txt_color);}
+
 .topSheetContainer {position: fixed;top: 0;left: 0;display: flex;align-items: flex-start;justify-content: center;width: 100%;height: 0;overflow:hidden;pointer-events: none;}
 .topSheetContainer.show{height: 100%;}
 .topSheet {pointer-events: auto;width: 100%;min-height: 20rem;padding: 1.6rem 1.6rem 0;border-bottom-left-radius: 1.6rem;border-bottom-right-radius: 1.6rem;background-color: var(--bg_color);transform: translateY(-100%);transition: transform 0.4s ease;}
