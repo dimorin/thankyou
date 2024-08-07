@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>요청서 등록</h1>
+            </div>
+            <div class="header_area">
+                <button type="button" class="btn btn_fill btn_save">저장</button>
+            </div>
+        </header>
+        <div class="body edit">
+            <div class="card">
+                <button class="btn card_header" onclick="delivery_detail_toggle(this);">
+                    <div class="title">납품 매장 기본 정보</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item baseline">
+                        <label class="title">매장명</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">[빽다방] 안산역1호점</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label class="title">매장 주소</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">경기도 안산시 상록구역 현대하이빌드보르작하이젠버그2차</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label class="title">매장 연락처</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">010-7777-8888</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <button class="btn card_header" onclick="delivery_detail_toggle(this);">
+                    <div class="title">납품 매장 상세 정보</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item">
+                        <label for="request_open_date" class="title">오픈 예상일</label>
+                        <div class="value">
+                            <div class="input_wrap w-100">
+                                <div class="p-relative">
+                                    <input type="text" class="thx_txt righticon" id="request_open_date" name=""
+                                        placeholder="" autocomplete="off" required value="">
+                                    <div class="input_icon_wrap"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label for="request_area" class="title">평수</label>
+                        <div class="value">
+                            <div class="input_wrap w-100">
+                                <div class="p-relative">
+                                    <input type="text" class="thx_txt righticon" id="request_area" name=""
+                                        placeholder="" autocomplete="off" required value="">
+                                    <div class="input_icon_wrap"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label class="title">단복층 여부</label>
+                        <div class="value">
+                            <div class="input_wrap">
+                                <div class="d-inline-center">
+                                    <input type="radio" id="story_single" class="thx_radio" name="story"
+                                        checked=""><label class="ml-5" for="story_single">단층</label>
+                                </div>
+                                <div class="d-inline-center ml-16">
+                                    <input type="radio" id="story_double" class="thx_radio" name="story"><label
+                                        class="ml-5" for="story_double">복층</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label for="floor_plan" class="title">도면</label>
+                        <div class="value">
+                            <div class="input_wrap">
+                                <div class="thumbnail_multi_add_file_wrap floor_plan_wrap">
+                                    <div class="thumbnail_add_file">
+                                        <input type="file" class="thx_file" id="floor_plan">
+                                    </div>
+                                    <!-- <div class="thumbnail_multi_file">
+                                                        <img src="../../img/store.png" alt="" class="img">
+                                                        <button class="btn btn_init_file">
+                                                            <span class="material-symbols-outlined">close</span>
+                                                        </button>
+                                                    </div> -->
+                                </div>
+                                <div class="guide"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label for="scene_picture" class="title">현장사진</label>
+                        <div class="value">
+                            <div class="input_wrap">
+                                <div class="thumbnail_multi_add_file_wrap scene_picture_wrap">
+                                    <div class="thumbnail_add_file">
+                                        <input type="file" class="thx_file" id="scene_picture">
+                                    </div>
+                                    <!-- <div class="thumbnail_multi_file">
+                                                                                <img src="../../img/store.png" alt="" class="img">
+                                                                                <button class="btn btn_init_file">
+                                                                                    <span class="material-symbols-outlined">close</span>
+                                                                                </button>
+                                                                            </div> -->
+                                </div>
+                                <div class="guide"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <button class="btn card_header" onclick="delivery_detail_toggle(this);">
+                    <div class="title">공급 업체 정보</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item baseline">
+                        <label class="title required">업체 담당자명</label>
+                        <div class="value">
+                            <div class="input_wrap w-100">
+                                <div class="thx_select_box">
+                                    <select name="" id="" class="thx_select">
+                                        <option value="">앱관리자가 지정</option>
+                                        <option value="">직접 지정</option>
+                                    </select>
+                                </div>
+                                <div class="guide"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <button class="btn card_header" onclick="delivery_detail_toggle(this);">
+                    <div class="title">납품 품목 정보</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item vertical">
+                        <label class="title required">납품 품목</label>
+                        <div class="pt-10"></div>
+                        <ul class="delivery_item_list">
+                            <li>
+                                <button class="btn btn_delete_delivery_item" onclick="delete_delivery_item(this)">
+                                    <span class="material-symbols-outlined icon">remove</span>
+                                </button>
+                                <div class="item ml-10">
+                                    <div class="item_info">
+                                        <span class="d-inline-block">가전제품</span>
+                                        <span class="d-inline-block">에어컨</span>
+                                        <span class="d-inline-block">엘지휘센2024MV</span>
+                                    </div>
+                                    <div class="d-between-center mt-5">
+                                        <span>수량</span>
+                                        <span>10</span>
+                                    </div>
+                                    <div class="d-between-center mt-5">
+                                        <span>단위</span>
+                                        <span>EA</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <button class="btn btn_add_delivery_item">
+                            <div class="d-center">
+                                <span class="icon mr-10">
+                                    <span class="material-symbols-outlined">add</span>
+                                </span>
+                                <span>납품 품목 추가</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item vertical">
+                        <label class="title">기타 요청사항</label>
+                        <div class="input_wrap w-100">
+                            <div class="p-relative">
+                                <textarea class="thx_txt righticon delivery_request_etc" id="delivery_request_etc"
+                                    name="" placeholder="기타 요청사항을 입력하세요." autocomplete="off" required
+                                    value=""></textarea>
+                                <div class="input_icon_wrap"></div>
+                            </div>
+                            <div class="guide"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 요청서 납품 품목 추가 -->
+    <div class="bottomSheetContainer" id="add_delivery_item" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#add_delivery_item').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">요청서 납품 품목 추가</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_txt">초기화</button>
+                    <button class="btn btn_fill">적용</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery-ui.js"></script>
+    <script src="../../js/jquery.ui.touch-punch.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 오픈 예상일 입력 초기화 */
+        var inputWithReset_request_open_date = new InputWithReset('#request_open_date');
+        /* 평수 입력 초기화 */
+        var inputWithReset_request_area = new InputWithReset('#request_area');
+        /* 기타 요청사항 입력 초기화 */
+        var inputWithReset_delivery_request_etc = new InputWithReset('#delivery_request_etc');
+
+        /* 요청서 납품 품목 추가 팝업 띄우기 */
+        $('.btn_add_delivery_item').on('click', function (event) {
+            $('#add_delivery_item').sheet('show');
+        });
+
+        /* 도면 추가 */
+        $("#floor_plan").multi_file({ container: '.floor_plan_wrap' });
+
+        /* 현장 사진 추가 */
+        $("#scene_picture").multi_file({ container: '.scene_picture_wrap' });
+
+        /* 납품 품목 추가 */
+        var delivery_item = `
+                <li>
+                    <button class="btn btn_delete_delivery_item" onclick="delete_delivery_item(this)">
+                        <span class="material-symbols-outlined icon">remove</span>
+                    </button>
+                    <div class="item ml-10">
+                        <div class="item_info">
+                            <span class="d-inline-block">가전제품</span>
+                            <span class="d-inline-block">에어컨</span>
+                            <span class="d-inline-block">엘지휘센2024MV</span>
+                        </div>
+                        <div class="d-between-center mt-5">
+                            <span>수량</span>
+                            <span>10</span>
+                        </div>
+                        <div class="d-between-center mt-5">
+                            <span>단위</span>
+                            <span>EA</span>
+                        </div>
+                    </div>
+                </li>
+            `;
+        /* $('.btn_add_delivery_item').on('click', function () {
+            $('.delivery_item_list').append(delivery_item);
+        }); */
+        /* 납품 품목 삭제 */
+        function delete_delivery_item(element) {
+            $(element).parent()[0].remove();
+        }
+
+        /* 접었다 펼쳤다 */
+        function delivery_detail_toggle(element) {
+            var card_header = $(element);
+            var card_body = $($(element).siblings()[0]);
+            card_header.toggleClass('hide');
+            card_body.toggleClass('hide');
+        }
+
+
+    </script>
+</body>
+
+</html>

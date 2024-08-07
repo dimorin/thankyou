@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>계약서 등록&수정</h1>
+            </div>
+            <div class="header_area">
+                <button type="button" class="btn btn_fill btn_save">저장</button>
+            </div>
+        </header>
+        <div class="body edit">
+            <div class="card">
+                <button class="btn card_header" onclick="delivery_detail_toggle(this);">
+                    <div class="title">계약자 정보</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item baseline">
+                        <label class="title">계약자 계정 종류</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">점주</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label class="title">계약자 이름</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">안산역1호점</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label class="title">계약자 연락처</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">010-7777-8888</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <button class="btn card_header" onclick="delivery_detail_toggle(this);">
+                    <div class="title">납품 매장 기본 정보</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item baseline">
+                        <label class="title">매장명</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">[빽다방] 안산역1호점</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label class="title">매장 주소</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">경기도 안산시 상록구 아름다운한결같은로 120길 23</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label class="title">점주 연락처</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">010-7777-8888</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <button class="btn card_header" onclick="delivery_detail_toggle(this);">
+                    <div class="title">공급 업체 정보</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item baseline">
+                        <label class="title">업체명</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">아남전자</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label class="title">업체 주소</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">경기도 안산시 한겨레빛고을아름다운로 52길 100</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label class="title">업체 담당자명</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">이겨례</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label class="title">업체 담당자 연락처</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">01077778888</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item start">
+                        <label for="floor_plan" class="title required">업체 담당자 서명</label>
+                        <div class="value">
+                            <div class="input_wrap">
+                                <div class="thumbnail_add_file store_giver_cert">
+                                    <button class="btn btn_pop_signature"></button>
+                                    <!--image will be inserted here-->
+                                </div>
+                                <div class="guide"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <button class="btn card_header" onclick="delivery_detail_toggle(this);">
+                    <div class="title">납품 품목 정보</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item vertical">
+                        <label class="title">납품 품목</label>
+                        <div class="pt-10"></div>
+                        <ul class="delivery_item_list">
+                            <li>
+                                <div class="item">
+                                    <div class="item_info">
+                                        <span class="d-inline-block">가전제품</span>
+                                        <span class="d-inline-block">에어컨</span>
+                                        <span class="d-inline-block">엘지휘센2024MV</span>
+                                    </div>
+                                    <div class="quotation_each_total_delivery_item d-between-center mt-5">
+                                        <span>총액</span>
+                                        <span>110,000원</span>
+                                    </div>
+                                    <div class="d-between-center mt-5">
+                                        <span>단가</span>
+                                        <span>10,000</span>
+                                    </div>
+                                    <div class="d-between-center mt-5">
+                                        <span>수량</span>
+                                        <span>10</span>
+                                    </div>
+                                    <div class="d-between-center mt-5">
+                                        <span>단위</span>
+                                        <span>EA</span>
+                                    </div>
+                                    <div class="d-between-center mt-5">
+                                        <span>부가세</span>
+                                        <span>별도(10%)</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="contract_total_delivery_item">
+                            <span>합계</span>
+                            <span>220,000원</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <button class="btn card_header" onclick="delivery_detail_toggle(this);">
+                    <div class="title">납품 관련 정보</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item">
+                        <label for="request_open_date" class="title required">납품기한</label>
+                        <div class="value">
+                            <div class="input_wrap w-100">
+                                <div class="p-relative">
+                                    <input type="text" class="thx_txt righticon" id="request_open_date" name=""
+                                        placeholder="" autocomplete="off" required value="">
+                                    <div class="input_icon_wrap"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item vertical">
+                        <label class="title required">대금 지급 내용</label>
+                        <div class="input_wrap w-100">
+                            <div class="p-relative">
+                                <textarea class="thx_txt righticon delivery_quotation_etc" id="delivery_payment" name=""
+                                    placeholder="내용을 입력하세요." autocomplete="off" required value=""></textarea>
+                                <div class="input_icon_wrap"></div>
+                            </div>
+                            <div class="guide"></div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item vertical">
+                        <label class="title required">계약 조건</label>
+                        <div class="input_wrap w-100">
+                            <div class="p-relative">
+                                <textarea class="thx_txt righticon delivery_quotation_etc"
+                                    id="delivery_contract_condition" name="" placeholder="내용을 입력하세요." autocomplete="off"
+                                    required value=""></textarea>
+                                <div class="input_icon_wrap"></div>
+                            </div>
+                            <div class="guide"></div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item vertical">
+                        <label class="title required">A/S 규정</label>
+                        <div class="input_wrap w-100">
+                            <div class="p-relative">
+                                <textarea class="thx_txt righticon delivery_quotation_etc" id="delivery_as_condition"
+                                    name="" placeholder="내용을 입력하세요." autocomplete="off" required value=""></textarea>
+                                <div class="input_icon_wrap"></div>
+                            </div>
+                            <div class="guide"></div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label for="contract_bank" class="title required">입금계좌 은행명</label>
+                        <div class="value">
+                            <div class="input_wrap w-100">
+                                <div class="p-relative">
+                                    <input type="text" class="thx_txt righticon" id="contract_bank" name=""
+                                        placeholder="" autocomplete="off" required value="">
+                                    <div class="input_icon_wrap"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label for="contract_account_number" class="title required">입금계좌번호</label>
+                        <div class="value">
+                            <div class="input_wrap w-100">
+                                <div class="p-relative">
+                                    <input type="text" class="thx_txt righticon" id="contract_account_number" name=""
+                                        placeholder="" autocomplete="off" required value="">
+                                    <div class="input_icon_wrap"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label for="contract_account" class="title required">입금계좌 예금주</label>
+                        <div class="value">
+                            <div class="input_wrap w-100">
+                                <div class="p-relative">
+                                    <input type="text" class="thx_txt righticon" id="contract_account" name=""
+                                        placeholder="" autocomplete="off" required value="">
+                                    <div class="input_icon_wrap"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item vertical">
+                        <label class="title">비고</label>
+                        <div class="input_wrap w-100">
+                            <div class="p-relative">
+                                <textarea class="thx_txt righticon delivery_quotation_etc" id="delivery_quotation_etc"
+                                    name="" placeholder="내용을 입력하세요." autocomplete="off" required value=""></textarea>
+                                <div class="input_icon_wrap"></div>
+                            </div>
+                            <div class="guide"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 견적서 납품 품목 추가 -->
+    <div class="bottomSheetContainer" id="add_delivery_item" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#add_delivery_item').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">견적서 납품 품목 추가</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_txt">초기화</button>
+                    <button class="btn btn_fill">적용</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 업체 담당자 서명 -->
+    <div class="bottomSheetContainer" id="bottomsheet_store_giver_cert" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle"
+                onclick="$('#bottomsheet_store_giver_cert').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">양도자 서명</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="wrap_canvas" id="wrap_canvas_giver_cert">
+                    <canvas></canvas>
+                </div>
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_txt btn_init_signature">초기화</button>
+                    <button class="btn btn_fill btn_apply_signature ml-10">적용</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery-ui.js"></script>
+    <script src="../../js/jquery.ui.touch-punch.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 대금 지급 내용 입력 초기화 */
+        var inputWithReset_delivery_payment = new InputWithReset('#delivery_payment');
+        /* 계약 조건 입력 초기화 */
+        var inputWithReset_delivery_contract_condition = new InputWithReset('#delivery_contract_condition');
+        /* A/S 규정 입력 초기화 */
+        var inputWithReset_delivery_as_condition = new InputWithReset('#delivery_as_condition');
+        /* 입금계좌 은행명 입력 초기화 */
+        var inputWithReset_contract_bank = new InputWithReset('#contract_bank');
+        /* 입금계좌번호 입력 초기화 */
+        var inputWithReset_contract_account_number = new InputWithReset('#contract_account_number');
+        /* 입금계좌 예금주 입력 초기화 */
+        var inputWithReset_contract_account = new InputWithReset('#contract_account');
+        /* 기타 요청사항 입력 초기화 */
+        var inputWithReset_delivery_quotation_etc = new InputWithReset('#delivery_quotation_etc');
+
+
+
+
+
+
+
+        /* 접었다 펼쳤다 */
+        function delivery_detail_toggle(element) {
+            var card_header = $(element);
+            var card_body = $($(element).siblings()[0]);
+            card_header.toggleClass('hide');
+            card_body.toggleClass('hide');
+        }
+
+
+    </script>
+    <script>
+        $('.btn_pop_signature').on('click', function () {    // 양도자 서명 플러스 버튼
+            $('#bottomsheet_store_giver_cert').sheet('show');
+            $('#wrap_canvas_giver_cert').delete_signature();
+            $('#wrap_canvas_giver_cert').draw_signature();
+        });
+
+        $('.btn_init_signature').on('click', function () {  // 서명 팝업 초기화 버튼
+            $('#wrap_canvas_giver_cert').delete_signature();
+        });
+
+        function isCanvasCleared(canvas) {
+            var context = canvas.getContext('2d', { willReadFrequently: true });
+            var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+            // 캔버스의 모든 픽셀값이 0이면 클리어된 것으로 간주
+            for (var i = 0; i < imgData.data.length; i++) {
+                if (imgData.data[i] !== 0) {
+                    // 픽셀값이 0이 아닌 것이 발견되면 클리어되지 않은 것으로 간주
+                    return false;
+                }
+            }
+            // 모든 픽셀값이 0이면 클리어된 것으로 간주
+            return true;
+        }
+        $('.btn_apply_signature').on('click', function () { // 서명 팝업 적용 버튼
+            var canvas = $('#wrap_canvas_giver_cert canvas')[0];
+            if (isCanvasCleared(canvas)) {
+                $.modal('show', {
+                    message: `서명난이 비었습니다.`,
+                    onebutton: `<button class="btn btn_fill" onclick="$.modal('hide')">확인</button>`,
+                });
+            } else {
+                $('#wrap_canvas_giver_cert').make_signature_data({ container: '.store_giver_cert', btn_open: '.btn_pop_signature' });
+                $('#wrap_canvas_giver_cert').delete_signature();
+                $('#bottomsheet_store_giver_cert').sheet('hide');
+            }
+        });
+
+        /* 양도자 서명 열기 */
+        /* $('#bottomsheet_store_giver_cert').sheet('show');
+        $('#wrap_canvas_giver_cert').delete_signature();
+        $('#wrap_canvas_giver_cert').draw_signature(); */
+    </script>
+</body>
+
+</html>
