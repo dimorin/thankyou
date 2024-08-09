@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>보고서 등록&수정</h1>
+            </div>
+            <div class="header_area">
+                <button type="button" class="btn btn_fill btn_save">저장</button>
+            </div>
+        </header>
+        <div class="body edit">
+            <div class="card">
+                <button class="btn card_header" onclick="delivery_detail_toggle(this);">
+                    <div class="title">납품 매장 기본 정보</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item baseline">
+                        <label class="title">매장명</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">[빽다방] 안산역1호점</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label class="title">매장 주소</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">경기도 안산시 상록구역 현대하이빌드보르작하이젠버그2차</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label class="title">매장 연락처</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">010-7777-8888</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <button class="btn card_header" onclick="delivery_detail_toggle(this);">
+                    <div class="title">공급 업체 정보</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item baseline">
+                        <label class="title">업체명</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">아남전자</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label class="title">업체 주소</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">경기도 안산시 한겨레빛고을아름다운로 52길 100</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label class="title">업체 담당자명</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">홍길동</div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item">
+                        <label class="title">업체 담당자 연락처</label>
+                        <div class="value">
+                            <div class="thx_value_readonly">01077778888</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <button class="btn card_header" onclick="delivery_detail_toggle(this);">
+                    <div class="title">납품 품목 정보</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item vertical">
+                        <label class="title">납품 품목</label>
+
+                        <ul class="delivery_item_list">
+                            <li>
+                                <div class="item">
+                                    <div class="item_info">
+                                        <span class="d-inline-block">가전제품</span>
+                                        <span class="d-inline-block">에어컨</span>
+                                        <span class="d-inline-block">엘지휘센2024MV</span>
+                                    </div>
+                                    <div class="d-between-center mt-5">
+                                        <span>수량</span>
+                                        <span>10</span>
+                                    </div>
+                                    <div class="d-between-center mt-5">
+                                        <span>단위</span>
+                                        <span>EA</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="item_info">
+                                        <span class="d-inline-block">가전제품</span>
+                                        <span class="d-inline-block">에어컨</span>
+                                        <span class="d-inline-block">엘지휘센2024MV</span>
+                                    </div>
+                                    <div class="d-between-center mt-5">
+                                        <span>수량</span>
+                                        <span>10</span>
+                                    </div>
+                                    <div class="d-between-center mt-5">
+                                        <span>단위</span>
+                                        <span>EA</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <button class="btn card_header" onclick="delivery_detail_toggle(this);">
+                    <div class="title">납품 내용</div>
+                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
+                </button>
+                <div class="card_body">
+                    <div class="detail_item">
+                        <label for="request_open_date" class="title required">납기 일자</label>
+                        <div class="value">
+                            <div class="input_wrap w-100">
+                                <div class="p-relative">
+                                    <input type="text" class="thx_txt righticon" id="request_open_date" name=""
+                                        placeholder="" autocomplete="off" required value="">
+                                    <div class="input_icon_wrap"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item start">
+                        <label for="" class="title pt-10">납품 내용</label>
+                        <div class="value">
+                            <div class="input_wrap w-100">
+                                <div class="p-relative">
+                                    <textarea class="thx_txt righticon delivery_report_etc" id="delivery_report_etc"
+                                        name="" placeholder="납품 내용을 입력하세요." autocomplete="off" required
+                                        value=""></textarea>
+                                    <div class="input_icon_wrap"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="detail_item baseline">
+                        <label for="scene_picture" class="title">첨부 사진</label>
+                        <div class="value">
+                            <div class="input_wrap">
+                                <div class="thumbnail_multi_add_file_wrap scene_picture_wrap">
+                                    <div class="thumbnail_add_file">
+                                        <input type="file" class="thx_file" id="scene_picture">
+                                    </div>
+                                    <!-- <div class="thumbnail_multi_file">
+                                                                                <img src="../../img/store.png" alt="" class="img">
+                                                                                <button class="btn btn_init_file">
+                                                                                    <span class="material-symbols-outlined">close</span>
+                                                                                </button>
+                                                                            </div> -->
+                                </div>
+                                <div class="guide"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery-ui.js"></script>
+    <script src="../../js/jquery.ui.touch-punch.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 오픈 예상일 입력 초기화 */
+        var inputWithReset_request_open_date = new InputWithReset('#request_open_date');
+        /* 기타 요청사항 입력 초기화 */
+        var inputWithReset_delivery_report_etc = new InputWithReset('#delivery_report_etc');
+
+
+
+
+
+        /* 현장 사진 추가 */
+        $("#scene_picture").multi_file({ container: '.scene_picture_wrap' });
+
+
+
+        /* 접었다 펼쳤다 */
+        function delivery_detail_toggle(element) {
+            var card_header = $(element);
+            var card_body = $($(element).siblings()[0]);
+            card_header.toggleClass('hide');
+            card_body.toggleClass('hide');
+        }
+
+
+    </script>
+</body>
+
+</html>

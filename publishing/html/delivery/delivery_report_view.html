@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container white">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>보고서</h1>
+            </div>
+            <div class="header_area">
+                <button type="button" class="btn btn_fill"
+                    onclick="$('#request_modify_report').sheet('show');">수정요청</button>
+                <button type="button" class="btn btn_fill ml-10">수락&납품완료</button>
+            </div>
+        </header>
+        <div class="body pl-16 pr-16">
+            <div class="detail_item vertical">
+                <table class="tbl_request_info">
+                    <colgroup>
+                        <col style="width:6rem;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>작성일</th>
+                            <td>2024-09-30</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item vertical">
+                <label class="delivery_detail_title">납품 매장</label>
+                <table class="tbl_request_info">
+                    <colgroup>
+                        <col style="width:6rem;">
+                        <col style="width:calc(50% - 6rem);">
+                        <col style="width:6rem;">
+                        <col style="width:calc(50% - 6rem);">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>매장명</th>
+                            <td>안산역1호점</td>
+                            <th>브랜드</th>
+                            <td>빽다방</td>
+                        </tr>
+                        <tr>
+                            <th>주소</th>
+                            <td colspan="3">경기도 안산시 상록구 푸르고아름다운비단로 1002길 39</td>
+                        </tr>
+                        <tr>
+                            <th>담당자</th>
+                            <td>[점주] 안산역1호점</td>
+                            <th>연락처</th>
+                            <td>01099998888</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item vertical">
+                <label class="delivery_detail_title">공급자</label>
+                <table class="tbl_request_info">
+                    <colgroup>
+                        <col style="width:6rem;">
+                        <col style="width:calc(50% - 6rem);">
+                        <col style="width:6rem;">
+                        <col style="width:calc(50% - 6rem);">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>상호</th>
+                            <td colspan="3">아남전자</td>
+                        </tr>
+                        <tr>
+                            <th>주소</th>
+                            <td colspan="3">경기도 안산시 상록구 푸르고아름다운비단로 1002길 39</td>
+                        </tr>
+                        <tr>
+                            <th>담당자</th>
+                            <td>홍길동</td>
+                            <th>연락처</th>
+                            <td>01099998888</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pt-16"></div>
+            <div class="delivery_below_comment">아래와 같이 보고합니다.</div>
+            <div class="pt-16"></div>
+            <div class="detail_item vertical">
+                <table class="tbl_delivery_item_info">
+                    <colgroup>
+                        <col style="width:calc((100% - 8.8rem) * 0.3);">
+                        <col style="width:calc((100% - 8.8rem) * 0.4);">
+                        <col style="width:calc((100% - 8.8rem) * 0.4);">
+                        <col style="width:4.4rem;">
+                        <col style="width:4.4rem;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>종목</th>
+                            <th>품목</th>
+                            <th>모델명</th>
+                            <th>수량</th>
+                            <th>단위</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>16채널DVR</td>
+                            <td>CMS</td>
+                            <td>CM-2HL16V3</td>
+                            <td>1</td>
+                            <td>EA</td>
+                        </tr>
+                        <tr>
+                            <td>16채널DVR</td>
+                            <td>CMS</td>
+                            <td>CM-2HL16V3</td>
+                            <td>1</td>
+                            <td>EA</td>
+                        </tr>
+                        <tr>
+                            <td>16채널DVR</td>
+                            <td>CMS</td>
+                            <td>CM-2HL16V3</td>
+                            <td>1</td>
+                            <td>EA</td>
+                        </tr>
+                        <tr>
+                            <td>16채널DVR</td>
+                            <td>CMS</td>
+                            <td>CM-2HL16V3</td>
+                            <td>1</td>
+                            <td>EA</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item vertical">
+                <table class="tbl_delivery_detail_info">
+                    <colgroup>
+                        <col style="width:6rem;">
+                        <col>
+                        <col style="width:6rem;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>납기 일자</th>
+                            <td colspan="3">2024-10-31</td>
+                        </tr>
+                        <tr>
+                            <th>납기 내용</th>
+                            <td colspan="3">불량제품 당일 오후 교체했습니다.</td>
+                        </tr>
+                        <tr>
+                            <th>첨부 사진</th>
+                            <td colspan="3">
+                                <div class="file_wrap">
+                                    <div class="add_file d-flex-shrink-0">
+                                        <img src="../../img/store.png" alt="" class="img">
+                                        <button class="btn btn_expand" onclick="$.img_modal('show', this);">
+                                            <span class="material-symbols-outlined">fullscreen</span>
+                                        </button>
+                                    </div>
+                                    <div class="add_file d-flex-shrink-0">
+                                        <img src="../../img/store.png" alt="" class="img">
+                                        <button class="btn btn_expand" onclick="$.img_modal('show', this);">
+                                            <span class="material-symbols-outlined">fullscreen</span>
+                                        </button>
+                                    </div>
+                                    <div class="add_file d-flex-shrink-0">
+                                        <img src="../../img/store.png" alt="" class="img">
+                                        <button class="btn btn_expand" onclick="$.img_modal('show', this);">
+                                            <span class="material-symbols-outlined">fullscreen</span>
+                                        </button>
+                                    </div>
+                                    <div class="add_file d-flex-shrink-0">
+                                        <img src="../../img/store.png" alt="" class="img">
+                                        <button class="btn btn_expand" onclick="$.img_modal('show', this);">
+                                            <span class="material-symbols-outlined">fullscreen</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pt-16"></div>
+        </div>
+    </div>
+
+    <div class="bottomSheetContainer" id="request_modify_report" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#request_modify_report').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">보고서 수정요청</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="input_wrap w-100">
+                    <div class="p-relative">
+                        <textarea class="thx_txt righticon delivery_report_modify_etc" id="delivery_report_modify_etc"
+                            name="" placeholder="수정요청 내용을 입력하세요." autocomplete="off" required value=""></textarea>
+                        <div class="input_icon_wrap"></div>
+                    </div>
+                </div>
+
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_fill">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery-ui.js"></script>
+    <script src="../../js/jquery.ui.touch-punch.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 보고서 수정요청 내용 입력 초기화 */
+        var inputWithReset_delivery_report_modify_etc = new InputWithReset('#delivery_report_modify_etc');
+        /* 보고서 수정요청 열기 */
+        /* $('#request_modify_report').sheet('show'); */
+    </script>
+</body>
+
+</html>

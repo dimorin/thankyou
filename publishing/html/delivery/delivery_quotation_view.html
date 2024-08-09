@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container white">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>견적서</h1>
+            </div>
+            <div class="header_area">
+                <button type="button" class="btn btn_fill" onclick="$('#request_modify_quotation').sheet('show');">수정
+                    요청</button>
+                <button type="button" class="btn btn_fill ml-10">수락</button>
+            </div>
+        </header>
+        <div class="body pl-16 pr-16">
+            <div class="detail_item vertical">
+                <table class="tbl_request_info">
+                    <colgroup>
+                        <col style="width:6rem;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>작성일</th>
+                            <td>2024-09-30</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item vertical">
+                <label class="delivery_detail_title">공급받는자</label>
+                <table class="tbl_request_info">
+                    <colgroup>
+                        <col style="width:6rem;">
+                        <col style="width:calc(50% - 6rem);">
+                        <col style="width:6rem;">
+                        <col style="width:calc(50% - 6rem);">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>이름</th>
+                            <td>[점주] 안산역1호점</td>
+                            <th>연락처</th>
+                            <td>01088889999</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item vertical p-relative">
+                <label class="delivery_detail_title">공급자</label>
+                <table class="tbl_request_info">
+                    <colgroup>
+                        <col style="width:6rem;">
+                        <col style="width:calc(50% - 6rem);">
+                        <col style="width:6rem;">
+                        <col style="width:calc(50% - 6rem);">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>등록번호</th>
+                            <td colspan="3">106-03-0000</td>
+                        </tr>
+                        <tr>
+                            <th>상호</th>
+                            <td>아남전자</td>
+                            <th>대표</th>
+                            <td>홍길동</td>
+                        </tr>
+                        <tr>
+                            <th>주소</th>
+                            <td colspan="3">경기도 안산시 상록구 푸르고아름다운비단로 1002길 39</td>
+                        </tr>
+                        <tr>
+                            <th>업태</th>
+                            <td>도소매 서비스</td>
+                            <th>종목</th>
+                            <td>음향 영상기기</td>
+                        </tr>
+                        <tr>
+                            <th>담당자</th>
+                            <td>홍길동</td>
+                            <th>연락처</th>
+                            <td>01077778888</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <img src="../../img/sign.png" alt="" class="quotation_giver_sign">
+            </div>
+            <div class="pt-16"></div>
+            <div class="delivery_below_comment">아래와 같이 견적합니다.</div>
+            <div class="pt-16"></div>
+            <div class="detail_item vertical">
+                <table class="tbl_delivery_quotation_item_info">
+                    <colgroup>
+                        <col style="width:4.4rem;">
+                        <col style="width:4.4rem;">
+                        <col style="width:25%">
+                        <col>
+                        <col style="width:20%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="left" colspan="5">품명</th>
+                        </tr>
+                        <tr>
+                            <th>수량</th>
+                            <th>단위</th>
+                            <th>단가</th>
+                            <th>공급가액</th>
+                            <th>세액</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="5">
+                                <table class="tbl_delivery_quotation_inner_item_info">
+                                    <colgroup>
+                                        <col style="width:4.4rem;">
+                                        <col style="width:4.4rem;">
+                                        <col style="width:25%">
+                                        <col>
+                                        <col style="width:20%">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="5"><strong class="label">종목</strong><span>16채널DVR</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"><strong class="label">품목</strong><span>CMS</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"><strong class="label">모델명</strong><span>CM-2HL16V3</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>EA</td>
+                                            <td class="text-align-right">640,000</td>
+                                            <td class="text-align-right">640,000</td>
+                                            <td class="text-align-right">64,000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table class="tbl_delivery_quotation_inner_item_info">
+                                    <colgroup>
+                                        <col style="width:4.4rem;">
+                                        <col style="width:4.4rem;">
+                                        <col style="width:25%">
+                                        <col>
+                                        <col style="width:20%">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="5"><strong class="label">종목</strong><span>16채널DVR</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"><strong class="label">품목</strong><span>CMS</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"><strong class="label">모델명</strong><span>CM-2HL16V3</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>EA</td>
+                                            <td class="text-align-right">640,000</td>
+                                            <td class="text-align-right">640,000</td>
+                                            <td class="text-align-right">64,000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                                <table class="tbl_delivery_quotation_inner_item_info">
+                                    <colgroup>
+                                        <col style="width:4.4rem;">
+                                        <col style="width:4.4rem;">
+                                        <col style="width:25%">
+                                        <col>
+                                        <col style="width:20%">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="5"><strong class="label">종목</strong><span>16채널DVR</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"><strong class="label">품목</strong><span>CMS</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5"><strong class="label">모델명</strong><span>CM-2HL16V3</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>EA</td>
+                                            <td class="text-align-right">640,000</td>
+                                            <td class="text-align-right">640,000</td>
+                                            <td class="text-align-right">64,000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="quotation_total_wrap">
+                    <div class="label">견적 합계</div>
+                    <div class="total_value">￦2,816,000</div>
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="detail_item vertical">
+                <label class="delivery_detail_title">비고</label>
+                <div class="thx_value_readonly">이달 말까지 가격 협의 가능합니다.</div>
+            </div>
+            <div class="pt-16"></div>
+        </div>
+    </div>
+
+    <div class="bottomSheetContainer" id="request_modify_quotation" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#request_modify_quotation').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">견적서 수정요청</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="input_wrap w-100">
+                    <div class="p-relative">
+                        <textarea class="thx_txt righticon delivery_report_modify_etc" id="delivery_report_modify_etc"
+                            name="" placeholder="수정요청 내용을 입력하세요." autocomplete="off" required value=""></textarea>
+                        <div class="input_icon_wrap"></div>
+                    </div>
+                </div>
+
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_fill">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery-ui.js"></script>
+    <script src="../../js/jquery.ui.touch-punch.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        /* 견적서 수정요청 내용 입력 초기화 */
+        var inputWithReset_delivery_report_modify_etc = new InputWithReset('#delivery_report_modify_etc');
+        /* 견적서 수정요청 열기 */
+        /* $('#request_modify_quotation').sheet('show'); */
+    </script>
+</body>
+
+</html>

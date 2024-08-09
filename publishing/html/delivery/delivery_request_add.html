@@ -115,7 +115,6 @@
                                                         </button>
                                                     </div> -->
                                 </div>
-                                <div class="guide"></div>
                             </div>
                         </div>
                     </div>
@@ -135,7 +134,6 @@
                                                                                 </button>
                                                                             </div> -->
                                 </div>
-                                <div class="guide"></div>
                             </div>
                         </div>
                     </div>
@@ -147,15 +145,27 @@
                     <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
                 </button>
                 <div class="card_body">
-                    <div class="detail_item baseline">
+                    <div class="detail_item vertical">
                         <label class="title required">업체 담당자명</label>
-                        <div class="value">
+                        <div class="input_wrap w-100">
+                            <div class="thx_select_box">
+                                <select name="" id="select_worker" class="thx_select">
+                                    <option value="admin" selected>앱관리자가 지정</option>
+                                    <option value="direct">직접 지정</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="select_direct w-100">
+                            <div class="pt-10"></div>
                             <div class="input_wrap w-100">
-                                <div class="thx_select_box">
-                                    <select name="" id="" class="thx_select">
-                                        <option value="">앱관리자가 지정</option>
-                                        <option value="">직접 지정</option>
-                                    </select>
+                                <div class="p-relative input_box search">
+                                    <input type="text" class="thx_txt bothicon" id="find_worker" name="find_worker"
+                                        placeholder="이름 또는 연락처를 입력하세요" autocomplete="off" required>
+                                    <div class="input_icon_wrap"></div>
+                                    <div class="autoList_wrap thx_scrollbar" data-autolist="find_worker">
+                                        <ul class="autoList">
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="guide"></div>
                             </div>
@@ -171,7 +181,6 @@
                 <div class="card_body">
                     <div class="detail_item vertical">
                         <label class="title required">납품 품목</label>
-                        <div class="pt-10"></div>
                         <ul class="delivery_item_list">
                             <li>
                                 <button class="btn btn_delete_delivery_item" onclick="delete_delivery_item(this)">
@@ -194,6 +203,7 @@
                                 </div>
                             </li>
                         </ul>
+                        <div class="pt-10"></div>
                         <button class="btn btn_add_delivery_item">
                             <div class="d-center">
                                 <span class="icon mr-10">
@@ -325,7 +335,20 @@
             card_body.toggleClass('hide');
         }
 
-
+        /* 업체담당자 이름 입력 초기화 */
+        var inputWithReset_find_worker = new InputWithReset('#find_worker');
+        /* 업체담당자 자동완성 */
+        $('#find_worker').autoComplete_account('');
+        /* 업체담당자 직접선택이면 업체담당자 입력칸 보이기 */
+        $('#select_worker').on('input', function (event) {
+            //console.log(event.currentTarget.value);
+            if (event.currentTarget.value === 'admin') {
+                //$('.select_direct').hide();
+            } else {
+                //$('.select_direct').show();
+            }
+        });
+        //$('.select_direct').hide();
     </script>
 </body>
 

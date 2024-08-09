@@ -17,13 +17,22 @@
                 <button type="button" class="btn pr-10">
                     <span class="material-symbols-outlined">arrow_back</span>
                 </button>
-                <h1>요청서</h1>
+                <h1>보고서</h1>
             </div>
             <div class="header_area">
-                <button type="button" class="btn btn_fill btn_save">견적서 등록</button>
+                <button type="button" class="btn btn_fill">보고서 수정</button>
             </div>
         </header>
         <div class="body pl-16 pr-16">
+            <div class="detail_item vertical">
+                <label class="delivery_detail_title">보고서 수정요청</label>
+                <div class="thx_value_readonly re">
+                    설치 대수 확인이 가능하도록 자료 사진을 더 올려 주세요.
+                </div>
+            </div>
+            <div class="pt-10"></div>
+            <div class="delivery_dash"></div>
+            <div class="pt-10"></div>
             <div class="detail_item vertical">
                 <table class="tbl_request_info">
                     <colgroup>
@@ -33,26 +42,6 @@
                         <tr>
                             <th>작성일</th>
                             <td>2024-09-30</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="pt-10"></div>
-            <div class="detail_item vertical">
-                <label class="delivery_detail_title">요청자</label>
-                <table class="tbl_request_info">
-                    <colgroup>
-                        <col style="width:6rem;">
-                        <col style="width:calc(50% - 6rem);">
-                        <col style="width:6rem;">
-                        <col style="width:calc(50% - 6rem);">
-                    </colgroup>
-                    <tbody>
-                        <tr>
-                            <th>이름</th>
-                            <td>[점주] 안산역1호점</td>
-                            <th>연락처</th>
-                            <td>01088889999</td>
                         </tr>
                     </tbody>
                 </table>
@@ -116,7 +105,7 @@
                 </table>
             </div>
             <div class="pt-16"></div>
-            <div class="delivery_below_comment">아래와 같이 요청합니다.</div>
+            <div class="delivery_below_comment">아래와 같이 보고합니다.</div>
             <div class="pt-16"></div>
             <div class="detail_item vertical">
                 <table class="tbl_delivery_item_info">
@@ -170,7 +159,6 @@
             </div>
             <div class="pt-10"></div>
             <div class="detail_item vertical">
-                <label class="delivery_detail_title">상세 요청 사항</label>
                 <table class="tbl_delivery_detail_info">
                     <colgroup>
                         <col style="width:6rem;">
@@ -180,36 +168,15 @@
                     </colgroup>
                     <tbody>
                         <tr>
-                            <th>오픈예상일</th>
+                            <th>납기 일자</th>
                             <td colspan="3">2024-10-31</td>
                         </tr>
                         <tr>
-                            <th>평수</th>
-                            <td>330㎡</td>
-                            <th>단복층여부</th>
-                            <td>복층</td>
+                            <th>납기 내용</th>
+                            <td colspan="3">불량제품 당일 오후 교체했습니다.</td>
                         </tr>
                         <tr>
-                            <th>도면</th>
-                            <td colspan="3">
-                                <div class="file_wrap">
-                                    <div class="add_file d-flex-shrink-0">
-                                        <img src="../../img/store.png" alt="" class="img">
-                                        <button class="btn btn_expand" onclick="$.img_modal('show', this);">
-                                            <span class="material-symbols-outlined">fullscreen</span>
-                                        </button>
-                                    </div>
-                                    <div class="add_file d-flex-shrink-0">
-                                        <img src="../../img/store.png" alt="" class="img">
-                                        <button class="btn btn_expand" onclick="$.img_modal('show', this);">
-                                            <span class="material-symbols-outlined">fullscreen</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>현장사진</th>
+                            <th>첨부 사진</th>
                             <td colspan="3">
                                 <div class="file_wrap">
                                     <div class="add_file d-flex-shrink-0">
@@ -242,12 +209,30 @@
                     </tbody>
                 </table>
             </div>
-            <div class="pt-10"></div>
-            <div class="detail_item vertical">
-                <label class="delivery_detail_title">기타 요청 사항</label>
-                <div class="thx_value_readonly">가격 협의 가능한가요?</div>
-            </div>
             <div class="pt-16"></div>
+        </div>
+    </div>
+
+    <div class="bottomSheetContainer" id="request_modify_report" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#request_modify_report').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">보고서 수정요청</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="input_wrap w-100">
+                    <div class="p-relative">
+                        <textarea class="thx_txt righticon delivery_report_modify_etc" id="delivery_report_modify_etc"
+                            name="" placeholder="수정요청 내용을 입력하세요." autocomplete="off" required value=""></textarea>
+                        <div class="input_icon_wrap"></div>
+                    </div>
+                </div>
+
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_fill">저장</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -280,7 +265,9 @@
         });
     </script>
     <script>
-
+        /* 보고서 수정요청 내용 입력 초기화 */
+        var inputWithReset_delivery_report_modify_etc = new InputWithReset('#delivery_report_modify_etc');
+        /* $('#request_modify_report').sheet('show'); */
 
     </script>
 </body>
