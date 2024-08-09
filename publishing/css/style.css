@@ -20,6 +20,8 @@ body{font-size:1.4rem;}
 .ml-16{margin-left:1.6rem;}
 .ml-5{margin-left:0.5rem;}
 .mt-5{margin-top:0.5rem;}
+.mr-5{margin-right:0.5rem;}
+.ml-5{margin-left:0.5rem;}
 .mb-5{margin-bottom:0.5rem;}
 .p-0{padding:0;}
 .p-10{padding:1rem;}
@@ -53,6 +55,7 @@ body{font-size:1.4rem;}
 .gap-20{gap:2rem;}
 .text-align-left{text-align:left;}
 .text-align-center{text-align:center;}
+.text-align-right{text-align:right;}
 .vertical-align-middle{vertical-align:middle;}
 
 /* component */
@@ -181,6 +184,7 @@ select.custom_select:invalid {color: #bbbbbb;}
 select.custom_select option{color:var(--txt_color);}
 
 .thx_value_readonly{width:100%;min-height:4rem;padding:1rem 1rem;background-color:var(--read_color);border-radius:0.4rem;font-size:1.4rem;color:var(--txt_color);line-height:2rem;}
+.thx_value_readonly.re{font-size:1.2rem;background-color:rgba(255,99,71,.14);}
 .thx_value_readonly.shortcut{display:flex;align-items:center;padding:0 1rem;}
 .thx_value_readonly.wait{background-color:rgba(31,119,196,0.28);}
 .thx_value_readonly.time{width:10rem;}
@@ -199,6 +203,7 @@ select.custom_select option{color:var(--txt_color);}
 
 /* layout */
 .container{width:100%;min-height:100vh;margin:0 auto;background-color:var(--bg_color);}
+.container.white{background-color:white;}
 header{display:flex;justify-content:space-between;align-items:center;height:5.6rem;padding:1.6rem 1.6rem 0;}
 header .header_area{display:flex;align-items:center;height:4rem;}
 header h1{font-weight:500;font-size:2rem;}
@@ -562,19 +567,66 @@ textarea.thx_txt.work_content{height:15rem;}
 .template_list .item_footer{padding:1rem 1.6rem;background-color:white;border-top:1px solid #D9E1F2;}
 
 /* delivery */
+.delivery_dash{border-top:1px dashed var(--blur_color);}
 textarea.thx_txt.delivery_request_etc{height:15rem;}
 textarea.thx_txt.delivery_quotation_etc{height:15rem;}
+textarea.thx_txt.delivery_report_etc{height:15rem;}
+textarea.thx_txt.delivery_report_modify_etc{height:15rem;}
 .btn_add_delivery_item{display:flex;justify-content:center;align-items:center;width:100%;height:4rem;background-color:#D9E1F2;border-radius:0.4rem;font-weight:500;font-size:1.4rem;color:var(--primary_color);}
 .btn_add_delivery_item .icon{display:inline-flex;justify-content:center;align-items:center;width:2.4rem;height:2.4rem;background-color:var(--primary_color);color:white;border-radius:2.4rem;}
 .delivery_item_list{width:100%;}
-.delivery_item_list > li{display:flex;align-items:start;margin-top:1rem;margin-bottom:1rem;}
-.delivery_item_list > li:first-child{margin-top:0;}
+.delivery_item_list > li{display:flex;align-items:start;margin-top:1rem;}
 .delivery_item_list > li .item{flex-grow:1;padding:1rem;border-radius:0.4rem;background-color:var(--read_color);}
 .delivery_item_list > li .item .item_info{display:flex;flex-wrap:wrap;gap:0.5rem;font-weight:500;}
 .delivery_item_list > li .btn_delete_delivery_item{flex-shrink:0;display:inline-flex;justify-content:center;align-items:center;background-color:var(--primary_color);border-radius:2.4rem;font-size:2.4rem;color:white;}
 .quotation_each_total_delivery_item{font-weight:700;font-size:1.4rem;color:var(--txt_color);}
 .quotation_total_delivery_item{display:flex;justify-content:space-between;width:100%;padding:0 1rem 1rem 4.4rem;font-weight:700;font-size:1.4rem;color:var(--txt_color);}
 .contract_total_delivery_item{display:flex;justify-content:space-between;width:100%;padding:0 1rem 1rem 1rem;font-weight:700;font-size:1.4rem;color:var(--txt_color);}
+.tbl_request_info{width: 100%;border-collapse: collapse;}
+.tbl_request_info th,
+.tbl_request_info td{height:2.4rem;font-size:1.2rem;border:1px solid #EEEEEE;}
+.tbl_request_info th{font-weight:400;color:var(--title_color);}
+.tbl_request_info td{padding:0 1rem;color:var(--txt_color);}
+.delivery_below_comment{text-align:center;font-weight:500;font-size:1.2rem;color:var(--title_color);}
+.tbl_delivery_item_info{width: 100%;border-collapse: collapse;}
+.tbl_delivery_item_info thead th{position:relative;height:2.4rem;font-weight:500;font-size:1.2rem;border:1px solid #EEEEEE;}
+.tbl_delivery_item_info thead th::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background-color:#eeeeee;}
+.tbl_delivery_item_info thead th.left{padding:0 1rem;text-align:left;}
+.tbl_delivery_item_info tbody td{padding:0 1rem;color:var(--txt_color);height:2.4rem;font-size:1.2rem;border:1px solid #ffffff;border-top:5px solid #ffffff;background-color:var(--read_color);}
+.tbl_delivery_detail_info{width: 100%;border-collapse: collapse;background-color:var(--read_color);}
+.tbl_delivery_detail_info th{font-weight:500;font-size:1.2rem;color:var(--title_color);border:1px solid white;}
+.tbl_delivery_detail_info td{padding:0.5rem 1rem;font-size:1.2rem;color:var(--txt_color);border:1px solid white;}
+.tbl_delivery_detail_info .file_wrap{display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;}
+.delivery_detail_title{font-weight:500;font-size:1.2rem;color:var(--title_color);margin:0 0 0.2rem 0.2rem;}
+.tbl_delivery_quotation_item_info{width: 100%;border-collapse: collapse;}
+.tbl_delivery_quotation_item_info thead th{position:relative;height:2.4rem;font-weight:500;font-size:1.2rem;border:1px solid #EEEEEE;}
+.tbl_delivery_quotation_item_info thead tr:last-child th::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background-color:#eeeeee;}
+.tbl_delivery_quotation_item_info thead th.left{padding:0 1rem;text-align:left;}
+.tbl_delivery_quotation_item_info tbody > tr > td{border:1px solid #ffffff;border-top:4px solid #ffffff;background-color:var(--read_color);}
+.tbl_delivery_quotation_inner_item_info{width: 100%;border-collapse: collapse;}
+.tbl_delivery_quotation_inner_item_info tbody > tr > td{padding:0 1rem;color:var(--txt_color);height:2.4rem;font-size:1.2rem;border:1px solid #ffffff;}
+.tbl_delivery_quotation_inner_item_info .label{display:inline-block;width:4rem;margin-right:0.5rem;}
+.quotation_total_wrap{display:flex;width:100%;justify-content:space-between;align-items:center;margin-top:0.4rem;background-color:#D9E1F2;padding:1rem;}
+.quotation_total_wrap .label{font-weight:500;font-size:1.8rem;color:var(--title_color);}
+.quotation_total_wrap .total_value{font-weight:500;font-size:1.8rem;color:var(--txt_color);}
+.quotation_giver_sign{position:absolute;left:50%;bottom:1rem;transform:translate(-100%, 50%);}
+
+.tbl_delivery_contract_item_info{width: 100%;border-collapse: collapse;}
+.tbl_delivery_contract_item_info thead th{position:relative;height:2.4rem;font-weight:500;font-size:1.2rem;border:1px solid #EEEEEE;}
+.tbl_delivery_contract_item_info thead tr:last-child th::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background-color:#eeeeee;}
+.tbl_delivery_contract_item_info thead th.left{padding:0 1rem;text-align:left;}
+.tbl_delivery_contract_item_info tbody > tr > td{border:1px solid #ffffff;border-top:4px solid #ffffff;background-color:var(--read_color);}
+.tbl_delivery_contract_inner_item_info{width: 100%;border-collapse: collapse;}
+.tbl_delivery_contract_inner_item_info tbody > tr > td{padding:0 1rem;color:var(--txt_color);height:2.4rem;font-size:1.2rem;border:1px solid #ffffff;}
+.tbl_delivery_contract_inner_item_info .label{display:inline-block;width:4rem;margin-right:0.5rem;}
+.contract_total_wrap{display:flex;width:100%;justify-content:space-between;align-items:center;margin-top:0.4rem;background-color:#D9E1F2;padding:1rem;}
+.contract_total_wrap .label{font-weight:500;font-size:1.8rem;color:var(--title_color);}
+.contract_total_wrap .total_value{font-weight:500;font-size:1.8rem;color:var(--txt_color);}
+.contract_giver_sign{position:absolute;right:0;bottom:0;}
+.contract_receiver_sign{position:absolute;right:0;bottom:0;}
+.tbl_request_info .contract_date{font-weight:500;font-size:1.4rem;color:var(--title_color);}
+.contract_date_notice{right: 1rem;bottom: 0.3rem;}
+.contract_info{font-size:1.2rem;color:var(--txt_color);line-height:1.5;}
 
 .topSheetContainer {position: fixed;top: 0;left: 0;display: flex;align-items: flex-start;justify-content: center;width: 100%;height: 0;overflow:hidden;pointer-events: none;}
 .topSheetContainer.show{height: 100%;}
