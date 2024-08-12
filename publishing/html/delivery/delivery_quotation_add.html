@@ -111,7 +111,7 @@
                         <label for="floor_plan" class="title required">업체 담당자 서명</label>
                         <div class="value">
                             <div class="input_wrap">
-                                <div class="thumbnail_add_file store_giver_cert">
+                                <div class="thumbnail_add_file wrap_company_manager_cert">
                                     <button class="btn btn_pop_signature"></button>
                                     <!--image will be inserted here-->
                                 </div>
@@ -215,16 +215,16 @@
     </div>
 
     <!-- 업체 담당자 서명 -->
-    <div class="bottomSheetContainer" id="bottomsheet_store_giver_cert" data-type="bottom">
+    <div class="bottomSheetContainer" id="bottomsheet_company_manager_cert" data-type="bottom">
         <div class="bottomSheet">
             <button class="btn handle"
-                onclick="$('#bottomsheet_store_giver_cert').sheet('hide');"><span></span></button>
+                onclick="$('#bottomsheet_company_manager_cert').sheet('hide');"><span></span></button>
             <div class="bottomSheet_header">
-                <div class="title">양도자 서명</div>
+                <div class="title">업체 담당자 서명</div>
             </div>
             <div class="pt-10 mt-10"></div>
             <div class="bottomSheet_body">
-                <div class="wrap_canvas" id="wrap_canvas_giver_cert">
+                <div class="wrap_canvas" id="wrap_canvas_company_manager_cert">
                     <canvas></canvas>
                 </div>
                 <div class="d-center mt-16 pt-16 pb-16">
@@ -328,14 +328,14 @@
 
     </script>
     <script>
-        $('.btn_pop_signature').on('click', function () {    // 양도자 서명 플러스 버튼
-            $('#bottomsheet_store_giver_cert').sheet('show');
-            $('#wrap_canvas_giver_cert').delete_signature();
-            $('#wrap_canvas_giver_cert').draw_signature();
+        $('.btn_pop_signature').on('click', function () {    // 업체 담당자 서명 플러스 버튼
+            $('#bottomsheet_company_manager_cert').sheet('show');
+            $('#wrap_canvas_company_manager_cert').delete_signature();
+            $('#wrap_canvas_company_manager_cert').draw_signature();
         });
 
         $('.btn_init_signature').on('click', function () {  // 서명 팝업 초기화 버튼
-            $('#wrap_canvas_giver_cert').delete_signature();
+            $('#wrap_canvas_company_manager_cert').delete_signature();
         });
 
         function isCanvasCleared(canvas) {
@@ -352,23 +352,18 @@
             return true;
         }
         $('.btn_apply_signature').on('click', function () { // 서명 팝업 적용 버튼
-            var canvas = $('#wrap_canvas_giver_cert canvas')[0];
+            var canvas = $('#wrap_canvas_company_manager_cert canvas')[0];
             if (isCanvasCleared(canvas)) {
                 $.modal('show', {
                     message: `서명난이 비었습니다.`,
                     onebutton: `<button class="btn btn_fill" onclick="$.modal('hide')">확인</button>`,
                 });
             } else {
-                $('#wrap_canvas_giver_cert').make_signature_data({ container: '.store_giver_cert', btn_open: '.btn_pop_signature' });
-                $('#wrap_canvas_giver_cert').delete_signature();
-                $('#bottomsheet_store_giver_cert').sheet('hide');
+                $('#wrap_canvas_company_manager_cert').make_signature_data({ container: '.wrap_company_manager_cert', btn_open: '.btn_pop_signature' });
+                $('#wrap_canvas_company_manager_cert').delete_signature();
+                $('#bottomsheet_company_manager_cert').sheet('hide');
             }
         });
-
-        /* 양도자 서명 열기 */
-        /* $('#bottomsheet_store_giver_cert').sheet('show');
-        $('#wrap_canvas_giver_cert').delete_signature();
-        $('#wrap_canvas_giver_cert').draw_signature(); */
     </script>
 </body>
 

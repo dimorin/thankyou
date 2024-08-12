@@ -22,7 +22,7 @@
             <div class="header_area">
                 <button type="button" class="btn btn_fill" onclick="$('#contract_modify_report').sheet('show');">수정
                     요청</button>
-                <button type="button" class="btn btn_fill ml-10">수락</button>
+                <button type="button" class="btn btn_fill btn_accept ml-10">수락</button>
             </div>
         </header>
         <div class="body pl-16 pr-16">
@@ -325,6 +325,27 @@
         </div>
     </div>
 
+    <!-- 계약자 서명 -->
+    <div class="bottomSheetContainer" id="bottomsheet_contract_receiver_cert" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle"
+                onclick="$('#bottomsheet_contract_receiver_cert').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">계약자 서명</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="wrap_canvas" id="wrap_canvas_receiver_cert">
+                    <canvas></canvas>
+                </div>
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_txt btn_init_signature">초기화</button>
+                    <button class="btn btn_fill btn_apply_signature ml-10">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="loading_wrap">
         <div class="spinner-border big"></div>
     </div>
@@ -358,6 +379,44 @@
         var inputWithReset_delivery_report_modify_etc = new InputWithReset('#delivery_report_modify_etc');
         /* 계약서 수정요청 열기 */
         /* $('#contract_modify_report').sheet('show'); */
+    </script>
+    <script>
+        $('.btn_accept').on('click', function () {    // 수락 버튼
+            $('#bottomsheet_contract_receiver_cert').sheet('show');
+            $('#wrap_canvas_receiver_cert').delete_signature();
+            $('#wrap_canvas_receiver_cert').draw_signature();
+        });
+
+        $('.btn_init_signature').on('click', function () {  // 서명 팝업 초기화 버튼
+            $('#wrap_canvas_receiver_cert').delete_signature();
+        });
+
+        function isCanvasCleared(canvas) {
+            var context = canvas.getContext('2d', { willReadFrequently: true });
+            var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+            // 캔버스의 모든 픽셀값이 0이면 클리어된 것으로 간주
+            for (var i = 0; i < imgData.data.length; i++) {
+                if (imgData.data[i] !== 0) {
+                    // 픽셀값이 0이 아닌 것이 발견되면 클리어되지 않은 것으로 간주
+                    return false;
+                }
+            }
+            // 모든 픽셀값이 0이면 클리어된 것으로 간주
+            return true;
+        }
+        $('.btn_apply_signature').on('click', function () { // 서명 팝업 저장 버튼
+            var canvas = $('#wrap_canvas_receiver_cert canvas')[0];
+            if (isCanvasCleared(canvas)) {
+                $.modal('show', {
+                    message: `서명난이 비었습니다.`,
+                    onebutton: `<button class="btn btn_fill" onclick="$.modal('hide')">확인</button>`,
+                });
+            } else {
+                //$('#wrap_canvas_receiver_cert').make_signature_data({ container: '#receiver_cert' });
+                $('#wrap_canvas_receiver_cert').delete_signature();
+                $('#bottomsheet_contract_receiver_cert').sheet('hide');
+            }
+        });
     </script>
 </body>
 
