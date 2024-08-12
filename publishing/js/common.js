@@ -1064,8 +1064,8 @@ $.fn.draw_signature = function () {
                 top = top + parseInt(elem.offsetTop);
                 elem = elem.offsetParent;
             }
-            event._x = event.targetTouches[0].pageX - left;
-            event._y = event.targetTouches[0].pageY - top;
+            event._x = event.targetTouches[0].clientX - left;
+            event._y = event.targetTouches[0].clientY - top;
         }
         // tool의 이벤트 핸들러를 호출한다.
         var func = tool[event.type];
