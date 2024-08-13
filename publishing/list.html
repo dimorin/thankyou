@@ -452,10 +452,19 @@
             <tr style="background-color:lightgreen;">
                 <td></td>
                 <td>브랜드관리</td>
-                <td>브랜드 등록&편집</td>
+                <td>브랜드 등록&편집(등록)</td>
                 <td><a href="./html/brand/brand_add.html" target="_blank">./html/brand/brand_add.html</a></td>
                 <td>100%</td>
                 <td>중복확인, 자동완성</td>
+            </tr>
+            <tr style="background-color:lightgreen;">
+                <td></td>
+                <td>브랜드관리</td>
+                <td>브랜드 등록&편집(편집)</td>
+                <td><a href="./html/brand/brand_add_modify.html" target="_blank">./html/brand/brand_add_modify.html</a>
+                </td>
+                <td>100%</td>
+                <td>중복확인, 자동완성, <span>본사변경시 알림 띄움</span></td>
             </tr>
             <tr style="background-color:lightgreen;">
                 <td></td>
@@ -1025,14 +1034,14 @@
                 <td>100%</td>
                 <td>필터 토글</td>
             </tr>
-            <tr style="background-color:gold;">
+            <tr style="background-color:lightgreen;">
                 <td></td>
                 <td>납품관리</td>
                 <td>[fullsheet]납품 분류 관리</td>
                 <td><a href="./html/delivery/delivery_list_manage.html"
                         target="_blank">./html/delivery/delivery_list_manage.html</a></td>
-                <td>90%</td>
-                <td>항목 추가 삭제, <span style="color:tomato;">단가 입력시 천단위 콤마</span></td>
+                <td>100%</td>
+                <td>항목 추가 삭제, 단가 입력시 천단위 콤마</td>
             </tr>
             <tr style="background-color: lightgreen;">
                 <td></td>
@@ -1052,19 +1061,19 @@
                 <td>100%</td>
                 <td>중복확인, 파일첨부(1)</td>
             </tr>
-            <tr style="background-color:gold;">
+            <tr style="background-color:lightgreen;">
                 <td></td>
                 <td>납품관리</td>
                 <td>[bottomsheet]요청서 등록_공급자 앱관리자</td>
                 <td><a href="./html/delivery/delivery_request_add.html"
                         target="_blank">./html/delivery/delivery_request_add.html</a></td>
-                <td>50%</td>
-                <td>접혔다 펼쳤다, 파일첨부(여러개), <span style="color:tomato;">품목 추가</span>, 라디오, <span
-                        style="background-color: blue;color:white;">날짜</span>, <span style="color:tomato;">평수</span>,
-                    textarea, 자동완성, <span style="color:tomato;">업체담당자를 앱관리자가 지정하느냐에 따라 아래 UI 비활성 처리하기</span>
+                <td>100%</td>
+                <td>접혔다 펼쳤다, 파일첨부(여러개), 품목 추가, 라디오, <span style="background-color: blue;color:white;">날짜</span>, 평수,
+                    천단위콤마,
+                    textarea, 자동완성, 업체담당자를 앱관리자가 지정하느냐에 따라 아래 UI 비활성 처리하기
                 </td>
             </tr>
-            <tr style="background-color:gold;">
+            <tr style="background-color:lightgreen;">
                 <td></td>
                 <td>납품관리</td>
                 <td>[bottomsheet]요청서 납품 품목 추가</td>
@@ -1101,40 +1110,42 @@
                 <td>100%</td>
                 <td>자동완성</td>
             </tr>
-            <tr style="background-color:gold;">
+            <tr style="background-color:lightgreen;">
                 <td></td>
                 <td>납품관리</td>
                 <td>[bottomsheet]견적서 등록&수정</td>
                 <td><a href="./html/delivery/delivery_quotation_add.html"
                         target="_blank">./html/delivery/delivery_quotation_add.html</a></td>
-                <td>50%</td>
-                <td>서명, <span style="color:tomato;">품목 추가</span> <span style="color:tomato;">합계(항목추가시)</span>, textarea
+                <td>100%</td>
+                <td>서명, 품목 추가, 합계(항목추가시), textarea
                 </td>
             </tr>
-            <tr>
+            <tr style="background-color:lightgreen;">
                 <td></td>
                 <td>납품관리</td>
                 <td>[bottomsheet]견적서 등록&수정_납품 품목 추가</td>
-                <td><a href="#" target="_blank"></a></td>
-                <td></td>
-                <td>수량, 단가, 라디오</td>
+                <td><a href="./html/delivery/delivery_quotation_add_item.html"
+                        target="_blank">./html/delivery/delivery_quotation_add_item.html</a></td>
+                <td>100%</td>
+                <td>수량, 단가, 천단위콤마, 라디오</td>
             </tr>
-            <tr style="background-color:gold;">
+            <tr style="background-color:lightgreen;">
                 <td></td>
                 <td>납품관리</td>
                 <td>[bottomsheet]견적서 등록&수정_업체담당자서명</td>
-                <td><a href="#" target="_blank"></a></td>
-                <td>50%</td>
+                <td><a href="./html/delivery/delivery_quotation_add_cert.html"
+                        target="_blank">./html/delivery/delivery_quotation_add_cert.html</a></td>
+                <td>100%</td>
                 <td>서명</td>
             </tr>
-            <tr style="background-color:gold;">
+            <tr style="background-color:lightgreen;">
                 <td></td>
                 <td>납품관리</td>
                 <td>[bottomsheet]견적서 상세_견적서 수락여부 대기</td>
                 <td><a href="./html/delivery/delivery_quotation_view.html"
                         target="_blank">./html/delivery/delivery_quotation_view.html</a></td>
-                <td>50%</td>
-                <td><span style="color:tomato;">팝업연결</span></td>
+                <td>100%</td>
+                <td></td>
             </tr>
             <tr style="background-color:lightgreen;">
                 <td></td>
@@ -1145,13 +1156,14 @@
                 <td>100%</td>
                 <td>textarea</td>
             </tr>
-            <tr>
+            <tr style="background-color:lightgreen;">
                 <td></td>
                 <td>납품관리</td>
-                <td>[bottomsheet]견적서 상세_수락</td>
-                <td><a href="#" target="_blank"></a></td>
-                <td></td>
-                <td><span style="background-color: blue;color:white;">날짜</span>, 라디오</td>
+                <td>[bottomsheet]견적서 상세_요청서누락항목</td>
+                <td><a href="./html/delivery/delivery_quotation_view_accept.html"
+                        target="_blank">./html/delivery/delivery_quotation_view_accept.html</a></td>
+                <td>100%</td>
+                <td><span style="background-color: blue;color:white;">날짜</span>, 라디오, 평수, 천단위콤마</td>
             </tr>
             <tr style="background-color:lightgreen;">
                 <td></td>
@@ -1171,22 +1183,24 @@
                 <td>100%</td>
                 <td></td>
             </tr>
-            <tr style="background-color:gold;">
+            <tr style="background-color:lightgreen;">
                 <td></td>
                 <td>납품관리</td>
                 <td>[bottomsheet]계약서 등록</td>
                 <td><a href="./html/delivery/delivery_contract_add.html"
                         target="_blank">./html/delivery/delivery_contract_add.html</a></td>
-                <td>50%</td>
+                <td>100%</td>
                 <td>접혔다 펼쳤다, 서명, <span style="background-color: blue;color:white;">날짜</span>, textarea
                 </td>
             </tr>
-            <tr style="background-color:gold;">
+            <tr style="background-color:lightgreen;">
                 <td></td>
                 <td>납품관리</td>
                 <td>[bottomsheet]계약서 업체담당자서명</td>
-                <td><a href="#" target="_blank"></a></td>
-                <td>50%</td>
+                <td><a href="./html/delivery/delivery_contract_add_cert.html"
+                        target="_blank">./html/delivery/delivery_contract_add_cert.html</a>
+                </td>
+                <td>100%</td>
                 <td>서명</td>
             </tr>
             <tr style="background-color:lightgreen;">
@@ -1198,21 +1212,22 @@
                 <td>100%</td>
                 <td></td>
             </tr>
-            <tr style="background-color:gold;">
+            <tr style="background-color:lightgreen;">
                 <td></td>
                 <td>납품관리</td>
                 <td>[bottomsheet]계약서 수정요청</td>
                 <td><a href="./html/delivery/delivery_contract_view_modify.html"
                         target="_blank">./html/delivery/delivery_contract_view_modify.html</a></td>
-                <td>50%</td>
+                <td>100%</td>
                 <td>textarea</td>
             </tr>
-            <tr style="background-color:gold;">
+            <tr style="background-color:lightgreen;">
                 <td></td>
                 <td>납품관리</td>
                 <td>[bottomsheet]계약서 요청자 서명</td>
-                <td><a href="#" target="_blank"></a></td>
-                <td></td>
+                <td><a href="./html/delivery/delivery_contract_view_cert.html"
+                        target="_blank">./html/delivery/delivery_contract_view_cert.html</a></td>
+                <td>100%</td>
                 <td>서명</td>
             </tr>
             <tr style="background-color:lightgreen;">
@@ -1233,13 +1248,13 @@
                 <td>100%</td>
                 <td></td>
             </tr>
-            <tr style="background-color:gold;">
+            <tr style="background-color:lightgreen;">
                 <td></td>
                 <td>납품관리</td>
                 <td>보고서 등록</td>
                 <td><a href="./html/delivery/delivery_report_add.html"
                         target="_blank">./html/delivery/delivery_report_add.html</a></td>
-                <td>50%</td>
+                <td>100%</td>
                 <td>접혔다 펼쳤다, <span style="background-color: blue;color:white;">날짜</span>, 파일첨부(여러개)</td>
             </tr>
             <tr style="background-color:lightgreen;">
@@ -1434,13 +1449,22 @@
                 <td>100%</td>
                 <td>$.banner_notice</td>
             </tr>
+            <tr style="background-color:lightgreen;">
+                <td></td>
+                <td>공통요소</td>
+                <td><span style="background-color:blue;color:white;">기간 검색 old</span></td>
+                <td><a href="./html/common/date_range_old.html" target="_blank">./html/common/date_range_old.html</a>
+                </td>
+                <td>100%</td>
+                <td>브라우저 내장 날짜api 활용</td>
+            </tr>
             <tr style="background-color:gold;">
                 <td></td>
                 <td>공통요소</td>
                 <td><span style="background-color:blue;color:white;">기간 검색</span></td>
                 <td><a href="#" target="_blank"></a></td>
                 <td>50%</td>
-                <td></td>
+                <td>flatpickr.js 라이브러리 사용</td>
             </tr>
             <tr>
                 <td></td>
