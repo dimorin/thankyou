@@ -114,7 +114,9 @@ input.thx_txt[type="date"]::-webkit-inner-spin-button {
     display: none;
     appearance: none;
 }
-.input_date::after {content:'\ebcc';font-family: 'Material Symbols Outlined';position: absolute;color:var(--blur_color);font-size: 20px;right: 5px;top: 50%;transform: translate(0, -50%);pointer-events: none;}
+.input_date::after {content:'\ebcc';font-family: 'Material Symbols Outlined';position: absolute;color:var(--blur_color);font-size: 2rem;right: 0.5rem;top: 50%;transform: translate(0, -50%);pointer-events: none;}
+.input_area::after {content:'㎡';position: absolute;color:var(--blur_color);font-size: 1.4rem;right: 0.6rem;top: 50%;transform: translate(0, -50%);pointer-events: none;}
+.input_won::after {content:'원';position: absolute;color:var(--blur_color);font-size: 1.4rem;right: 1rem;top: 50%;transform: translate(0, -50%);pointer-events: none;}
 
 input.thx_txt.bothicon{padding:0 3.4rem;}/* 양 옆에 아이콘 있는 입력창 */
 input.thx_txt.error{border-color:tomato;}
@@ -679,6 +681,9 @@ textarea.thx_txt.delivery_report_modify_etc{height:15rem;}
 .btn_delivery_count.minus{border-top-right-radius:0;border-bottom-right-radius:0;}
 .btn_delivery_count.plus{border-top-left-radius:0;border-bottom-left-radius:0;}
 input.thx_txt.input_delivery_count{border-radius:0;background-color:white;border: 1px solid #D9E1F2;border-left:0;border-right:0;}
+
+.find_worker_wrap{opacity:0.4;pointer-events:none;}
+.find_worker_wrap.show{opacity:1;pointer-events:auto;}
 
 .topSheetContainer {position: fixed;top: 0;left: 0;display: flex;align-items: flex-start;justify-content: center;width: 100%;height: 0;overflow:hidden;pointer-events: none;}
 .topSheetContainer.show{height: 100%;}
