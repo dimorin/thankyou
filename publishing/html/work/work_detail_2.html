@@ -204,8 +204,26 @@
     </script>
     <script>
         $(function () {
-            $('#find_date_start').flatpickr({ minDate: "today", });
-            $('#datepicker').flatpickr({ minDate: "today", });
+            $('#find_date_start').flatpickr({
+                enable: [
+                    function (date) {
+                        // return true to enable
+
+                        return (date > new Date());
+
+                    }
+                ]
+            });
+            $('#datepicker').flatpickr({
+                enable: [
+                    function (date) {
+                        // return true to enable
+
+                        return (date > new Date());
+
+                    }
+                ]
+            });
         })
 
         /* $('#find_date_start').on('input', function (event) {
