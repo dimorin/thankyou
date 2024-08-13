@@ -161,8 +161,8 @@
             <div class="bottomSheet_body">
                 <div class="input_wrap w-100">
                     <div class="p-relative input_date">
-                        <input type="text" class="thx_txt date" id="request_open_date" name="request_open_date"
-                            placeholder="" autocomplete="off">
+                        <input type="text" class="thx_txt date" id="visit_date" name="visit_date" placeholder=""
+                            autocomplete="off">
                         <div class="input_icon_wrap"></div>
                     </div>
                 </div>
@@ -202,7 +202,7 @@
         });
     </script>
     <script>
-        $('#request_open_date').flatpickr({
+        $('#visit_date').flatpickr({
             enableTime: true,
             enable: [
                 function (date) {
@@ -222,24 +222,8 @@
                 })
             },
         });
-
-        /* $('#find_date_start').on('input', function (event) {
-            $('#find_date_start').removeClass('error');
-            $('#find_range .guide').text('');
-            var start_date_str = $(event.currentTarget).val();
-            var start_date = new Date(start_date_str);
-            if (start_date_str) {
-                if (start_date < new Date()) {  //오늘보다 이전이면 경고글 띄우고 날짜를 지운다.
-                    $('#find_date_start').val('');
-                    $('#find_date_start').addClass('error');
-                    $('#find_range .guide').text('현재 시간 이후로 방문 날짜를 다시 입력해주세요.');
-                    return;
-                } else {
-                    console.log($(event.currentTarget).val());
-                }
-            }
-        }); */
-
+        /* 방문일자일시 설정 열기 */
+        //$('#set_visit_date').sheet('show');
     </script>
 </body>
 
