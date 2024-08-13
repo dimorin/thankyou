@@ -96,9 +96,11 @@ input.thx_txt::placeholder{color:var(--blur_color);}
 input.thx_txt:disabled{background-color:var(--read_color);}
 input.thx_txt[readonly]{background-color:var(--read_color);border-color:var(--read_color);}
 input.thx_txt[readonly]:focus{border-color:var(--read_color);}
+input.thx_txt.date[readonly]{background-color:white;border-color:#D9E1F2;}
+input.thx_txt.date[readonly]:focus{border-color:#5F6368;}
 input.thx_txt.righticon{padding-right:3.4rem;}/* 우측에 초기화 아이콘 있는 입력창 */
 input.thx_txt.rightdoubleicon{padding-right:5.4rem;}
-.input_icon_wrap{position: absolute;top:0;right: 0;transform: translate(0, 0);display:flex;align-items:center;}
+.input_icon_wrap{position: absolute;top:0.1rem;right: 0;transform: translate(0, 0);display:flex;align-items:center;}
 .input_date .input_icon_wrap{right:2rem;}
 input.thx_txt.rightdoubleicon + .input_icon_wrap{right:2rem;}
 /*valid*/
