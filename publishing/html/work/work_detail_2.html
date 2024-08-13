@@ -7,6 +7,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
     <title>땡큐베리머치</title>
     <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/flatpickr.min.css">
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 
@@ -160,8 +161,8 @@
             <div class="bottomSheet_body set_visit_date_wrap">
                 <div class="input_wrap" id="find_range">
                     <div class="p-relative input_date">
-                        <input type="datetime-local" class="thx_txt text-align-left" id="find_date_start"
-                            name="find_date_start" placeholder="" autocomplete="off">
+                        <input type="text" class="thx_txt" id="find_date_start" name="find_date_start" placeholder=""
+                            autocomplete="off">
                         <div class="input_icon_wrap"></div>
                     </div>
                     <div class="guide"></div>
@@ -169,6 +170,7 @@
                 <div class="d-center mt-16 pt-16 pb-16">
                     <button class="btn btn_fill">저장</button>
                 </div>
+                <input type="text" id="datepicker" placeholder="Select Date">
             </div>
         </div>
     </div>
@@ -179,6 +181,7 @@
 
     <script src="../../js/jquery-3.7.1.min.js"></script>
     <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/flatpickr.js"></script>
     <script src="../../js/common.js"></script>
     <script>
         $(function () {
@@ -200,8 +203,12 @@
         });
     </script>
     <script>
+        $(function () {
+            $('#find_date_start').flatpickr();
+            $('#datepicker').flatpickr();
+        })
 
-        $('#find_date_start').on('input', function (event) {
+        /* $('#find_date_start').on('input', function (event) {
             $('#find_date_start').removeClass('error');
             $('#find_range .guide').text('');
             var start_date_str = $(event.currentTarget).val();
@@ -216,7 +223,7 @@
                     console.log($(event.currentTarget).val());
                 }
             }
-        });
+        }); */
 
     </script>
 </body>
