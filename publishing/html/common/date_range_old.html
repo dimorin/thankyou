@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>공지사항 목록</h1>
+            </div>
+            <div class="header_area">
+                <button type="button" class="btn btn_search" onclick="$('#find_notice').sheet('show');">
+                    <span class="material-symbols-outlined">search</span>
+                </button>
+            </div>
+        </header>
+        <div class="body list">
+            <!-- chip -->
+            <ul class="filter_list">
+                <li class="chip_filter">
+                    <span class="txt">빽다방</span>
+                    <button class="btn btn_chip">
+                        <span class="material-symbols-outlined">close_small</span>
+                    </button>
+                </li>
+            </ul>
+            <ul class="notice_list">
+                <li class="item">
+                    <ul class="item_body_list">
+                        <li>
+                            <label class="notice_label">제목</label>
+                            <div class="notice_value">PC-Agent 기능 업데이트</div>
+                        </li>
+                        <li>
+                            <label class="notice_label">작성자</label>
+                            <div class="notice_value">홍길동</div>
+                        </li>
+                        <li>
+                            <label class="notice_label">수신자</label>
+                            <div class="notice_value">더본코리아 빽다방 점주</div>
+                        </li>
+                        <li>
+                            <label class="notice_label">작성일</label>
+                            <div class="notice_value">2024-09-30</div>
+                        </li>
+                    </ul>
+                    <div class="item_footer p-10">
+                        키패드 엔터 버튼을 누르면 최근 호출번호 재발송 기능.
+                        엔터 버튼만 눌렀을 때 작은 번호에는 영향 없이 메인 넘버만 다시 표출되어 20초간 깜빡이고 호출됨.
+                        최신 버전 업데이트시 적용됨.
+                    </div>
+                </li>
+                <li class="item">
+                    <ul class="item_body_list">
+                        <li>
+                            <label class="notice_label">제목</label>
+                            <div class="notice_value">PC-Agent 기능 업데이트</div>
+                        </li>
+                        <li>
+                            <label class="notice_label">작성일</label>
+                            <div class="notice_value">2024-09-30</div>
+                        </li>
+                    </ul>
+                    <div class="item_footer p-10">
+                        키패드 엔터 버튼을 누르면 최근 호출번호 재발송 기능.
+                        엔터 버튼만 눌렀을 때 작은 번호에는 영향 없이 메인 넘버만 다시 표출되어 20초간 깜빡이고 호출됨.
+                        최신 버전 업데이트시 적용됨.
+                    </div>
+                </li>
+            </ul>
+            <button class="btn btn_fill btn_big btn_add">
+                <span class="material-symbols-outlined">edit</span>
+                <span class="d-inline-block ml-10">공지사항 등록</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="topSheetContainer" id="find_notice" data-type="top">
+        <div class="topSheet">
+            <div class="topSheet_header">
+                <span class="title">검색&필터</span>
+            </div>
+            <div class="pt-10"></div>
+            <div class="topSheet_body">
+                <div class="input_wrap">
+                    <div class="p-relative input_box search">
+                        <input type="text" class="thx_txt bothicon" id="find_content" name="find_content"
+                            placeholder="제목이나 내용을 입력하세요" autocomplete="off">
+                        <div class="input_icon_wrap"></div>
+                    </div>
+                </div>
+                <div class="pt-10"></div>
+                <label for="" class="">작성일 기간</label>
+                <div class="input_wrap" id="find_range">
+                    <div class="d-left-center">
+                        <div class="p-relative input_date" style="width:calc(50% - 1.4rem);">
+                            <input type="date" class="thx_txt text-align-left" id="find_date_start"
+                                name="find_date_start" placeholder="" autocomplete="off">
+                            <div class="input_icon_wrap"></div>
+                        </div>
+                        <span class="d-inline-block pl-10 pr-10">~</span>
+                        <div class="p-relative input_date" style="width:calc(50% - 1.4rem);">
+                            <input type="date" class="thx_txt text-align-left" id="find_date_end" name="find_date_end"
+                                placeholder="" autocomplete="off">
+                            <div class="input_icon_wrap"></div>
+                        </div>
+                    </div>
+                    <div class="guide"></div>
+                </div>
+                <div class="d-center pt-16 pb-16">
+                    <button class="btn btn_txt">초기화</button>
+                    <button class="btn btn_fill">적용</button>
+                </div>
+            </div>
+            <button class="btn handle" onclick="$('#find_notice').sheet('hide');">
+                <span></span>
+            </button>
+        </div>
+    </div>
+
+
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+        $(function () {
+            // 현재 페이지 번호 및 페이지당 아이템 수 설정
+            let page = 1;
+            const itemsPerPage = 10;
+
+            // 아이템을 표시할 컨테이너와 아이템 클래스 설정
+            const itemContainer = 'notice_list';
+            const itemClass = 'item';
+
+            // 마지막으로 로드된 아이템과 관찰된 아이템을 추적하기 위한 변수 초기화
+            let lastItem; // 마지막으로 로드된 아이템
+            let lastObservedItem; // 마지막 아이템이면서 화면에 들어온 것으로 관찰된 아이템
+
+            // 아이템을 로드하고 화면에 추가하는 함수
+            function loadItems() {
+                $.ajax({
+                    url: `https://raw.githubusercontent.com/ctrlcccv/ctrlcccv-demo/main/2023-11-01-ajax-Infinite/test.json`,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        // 현재 페이지에 해당하는 아이템만 선택 0~9, 10~19, 20~29 ,...
+                        const newData = data.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+                        newData.forEach(newItem => {
+                            // 아이템을 컨테이너에 추가                            
+                            $(`.${itemContainer}`).append(
+                                `                   
+                                <li class="${itemClass}">
+                                    <ul class="item_body_list">
+                                        <li>
+                                            <label class="notice_label">제목</label>
+                                            <div class="notice_value">PC-Agent 기능 업데이트${newItem.item}</div>
+                                        </li>
+                                        <li>
+                                            <label class="notice_label">작성일</label>
+                                            <div class="notice_value">2024-09-30</div>
+                                        </li>
+                                    </ul>
+                                    <div class="item_footer p-10">
+                                        키패드 엔터 버튼을 누르면 최근 호출번호 재발송 기능.
+                                        엔터 버튼만 눌렀을 때 작은 번호에는 영향 없이 메인 넘버만 다시 표출되어 20초간 깜빡이고 호출됨.
+                                        최신 버전 업데이트시 적용됨.
+                                    </div>
+                                </li>
+                                `
+                            );
+                        });
+                        page++; // 다음 페이지로 이동
+
+                        // 마지막으로 추가된 아이템 설정 및 Intersection Observer에 관찰
+                        lastItem = $(`.${itemContainer} .${itemClass}:last`)[0];
+
+                        if (lastItem !== lastObservedItem) { // 마지막으로 추가된 아이템이 컨테이너 안에 있을 때는 관찰할 필요 없음
+                            observer.observe(lastItem); // 관찰자 바꾸기                            
+                        }
+                    },
+                    error: function (error) {
+                        console.error('데이터를 가져오는 동안 오류가 발생했습니다:', error);
+                    }
+                });
+            }
+
+            // 초기 페이지 로드 시 아이템 로드 함수 호출
+            loadItems();
+
+            // Intersection Observer 설정
+            const observerOptions = {
+                root: null, // 관찰자의 루트 요소 설정 (null은 브라우저의 뷰포트)
+                threshold: 0.5 // 아이템이 50% 이상 화면에 나타날 때 콜백 함수 실행
+            };
+
+            // Intersection Observer 생성
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // 관찰하고 있던 아이템이 화면에 나타나면 아이템을 로드하고 관찰 해제                        
+                        //lastObservedItem = $(`.${itemContainer} .${itemClass}:last`)[0];
+                        //console.log(entry.target === lastObservedItem);
+                        lastObservedItem = entry.target;
+                        loadItems();
+                        observer.unobserve(entry.target); // 기존 관찰대상은 관찰 해제
+                    }
+                });
+            }, observerOptions);
+        });
+    </script>
+    <script>
+        /* 내용 입력 초기화 */
+        var inputWithReset_find_content = new InputWithReset('#find_content');
+
+        /* topsheet 검색 */
+        $('#find_notice').sheet('show');
+    </script>
+    <script>
+        /* 기간
+        초기에 뒤의 날짜를 비활성한다.
+        앞의 날짜가 입력되면 뒤의 날짜가 활성된다.
+        앞의 날짜가 오늘보다 이후이면 경고글 띄우고 날짜를 지운다.
+        앞의 날짜를 지우면 뒤의 날짜를 지우고 뒤의 날짜를 비활성한다.
+        뒤의 날짜를 입력할 때 앞의 날짜보다 작으면 경고글 띄우고 날짜를 지운다.
+        뒤의 날짜를 입력할 때 오늘 날짜보다 크면 경고글 띄우고 오늘 날짜로 세팅한다. */
+        $('#find_date_end').val('');
+        $('#find_date_end').removeClass('error');
+        $('#find_date_end').prop('disabled', true);
+        $('#find_date_start').on('input', function (event) {
+            $('#find_date_start').removeClass('error');
+            $('#find_range .guide').text('');
+            var start_date_str = $(event.currentTarget).val();
+            var start_date = new Date(start_date_str);
+            if (start_date_str) {
+                if (start_date > new Date()) {
+                    $('#find_date_start').val('');
+                    $('#find_date_start').addClass('error');
+                    $('#find_range .guide').text('오늘 이후는 검색 범위가 아닙니다. 시작 날짜를 다시 입력해주세요.');
+                    $('#find_date_end').val('');
+                    $('#find_date_end').removeClass('error');
+                    $('#find_date_end').prop('disabled', true); // 사파리의 경우, 달력을 여는 순간 오늘날짜가 세팅되어 끝날짜가 disable이 false가 되는 현상 있음
+                    return;
+                }
+                $('#find_date_end').prop('disabled', false);
+            } else {
+                $('#find_date_end').val('');
+                $('#find_date_end').removeClass('error');
+                $('#find_date_end').prop('disabled', true);
+            }
+        });
+        $('#find_date_end').on('input', function (event) {
+            $('#find_date_end').removeClass('error');
+            $('#find_range .guide').text('');
+            var start_date_str = $('#find_date_start').val();
+            var end_date_str = $(event.currentTarget).val();
+            var start_date = new Date(start_date_str);
+            var end_date = new Date(end_date_str);
+
+            if (end_date < start_date) {
+                $('#find_date_end').val('');
+                $('#find_date_end').addClass('error');
+                $('#find_range .guide').text('올바른 기간이 아닙니다. 끝 날짜를 다시 입력해주세요.');
+            }
+            if (end_date > new Date()) {
+                $('#find_date_end').val('');
+                $('#find_date_end').addClass('error');
+                $('#find_range .guide').text('오늘 이후는 검색 범위가 아닙니다. 끝 날짜를 다시 입력해주세요.');
+            }
+        });
+    </script>
+</body>
+
+</html>

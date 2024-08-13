@@ -443,6 +443,7 @@
                 input_icon_wrap.find('.btn_input_reset').on('click', function (event) {
                     $(instance.element).val('');
                     event.currentTarget.remove();
+                    instance.clear();
                 })
             },
         });
