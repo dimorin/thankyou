@@ -204,8 +204,8 @@
     </script>
     <script>
         $(function () {
-            $('#find_date_start').flatpickr();
-            $('#datepicker').flatpickr();
+            $('#find_date_start').flatpickr({ minDate: "today", });
+            $('#datepicker').flatpickr({ minDate: "today", });
         })
 
         /* $('#find_date_start').on('input', function (event) {
