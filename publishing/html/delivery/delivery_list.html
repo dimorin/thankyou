@@ -153,7 +153,8 @@
                                             <div class="item d-flex-grow-1 ml-10">
                                                 <input type="text" class="thx_txt" placeholder="모델">
                                                 <input type="text" class="thx_txt unit" placeholder="단위">
-                                                <input type="tel" class="thx_txt" placeholder="단가">
+                                                <input type="tel" class="thx_txt" placeholder="단가"
+                                                    onkeyup="inputNumberFormat(this);">
                                             </div>
                                         </div>
                                     </li>
@@ -389,11 +390,31 @@
                         <div class="item d-flex-grow-1 ml-10">
                             <input type="text" class="thx_txt" placeholder="모델명">
                             <input type="text" class="thx_txt unit" placeholder="단위">
-                            <input type="tel" class="thx_txt" placeholder="단가">
+                            <input type="tel" class="thx_txt" placeholder="단가" onkeyup="inputNumberFormat(this);">                            
                         </div>
                     </div>
                 </li>
             `);
+        }
+
+        var str;
+        function comma(str) {
+            if (str === '') {
+                return '';
+            }
+            str = parseInt(str);
+            str = str.toLocaleString(); // 천단위 콤마
+            return str;
+        }
+
+        function uncomma(str) {
+            str = String(str);
+            return str.replace(/[^\d]+/g, ''); // 숫자 외에는 지운다.
+        }
+
+        function inputNumberFormat(obj) {
+            str = obj.value;
+            obj.value = comma(uncomma(str));
         }
     </script>
 </body>

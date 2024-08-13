@@ -7,6 +7,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
     <title>땡큐베리머치</title>
     <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/flatpickr.min.css">
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 
@@ -22,7 +23,8 @@
             <div class="header_area">
                 <button type="button" class="btn btn_fill" onclick="$('#request_modify_quotation').sheet('show');">수정
                     요청</button>
-                <button type="button" class="btn btn_fill ml-10">수락</button>
+                <button type="button" class="btn btn_fill ml-10"
+                    onclick="$('#missing_delivery_item').sheet('show');">수락</button>
             </div>
         </header>
         <div class="body pl-16 pr-16">
@@ -260,6 +262,66 @@
         </div>
     </div>
 
+    <!-- 요청서 누락 항목 -->
+    <div class="bottomSheetContainer" id="missing_delivery_item" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#missing_delivery_item').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">요청서 누락 항목</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="detail_item">
+                    <label for="request_open_date" class="title">오픈 예상일</label>
+                    <div class="value">
+                        <div class="input_wrap w-100">
+                            <div class="p-relative input_date">
+                                <input type="text" class="thx_txt date" id="request_open_date" name="request_open_date"
+                                    placeholder="" autocomplete="off">
+                                <div class="input_icon_wrap"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-10"></div>
+                <div class="detail_item">
+                    <label for="request_area" class="title">평수</label>
+                    <div class="value">
+                        <div class="input_wrap w-100">
+                            <div class="p-relative input_area">
+                                <input type="text" class="thx_txt rightdoubleicon" id="request_area" name=""
+                                    placeholder="" autocomplete="off" required value=""
+                                    onkeyup="inputNumberFormat(this);">
+                                <div class="input_icon_wrap">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-10"></div>
+                <div class="detail_item">
+                    <label class="title">단복층 여부</label>
+                    <div class="value">
+                        <div class="input_wrap">
+                            <div class="d-inline-center">
+                                <input type="radio" id="story_single" class="thx_radio" name="story" checked=""><label
+                                    class="ml-5" for="story_single">단층</label>
+                            </div>
+                            <div class="d-inline-center ml-16">
+                                <input type="radio" id="story_double" class="thx_radio" name="story"><label class="ml-5"
+                                    for="story_double">복층</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_txt">초기화</button>
+                    <button class="btn btn_fill">적용</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="loading_wrap">
         <div class="spinner-border big"></div>
     </div>
@@ -268,6 +330,8 @@
     <script src="../../js/jquery-ui.js"></script>
     <script src="../../js/jquery.ui.touch-punch.min.js"></script>
     <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/flatpickr.js"></script>
+    <script src="../../js/ko.js"></script>
     <script src="../../js/common.js"></script>
     <script>
         $(function () {
@@ -291,6 +355,50 @@
     <script>
         /* 견적서 수정요청 내용 입력 초기화 */
         var inputWithReset_delivery_report_modify_etc = new InputWithReset('#delivery_report_modify_etc');
+
+
+        /* 오픈 예상일 범위 세팅 및 입력 초기화 */
+        $('#request_open_date').flatpickr({
+            enable: [
+                function (date) {
+                    return (date > new Date());
+                }
+            ],
+            locale: "ko",
+            onChange: function (selectedDates, dateStr, instance) {
+                var input_icon_wrap = $(instance.element).next('.input_icon_wrap');
+                var btn_reset = `<button class="btn_input_reset"><span class="material-symbols-outlined">close</span></button>`;
+                input_icon_wrap.empty();
+                input_icon_wrap.append(btn_reset);
+                input_icon_wrap.find('.btn_input_reset').on('click', function (event) {
+                    $(instance.element).val('');
+                    event.currentTarget.remove();
+                })
+            },
+        });
+
+        /* 평수 입력 초기화 */
+        var inputWithReset_request_area = new InputWithReset('#request_area');
+        var str;
+        function comma(str) {
+            if (str === '') {
+                return '';
+            }
+            str = parseInt(str);
+            str = str.toLocaleString(); // 천단위 콤마
+            return str;
+        }
+
+        function uncomma(str) {
+            str = String(str);
+            return str.replace(/[^\d]+/g, ''); // 숫자 외에는 지운다.
+        }
+
+        function inputNumberFormat(obj) {
+            str = obj.value;
+            obj.value = comma(uncomma(str));
+        }
+
         /* 견적서 수정요청 열기 */
         $('#request_modify_quotation').sheet('show');
     </script>

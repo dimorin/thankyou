@@ -378,7 +378,7 @@
         /* 계약서 수정요청 내용 입력 초기화 */
         var inputWithReset_delivery_report_modify_etc = new InputWithReset('#delivery_report_modify_etc');
         /* 계약서 수정요청 열기 */
-        $('#contract_modify_report').sheet('show');
+        /* $('#contract_modify_report').sheet('show'); */
     </script>
     <script>
         $('.btn_accept').on('click', function () {    // 수락 버튼
@@ -417,6 +417,9 @@
                 $('#bottomsheet_contract_receiver_cert').sheet('hide');
             }
         });
+
+        /* 계약자 서명 열기 */
+        $('#bottomsheet_contract_receiver_cert').sheet('show');
     </script>
 </body>
 

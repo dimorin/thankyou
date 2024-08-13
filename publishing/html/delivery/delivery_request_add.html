@@ -76,10 +76,12 @@
                         <label for="request_area" class="title">평수</label>
                         <div class="value">
                             <div class="input_wrap w-100">
-                                <div class="p-relative">
-                                    <input type="text" class="thx_txt righticon" id="request_area" name=""
-                                        placeholder="" autocomplete="off" required value="">
-                                    <div class="input_icon_wrap"></div>
+                                <div class="p-relative input_area">
+                                    <input type="text" class="thx_txt rightdoubleicon" id="request_area" name=""
+                                        placeholder="" autocomplete="off" required value=""
+                                        onkeyup="inputNumberFormat(this);">
+                                    <div class="input_icon_wrap">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -156,20 +158,18 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="select_direct w-100">
-                            <div class="pt-10"></div>
-                            <div class="input_wrap w-100">
-                                <div class="p-relative input_box search">
-                                    <input type="text" class="thx_txt bothicon" id="find_worker" name="find_worker"
-                                        placeholder="이름 또는 연락처를 입력하세요" autocomplete="off" required>
-                                    <div class="input_icon_wrap"></div>
-                                    <div class="autoList_wrap thx_scrollbar" data-autolist="find_worker">
-                                        <ul class="autoList">
-                                        </ul>
-                                    </div>
+                        <div class="pt-10"></div>
+                        <div class="input_wrap w-100">
+                            <div class="p-relative input_box search find_worker_wrap">
+                                <input type="text" class="thx_txt bothicon" id="find_worker" name="find_worker"
+                                    placeholder="이름 또는 연락처를 입력하세요" autocomplete="off" required>
+                                <div class="input_icon_wrap"></div>
+                                <div class="autoList_wrap thx_scrollbar" data-autolist="find_worker">
+                                    <ul class="autoList">
+                                    </ul>
                                 </div>
-                                <div class="guide"></div>
                             </div>
+                            <div class="guide"></div>
                         </div>
                     </div>
                 </div>
@@ -272,8 +272,8 @@
                 </div>
                 <div class="pt-10"></div>
                 <div class="detail_item">
-                    <label for="request_open_date" class="title">수량</label>
-                    <div class="value pr-16 gap-10">
+                    <label class="title">수량</label>
+                    <div class="value">
                         <div class="d-flex-grow-1 d-center">
                             <button class="btn btn_delivery_count minus">
                                 <span class="material-symbols-outlined">remove</span>
@@ -334,8 +334,9 @@
             ],
             locale: "ko",
             onChange: function (selectedDates, dateStr, instance) {
-                var btn_reset = `<button class="btn_input_reset"><span class="material-symbols-outlined">close</span></button>`;
                 var input_icon_wrap = $(instance.element).next('.input_icon_wrap');
+                var btn_reset = `<button class="btn_input_reset"><span class="material-symbols-outlined">close</span></button>`;
+                input_icon_wrap.empty();
                 input_icon_wrap.append(btn_reset);
                 input_icon_wrap.find('.btn_input_reset').on('click', function (event) {
                     $(instance.element).val('');
@@ -346,6 +347,25 @@
 
         /* 평수 입력 초기화 */
         var inputWithReset_request_area = new InputWithReset('#request_area');
+        var str;
+        function comma(str) {
+            if (str === '') {
+                return '';
+            }
+            str = parseInt(str);
+            str = str.toLocaleString(); // 천단위 콤마
+            return str;
+        }
+
+        function uncomma(str) {
+            str = String(str);
+            return str.replace(/[^\d]+/g, ''); // 숫자 외에는 지운다.
+        }
+
+        function inputNumberFormat(obj) {
+            str = obj.value;
+            obj.value = comma(uncomma(str));
+        }
         /* 기타 요청사항 입력 초기화 */
         var inputWithReset_delivery_request_etc = new InputWithReset('#delivery_request_etc');
 
@@ -408,12 +428,12 @@
             //console.log(event.currentTarget.value);
             if (event.currentTarget.value === 'admin') {
                 //$('.select_direct').hide();
+                $('.find_worker_wrap').removeClass('show');
             } else {
                 //$('.select_direct').show();
+                $('.find_worker_wrap').addClass('show');
             }
         });
-        //$('.select_direct').hide();
-
 
         $('.btn_delivery_count').on('click', function (event) {
             /* 대기번호 총 갯수 플러스 마이너스 버튼 */
@@ -429,6 +449,9 @@
                 }
             }
         });
+
+        /* 요청서 납품 품목 추가 열기 */
+        /* $('#add_delivery_item').sheet('show'); */
     </script>
 </body>
 

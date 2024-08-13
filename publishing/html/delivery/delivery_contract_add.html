@@ -7,6 +7,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
     <title>땡큐베리머치</title>
     <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/flatpickr.min.css">
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 
@@ -182,12 +183,12 @@
                 </button>
                 <div class="card_body">
                     <div class="detail_item">
-                        <label for="request_open_date" class="title required">납품기한</label>
+                        <label for="deadline_date" class="title required">납품기한</label>
                         <div class="value">
                             <div class="input_wrap w-100">
-                                <div class="p-relative">
-                                    <input type="text" class="thx_txt righticon" id="request_open_date" name=""
-                                        placeholder="" autocomplete="off" required value="">
+                                <div class="p-relative input_date">
+                                    <input type="text" class="thx_txt date" id="deadline_date" name="deadline_date"
+                                        placeholder="" autocomplete="off">
                                     <div class="input_icon_wrap"></div>
                                 </div>
                             </div>
@@ -333,6 +334,8 @@
     <script src="../../js/jquery-ui.js"></script>
     <script src="../../js/jquery.ui.touch-punch.min.js"></script>
     <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/flatpickr.js"></script>
+    <script src="../../js/ko.js"></script>
     <script src="../../js/common.js"></script>
     <script>
         $(function () {
@@ -421,6 +424,27 @@
                 $('#wrap_canvas_company_manager_cert').delete_signature();
                 $('#bottomsheet_company_manager_cert').sheet('hide');
             }
+        });
+    </script>
+    <script>
+        /* 납품기한 범위 세팅 및 입력 초기화 */
+        $('#deadline_date').flatpickr({
+            enable: [
+                function (date) {
+                    return (date > new Date());
+                }
+            ],
+            locale: "ko",
+            onChange: function (selectedDates, dateStr, instance) {
+                var input_icon_wrap = $(instance.element).next('.input_icon_wrap');
+                var btn_reset = `<button class="btn_input_reset"><span class="material-symbols-outlined">close</span></button>`;
+                input_icon_wrap.empty();
+                input_icon_wrap.append(btn_reset);
+                input_icon_wrap.find('.btn_input_reset').on('click', function (event) {
+                    $(instance.element).val('');
+                    event.currentTarget.remove();
+                })
+            },
         });
     </script>
 </body>

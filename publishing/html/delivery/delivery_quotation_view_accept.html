@@ -7,6 +7,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
     <title>땡큐베리머치</title>
     <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/flatpickr.min.css">
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 
@@ -17,41 +18,95 @@
                 <button type="button" class="btn pr-10">
                     <span class="material-symbols-outlined">arrow_back</span>
                 </button>
-                <h1>계약서</h1>
+                <h1>견적서</h1>
             </div>
             <div class="header_area">
-                <button type="button" class="btn btn_fill" onclick="$('#contract_modify_report').sheet('show');">수정
+                <button type="button" class="btn btn_fill" onclick="$('#request_modify_quotation').sheet('show');">수정
                     요청</button>
-                <button type="button" class="btn btn_fill btn_accept ml-10">수락</button>
+                <button type="button" class="btn btn_fill ml-10"
+                    onclick="$('#missing_delivery_item').sheet('show');">수락</button>
             </div>
         </header>
         <div class="body pl-16 pr-16">
-            <div class="contract_info">
-                <strong>안산역1호점</strong>과(와) <strong>아남전자(담당자 홍길동)</strong>는(은)<br>
-                상호 신뢰를 기초로 하여<br>
-                본 계약에 관한 전반적인 사항을 규정하고,<br>
-                계약의 책임과 의무를 성실하게 준수하기를 약정한다.
-            </div>
-            <div class="pt-16"></div>
-            <div class="delivery_below_comment">아래와 같이 계약합니다.</div>
-            <div class="pt-16"></div>
             <div class="detail_item vertical">
-                <label class="delivery_detail_title">1. 납품현장</label>
-                <div class="thx_value_readonly">
-
-                </div>
+                <table class="tbl_request_info">
+                    <colgroup>
+                        <col style="width:6rem;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>작성일</th>
+                            <td>2024-09-30</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="pt-10"></div>
             <div class="detail_item vertical">
-                <label class="delivery_detail_title">2. 납품기한</label>
-                <div class="thx_value_readonly">
-
-                </div>
+                <label class="delivery_detail_title">공급받는자</label>
+                <table class="tbl_request_info">
+                    <colgroup>
+                        <col style="width:6rem;">
+                        <col style="width:calc(50% - 6rem);">
+                        <col style="width:6rem;">
+                        <col style="width:calc(50% - 6rem);">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>이름</th>
+                            <td>[점주] 안산역1호점</td>
+                            <th>연락처</th>
+                            <td>01088889999</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="pt-10"></div>
+            <div class="detail_item vertical p-relative">
+                <label class="delivery_detail_title">공급자</label>
+                <table class="tbl_request_info">
+                    <colgroup>
+                        <col style="width:6rem;">
+                        <col style="width:calc(50% - 6rem);">
+                        <col style="width:6rem;">
+                        <col style="width:calc(50% - 6rem);">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>등록번호</th>
+                            <td colspan="3">106-03-0000</td>
+                        </tr>
+                        <tr>
+                            <th>상호</th>
+                            <td>아남전자</td>
+                            <th>대표</th>
+                            <td>홍길동</td>
+                        </tr>
+                        <tr>
+                            <th>주소</th>
+                            <td colspan="3">경기도 안산시 상록구 푸르고아름다운비단로 1002길 39</td>
+                        </tr>
+                        <tr>
+                            <th>업태</th>
+                            <td>도소매 서비스</td>
+                            <th>종목</th>
+                            <td>음향 영상기기</td>
+                        </tr>
+                        <tr>
+                            <th>담당자</th>
+                            <td>홍길동</td>
+                            <th>연락처</th>
+                            <td>01077778888</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <img src="../../img/sign.png" alt="" class="quotation_giver_sign">
+            </div>
+            <div class="pt-16"></div>
+            <div class="delivery_below_comment">아래와 같이 견적합니다.</div>
+            <div class="pt-16"></div>
             <div class="detail_item vertical">
-                <label class="delivery_detail_title">3. 계약품명</label>
-                <table class="tbl_delivery_contract_item_info">
+                <table class="tbl_delivery_quotation_item_info">
                     <colgroup>
                         <col style="width:4.4rem;">
                         <col style="width:4.4rem;">
@@ -74,7 +129,7 @@
                     <tbody>
                         <tr>
                             <td colspan="5">
-                                <table class="tbl_delivery_contract_inner_item_info">
+                                <table class="tbl_delivery_quotation_inner_item_info">
                                     <colgroup>
                                         <col style="width:4.4rem;">
                                         <col style="width:4.4rem;">
@@ -106,7 +161,7 @@
                         </tr>
                         <tr>
                             <td colspan="5">
-                                <table class="tbl_delivery_contract_inner_item_info">
+                                <table class="tbl_delivery_quotation_inner_item_info">
                                     <colgroup>
                                         <col style="width:4.4rem;">
                                         <col style="width:4.4rem;">
@@ -138,7 +193,7 @@
                         </tr>
                         <tr>
                             <td colspan="5">
-                                <table class="tbl_delivery_contract_inner_item_info">
+                                <table class="tbl_delivery_quotation_inner_item_info">
                                     <colgroup>
                                         <col style="width:4.4rem;">
                                         <col style="width:4.4rem;">
@@ -170,143 +225,25 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="contract_total_wrap">
-                    <div class="label">합계</div>
+                <div class="quotation_total_wrap">
+                    <div class="label">견적 합계</div>
                     <div class="total_value">￦2,816,000</div>
                 </div>
             </div>
             <div class="pt-10"></div>
             <div class="detail_item vertical">
-                <label class="delivery_detail_title">4. 계약금액</label>
-                <div class="thx_value_readonly">2,816,000원</div>
-            </div>
-            <div class="pt-10"></div>
-            <div class="detail_item vertical">
-                <label class="delivery_detail_title">5. 공급가액</label>
-                <div class="thx_value_readonly">2,560,000원</div>
-            </div>
-            <div class="pt-10"></div>
-            <div class="detail_item vertical">
-                <label class="delivery_detail_title">6. 세액</label>
-                <div class="thx_value_readonly">256,000원</div>
-            </div>
-            <div class="pt-10"></div>
-            <div class="detail_item vertical">
-                <label class="delivery_detail_title">7. 대금지급</label>
-                <div class="thx_value_readonly">
-                    계약금 총액의 30% 844,800원을 계약시 지급하고<br>
-                    잔금 총액의 70% 1,971,200원을 시공 검수일에 지급한다.
-                </div>
-            </div>
-            <div class="pt-10"></div>
-            <div class="detail_item vertical">
-                <label class="delivery_detail_title">8. 계약조건</label>
-                <div class="thx_value_readonly">
-
-                </div>
-            </div>
-            <div class="pt-10"></div>
-            <div class="detail_item vertical">
-                <label class="delivery_detail_title">9. A/S 규정</label>
-                <div class="thx_value_readonly">
-
-                </div>
-            </div>
-            <div class="pt-10"></div>
-            <div class="detail_item vertical">
-                <label class="delivery_detail_title">10. 서비스 승계</label>
-                <div class="thx_value_readonly">
-
-                </div>
-            </div>
-            <div class="pt-10"></div>
-            <div class="detail_item vertical">
-                <label class="delivery_detail_title">11. 입금계좌번호</label>
-                <div class="thx_value_readonly">
-
-                </div>
-            </div>
-            <div class="pt-10"></div>
-            <div class="detail_item vertical">
-                <label class="delivery_detail_title">12. 비고</label>
-                <div class="thx_value_readonly">
-
-                </div>
-            </div>
-            <div class="pt-10"></div>
-            <div class="detail_item vertical">
-                <label class="delivery_detail_title">계약자</label>
-                <table class="tbl_request_info">
-                    <colgroup>
-                        <col style="width:6rem;">
-                        <col style="width:calc(100% - 6rem);">
-                    </colgroup>
-                    <tbody>
-                        <tr>
-                            <th>이름</th>
-                            <td>[점주] 안산역1호점</td>
-                        </tr>
-                        <tr>
-                            <th>연락처</th>
-                            <td>01022224444</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="pt-10"></div>
-            <div class="detail_item vertical p-relative">
-                <label class="delivery_detail_title">공급자</label>
-                <table class="tbl_request_info">
-                    <colgroup>
-                        <col style="width:6rem;">
-                        <col style="width:calc(100% - 6rem);">
-                    </colgroup>
-                    <tbody>
-                        <tr>
-                            <th>상호</th>
-                            <td>아남전자</td>
-                        </tr>
-                        <tr>
-                            <th>주소</th>
-                            <td>경기도 안산시 상록구 푸르고아름다운비단로 1002길 39</td>
-                        </tr>
-                        <tr>
-                            <th>담당자</th>
-                            <td>홍길동</td>
-                        </tr>
-                        <tr>
-                            <th>연락처</th>
-                            <td>01077778888</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <img src="../../img/sign.png" alt="" class="contract_giver_sign">
-            </div>
-            <div class="pt-10 mt-10"></div>
-            <div class="detail_item vertical p-relative">
-                <table class="tbl_request_info">
-                    <colgroup>
-                        <col style="width:6rem;">
-                        <col style="width:calc(100% - 6rem);">
-                    </colgroup>
-                    <tbody>
-                        <tr>
-                            <th class="contract_date">계약일</th>
-                            <td>-</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="contract_date_notice p-absolute">※계약체결시 날짜 확정</div>
+                <label class="delivery_detail_title">비고</label>
+                <div class="thx_value_readonly">이달 말까지 가격 협의 가능합니다.</div>
             </div>
             <div class="pt-16"></div>
         </div>
     </div>
 
-    <div class="bottomSheetContainer" id="contract_modify_report" data-type="bottom">
+    <div class="bottomSheetContainer" id="request_modify_quotation" data-type="bottom">
         <div class="bottomSheet">
-            <button class="btn handle" onclick="$('#contract_modify_report').sheet('hide');"><span></span></button>
+            <button class="btn handle" onclick="$('#request_modify_quotation').sheet('hide');"><span></span></button>
             <div class="bottomSheet_header">
-                <div class="title">계약서 수정요청</div>
+                <div class="title">견적서 수정요청</div>
             </div>
             <div class="pt-10 mt-10"></div>
             <div class="bottomSheet_body">
@@ -325,22 +262,61 @@
         </div>
     </div>
 
-    <!-- 계약자 서명 -->
-    <div class="bottomSheetContainer" id="bottomsheet_contract_receiver_cert" data-type="bottom">
+    <!-- 요청서 누락 항목 -->
+    <div class="bottomSheetContainer" id="missing_delivery_item" data-type="bottom">
         <div class="bottomSheet">
-            <button class="btn handle"
-                onclick="$('#bottomsheet_contract_receiver_cert').sheet('hide');"><span></span></button>
+            <button class="btn handle" onclick="$('#missing_delivery_item').sheet('hide');"><span></span></button>
             <div class="bottomSheet_header">
-                <div class="title">계약자 서명</div>
+                <div class="title">요청서 누락 항목</div>
             </div>
             <div class="pt-10 mt-10"></div>
             <div class="bottomSheet_body">
-                <div class="wrap_canvas" id="wrap_canvas_receiver_cert">
-                    <canvas></canvas>
+                <div class="detail_item">
+                    <label for="request_open_date" class="title">오픈 예상일</label>
+                    <div class="value">
+                        <div class="input_wrap w-100">
+                            <div class="p-relative input_date">
+                                <input type="text" class="thx_txt date" id="request_open_date" name="request_open_date"
+                                    placeholder="" autocomplete="off">
+                                <div class="input_icon_wrap"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-10"></div>
+                <div class="detail_item">
+                    <label for="request_area" class="title">평수</label>
+                    <div class="value">
+                        <div class="input_wrap w-100">
+                            <div class="p-relative input_area">
+                                <input type="text" class="thx_txt rightdoubleicon" id="request_area" name=""
+                                    placeholder="" autocomplete="off" required value=""
+                                    onkeyup="inputNumberFormat(this);">
+                                <div class="input_icon_wrap">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-10"></div>
+                <div class="detail_item">
+                    <label class="title">단복층 여부</label>
+                    <div class="value">
+                        <div class="input_wrap">
+                            <div class="d-inline-center">
+                                <input type="radio" id="story_single" class="thx_radio" name="story" checked=""><label
+                                    class="ml-5" for="story_single">단층</label>
+                            </div>
+                            <div class="d-inline-center ml-16">
+                                <input type="radio" id="story_double" class="thx_radio" name="story"><label class="ml-5"
+                                    for="story_double">복층</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="d-center mt-16 pt-16 pb-16">
-                    <button class="btn btn_txt btn_init_signature">초기화</button>
-                    <button class="btn btn_fill btn_apply_signature ml-10">저장</button>
+                    <button class="btn btn_txt">초기화</button>
+                    <button class="btn btn_fill">적용</button>
                 </div>
             </div>
         </div>
@@ -354,6 +330,8 @@
     <script src="../../js/jquery-ui.js"></script>
     <script src="../../js/jquery.ui.touch-punch.min.js"></script>
     <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/flatpickr.js"></script>
+    <script src="../../js/ko.js"></script>
     <script src="../../js/common.js"></script>
     <script>
         $(function () {
@@ -375,48 +353,57 @@
         });
     </script>
     <script>
-        /* 계약서 수정요청 내용 입력 초기화 */
+        /* 견적서 수정요청 내용 입력 초기화 */
         var inputWithReset_delivery_report_modify_etc = new InputWithReset('#delivery_report_modify_etc');
-        /* 계약서 수정요청 열기 */
-        $('#contract_modify_report').sheet('show');
-    </script>
-    <script>
-        $('.btn_accept').on('click', function () {    // 수락 버튼
-            $('#bottomsheet_contract_receiver_cert').sheet('show');
-            $('#wrap_canvas_receiver_cert').delete_signature();
-            $('#wrap_canvas_receiver_cert').draw_signature();
-        });
 
-        $('.btn_init_signature').on('click', function () {  // 서명 팝업 초기화 버튼
-            $('#wrap_canvas_receiver_cert').delete_signature();
-        });
 
-        function isCanvasCleared(canvas) {
-            var context = canvas.getContext('2d', { willReadFrequently: true });
-            var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
-            // 캔버스의 모든 픽셀값이 0이면 클리어된 것으로 간주
-            for (var i = 0; i < imgData.data.length; i++) {
-                if (imgData.data[i] !== 0) {
-                    // 픽셀값이 0이 아닌 것이 발견되면 클리어되지 않은 것으로 간주
-                    return false;
+        /* 오픈 예상일 범위 세팅 및 입력 초기화 */
+        $('#request_open_date').flatpickr({
+            enable: [
+                function (date) {
+                    return (date > new Date());
                 }
-            }
-            // 모든 픽셀값이 0이면 클리어된 것으로 간주
-            return true;
-        }
-        $('.btn_apply_signature').on('click', function () { // 서명 팝업 저장 버튼
-            var canvas = $('#wrap_canvas_receiver_cert canvas')[0];
-            if (isCanvasCleared(canvas)) {
-                $.modal('show', {
-                    message: `서명난이 비었습니다.`,
-                    onebutton: `<button class="btn btn_fill" onclick="$.modal('hide')">확인</button>`,
-                });
-            } else {
-                //$('#wrap_canvas_receiver_cert').make_signature_data({ container: '#receiver_cert' });
-                $('#wrap_canvas_receiver_cert').delete_signature();
-                $('#bottomsheet_contract_receiver_cert').sheet('hide');
-            }
+            ],
+            locale: "ko",
+            onChange: function (selectedDates, dateStr, instance) {
+                var input_icon_wrap = $(instance.element).next('.input_icon_wrap');
+                var btn_reset = `<button class="btn_input_reset"><span class="material-symbols-outlined">close</span></button>`;
+                input_icon_wrap.empty();
+                input_icon_wrap.append(btn_reset);
+                input_icon_wrap.find('.btn_input_reset').on('click', function (event) {
+                    $(instance.element).val('');
+                    event.currentTarget.remove();
+                })
+            },
         });
+
+        /* 평수 입력 초기화 */
+        var inputWithReset_request_area = new InputWithReset('#request_area');
+        var str;
+        function comma(str) {
+            if (str === '') {
+                return '';
+            }
+            str = parseInt(str);
+            str = str.toLocaleString(); // 천단위 콤마
+            return str;
+        }
+
+        function uncomma(str) {
+            str = String(str);
+            return str.replace(/[^\d]+/g, ''); // 숫자 외에는 지운다.
+        }
+
+        function inputNumberFormat(obj) {
+            str = obj.value;
+            obj.value = comma(uncomma(str));
+        }
+
+        /* 견적서 수정요청 열기 */
+        /* $('#request_modify_quotation').sheet('show'); */
+
+        /* 요청서 누락 항목 열기 */
+        $('#missing_delivery_item').sheet('show');
     </script>
 </body>
 
