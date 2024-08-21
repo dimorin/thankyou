@@ -17,87 +17,88 @@
                 <button type="button" class="btn pr-10">
                     <span class="material-symbols-outlined">arrow_back</span>
                 </button>
-                <h1>장비 편집</h1>
+                <h1>대기번호 소리 설정</h1>
             </div>
             <div class="header_area">
                 <button type="button" class="btn btn_fill btn_save">저장</button>
             </div>
         </header>
-        <div class="body edit">
-            <div class="card">
-                <button class="btn card_header" onclick="equipment_detail_toggle(this);">
-                    <div class="title">기본</div>
-                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
-                </button>
-                <div class="card_body">
-                    <div class="detail_item">
-                        <label class="title">장비 종류</label>
-                        <div class="value">
-                            <div class="thx_value_readonly">PC-Agent</div>
-                        </div>
-                    </div>
-                    <div class="pt-10"></div>
-                    <div class="detail_item baseline">
-                        <label class="title">설치 매장</label>
-                        <div class="value">
-                            <div class="thx_value_readonly">[빽다방] 빽다방 빵연구소 김해 삼계 한라 비발디점</div>
-                        </div>
-                    </div>
-                    <div class="pt-10"></div>
-                    <div class="detail_item baseline">
-                        <label for="nickname" class="title required">장비 닉네임</label>
-                        <div class="value">
-                            <div class="input_wrap w-100">
-                                <div class="p-relative">
-                                    <input type="text" class="thx_txt righticon" id="nickname" name="" placeholder=""
-                                        autocomplete="off" required value="빽다방안양점같은모델PC">
-                                    <div class="input_icon_wrap"></div>
-                                </div>
-                                <div class="guide">장비 닉네임은 필수 입력 항목입니다.</div>
-                            </div>
+        <div class="body pl-16 pr-16 pb-16">
+            <div class="detail_item baseline">
+                <label class="title">목소리 종류</label>
+                <div class="value">
+                    <div class="input_wrap w-100">
+                        <div class="thx_select_box">
+                            <select name="" id="" class="thx_select">
+                                <option value="">다인</option>
+                                <option value="">상냥</option>
+                                <option value="">아라1</option>
+                                <option value="">아라2</option>
+                            </select>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card p-relative">
-                <button class="btn card_header thick" onclick="equipment_detail_toggle(this);">
-                    <div class="title">대기번호 소리 설정</div>
-                    <span class="material-symbols-outlined icon">keyboard_arrow_up</span>
-                </button>
-                <div class="card_body">
-                    <div class="detail_item baseline">
-                        <label class="title">목소리 종류</label>
-                        <div class="value">
-                            <div class="thx_value_readonly">아린</div>
+            <div class="pt-10 mt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">벨소리 종류</label>
+                <div class="value">
+                    <div class="input_wrap w-100">
+                        <div class="thx_select_box">
+                            <select name="" id="" class="thx_select">
+                                <option value="">없음</option>
+                                <option value="">띠딩</option>
+                                <option value="">띵동1</option>
+                                <option value="">띵동2</option>
+                                <option value="">맑은벨1</option>
+                                <option value="">매직효과음</option>
+                                <option value="">아기헬로</option>
+                                <option value="">큰 띵동</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="pt-10"></div>
-                    <div class="detail_item baseline">
-                        <label class="title">벨소리 종류</label>
-                        <div class="value">
-                            <div class="thx_value_readonly">띠링</div>
-                        </div>
-                    </div>
-                    <div class="pt-10"></div>
-                    <div class="detail_item baseline">
-                        <label class="title">호칭 멘트</label>
-                        <div class="value">
-                            <div class="thx_value_readonly">고객님</div>
-                        </div>
-                    </div>
-                    <div class="pt-10"></div>
-                    <div class="detail_item baseline">
-                        <label class="title">마무리 멘트</label>
-                        <div class="value">
-                            <div class="thx_value_readonly">주문하신 음식 나왔습니다.</div>
-                        </div>
-                    </div>
-                    <div class="pt-10"></div>
-                    <div class="waitnumbersound_desc">※ 같은 매장 장비에 공통 적용되는 소리 항목입니다.</div>
-                    <div class="pt-16"></div>
                 </div>
-                <button class="btn btn_edit_waitnumbersound p-absolute"><span
-                        class="material-symbols-outlined icon">settings</span></button>
+            </div>
+            <div class="pt-16 mt-10"></div>
+            <div class="detail_item">
+                <label class="title">호칭 멘트</label>
+                <div class="value">
+                    <div class="input_wrap">
+                        <div class="d-inline-center">
+                            <input type="radio" id="client1" class="thx_radio" name="client" checked=""><label
+                                class="ml-5" for="client1">손님</label>
+                        </div>
+                        <div class="d-inline-center ml-16">
+                            <input type="radio" id="client2" class="thx_radio" name="client"><label class="ml-5"
+                                for="client2">고객님</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-16 mt-10"></div>
+            <div class="detail_item start">
+                <label class="title">마무리 멘트</label>
+                <div class="value">
+                    <div class="input_wrap w-100">
+                        <div class="thx_select_box">
+                            <select name="" id="select_direct" class="thx_select">
+                                <option value="주문하신 음료 나왔습니다">주문하신 음료 나왔습니다</option>
+                                <option value="주문하신 음식 나왔습니다">주문하신 음식 나왔습니다</option>
+                                <option value="주문하신 음료가 준비되었습니다">주문하신 음료가 준비되었습니다</option>
+                                <option value="주문하신 음식이 준비되었습니다">주문하신 음식이 준비되었습니다</option>
+                            </select>
+                        </div>
+                        <div class="pt-10"></div>
+                        <button class="btn btn_audio_make">
+                            <div class="d-center">
+                                <span class="icon mr-10">
+                                    <span class="material-symbols-outlined">add</span>
+                                </span>
+                                <span>마무리 멘트 생성</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -180,26 +181,19 @@
         /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
         $(window).on('load', function () {
             $('.loading_wrap').hide();
-        });
+        })
     </script>
     <script>
-        /* 장비 닉네임 입력 초기화 */
-        var inputWithReset_nickname = new InputWithReset('#nickname');
 
         /* 멘트 내용 입력 초기화 */
         var inputWithReset_last_comment = new InputWithReset('#last_comment');
 
-        /* 직접 만든 마무리멘트를 선택하면 마무리멘트 라디오버튼 마지막 항목이 자동 선택된다. */
-        $('#select_direct').on('input', function (event) {
-            if (event.target.value) {
-                $('.thx_radio[name=comment][value=direct]').prop('checked', true);
-            } else {
-            }
-        });
 
         /* 마무리 멘트 생성 팝업 띄우기 */
-        $('.btn_audio_make').on('click', function (event) {
-            $('#view_audio_make').sheet('show');
+        $('input[name=comment]').on('click', function (event) {
+            if (event.target.value === 'direct') {
+                $('#view_audio_make').sheet('show');
+            }
         });
 
         /* 멘트 속도 */
@@ -222,15 +216,10 @@
             audio.play();
         });
 
-        /* 접었다 펼쳤다 */
-        function equipment_detail_toggle(element) {
-            var card_header = $(element);
-            var card_body = $($(element).siblings()[0]);
-            card_header.toggleClass('hide');
-            card_body.toggleClass('hide');
-        }
 
 
+        /* bottomsheet 마무리 멘트 생성 */
+        $('#view_audio_make').sheet('show');
     </script>
 </body>
 

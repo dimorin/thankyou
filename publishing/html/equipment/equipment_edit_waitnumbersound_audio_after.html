@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <title>땡큐베리머치</title>
+    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header_area">
+                <button type="button" class="btn pr-10">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h1>대기번호 소리 설정</h1>
+            </div>
+            <div class="header_area">
+                <button type="button" class="btn btn_fill btn_save">저장</button>
+            </div>
+        </header>
+        <div class="body pl-16 pr-16 pb-16">
+            <div class="detail_item baseline">
+                <label class="title">목소리 종류</label>
+                <div class="value">
+                    <div class="input_wrap w-100">
+                        <div class="thx_select_box">
+                            <select name="" id="" class="thx_select">
+                                <option value="">다인</option>
+                                <option value="">상냥</option>
+                                <option value="">아라1</option>
+                                <option value="">아라2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="detail_item baseline">
+                <label class="title">벨소리 종류</label>
+                <div class="value">
+                    <div class="input_wrap w-100">
+                        <div class="thx_select_box">
+                            <select name="" id="" class="thx_select">
+                                <option value="">없음</option>
+                                <option value="">띠딩</option>
+                                <option value="">띵동1</option>
+                                <option value="">띵동2</option>
+                                <option value="">맑은벨1</option>
+                                <option value="">매직효과음</option>
+                                <option value="">아기헬로</option>
+                                <option value="">큰 띵동</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-16 mt-10"></div>
+            <div class="detail_item">
+                <label class="title">호칭 멘트</label>
+                <div class="value">
+                    <div class="input_wrap">
+                        <div class="d-inline-center">
+                            <input type="radio" id="client1" class="thx_radio" name="client" checked=""><label
+                                class="ml-5" for="client1">손님</label>
+                        </div>
+                        <div class="d-inline-center ml-16">
+                            <input type="radio" id="client2" class="thx_radio" name="client"><label class="ml-5"
+                                for="client2">고객님</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-16 mt-10"></div>
+            <div class="detail_item start">
+                <label class="title">마무리 멘트</label>
+                <div class="value">
+                    <div class="input_wrap w-100">
+                        <div class="thx_select_box">
+                            <select name="" id="select_direct" class="thx_select">
+                                <option value="주문하신 음료 나왔습니다">주문하신 음료 나왔습니다</option>
+                                <option value="주문하신 음식 나왔습니다">주문하신 음식 나왔습니다</option>
+                                <option value="주문하신 음료가 준비되었습니다">주문하신 음료가 준비되었습니다</option>
+                                <option value="주문하신 음식이 준비되었습니다">주문하신 음식이 준비되었습니다</option>
+                            </select>
+                        </div>
+                        <div class="pt-10"></div>
+                        <button class="btn btn_audio_make">
+                            <div class="d-center">
+                                <span class="icon mr-10">
+                                    <span class="material-symbols-outlined">add</span>
+                                </span>
+                                <span>마무리 멘트 생성</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottomSheetContainer" id="view_audio_make" data-type="bottom">
+        <div class="bottomSheet">
+            <button class="btn handle" onclick="$('#view_audio_make').sheet('hide');"><span></span></button>
+            <div class="bottomSheet_header">
+                <div class="title">마무리 멘트 생성</div>
+            </div>
+            <div class="pt-10 mt-10"></div>
+            <div class="bottomSheet_body">
+                <div class="detail_item vertical">
+                    <label class="title required" for="last_comment">멘트 내용</label>
+                    <div class="pt-10"></div>
+                    <div class="value">
+                        <!-- <div class="input_wrap w-100">
+                            <div class="p-relative">
+                                <input type="text" class="thx_txt righticon" id="last_comment" name="" placeholder="마무리 멘트 내용을 입력해주세요."
+                                    autocomplete="off" required value="">
+                                <div class="input_icon_wrap"></div>
+                            </div>
+                            <div class="guide">마무리 멘트 내용을 입력해주세요.</div>
+                        </div> -->
+                        <div class="thx_value_readonly">감사합니다. 셀프바로 오세요</div>
+                    </div>
+                </div>
+                <div class="pt-10"></div>
+                <div class="detail_item vertical">
+                    <div class="speed_header">
+                        <label class="title required">멘트 속도</label>
+                        <span class="speed_value">x1</span>
+                    </div>
+                    <div class="pt-10"></div>
+                    <div class="value">
+                        <div class="input_wrap w-100">
+                            <div class="pt-10"></div>
+                            <div class="d-left-center w-100">
+                                <input type="range" class="thx_range" id="speed" name="speed" min="-5" max="5" step="1"
+                                    value="0" disabled />
+                            </div>
+                            <div class="guide"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-10 mt-10"></div>
+                <div class="audio_btn_wrap">
+                    <div class="audio_file_name">20240930051236.mp3</div>
+                    <button class="btn btn_audio_preview">
+                        <div class="d-inline-center">
+                            <span class="material-symbols-outlined">play_arrow</span>
+                            <span>미리듣기</span>
+                        </div>
+                    </button>
+                </div>
+                <div class="d-center mt-16 pt-16 pb-16">
+                    <button class="btn btn_txt">초기화</button>
+                    <button class="btn btn_fill">사용하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading_wrap">
+        <div class="spinner-border big"></div>
+    </div>
+
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery-ui.js"></script>
+    <script src="../../js/jquery.ui.touch-punch.min.js"></script>
+    <script src="../../js/hammer.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(function () {
+            initData();
+            initEventListener();
+        });
+
+        function initData() {
+
+        }
+
+        function initEventListener() {
+
+        }
+
+        /* 전체 페이지의 모든 외부 리소스와 이미지가 브라우저에 불려진 후 로딩 감추기 */
+        $(window).on('load', function () {
+            $('.loading_wrap').hide();
+        });
+    </script>
+    <script>
+
+        /* 멘트 내용 입력 초기화 */
+        //var inputWithReset_last_comment = new InputWithReset('#last_comment');
+
+
+        /* 마무리 멘트 생성 팝업 띄우기 */
+        $('input[name=comment]').on('click', function (event) {
+            if (event.target.value === 'direct') {
+                $('#view_audio_make').sheet('show');
+            }
+        });
+
+        /* 멘트 속도 */
+        $('.thx_range').on('input', function () {
+            var val = (parseInt($(this).val()) + 5) / 10 * 100;
+            $(this).css('background', 'linear-gradient(to right, #4F378B 0%, #4F378B ' + val + '%, #D9E1F2 ' + val + '%, #D9E1F2 100%)');
+            if (val > 50) {
+                val = 'x' + (val * 2) / 100;
+            } else if (val < 50) {
+                val = 'x' + ((val + 50) / 100);
+            } else if (val === 50) {
+                val = 'x1';
+            }
+            $('.speed_value').text(val);
+        });
+
+        /* 미리듣기 */
+        var audio = new Audio('https://www.w3schools.com/html/horse.mp3');
+        $('.btn_audio_preview').on('click', function () {
+            audio.play();
+        });
+
+
+        /* bottomsheet 마무리 멘트 생성 */
+        $('#view_audio_make').sheet('show');
+    </script>
+</body>
+
+</html>
