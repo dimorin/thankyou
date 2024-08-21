@@ -217,6 +217,7 @@ header h1{font-weight:500;font-size:2rem;}
 .body.list .filter_list .chip_filter{display:inline-flex;align-items:center;height:3.2rem;padding:0 0.5rem;color:var(--txt_color);background-color:white;border:1px solid #D9E1F2;border-radius:0.4rem;}
 .body.list .btn_add{position:fixed;right:1.6rem;bottom:1.6rem;}
 .body.detail .card{border-bottom:1px solid #D9E1F2;}
+.body.detail .card.top_line{border-top:1px solid #D9E1F2;}
 .body.detail .card .card_header{display:flex;justify-content:space-between;align-items:center;width:100%;height:2.4rem;padding:0 1.6rem;background-color:var(--bg_color);}
 .body.detail .card:first-child .card_header{border-top:1px solid #D9E1F2;}
 .body.detail .card .card_header .title{font-weight:500;color:var(--primary_color);}
@@ -237,6 +238,7 @@ header h1{font-weight:500;font-size:2rem;}
 .inputWithBtn{display:flex;align-items:center;gap:1rem;}
 .body.edit .card{}
 .body.edit .card .card_header{display:flex;justify-content:space-between;align-items:center;width:100%;height:2.4rem;padding:0 1.6rem;border-top:1px solid #D9E1F2;background-color:var(--bg_color);}
+.body .card .card_header.thick{height:3.4rem;}
 .body.edit .card .card_header .title{font-weight:500;color:var(--primary_color);}
 .body.edit .card .card_header .icon{color:var(--primary_color);}
 .body.edit .card .card_header.hide .icon{transform:rotate(180deg);}
@@ -424,6 +426,7 @@ textarea.thx_txt.push_content{height:20rem;}
 .call_waitnumber_wrap .btn_number.txt{font-size:1.4rem;}
 .btn_add_account{display:flex;justify-content:center;align-items:center;width:100%;height:4rem;background-color:#D9E1F2;border-radius:0.4rem;font-weight:500;font-size:1.4rem;color:var(--primary_color);}
 .btn_add_account .icon{display:inline-flex;justify-content:center;align-items:center;width:2.4rem;height:2.4rem;background-color:var(--primary_color);color:white;border-radius:2.4rem;}
+.btn_edit_waitnumbersound{top:0.5rem;right:4rem;color:var(--primary_color);padding:0 1rem;}
 
 /* transfer */
 .transfer_list{}
@@ -519,6 +522,7 @@ textarea.thx_txt.work_content{height:15rem;}
 
 .common_sound_title{padding:1rem 0 0;color:var(--blur_color);border-top:1px solid #D9E1F2;}
 .common_sound_title.pc{padding:0;border:none;}
+.waitnumbersound_desc{color:var(--txt_color);}
 .waitnumberlayout_detail .detail_item{display:flex;align-items:center;}
 .waitnumberlayout_detail .detail_item .title{flex-shrink:0;width:14rem;color:var(--title_color);}
 .waitnumberlayout_detail .detail_item .value{flex-grow:1;display:inline-flex;align-items:center;}
