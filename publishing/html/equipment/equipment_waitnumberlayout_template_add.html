@@ -49,19 +49,19 @@
                                     <span class="material-symbols-outlined">add</span>
                                 </button>
                             </div>
-                            <button class="btn btn_fill_auto btn_add_waitnumberlayout">생성</button>
+                            <button class="btn btn_fill_auto btn_set_waitnumberlayout">설정</button>
                         </div>
                     </div>
                     <div class="pt-10"></div>
                     <div class="detail_item baseline  pl-16">
-                        <label class="title required">대기번호</label>
+                        <label class="title">대기번호</label>
                         <div class="value pr-16">
                             <div class="input_wrap w-100">
                                 <div class="thx_select_box">
                                     <select name="" id="" class="thx_select select_waitnumberlayout_list">
-                                        <!-- <option value="main" selected>메인번호</option>
-                                        <option value="sub1">서브번호1</option>
-                                        <option value="sub2">서브번호2</option> -->
+                                        <!-- <option value="0" selected>메인번호</option>
+                                                <option value="1">서브번호1</option>
+                                                <option value="2">서브번호2</option> -->
                                     </select>
                                 </div>
                             </div>
@@ -102,13 +102,13 @@
                     </div>
                     <div class="pt-10 mt-10"></div>
                     <div class="d-flex gap-16 pl-16 pr-16">
-                        <div class="detail_item d-flex-grow-1">
+                        <div class="detail_item d-flex-grow-1 d-flex-basis-0">
                             <label class="title pr-10 d-flex-shrink-1 w-auto">가로 위치</label>
                             <div class="value">
                                 <div class="thx_value_readonly text-align-center position_x">2999</div>
                             </div>
                         </div>
-                        <div class="detail_item d-flex-grow-1">
+                        <div class="detail_item d-flex-grow-1 d-flex-basis-0">
                             <label class="title pr-10 d-flex-shrink-1 w-auto">세로 위치</label>
                             <div class="value">
                                 <div class="thx_value_readonly text-align-center position_y">1599</div>
@@ -117,7 +117,7 @@
                     </div>
                     <div class="pt-10"></div>
                     <div class="detail_item baseline pl-16">
-                        <label class="title required">글자 크기</label>
+                        <label class="title">글자 크기</label>
                         <div class="value pr-16">
                             <div class="input_wrap w-100">
                                 <div class="thx_select_box">
@@ -147,7 +147,7 @@
                         </div>
                     </div>
                     <div class="d-center pt-16">
-                        <button class="btn btn_txt btn_init_waitnumberlayout_setting">초기화</button>
+                        <button class="btn btn_txt btn_delete">삭제</button>
                     </div>
                     <div class="waitnumberlayout_setting_cover"></div>
                     <div class="waitnumberlayout_setting_header pl-16 pr-16 pt-16">
@@ -156,48 +156,49 @@
                             <div class="title pl-10">대기번호 설정</div>
                         </div>
                         <button class="btn btn_fill btn_start_control">화면 제어 시작</button>
+                        <button class="btn btn_txt btn_init_waitnumberlayout_setting">초기화</button>
                     </div>
                 </div>
             </div>
             <div class="pt-10"></div>
             <ul class="btn_waitnumberlayout_wrap pl-16 pr-16">
                 <!-- <li>
-                    <button class="btn_waitnumberlayout card">
-                        <div class="card_header">
-                            <div class="title">메인번호</div>
-                            <span class="material-symbols-outlined icon">settings</span>
-                        </div>
-                        <div class="card_body">
-                            <div class="detail_item">
-                                <label class="title">가로 위치 / 세로 위치</label>
-                                <div class="value">
-                                    <div class="thx_value_readonly">2999 / 1599</div>
+                            <button class="btn_waitnumberlayout card">
+                                <div class="card_header">
+                                    <div class="title">메인번호</div>
+                                    <span class="material-symbols-outlined icon">settings</span>
                                 </div>
-                            </div>
-                            <div class="pt-10"></div>
-                            <div class="detail_item">
-                                <label class="title">글자 크기</label>
-                                <div class="value">
-                                    <div class="thx_value_readonly">20</div>
+                                <div class="card_body">
+                                    <div class="detail_item">
+                                        <label class="title">가로 위치 / 세로 위치</label>
+                                        <div class="value">
+                                            <div class="thx_value_readonly">2999 / 1599</div>
+                                        </div>
+                                    </div>
+                                    <div class="pt-10"></div>
+                                    <div class="detail_item">
+                                        <label class="title">글자 크기</label>
+                                        <div class="value">
+                                            <div class="thx_value_readonly">20</div>
+                                        </div>
+                                    </div>
+                                    <div class="pt-10"></div>
+                                    <div class="detail_item">
+                                        <label class="title">글자 색상</label>
+                                        <div class="value">
+                                            <input type="color" id="" class="thx_color" name="" value="#FF6347" disabled />
+                                        </div>
+                                    </div>
+                                    <div class="pt-10"></div>
+                                    <div class="detail_item">
+                                        <label class="title">글자 바탕 색상</label>
+                                        <div class="value">
+                                            <input type="color" id="" class="thx_color" name="" value="#000000" disabled />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="pt-10"></div>
-                            <div class="detail_item">
-                                <label class="title">글자 색상</label>
-                                <div class="value">
-                                    <input type="color" id="" class="thx_color" name="" value="#FF6347" disabled />
-                                </div>
-                            </div>
-                            <div class="pt-10"></div>
-                            <div class="detail_item">
-                                <label class="title">글자 바탕 색상</label>
-                                <div class="value">
-                                    <input type="color" id="" class="thx_color" name="" value="#000000" disabled />
-                                </div>
-                            </div>
-                        </div>
-                    </button>
-                </li> -->
+                            </button>
+                        </li> -->
             </ul>
         </div>
     </div>
@@ -497,33 +498,63 @@
         var is_start_control = false;
         $('.btn_save').prop('disabled', true);
         $('.waitnumberlayout_setting_cover').removeClass('hide');
+        $('.btn_delete').prop('disabled', true);
 
-        $('.btn_start_control').on('click', function () {
+        $('.btn_start_control').on('click', function (event) {
             is_start_control = true;
             $('.btn_save').prop('disabled', false);
             $('.waitnumberlayout_setting_cover').addClass('hide');
             $('.btn_waitnumberlayout').prop('disabled', false);
+            $(event.currentTarget).hide();
+            $('.btn_init_waitnumberlayout_setting').addClass('show');
         });
 
-        var text_size_label = { smallest: '매우 작게', small: '작게', normal: '보통', big: '크게', biggest: '매우 크게' };
-        var default_waitnumber_count = 7;
-        var default_layout_setting = {
-            x: 0,
-            y: 0,
-            text_size: 'normal',
-            text_color: '#ffffff',
-            bg_color: '#000000'
-        };
-        var default_waitnumberlayout_list_infos = [
-            { value: 'main', label: '메인번호', layout: default_layout_setting }
-        ];
-        for (var count = 1; count < default_waitnumber_count; count++) {
-            default_waitnumberlayout_list_infos.push({
-                value: 'sub' + count,
-                label: '서브번호' + count,
-                layout: default_layout_setting
+        $('.btn_delete').on('click', function () {
+            $.modal('show', {
+                message: `삭제 버튼을 클릭하시면,<br>서브번호 이름이 재정렬됩니다.<br>계속 진행하시겠습니까?`,
+                onebutton: `<button class="btn btn_txt" onclick="$.modal('hide');">취소</button>`,
+                twobutton: `<button class="btn btn_fill" onclick="delete_waitnumber();">삭제</button>`
             });
+        });
+        function delete_waitnumber() {
+            var delete_target = $('.select_waitnumberlayout_list').val();
+            // delete_target인 원소의 인덱스를 찾는다.
+            let indexToRemove = waitnumberlayout_list_infos.findIndex(item => item.value === delete_target);
+            // 만약 원소를 찾았다면, 해당 원소를 삭제하고 이후 원소들의 label을 수정한다.
+            if (indexToRemove !== -1) {
+                // 원소 삭제
+                waitnumberlayout_list_infos.splice(indexToRemove, 1);
+
+                // 이후 원소들의 label을 수정
+                for (let i = indexToRemove; i < waitnumberlayout_list_infos.length; i++) {
+                    let currentLabel = waitnumberlayout_list_infos[i].label;
+                    // 문자열 끝에 있는 하나 이상의 연속된 숫자를 찾아서 1을 빼기
+                    waitnumberlayout_list_infos[i].label = currentLabel.replace(/\d+$/, (num) => parseInt(num) - 1);
+
+                    let currentValue = waitnumberlayout_list_infos[i].value;
+                    // 문자열 끝에 있는 하나 이상의 연속된 숫자를 찾아서 1을 빼기
+                    waitnumberlayout_list_infos[i].value = currentValue.replace(/\d+$/, (num) => parseInt(num) - 1);
+                }
+            }
+
+            set_waitnumberlayout();
+            $.modal('hide');
         }
+
+
+        var text_size_label = { smallest: '매우 작게', small: '작게', normal: '보통', big: '크게', biggest: '매우 크게' };
+
+
+        var default_waitnumberlayout_list_infos = [
+            { value: 'main', label: '메인번호', layout: { x: 672, y: 10, text_size: 'biggest', text_color: '#000000', bg_color: '#ffffff' } },
+            { value: 'sub1', label: '서브번호1', layout: { x: 322, y: 449, text_size: 'normal', text_color: '#000000', bg_color: '#ffffff' } },
+            { value: 'sub2', label: '서브번호2', layout: { x: 757, y: 449, text_size: 'normal', text_color: '#000000', bg_color: '#ffffff' } },
+            { value: 'sub3', label: '서브번호3', layout: { x: 1192, y: 449, text_size: 'normal', text_color: '#000000', bg_color: '#ffffff' } },
+            { value: 'sub4', label: '서브번호4', layout: { x: 322, y: 766, text_size: 'normal', text_color: '#000000', bg_color: '#ffffff' } },
+            { value: 'sub5', label: '서브번호5', layout: { x: 757, y: 766, text_size: 'normal', text_color: '#000000', bg_color: '#ffffff' } },
+            { value: 'sub6', label: '서브번호6', layout: { x: 1192, y: 766, text_size: 'normal', text_color: '#000000', bg_color: '#ffffff' } },
+        ];
+
         var waitnumberlayout_list_infos = [];
         var init_waitnumberlayout_list_infos = [];
 
@@ -543,6 +574,13 @@
                 return (this_value === item.value);
             });
             set_each_waitnumberlayout(find_waitnumberlayout_list_infos);
+
+            /* 메인번호일 때는 삭제 버튼 비활성 */
+            if (this_value === 'main') {
+                $('.btn_delete').prop('disabled', true);
+            } else {
+                $('.btn_delete').prop('disabled', false);
+            }
         });
         function set_waitnumberlayout() {
             /* 대기번호 총 갯수 셋팅, 대기번호 select option 세팅 */
@@ -567,44 +605,44 @@
             var disabled = (is_start_control) ? null : "disabled";
             waitnumberlayout_list_infos.forEach(function (item) {
                 li_html = `
-                        <li>
-                            <button class="btn_waitnumberlayout card ${item.value}" data-value="${item.value}" ${disabled} onclick="control_waitnumberlayout(this);">
-                                <div class="card_header">
-                                    <div class="title">${item.label}</div>
-                                    <span class="material-symbols-outlined icon">settings</span>
-                                </div>
-                                <div class="card_body">
-                                    <div class="detail_item">
-                                        <label class="title">가로 위치 / 세로 위치</label>
-                                        <div class="value">
-                                            <div class="thx_value_readonly"><span class="position_x">${item.layout.x}</span> / <span class="position_y">${item.layout.y}<span></div>
+                            <li>
+                                <button class="btn_waitnumberlayout card ${item.value}" data-value="${item.value}" ${disabled} onclick="control_waitnumberlayout(this);">
+                                    <div class="card_header">
+                                        <div class="title">${item.label}</div>
+                                        <span class="material-symbols-outlined icon">settings</span>
+                                    </div>
+                                    <div class="card_body">
+                                        <div class="detail_item">
+                                            <label class="title">가로 위치 / 세로 위치</label>
+                                            <div class="value">
+                                                <div class="thx_value_readonly"><span class="position_x">${item.layout.x}</span> / <span class="position_y">${item.layout.y}<span></div>
+                                            </div>
+                                        </div>
+                                        <div class="pt-10"></div>
+                                        <div class="detail_item">
+                                            <label class="title">글자 크기</label>
+                                            <div class="value">
+                                                <div class="thx_value_readonly text_size">${text_size_label[item.layout.text_size]}</div>
+                                            </div>
+                                        </div>
+                                        <div class="pt-10"></div>
+                                        <div class="detail_item">
+                                            <label class="title">글자 색상</label>
+                                            <div class="value">
+                                                <input type="color" id="" class="thx_color text_color" name="" value="${item.layout.text_color}" disabled />
+                                            </div>
+                                        </div>
+                                        <div class="pt-10"></div>
+                                        <div class="detail_item">
+                                            <label class="title">글자 바탕 색상</label>
+                                            <div class="value">
+                                                <input type="color" id="" class="thx_color bg_color" name="" value="${item.layout.bg_color}" disabled />
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="pt-10"></div>
-                                    <div class="detail_item">
-                                        <label class="title">글자 크기</label>
-                                        <div class="value">
-                                            <div class="thx_value_readonly text_size">${text_size_label[item.layout.text_size]}</div>
-                                        </div>
-                                    </div>
-                                    <div class="pt-10"></div>
-                                    <div class="detail_item">
-                                        <label class="title">글자 색상</label>
-                                        <div class="value">
-                                            <input type="color" id="" class="thx_color text_color" name="" value="${item.layout.text_color}" disabled />
-                                        </div>
-                                    </div>
-                                    <div class="pt-10"></div>
-                                    <div class="detail_item">
-                                        <label class="title">글자 바탕 색상</label>
-                                        <div class="value">
-                                            <input type="color" id="" class="thx_color bg_color" name="" value="${item.layout.bg_color}" disabled />
-                                        </div>
-                                    </div>
-                                </div>
-                            </button>
-                        </li>
-                    `;
+                                </button>
+                            </li>
+                        `;
                 $('.btn_waitnumberlayout_wrap').append(li_html);
             });
         }
@@ -645,15 +683,16 @@
             }
         });
 
-        $('.btn_add_waitnumberlayout').on('click', function () {
+        $('.btn_set_waitnumberlayout').on('click', function () {
             /* 대기번호 총 갯수 생성 */
             var new_count = parseInt($('.input_waitnumber_count').val(), 10);
             var old_count = waitnumberlayout_list_infos.length;
+            var default_layout_setting = waitnumberlayout_list_infos[old_count - 1].layout;
             if (old_count > new_count) {
                 var new_waitnumberlayout_list_infos = waitnumberlayout_list_infos.slice(0, new_count);
                 waitnumberlayout_list_infos = [...new_waitnumberlayout_list_infos];
                 set_waitnumberlayout();
-            } else if (old_count < new_count) {
+            } else if (old_count < new_count) { // 맨 마지막 서브번호의 레이아웃으로 세팅
                 for (var count = old_count; count < new_count; count++) {
                     waitnumberlayout_list_infos.push(
                         {
@@ -763,7 +802,7 @@
         $('.btn_init_waitnumberlayout_setting').on('click', function () {
             // 초기화 버튼을 클릭하시면, 세팅한 데이터들이 초기화 됩니다. 계속 진행하시겠습니까?  
             $.modal('show', {
-                message: `초기화 버튼을 클릭하시면,<br>세팅한 데이터들이 초기화 됩니다.<br>계속 진행하시겠습니까?`,
+                message: `초기화 버튼을 클릭하시면,<br>모든 대기번호 설정이 초기화 됩니다.<br>계속 진행하시겠습니까?`,
                 onebutton: `<button class="btn btn_txt" onclick="$.modal('hide');">취소</button>`,
                 twobutton: `<button class="btn btn_fill" onclick="init_waitnumberlayout_setting();">초기화</button>`
             });
@@ -777,11 +816,8 @@
             $.modal('hide');
         }
 
-        var observerOptions = {
-            root: null, // 관찰자의 루트 요소 설정 (null은 브라우저의 뷰포트)
-            threshold: 0.5 // 아이템이 50% 이상 화면에 나타날 때 콜백 함수 실행
-        };
-        var observer = new IntersectionObserver((entries, observer) => {
+
+        var observer_header = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     // 관찰하고 있던 아이템이 화면에 나타나면                    
@@ -790,8 +826,11 @@
 
                 }
             });
-        }, observerOptions);
-        observer.observe(document.querySelector('.container header')); // 관찰자
+        }, {
+            root: null, // 관찰자의 루트 요소 설정 (null은 브라우저의 뷰포트)
+            threshold: 0.5 // 아이템이 50% 이상 화면에 나타날 때 콜백 함수 실행
+        });
+        observer_header.observe(document.querySelector('.container header')); // 관찰자
     </script>
 </body>
 
