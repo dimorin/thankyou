@@ -48,6 +48,7 @@ body{font-size:1.4rem;}
 .d-flex-grow-0{flex-grow:0 !important;}
 .d-flex-shrink-1{flex-shrink:1 !important;}
 .d-flex-shrink-0{flex-shrink:0 !important;}
+.d-flex-basis-0{flex-basis:0;}
 .d-flex-justify-content-center{justify-content:center !important;}
 .d-flex-direction-column{flex-direction:column;}
 .gap-10{gap:1rem;}
@@ -567,6 +568,8 @@ textarea.thx_txt.work_content{height:15rem;}
 .waitnumberlayout_direct_value{text-align:center;width:6rem;}
 .btn_waitnumberlayout{display:block;width:100%;outline:0;border:none;color:var(--txt_color);background-color:transparent;font-family:var(--txt-family);font-size:1.4rem;cursor:pointer;text-align:left;}
 .btn_waitnumberlayout:disabled{opacity:0.5;}
+.btn_init_waitnumberlayout_setting{display:none;}
+.btn_init_waitnumberlayout_setting.show{display:inline-block;}
 
 .template_list{}
 .template_list > li{margin:1rem 0 0;}
