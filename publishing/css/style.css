@@ -66,6 +66,7 @@ body{font-size:1.4rem;}
 .btn_fill{line-height:4rem;height:4rem;min-width:8rem;padding:0 1rem;color:white;background-color:var(--primary_color);font-weight:500;border-radius:0.4rem;}
 .btn_big{line-height:5.6rem;height:5.6rem;padding:0 2rem;border-radius:1.6rem;}
 .btn_fill_small{line-height:3rem;height:3rem;min-width:8rem;padding:0 1rem;color:white;background-color:var(--primary_color);font-weight:500;border-radius:0.4rem;}
+.btn_txt_small{line-height:3rem;height:3rem;min-width:8rem;padding:0 1rem;color:var(--primary_color);background-color:transparent;font-weight:500;}
 .btn_blue_fill_small{line-height:3rem;height:3rem;min-width:8rem;padding:0 1rem;color:white;background-color:var(--secondary_color);font-weight:500;border-radius:0.4rem;}
 .btn_fill_auto{line-height:4rem;height:4rem;padding:0 1rem;color:white;background-color:var(--primary_color);font-weight:500;border-radius:0.4rem;white-space:nowrap;}
 
@@ -574,8 +575,14 @@ textarea.thx_txt.work_content{height:15rem;}
 .template_list{}
 .template_list > li{margin:1rem 0 0;}
 .template_list > li:first-child{margin:0;}
-.template_list .item_body{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0 1.6rem;background-color:white;min-height:7.4rem;}
-.template_list .item_footer{padding:1rem 1.6rem;background-color:white;border-top:1px solid #D9E1F2;}
+.template_list .item_body{padding:1.6rem;background-color:white;}
+.template_list .item_footer{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.6rem;background-color:white;border-top:1px solid #D9E1F2;}
+
+.template_transfer_list{}
+.template_transfer_list > li{margin:1rem 0 0;}
+.template_transfer_list > li:first-child{margin:0;}
+.template_transfer_list .item_body{padding:1.6rem;background-color:white;}
+.template_transfer_list .item_footer{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.6rem;background-color:white;border-top:1px solid #D9E1F2;}
 
 /* delivery */
 .delivery_list_title{font-weight:500;font-size:1.4rem;color:var(--title_color);}
