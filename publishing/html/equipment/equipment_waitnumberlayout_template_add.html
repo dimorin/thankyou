@@ -27,7 +27,7 @@
             <div class="d-left-center pl-16 pr-16">
                 <button class="btn btn_blue_fill_small btn_open_list_template"
                     onclick="$('#view_template_list').sheet('show');">템플릿
-                    목록</button>
+                    선택</button>
                 <button class="btn btn_blue_fill_small ml-10 btn_open_add_template"
                     onclick="$('#view_template_add').sheet('show');">템플릿 등록</button>
             </div>
@@ -203,7 +203,7 @@
         </div>
     </div>
 
-    <!-- 템플릿 목록 -->
+    <!-- 템플릿 선택 -->
     <div class="fullSheetContainer" id="view_template_list" data-type="full">
         <div class="fullSheet">
             <div class="fullSheet_header">
@@ -213,7 +213,7 @@
                             close
                         </span>
                     </button>
-                    <span class="title">템플릿 목록</span>
+                    <span class="title">템플릿 선택</span>
                 </div>
             </div>
 
@@ -230,94 +230,15 @@
                     <li class="item">
                         <div class="template_list_item">
                             <div class="item_body">
-                                <div class="template_name">1빽다방용 서브번호 10개 타입</div>
-                                <button class="btn btn_fill_small">가져오기</button>
+                                <div class="template_name">빽다방용 서브번호 10개 타입</div>
                             </div>
                             <div class="item_footer">
-                                <button class="btn btn_txt" onclick="$('#forward_account').sheet('show');">전달</button>
-                                <button class="btn btn_txt">삭제</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <div class="template_list_item">
-                            <div class="item_body">
-                                <div class="template_name">2컴포즈용 서브번호 20개 4열 5행 타입</div>
-                                <button class="btn btn_fill_small">가져오기</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <div class="template_list_item">
-                            <div class="item_body">
-                                <div class="template_name">3빽다방용 서브번호 10개 타입</div>
-                                <button class="btn btn_fill_small">가져오기</button>
-                            </div>
-                            <div class="item_footer">
-                                <button class="btn btn_txt" onclick="$('#forward_account').sheet('show');">전달</button>
-                                <button class="btn btn_txt">삭제</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <div class="template_list_item">
-                            <div class="item_body">
-                                <div class="template_name">4컴포즈용 서브번호 20개 4열 5행 타입</div>
-                                <button class="btn btn_fill_small">가져오기</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <div class="template_list_item">
-                            <div class="item_body">
-                                <div class="template_name">5빽다방용 서브번호 10개 타입</div>
-                                <button class="btn btn_fill_small">가져오기</button>
-                            </div>
-                            <div class="item_footer">
-                                <button class="btn btn_txt" onclick="$('#forward_account').sheet('show');">전달</button>
-                                <button class="btn btn_txt">삭제</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <div class="template_list_item">
-                            <div class="item_body">
-                                <div class="template_name">6컴포즈용 서브번호 20개 4열 5행 타입</div>
-                                <button class="btn btn_fill_small">가져오기</button>
+                                <button class="btn btn_txt_small">삭제</button>
+                                <button class="btn btn_fill_small">적용</button>
                             </div>
                         </div>
                     </li>
                 </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- 전달할 계정 -->
-    <div class="bottomSheetContainer" id="forward_account" data-type="bottom">
-        <div class="bottomSheet">
-            <button class="btn handle" onclick="$('#forward_account').sheet('hide');"><span></span></button>
-            <div class="bottomSheet_header">
-                <div class="title">전달할 계정</div>
-            </div>
-            <div class="pt-10 mt-10"></div>
-            <div class="bottomSheet_body">
-                <div class="input_wrap">
-                    <div class="p-relative input_box search">
-                        <input type="text" class="thx_txt bothicon" id="account_name" name="account_name"
-                            placeholder="이름을 입력하세요" autocomplete="off" required>
-                        <div class="input_icon_wrap"></div>
-                        <div class="autoList_wrap thx_scrollbar" data-autolist="account_name">
-                            <ul class="autoList">
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="guide">전달할 계정 이름을 입력하세요</div>
-                </div>
-                <div class="autoList_result">
-                </div>
-                <div class="d-center mt-16 pt-16 pb-16">
-                    <button class="btn btn_fill btn_forward">전달</button>
-                </div>
             </div>
         </div>
     </div>
@@ -387,7 +308,7 @@
         /* bottomsheet 템플릿 등록 */
         $('#view_template_add').sheet('show');
 
-        /* 템플릿 목록의 템플릿 이름 입력 초기화 */
+        /* 템플릿 선택의 템플릿 이름 입력 초기화 */
         var inputWithReset_templatelistname = new InputWithReset('#templatelistname');
 
         /* 템플릿 등록의 템플릿 이름 입력 초기화 */
@@ -402,22 +323,9 @@
             param_arr: [],
         });
         doubleCheck_templatename.init();
-
-        /* 전달할 계정 이름 입력 초기화 */
-        var inputWithReset_account_name = new InputWithReset('#account_name');
-
-        /* 전달할 계정 자동완성 */
-        $('#account_name').autoComplete_account();
-
-        $('.btn_forward').on('click', function () {
-            $.modal('show', {
-                message: `선택한 계정으로 템플릿을 전달했습니다.`,
-                onebutton: `<button class="btn btn_fill" onclick="$.modal('hide')">확인</button>`,
-            });
-        });        
     </script>
     <script>
-        /* 템플릿 목록에서 끝에 있는 아이템이 화면안에 들어오면 서버로부터 데이터를 불러옴 */
+        /* 템플릿 선택에서 끝에 있는 아이템이 화면안에 들어오면 서버로부터 데이터를 불러옴 */
         $(function () {
             // 현재 페이지 번호 및 페이지당 아이템 수 설정
             let page = 1;
@@ -446,8 +354,11 @@
                                 `<li class="${itemClass}">
                                     <div class="template_list_item">
                                         <div class="item_body">
-                                            <div class="template_name">${newItem.item}-컴포즈용 서브번호 20개 4열 5행 타입</div>
-                                            <button class="btn btn_fill_small">가져오기</button>
+                                            <div class="template_name">컴포즈용 서브번호 20개 4열 5행 타입-${newItem.item}</div>                                
+                                        </div>
+                                        <div class="item_footer">
+                                            <button class="btn btn_txt_small">삭제</button>
+                                            <button class="btn btn_fill_small">적용</button>
                                         </div>
                                     </div>
                                 </li>
