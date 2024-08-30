@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
+    <meta name="mobile-web-app-capable" content="yes"><!-- iOS 주소창 없앰 -->
     <title>땡큐베리머치</title>
     <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="../../css/style.css">
@@ -34,7 +34,37 @@
                     <tbody>
                         <tr>
                             <th>작성일</th>
-                            <td>2024-09-30</td>
+                            <td class="wrap_history">
+                                <div>
+                                    <span>2024-09-30 09:50</span>
+                                    <span class="badge_history pl-10">[H.2]</span>
+                                </div>
+                                <button class="btn btn_history" onclick="toggleHistory(this)">
+                                    <span class="material-symbols-outlined">history</span>
+                                    <span>History</span>
+                                </button>
+                                <ul class="list_history" style="display:none;">
+                                    <li>
+                                        <button class="btn btn_history" data-history="recent"
+                                            onclick="updateHistory(this)">
+                                            <span>2024-09-30 09:50</span>
+                                            <span class="badge_history recent">최신</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="btn btn_history" data-history="2" onclick="updateHistory(this)">
+                                            <span>2024-09-30 09:40</span>
+                                            <span class="badge_history">[H.2]</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="btn btn_history" data-history="1" onclick="updateHistory(this)">
+                                            <span>2024-09-30 09:30</span>
+                                            <span class="badge_history">[H.1]</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -262,6 +292,36 @@
         var inputWithReset_delivery_report_modify_etc = new InputWithReset('#delivery_report_modify_etc');
         /* 보고서 수정요청 열기 */
         $('#request_modify_report').sheet('show');
+    </script>
+    <script>
+        function toggleHistory(element) {
+            var list_history = $(element).next('.list_history');
+            if (list_history.css('display') === 'block') {
+                $(document).off('click', function (event) {
+                    if (!$(event.target).parents('.list_history').length && !$(event.target).parents('.btn_history').length) {
+                        $('.list_history').hide();
+                    }
+                });
+                list_history.hide();
+            } else {
+                list_history.show();
+                $(document).on('click', function (event) {
+                    if (!$(event.target).parents('.list_history').length && !$(event.target).parents('.btn_history').length) {
+                        $('.list_history').hide();
+                    }
+                });
+            }
+        }
+        function updateHistory(element) {
+            var history = $(element).data('history');
+            var list_history = $(element).closest('.list_history');
+            $(document).off('click', function (event) {
+                if (!$(event.target).parents('.list_history').length && !$(event.target).parents('.btn_history').length) {
+                    $('.list_history').hide();
+                }
+            });
+            list_history.hide();
+        }
     </script>
 </body>
 
